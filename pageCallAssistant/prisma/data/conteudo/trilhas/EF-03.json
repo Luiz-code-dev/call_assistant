@@ -1,5 +1,3488 @@
 [
  {
+  "skillCode": "EF35EF02",
+  "subjectCode": "EF",
+  "subjectName": "Educação Física",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: Brincar com segurança e com todos",
+  "tituloAluno": "Brincadeiras do Brasil e de matrizes indígena e africana",
+  "activities": [
+   {
+    "id": "PK2-EF35EF02-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: brincadeiras de muitas origens",
+    "prompt": "Brincar juntos.",
+    "estMinutes": 4,
+    "audioScript": "Brincar juntos. Pergunta 1. A peteca é uma brincadeira de origem: A: Indígena; B: Japonesa; C: Alemã; D: Árabe. Pergunta 2. O que verificar no espaço antes de uma brincadeira de corrida? A: A cor do chão; B: Se há buracos, pedras ou objetos que podem causar quedas; C: O nome do pátio; D: Nada. Pergunta 3. Para que serve adaptar as regras de uma brincadeira? A: Para que só os mais rápidos joguem; B: Para excluir alguns colegas; C: Para que todas as crianças possam participar com segurança; D: Para acabar com a brincadeira. Pergunta 4. O que é um combinado? A: Uma comida misturada; B: Um tipo de bola; C: Um apito; D: Uma regra decidida pelo grupo antes de brincar.",
+    "questions": [
+     {
+      "question": "A peteca é uma brincadeira de origem:",
+      "options": [
+       {
+        "text": "Indígena"
+       },
+       {
+        "text": "Japonesa",
+        "misconceptionCode": "matriz"
+       },
+       {
+        "text": "Alemã",
+        "misconceptionCode": "matriz"
+       },
+       {
+        "text": "Árabe",
+        "misconceptionCode": "matriz"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Matriz indígena.",
+      "variants": [
+       {
+        "question": "Qual brincadeira de tabuleiro, com sementes, tem origem africana?",
+        "options": [
+         {
+          "text": "Xadrez",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "Dama",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "Mancala"
+         },
+         {
+          "text": "Baralho",
+          "misconceptionCode": "matriz"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A peteca é uma brincadeira de origem:",
+        "options": [
+         {
+          "text": "Árabe",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "Indígena"
+         },
+         {
+          "text": "Alemã",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "Japonesa",
+          "misconceptionCode": "matriz"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O que verificar no espaço antes de uma brincadeira de corrida?",
+      "options": [
+       {
+        "text": "A cor do chão",
+        "misconceptionCode": "seguranca"
+       },
+       {
+        "text": "Se há buracos, pedras ou objetos que podem causar quedas"
+       },
+       {
+        "text": "O nome do pátio",
+        "misconceptionCode": "seguranca"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "seguranca"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Segurança.",
+      "variants": [
+       {
+        "question": "Que atitude evita acidentes no pega-pega?",
+        "options": [
+         {
+          "text": "Empurrar com força",
+          "misconceptionCode": "seguranca"
+         },
+         {
+          "text": "Correr de olhos fechados",
+          "misconceptionCode": "seguranca"
+         },
+         {
+          "text": "Brincar perto da escada",
+          "misconceptionCode": "seguranca"
+         },
+         {
+          "text": "Combinar que não vale empurrar nem puxar a roupa"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que verificar no espaço antes de uma brincadeira de corrida?",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "seguranca"
+         },
+         {
+          "text": "O nome do pátio",
+          "misconceptionCode": "seguranca"
+         },
+         {
+          "text": "Se há buracos, pedras ou objetos que podem causar quedas"
+         },
+         {
+          "text": "A cor do chão",
+          "misconceptionCode": "seguranca"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Para que serve adaptar as regras de uma brincadeira?",
+      "options": [
+       {
+        "text": "Para que só os mais rápidos joguem",
+        "misconceptionCode": "inclusao"
+       },
+       {
+        "text": "Para excluir alguns colegas",
+        "misconceptionCode": "inclusao"
+       },
+       {
+        "text": "Para que todas as crianças possam participar com segurança"
+       },
+       {
+        "text": "Para acabar com a brincadeira",
+        "misconceptionCode": "inclusao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Inclusão.",
+      "variants": [
+       {
+        "question": "Que adaptação ajuda um colega que usa cadeira de rodas na queimada?",
+        "options": [
+         {
+          "text": "Jogar com uma bola mais leve e permitir que ele arremesse sentado, num espaço livre de obstáculos"
+         },
+         {
+          "text": "Deixá-lo de fora",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Jogar a bola com mais força nele",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Mudar de brincadeira para que ele não jogue",
+          "misconceptionCode": "inclusao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Para que serve adaptar as regras de uma brincadeira?",
+        "options": [
+         {
+          "text": "Para acabar com a brincadeira",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Para excluir alguns colegas",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Para que só os mais rápidos joguem",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Para que todas as crianças possam participar com segurança"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que é um combinado?",
+      "options": [
+       {
+        "text": "Uma comida misturada",
+        "misconceptionCode": "combinados"
+       },
+       {
+        "text": "Um tipo de bola",
+        "misconceptionCode": "combinados"
+       },
+       {
+        "text": "Um apito",
+        "misconceptionCode": "combinados"
+       },
+       {
+        "text": "Uma regra decidida pelo grupo antes de brincar"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Combinado.",
+      "variants": [
+       {
+        "question": "Por que respeitar os combinados?",
+        "options": [
+         {
+          "text": "Para ganhar sempre",
+          "misconceptionCode": "combinados"
+         },
+         {
+          "text": "Para a brincadeira ser justa e segura para todos"
+         },
+         {
+          "text": "Não é preciso",
+          "misconceptionCode": "combinados"
+         },
+         {
+          "text": "Para brigar",
+          "misconceptionCode": "combinados"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que é um combinado?",
+        "options": [
+         {
+          "text": "Uma regra decidida pelo grupo antes de brincar"
+         },
+         {
+          "text": "Um apito",
+          "misconceptionCode": "combinados"
+         },
+         {
+          "text": "Um tipo de bola",
+          "misconceptionCode": "combinados"
+         },
+         {
+          "text": "Uma comida misturada",
+          "misconceptionCode": "combinados"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF02-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: o dia das brincadeiras na quadra",
+    "prompt": "A turma planejou três estações: (1) peteca em duplas; (2) terra-mar, com uma linha no chão: ao comando \"terra\", pula-se para um lado; \"mar\", para o outro; (3) mancala com tabuleiro feito de caixa de ovos e sementes. Na turma há Luan, que usa muletas, e Bia, que tem baixa visão.",
+    "estMinutes": 4,
+    "audioScript": "A turma planejou três estações: (1) peteca em duplas; (2) terra-mar, com uma linha no chão: ao comando \"terra\", pula-se para um lado; \"mar\", para o outro; (3) mancala com tabuleiro feito de caixa de ovos e sementes. Na turma há Luan, que usa muletas, e Bia, que tem baixa visão. Pergunta 1. Que estação é de matriz africana com tabuleiro? A: A mancala; B: A peteca; C: O terra-mar; D: Nenhuma. Pergunta 2. Como incluir Luan no terra-mar? A: Deixá-lo de fora; B: Trocar o pulo por um passo para o lado ou permitir que ele responda tocando a linha com a muleta; C: Exigir que pule como os outros; D: Colocá-lo só para assistir. Pergunta 3. Como incluir Bia na peteca? A: Lançar a peteca sem avisar; B: Deixá-la sem jogar; C: Usar uma peteca de cor bem viva e fazer o colega avisar antes de lançar; D: Jogar a peteca com força no rosto. Pergunta 4. Que cuidado de segurança a turma deve ter no terra-mar? A: Ficar bem apertados na linha; B: Pular empurrando os colegas; C: Brincar perto da parede; D: Manter espaço entre as crianças para ninguém trombar. Pergunta 5. Na mancala, as regras são novas para muitos. Como garantir que todos participem? A: Explicar as regras devagar, fazer uma rodada de teste e jogar em duplas; B: Jogar sem explicar; C: Deixar só quem já sabe; D: Mudar as regras no meio para ganhar.",
+    "questions": [
+     {
+      "question": "Que estação é de matriz africana com tabuleiro?",
+      "options": [
+       {
+        "text": "A mancala"
+       },
+       {
+        "text": "A peteca",
+        "misconceptionCode": "matriz"
+       },
+       {
+        "text": "O terra-mar",
+        "misconceptionCode": "matriz"
+       },
+       {
+        "text": "Nenhuma",
+        "misconceptionCode": "matriz"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Mancala.",
+      "variants": [
+       {
+        "question": "Que estação é de matriz indígena?",
+        "options": [
+         {
+          "text": "A mancala",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "A peteca"
+         },
+         {
+          "text": "O terra-mar",
+          "misconceptionCode": "matriz"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Que estação é de matriz africana com tabuleiro?",
+        "options": [
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "A mancala"
+         },
+         {
+          "text": "O terra-mar",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "A peteca",
+          "misconceptionCode": "matriz"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Como incluir Luan no terra-mar?",
+      "options": [
+       {
+        "text": "Deixá-lo de fora",
+        "misconceptionCode": "inclusao"
+       },
+       {
+        "text": "Trocar o pulo por um passo para o lado ou permitir que ele responda tocando a linha com a muleta"
+       },
+       {
+        "text": "Exigir que pule como os outros",
+        "misconceptionCode": "inclusao"
+       },
+       {
+        "text": "Colocá-lo só para assistir",
+        "misconceptionCode": "inclusao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Adaptação.",
+      "variants": [
+       {
+        "question": "Que outra função Luan poderia assumir se quisesse?",
+        "options": [
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Ficar na sala sozinho",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Ir embora",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Dar os comandos \"terra\" e \"mar\", revezando com os colegas"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Como incluir Luan no terra-mar?",
+        "options": [
+         {
+          "text": "Colocá-lo só para assistir",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Exigir que pule como os outros",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Trocar o pulo por um passo para o lado ou permitir que ele responda tocando a linha com a muleta"
+         },
+         {
+          "text": "Deixá-lo de fora",
+          "misconceptionCode": "inclusao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Como incluir Bia na peteca?",
+      "options": [
+       {
+        "text": "Lançar a peteca sem avisar",
+        "misconceptionCode": "inclusao"
+       },
+       {
+        "text": "Deixá-la sem jogar",
+        "misconceptionCode": "inclusao"
+       },
+       {
+        "text": "Usar uma peteca de cor bem viva e fazer o colega avisar antes de lançar"
+       },
+       {
+        "text": "Jogar a peteca com força no rosto",
+        "misconceptionCode": "seguranca"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Adaptação para baixa visão.",
+      "variants": [
+       {
+        "question": "Por que avisar antes de lançar ajuda Bia?",
+        "options": [
+         {
+          "text": "Porque ela pode se preparar para receber a peteca"
+         },
+         {
+          "text": "Porque deixa o jogo mais lento sem motivo",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Porque é proibido lançar",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Não ajuda",
+          "misconceptionCode": "seguranca"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Como incluir Bia na peteca?",
+        "options": [
+         {
+          "text": "Jogar a peteca com força no rosto",
+          "misconceptionCode": "seguranca"
+         },
+         {
+          "text": "Deixá-la sem jogar",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Lançar a peteca sem avisar",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Usar uma peteca de cor bem viva e fazer o colega avisar antes de lançar"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Que cuidado de segurança a turma deve ter no terra-mar?",
+      "options": [
+       {
+        "text": "Ficar bem apertados na linha",
+        "misconceptionCode": "seguranca"
+       },
+       {
+        "text": "Pular empurrando os colegas",
+        "misconceptionCode": "seguranca"
+       },
+       {
+        "text": "Brincar perto da parede",
+        "misconceptionCode": "seguranca"
+       },
+       {
+        "text": "Manter espaço entre as crianças para ninguém trombar"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Espaço.",
+      "variants": [
+       {
+        "question": "Se dois colegas trombarem, o que fazer?",
+        "options": [
+         {
+          "text": "Continuar rindo",
+          "misconceptionCode": "seguranca"
+         },
+         {
+          "text": "Parar a brincadeira, ver se estão bem e combinar mais espaço"
+         },
+         {
+          "text": "Brigar",
+          "misconceptionCode": "seguranca"
+         },
+         {
+          "text": "Esconder do professor",
+          "misconceptionCode": "seguranca"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Que cuidado de segurança a turma deve ter no terra-mar?",
+        "options": [
+         {
+          "text": "Manter espaço entre as crianças para ninguém trombar"
+         },
+         {
+          "text": "Brincar perto da parede",
+          "misconceptionCode": "seguranca"
+         },
+         {
+          "text": "Pular empurrando os colegas",
+          "misconceptionCode": "seguranca"
+         },
+         {
+          "text": "Ficar bem apertados na linha",
+          "misconceptionCode": "seguranca"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Na mancala, as regras são novas para muitos. Como garantir que todos participem?",
+      "options": [
+       {
+        "text": "Explicar as regras devagar, fazer uma rodada de teste e jogar em duplas"
+       },
+       {
+        "text": "Jogar sem explicar",
+        "misconceptionCode": "combinados"
+       },
+       {
+        "text": "Deixar só quem já sabe",
+        "misconceptionCode": "inclusao"
+       },
+       {
+        "text": "Mudar as regras no meio para ganhar",
+        "misconceptionCode": "combinados"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Estratégia de aprendizagem.",
+      "variants": [
+       {
+        "question": "Que material a turma usou para fazer o tabuleiro da mancala?",
+        "options": [
+         {
+          "text": "Peteca",
+          "misconceptionCode": "combinados"
+         },
+         {
+          "text": "Bola",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Caixa de ovos e sementes"
+         },
+         {
+          "text": "Muletas",
+          "misconceptionCode": "combinados"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Na mancala, as regras são novas para muitos. Como garantir que todos participem?",
+        "options": [
+         {
+          "text": "Mudar as regras no meio para ganhar",
+          "misconceptionCode": "combinados"
+         },
+         {
+          "text": "Explicar as regras devagar, fazer uma rodada de teste e jogar em duplas"
+         },
+         {
+          "text": "Deixar só quem já sabe",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Jogar sem explicar",
+          "misconceptionCode": "combinados"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF02-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: planejar com segurança",
+    "prompt": "Estratégias para todos.",
+    "estMinutes": 5,
+    "audioScript": "Estratégias para todos. Pergunta 1. Na queimada, alguns colegas têm medo da bola. Qual estratégia ajuda? A: Usar uma bola dura e jogar mais forte; B: Usar uma bola macia e combinar que não vale acertar a cabeça; C: Excluir quem tem medo; D: Mirar no rosto. Pergunta 2. No cabo de guerra, que cuidado é importante? A: Soltar a corda quando o outro time puxar; B: Enrolar a corda no pescoço; C: Não soltar a corda de repente e usar um espaço com chão macio ou plano; D: Puxar em cima de pedras. Pergunta 3. Na amarelinha, como incluir um colega que ainda não consegue pular num pé só? A: Deixá-lo de fora; B: Rir dele; C: Obrigá-lo a pular num pé; D: Permitir que ele pule com os dois pés. Pergunta 4. Que brincadeira de origem indígena pode ser adaptada com uma garrafa plástica cheia de areia em vez da tora? A: A corrida com toras; B: A mancala; C: A queimada; D: O terra-mar.",
+    "questions": [
+     {
+      "question": "Na queimada, alguns colegas têm medo da bola. Qual estratégia ajuda?",
+      "options": [
+       {
+        "text": "Usar uma bola dura e jogar mais forte",
+        "misconceptionCode": "seguranca"
+       },
+       {
+        "text": "Usar uma bola macia e combinar que não vale acertar a cabeça"
+       },
+       {
+        "text": "Excluir quem tem medo",
+        "misconceptionCode": "inclusao"
+       },
+       {
+        "text": "Mirar no rosto",
+        "misconceptionCode": "seguranca"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Segurança e inclusão.",
+      "variants": [
+       {
+        "question": "Que outra regra deixa a queimada mais segura?",
+        "options": [
+         {
+          "text": "Arremessar no rosto",
+          "misconceptionCode": "seguranca"
+         },
+         {
+          "text": "Correr de olhos fechados",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Jogar perto da escada",
+          "misconceptionCode": "seguranca"
+         },
+         {
+          "text": "Arremessar da cintura para baixo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Na queimada, alguns colegas têm medo da bola. Qual estratégia ajuda?",
+        "options": [
+         {
+          "text": "Mirar no rosto",
+          "misconceptionCode": "seguranca"
+         },
+         {
+          "text": "Excluir quem tem medo",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Usar uma bola macia e combinar que não vale acertar a cabeça"
+         },
+         {
+          "text": "Usar uma bola dura e jogar mais forte",
+          "misconceptionCode": "seguranca"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "No cabo de guerra, que cuidado é importante?",
+      "options": [
+       {
+        "text": "Soltar a corda quando o outro time puxar",
+        "misconceptionCode": "seguranca"
+       },
+       {
+        "text": "Enrolar a corda no pescoço",
+        "misconceptionCode": "seguranca"
+       },
+       {
+        "text": "Não soltar a corda de repente e usar um espaço com chão macio ou plano"
+       },
+       {
+        "text": "Puxar em cima de pedras",
+        "misconceptionCode": "seguranca"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Segurança.",
+      "variants": [
+       {
+        "question": "O que pode acontecer se um time soltar a corda de repente?",
+        "options": [
+         {
+          "text": "O outro time pode cair para trás e se machucar"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "seguranca"
+         },
+         {
+          "text": "O outro time ganha um prêmio",
+          "misconceptionCode": "seguranca"
+         },
+         {
+          "text": "A corda quebra sempre",
+          "misconceptionCode": "seguranca"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "No cabo de guerra, que cuidado é importante?",
+        "options": [
+         {
+          "text": "Puxar em cima de pedras",
+          "misconceptionCode": "seguranca"
+         },
+         {
+          "text": "Enrolar a corda no pescoço",
+          "misconceptionCode": "seguranca"
+         },
+         {
+          "text": "Soltar a corda quando o outro time puxar",
+          "misconceptionCode": "seguranca"
+         },
+         {
+          "text": "Não soltar a corda de repente e usar um espaço com chão macio ou plano"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Na amarelinha, como incluir um colega que ainda não consegue pular num pé só?",
+      "options": [
+       {
+        "text": "Deixá-lo de fora",
+        "misconceptionCode": "inclusao"
+       },
+       {
+        "text": "Rir dele",
+        "misconceptionCode": "inclusao"
+       },
+       {
+        "text": "Obrigá-lo a pular num pé",
+        "misconceptionCode": "inclusao"
+       },
+       {
+        "text": "Permitir que ele pule com os dois pés"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Adaptação.",
+      "variants": [
+       {
+        "question": "Que outra adaptação é possível na amarelinha?",
+        "options": [
+         {
+          "text": "Fazer as casas muito distantes",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Fazer as casas maiores e mais próximas"
+         },
+         {
+          "text": "Apagar as casas",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Jogar no escuro",
+          "misconceptionCode": "inclusao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Na amarelinha, como incluir um colega que ainda não consegue pular num pé só?",
+        "options": [
+         {
+          "text": "Permitir que ele pule com os dois pés"
+         },
+         {
+          "text": "Obrigá-lo a pular num pé",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Rir dele",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Deixá-lo de fora",
+          "misconceptionCode": "inclusao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Que brincadeira de origem indígena pode ser adaptada com uma garrafa plástica cheia de areia em vez da tora?",
+      "options": [
+       {
+        "text": "A corrida com toras"
+       },
+       {
+        "text": "A mancala",
+        "misconceptionCode": "matriz"
+       },
+       {
+        "text": "A queimada",
+        "misconceptionCode": "matriz"
+       },
+       {
+        "text": "O terra-mar",
+        "misconceptionCode": "matriz"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Adaptação de material.",
+      "variants": [
+       {
+        "question": "Por que adaptar o peso da \"tora\" na escola?",
+        "options": [
+         {
+          "text": "Para ficar mais pesado",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "Por acaso",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "Para que as crianças carreguem com segurança"
+         },
+         {
+          "text": "Não é preciso adaptar",
+          "misconceptionCode": "matriz"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Que brincadeira de origem indígena pode ser adaptada com uma garrafa plástica cheia de areia em vez da tora?",
+        "options": [
+         {
+          "text": "O terra-mar",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "A corrida com toras"
+         },
+         {
+          "text": "A queimada",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "A mancala",
+          "misconceptionCode": "matriz"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF02-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: a festa das brincadeiras",
+    "prompt": "Planejamento coletivo.",
+    "estMinutes": 4,
+    "audioScript": "Planejamento coletivo. Pergunta 1. A turma vai organizar uma festa de brincadeiras para outra turma. Qual é o primeiro passo? A: Começar sem combinar nada; B: Escolher as brincadeiras, verificar o espaço e combinar regras de segurança e inclusão; C: Escolher só brincadeiras em que poucos podem participar; D: Usar materiais perigosos. Pergunta 2. Que cartaz de combinados é adequado? A: \"Vale tudo para ganhar!\"; B: \"Só os mais rápidos jogam.\"; C: \"Não vale empurrar. Todos brincam. Quem se machucar, avisa um adulto.\"; D: \"Pode empurrar.\". Pergunta 3. No fim da festa, como avaliar se todos participaram com segurança? A: Não conversar; B: Contar só quem ganhou; C: Culpar quem perdeu; D: Conversar com as crianças sobre o que funcionou e o que pode melhorar.",
+    "questions": [
+     {
+      "question": "A turma vai organizar uma festa de brincadeiras para outra turma. Qual é o primeiro passo?",
+      "options": [
+       {
+        "text": "Começar sem combinar nada",
+        "misconceptionCode": "combinados"
+       },
+       {
+        "text": "Escolher as brincadeiras, verificar o espaço e combinar regras de segurança e inclusão"
+       },
+       {
+        "text": "Escolher só brincadeiras em que poucos podem participar",
+        "misconceptionCode": "inclusao"
+       },
+       {
+        "text": "Usar materiais perigosos",
+        "misconceptionCode": "seguranca"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Planejamento.",
+      "variants": [
+       {
+        "question": "Que informação a turma deve saber sobre a outra turma?",
+        "options": [
+         {
+          "text": "A cor das mochilas",
+          "misconceptionCode": "combinados"
+         },
+         {
+          "text": "O nome dos cachorros",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "seguranca"
+         },
+         {
+          "text": "Se há colegas que precisam de adaptações"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A turma vai organizar uma festa de brincadeiras para outra turma. Qual é o primeiro passo?",
+        "options": [
+         {
+          "text": "Usar materiais perigosos",
+          "misconceptionCode": "seguranca"
+         },
+         {
+          "text": "Escolher só brincadeiras em que poucos podem participar",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Escolher as brincadeiras, verificar o espaço e combinar regras de segurança e inclusão"
+         },
+         {
+          "text": "Começar sem combinar nada",
+          "misconceptionCode": "combinados"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Que cartaz de combinados é adequado?",
+      "options": [
+       {
+        "text": "\"Vale tudo para ganhar!\"",
+        "misconceptionCode": "combinados"
+       },
+       {
+        "text": "\"Só os mais rápidos jogam.\"",
+        "misconceptionCode": "inclusao"
+       },
+       {
+        "text": "\"Não vale empurrar. Todos brincam. Quem se machucar, avisa um adulto.\""
+       },
+       {
+        "text": "\"Pode empurrar.\"",
+        "misconceptionCode": "seguranca"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Combinados.",
+      "variants": [
+       {
+        "question": "Por que avisar um adulto quando alguém se machuca?",
+        "options": [
+         {
+          "text": "Para que a pessoa receba cuidado rapidamente"
+         },
+         {
+          "text": "Para atrapalhar a brincadeira",
+          "misconceptionCode": "combinados"
+         },
+         {
+          "text": "Não é preciso",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Para culpar alguém",
+          "misconceptionCode": "seguranca"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Que cartaz de combinados é adequado?",
+        "options": [
+         {
+          "text": "\"Pode empurrar.\"",
+          "misconceptionCode": "seguranca"
+         },
+         {
+          "text": "\"Só os mais rápidos jogam.\"",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "\"Vale tudo para ganhar!\"",
+          "misconceptionCode": "combinados"
+         },
+         {
+          "text": "\"Não vale empurrar. Todos brincam. Quem se machucar, avisa um adulto.\""
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "No fim da festa, como avaliar se todos participaram com segurança?",
+      "options": [
+       {
+        "text": "Não conversar",
+        "misconceptionCode": "combinados"
+       },
+       {
+        "text": "Contar só quem ganhou",
+        "misconceptionCode": "inclusao"
+       },
+       {
+        "text": "Culpar quem perdeu",
+        "misconceptionCode": "combinados"
+       },
+       {
+        "text": "Conversar com as crianças sobre o que funcionou e o que pode melhorar"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Avaliação.",
+      "variants": [
+       {
+        "question": "Que pergunta ajuda nessa conversa?",
+        "options": [
+         {
+          "text": "\"Quem foi o melhor?\"",
+          "misconceptionCode": "combinados"
+         },
+         {
+          "text": "\"Todos conseguiram brincar? Alguém se sentiu deixado de lado?\""
+         },
+         {
+          "text": "\"Quem perdeu mais?\"",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "\"Quem empurrou mais?\"",
+          "misconceptionCode": "combinados"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "No fim da festa, como avaliar se todos participaram com segurança?",
+        "options": [
+         {
+          "text": "Conversar com as crianças sobre o que funcionou e o que pode melhorar"
+         },
+         {
+          "text": "Culpar quem perdeu",
+          "misconceptionCode": "combinados"
+         },
+         {
+          "text": "Contar só quem ganhou",
+          "misconceptionCode": "inclusao"
+         },
+         {
+          "text": "Não conversar",
+          "misconceptionCode": "combinados"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF02-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: brincar com segurança e com todos",
+    "prompt": "Explique como planejar brincadeiras populares e de matriz indígena e africana para que todos participem com segurança.",
+    "estMinutes": 6,
+    "audioScript": "Explique como planejar brincadeiras populares e de matriz indígena e africana para que todos participem com segurança.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "matriz",
+       "description": "Cita brincadeiras populares e de matriz indígena e africana"
+      },
+      {
+       "code": "seguranca",
+       "description": "Explica cuidados de segurança (espaço, materiais, regras)"
+      },
+      {
+       "code": "inclusao",
+       "description": "Explica adaptações para que todos participem"
+      }
+     ],
+     "exemploBoaResposta": "Podemos brincar de amarelinha, queimada e cabo de guerra, que são brincadeiras populares do Brasil, de peteca e jogo da onça, de matriz indígena, e de mancala e terra-mar, de matriz africana. Antes de brincar, verificamos o espaço, usamos materiais seguros, como bolas macias, e combinamos regras: não empurrar, arremessar da cintura para baixo, não soltar a corda de repente. Também adaptamos para que todos participem: pular com os dois pés na amarelinha, avisar antes de lançar a peteca para quem tem baixa visão e trocar o pulo por um passo para quem usa muletas."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF35EF11",
+  "subjectCode": "EF",
+  "subjectName": "Educação Física",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: Dançar o Brasil e o mundo",
+  "tituloAluno": "Ritmo, espaço e gestos nas danças populares",
+  "activities": [
+   {
+    "id": "PK2-EF35EF11-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: danças e seus elementos",
+    "prompt": "Ritmo, espaço e gesto.",
+    "estMinutes": 4,
+    "audioScript": "Ritmo, espaço e gesto. Pergunta 1. Qual dança pernambucana usa uma sombrinha colorida e passos rápidos? A: Frevo; B: Valsa; C: Ciranda; D: Tarantela. Pergunta 2. Como se dança a ciranda? A: Sozinho, em fileira, sem tocar ninguém; B: Em roda, de mãos dadas, com passos para os lados; C: Em pares girando como na valsa; D: Pulando corda. Pergunta 3. O toré é uma dança de qual matriz? A: Africana; B: Europeia; C: Indígena; D: Asiática. Pergunta 4. Qual estratégia ajuda a aprender um passo difícil? A: Desistir; B: Dançar só no ritmo mais rápido desde o começo; C: Não ouvir a música; D: Dançar devagar primeiro e depois acelerar até o ritmo da música. Pergunta 5. A tarantela é uma dança popular de qual país? A: Itália; B: Brasil; C: China; D: Japão.",
+    "questions": [
+     {
+      "question": "Qual dança pernambucana usa uma sombrinha colorida e passos rápidos?",
+      "options": [
+       {
+        "text": "Frevo"
+       },
+       {
+        "text": "Valsa",
+        "misconceptionCode": "gestos"
+       },
+       {
+        "text": "Ciranda",
+        "misconceptionCode": "gestos"
+       },
+       {
+        "text": "Tarantela",
+        "misconceptionCode": "gestos"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Frevo.",
+      "variants": [
+       {
+        "question": "Que objeto é usado no frevo?",
+        "options": [
+         {
+          "text": "Bola",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "Corda",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "Sombrinha colorida"
+         },
+         {
+          "text": "Peteca",
+          "misconceptionCode": "gestos"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual dança pernambucana usa uma sombrinha colorida e passos rápidos?",
+        "options": [
+         {
+          "text": "Tarantela",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "Frevo"
+         },
+         {
+          "text": "Ciranda",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "Valsa",
+          "misconceptionCode": "gestos"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Como se dança a ciranda?",
+      "options": [
+       {
+        "text": "Sozinho, em fileira, sem tocar ninguém",
+        "misconceptionCode": "espaco"
+       },
+       {
+        "text": "Em roda, de mãos dadas, com passos para os lados"
+       },
+       {
+        "text": "Em pares girando como na valsa",
+        "misconceptionCode": "espaco"
+       },
+       {
+        "text": "Pulando corda",
+        "misconceptionCode": "espaco"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Espaço em roda.",
+      "variants": [
+       {
+        "question": "O samba de roda tem origem:",
+        "options": [
+         {
+          "text": "Japonesa",
+          "misconceptionCode": "espaco"
+         },
+         {
+          "text": "Alemã",
+          "misconceptionCode": "espaco"
+         },
+         {
+          "text": "Árabe",
+          "misconceptionCode": "espaco"
+         },
+         {
+          "text": "Africana, desenvolvida na Bahia"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Como se dança a ciranda?",
+        "options": [
+         {
+          "text": "Pulando corda",
+          "misconceptionCode": "espaco"
+         },
+         {
+          "text": "Em pares girando como na valsa",
+          "misconceptionCode": "espaco"
+         },
+         {
+          "text": "Em roda, de mãos dadas, com passos para os lados"
+         },
+         {
+          "text": "Sozinho, em fileira, sem tocar ninguém",
+          "misconceptionCode": "espaco"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O toré é uma dança de qual matriz?",
+      "options": [
+       {
+        "text": "Africana",
+        "misconceptionCode": "origem"
+       },
+       {
+        "text": "Europeia",
+        "misconceptionCode": "origem"
+       },
+       {
+        "text": "Indígena"
+       },
+       {
+        "text": "Asiática",
+        "misconceptionCode": "origem"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Dança indígena.",
+      "variants": [
+       {
+        "question": "Que instrumento costuma acompanhar o toré?",
+        "options": [
+         {
+          "text": "O maracá"
+         },
+         {
+          "text": "O piano",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "O violino",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "A guitarra elétrica",
+          "misconceptionCode": "origem"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O toré é uma dança de qual matriz?",
+        "options": [
+         {
+          "text": "Asiática",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Europeia",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Africana",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Indígena"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual estratégia ajuda a aprender um passo difícil?",
+      "options": [
+       {
+        "text": "Desistir",
+        "misconceptionCode": "ritmo"
+       },
+       {
+        "text": "Dançar só no ritmo mais rápido desde o começo",
+        "misconceptionCode": "ritmo"
+       },
+       {
+        "text": "Não ouvir a música",
+        "misconceptionCode": "ritmo"
+       },
+       {
+        "text": "Dançar devagar primeiro e depois acelerar até o ritmo da música"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Estratégia.",
+      "variants": [
+       {
+        "question": "O que ajuda a acompanhar o ritmo?",
+        "options": [
+         {
+          "text": "Tapar os ouvidos",
+          "misconceptionCode": "ritmo"
+         },
+         {
+          "text": "Bater palmas no tempo da música"
+         },
+         {
+          "text": "Falar alto durante a música",
+          "misconceptionCode": "ritmo"
+         },
+         {
+          "text": "Dançar sem música",
+          "misconceptionCode": "ritmo"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual estratégia ajuda a aprender um passo difícil?",
+        "options": [
+         {
+          "text": "Dançar devagar primeiro e depois acelerar até o ritmo da música"
+         },
+         {
+          "text": "Não ouvir a música",
+          "misconceptionCode": "ritmo"
+         },
+         {
+          "text": "Dançar só no ritmo mais rápido desde o começo",
+          "misconceptionCode": "ritmo"
+         },
+         {
+          "text": "Desistir",
+          "misconceptionCode": "ritmo"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "A tarantela é uma dança popular de qual país?",
+      "options": [
+       {
+        "text": "Itália"
+       },
+       {
+        "text": "Brasil",
+        "misconceptionCode": "origem"
+       },
+       {
+        "text": "China",
+        "misconceptionCode": "origem"
+       },
+       {
+        "text": "Japão",
+        "misconceptionCode": "origem"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Dança do mundo.",
+      "variants": [
+       {
+        "question": "A valsa, dançada em pares girando, tem origem:",
+        "options": [
+         {
+          "text": "Indígena brasileira",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Africana",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Europeia, ligada à Áustria"
+         },
+         {
+          "text": "Árabe",
+          "misconceptionCode": "origem"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A tarantela é uma dança popular de qual país?",
+        "options": [
+         {
+          "text": "Japão",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Itália"
+         },
+         {
+          "text": "China",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Brasil",
+          "misconceptionCode": "origem"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF11-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: a mostra de danças da turma",
+    "prompt": "A turma se dividiu em grupos: o grupo 1 dançou ciranda, em roda, de mãos dadas, dando passos para a direita no ritmo do tambor; o grupo 2 dançou frevo, com sombrinhas de papel, fazendo passos rápidos de agachar e levantar; o grupo 3 dançou samba de roda, com palmas e um colega no centro da roda de cada vez; o grupo 4 apresentou o carimbó, com saias rodadas.",
+    "estMinutes": 4,
+    "audioScript": "A turma se dividiu em grupos: o grupo 1 dançou ciranda, em roda, de mãos dadas, dando passos para a direita no ritmo do tambor; o grupo 2 dançou frevo, com sombrinhas de papel, fazendo passos rápidos de agachar e levantar; o grupo 3 dançou samba de roda, com palmas e um colega no centro da roda de cada vez; o grupo 4 apresentou o carimbó, com saias rodadas. Pergunta 1. Que organização espacial o grupo 1 usou? A: Fileiras separadas; B: Roda de mãos dadas; C: Pares girando; D: Cada um num canto. Pergunta 2. Que gesto característico apareceu no frevo? A: Passos lentos de valsa; B: Mãos dadas em roda; C: Passos rápidos de agachar e levantar, com sombrinha; D: Ficar parado. Pergunta 3. No samba de roda, o que acontece no centro da roda? A: Ninguém entra; B: Todos entram ao mesmo tempo empurrando; C: Fica uma bola; D: Um colega de cada vez dança, enquanto os outros batem palmas. Pergunta 4. De que região do Brasil é o carimbó? A: Norte, especialmente o Pará; B: Sul; C: Centro-Oeste; D: Exterior. Pergunta 5. Quantos grupos apresentaram danças com origem no Nordeste (ciranda, frevo e samba de roda)? A: Dois; B: Três; C: Um; D: Quatro.",
+    "questions": [
+     {
+      "question": "Que organização espacial o grupo 1 usou?",
+      "options": [
+       {
+        "text": "Fileiras separadas",
+        "misconceptionCode": "espaco"
+       },
+       {
+        "text": "Roda de mãos dadas"
+       },
+       {
+        "text": "Pares girando",
+        "misconceptionCode": "espaco"
+       },
+       {
+        "text": "Cada um num canto",
+        "misconceptionCode": "espaco"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Espaço.",
+      "variants": [
+       {
+        "question": "Para que lado o grupo 1 deu os passos?",
+        "options": [
+         {
+          "text": "Para cima",
+          "misconceptionCode": "espaco"
+         },
+         {
+          "text": "Sem direção",
+          "misconceptionCode": "espaco"
+         },
+         {
+          "text": "Para trás sempre",
+          "misconceptionCode": "espaco"
+         },
+         {
+          "text": "Para a direita"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Que organização espacial o grupo 1 usou?",
+        "options": [
+         {
+          "text": "Cada um num canto",
+          "misconceptionCode": "espaco"
+         },
+         {
+          "text": "Pares girando",
+          "misconceptionCode": "espaco"
+         },
+         {
+          "text": "Roda de mãos dadas"
+         },
+         {
+          "text": "Fileiras separadas",
+          "misconceptionCode": "espaco"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Que gesto característico apareceu no frevo?",
+      "options": [
+       {
+        "text": "Passos lentos de valsa",
+        "misconceptionCode": "gestos"
+       },
+       {
+        "text": "Mãos dadas em roda",
+        "misconceptionCode": "gestos"
+       },
+       {
+        "text": "Passos rápidos de agachar e levantar, com sombrinha"
+       },
+       {
+        "text": "Ficar parado",
+        "misconceptionCode": "gestos"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Gesto.",
+      "variants": [
+       {
+        "question": "Por que as sombrinhas eram de papel?",
+        "options": [
+         {
+          "text": "Para serem leves e seguras para as crianças"
+         },
+         {
+          "text": "Para quebrar rápido",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "Por acaso",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "Para pesar mais",
+          "misconceptionCode": "gestos"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Que gesto característico apareceu no frevo?",
+        "options": [
+         {
+          "text": "Ficar parado",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "Mãos dadas em roda",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "Passos lentos de valsa",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "Passos rápidos de agachar e levantar, com sombrinha"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "No samba de roda, o que acontece no centro da roda?",
+      "options": [
+       {
+        "text": "Ninguém entra",
+        "misconceptionCode": "espaco"
+       },
+       {
+        "text": "Todos entram ao mesmo tempo empurrando",
+        "misconceptionCode": "espaco"
+       },
+       {
+        "text": "Fica uma bola",
+        "misconceptionCode": "espaco"
+       },
+       {
+        "text": "Um colega de cada vez dança, enquanto os outros batem palmas"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Organização do samba de roda.",
+      "variants": [
+       {
+        "question": "Que elemento marca o ritmo no samba de roda da turma?",
+        "options": [
+         {
+          "text": "O silêncio",
+          "misconceptionCode": "espaco"
+         },
+         {
+          "text": "As palmas"
+         },
+         {
+          "text": "O apito de futebol",
+          "misconceptionCode": "espaco"
+         },
+         {
+          "text": "A sombrinha",
+          "misconceptionCode": "espaco"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "No samba de roda, o que acontece no centro da roda?",
+        "options": [
+         {
+          "text": "Um colega de cada vez dança, enquanto os outros batem palmas"
+         },
+         {
+          "text": "Fica uma bola",
+          "misconceptionCode": "espaco"
+         },
+         {
+          "text": "Todos entram ao mesmo tempo empurrando",
+          "misconceptionCode": "espaco"
+         },
+         {
+          "text": "Ninguém entra",
+          "misconceptionCode": "espaco"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "De que região do Brasil é o carimbó?",
+      "options": [
+       {
+        "text": "Norte, especialmente o Pará"
+       },
+       {
+        "text": "Sul",
+        "misconceptionCode": "origem"
+       },
+       {
+        "text": "Centro-Oeste",
+        "misconceptionCode": "origem"
+       },
+       {
+        "text": "Exterior",
+        "misconceptionCode": "origem"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Origem.",
+      "variants": [
+       {
+        "question": "Que elemento de figurino aparece no carimbó?",
+        "options": [
+         {
+          "text": "Sombrinhas",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Capacetes",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Saias rodadas"
+         },
+         {
+          "text": "Chuteiras",
+          "misconceptionCode": "origem"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "De que região do Brasil é o carimbó?",
+        "options": [
+         {
+          "text": "Exterior",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Norte, especialmente o Pará"
+         },
+         {
+          "text": "Centro-Oeste",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Sul",
+          "misconceptionCode": "origem"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Quantos grupos apresentaram danças com origem no Nordeste (ciranda, frevo e samba de roda)?",
+      "options": [
+       {
+        "text": "Dois",
+        "misconceptionCode": "origem"
+       },
+       {
+        "text": "Três"
+       },
+       {
+        "text": "Um",
+        "misconceptionCode": "origem"
+       },
+       {
+        "text": "Quatro",
+        "misconceptionCode": "origem"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Ciranda (PE), frevo (PE), samba de roda (BA).",
+      "variants": [
+       {
+        "question": "Qual grupo apresentou uma dança do Norte?",
+        "options": [
+         {
+          "text": "O grupo 1",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "O grupo 2",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "O grupo 3",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "O grupo 4"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Quantos grupos apresentaram danças com origem no Nordeste (ciranda, frevo e samba de roda)?",
+        "options": [
+         {
+          "text": "Quatro",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Um",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Três"
+         },
+         {
+          "text": "Dois",
+          "misconceptionCode": "origem"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF11-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: estratégias para dançar",
+    "prompt": "Ritmo, espaço e gesto.",
+    "estMinutes": 5,
+    "audioScript": "Ritmo, espaço e gesto. Pergunta 1. A música do maracatu tem batidas fortes de tambores. Como a turma pode marcar o ritmo ao dançar? A: Ignorar as batidas; B: Dançar mais rápido que o tambor; C: Dar os passos junto com as batidas mais fortes; D: Ficar parado. Pergunta 2. Na ciranda, a roda ficou desorganizada e alguns colegas se soltaram. Que estratégia ajuda? A: Correr para alcançar; B: Soltar as mãos de todos; C: Desistir; D: Parar, refazer a roda e combinar o lado e o tamanho dos passos. Pergunta 3. Um colega tem vergonha de dançar no centro do samba de roda. O que fazer? A: Respeitar e oferecer outra forma de participar, como bater palmas ou tocar um instrumento; B: Empurrá-lo para o centro; C: Rir dele; D: Excluí-lo da roda. Pergunta 4. Para aprender os passos do frevo, qual estratégia é adequada? A: Aprender tudo de uma vez, bem rápido; B: Dividir a coreografia em partes, aprender cada uma e depois juntar; C: Não ensaiar; D: Inventar passos sem relação.",
+    "questions": [
+     {
+      "question": "A música do maracatu tem batidas fortes de tambores. Como a turma pode marcar o ritmo ao dançar?",
+      "options": [
+       {
+        "text": "Ignorar as batidas",
+        "misconceptionCode": "ritmo"
+       },
+       {
+        "text": "Dançar mais rápido que o tambor",
+        "misconceptionCode": "ritmo"
+       },
+       {
+        "text": "Dar os passos junto com as batidas mais fortes"
+       },
+       {
+        "text": "Ficar parado",
+        "misconceptionCode": "ritmo"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Ritmo.",
+      "variants": [
+       {
+        "question": "O maracatu é uma manifestação de matriz:",
+        "options": [
+         {
+          "text": "Africana, de Pernambuco"
+         },
+         {
+          "text": "Japonesa",
+          "misconceptionCode": "ritmo"
+         },
+         {
+          "text": "Indígena da Amazônia",
+          "misconceptionCode": "ritmo"
+         },
+         {
+          "text": "Europeia do norte",
+          "misconceptionCode": "ritmo"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A música do maracatu tem batidas fortes de tambores. Como a turma pode marcar o ritmo ao dançar?",
+        "options": [
+         {
+          "text": "Ficar parado",
+          "misconceptionCode": "ritmo"
+         },
+         {
+          "text": "Dançar mais rápido que o tambor",
+          "misconceptionCode": "ritmo"
+         },
+         {
+          "text": "Ignorar as batidas",
+          "misconceptionCode": "ritmo"
+         },
+         {
+          "text": "Dar os passos junto com as batidas mais fortes"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Na ciranda, a roda ficou desorganizada e alguns colegas se soltaram. Que estratégia ajuda?",
+      "options": [
+       {
+        "text": "Correr para alcançar",
+        "misconceptionCode": "espaco"
+       },
+       {
+        "text": "Soltar as mãos de todos",
+        "misconceptionCode": "espaco"
+       },
+       {
+        "text": "Desistir",
+        "misconceptionCode": "espaco"
+       },
+       {
+        "text": "Parar, refazer a roda e combinar o lado e o tamanho dos passos"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Organização do espaço.",
+      "variants": [
+       {
+        "question": "Por que combinar o tamanho dos passos?",
+        "options": [
+         {
+          "text": "Para alguém cair",
+          "misconceptionCode": "espaco"
+         },
+         {
+          "text": "Para a roda girar junta, sem puxões"
+         },
+         {
+          "text": "Não é preciso",
+          "misconceptionCode": "espaco"
+         },
+         {
+          "text": "Para ganhar",
+          "misconceptionCode": "espaco"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Na ciranda, a roda ficou desorganizada e alguns colegas se soltaram. Que estratégia ajuda?",
+        "options": [
+         {
+          "text": "Parar, refazer a roda e combinar o lado e o tamanho dos passos"
+         },
+         {
+          "text": "Desistir",
+          "misconceptionCode": "espaco"
+         },
+         {
+          "text": "Soltar as mãos de todos",
+          "misconceptionCode": "espaco"
+         },
+         {
+          "text": "Correr para alcançar",
+          "misconceptionCode": "espaco"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Um colega tem vergonha de dançar no centro do samba de roda. O que fazer?",
+      "options": [
+       {
+        "text": "Respeitar e oferecer outra forma de participar, como bater palmas ou tocar um instrumento"
+       },
+       {
+        "text": "Empurrá-lo para o centro",
+        "misconceptionCode": "gestos"
+       },
+       {
+        "text": "Rir dele",
+        "misconceptionCode": "gestos"
+       },
+       {
+        "text": "Excluí-lo da roda",
+        "misconceptionCode": "espaco"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Respeito e participação.",
+      "variants": [
+       {
+        "question": "Por que respeitar o tempo de cada colega?",
+        "options": [
+         {
+          "text": "Porque todos devem dançar igual",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "Não é preciso respeitar",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "Porque cada um se sente à vontade de um jeito, e a dança deve ser prazerosa"
+         },
+         {
+          "text": "Para terminar logo",
+          "misconceptionCode": "espaco"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Um colega tem vergonha de dançar no centro do samba de roda. O que fazer?",
+        "options": [
+         {
+          "text": "Excluí-lo da roda",
+          "misconceptionCode": "espaco"
+         },
+         {
+          "text": "Respeitar e oferecer outra forma de participar, como bater palmas ou tocar um instrumento"
+         },
+         {
+          "text": "Rir dele",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "Empurrá-lo para o centro",
+          "misconceptionCode": "gestos"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Para aprender os passos do frevo, qual estratégia é adequada?",
+      "options": [
+       {
+        "text": "Aprender tudo de uma vez, bem rápido",
+        "misconceptionCode": "gestos"
+       },
+       {
+        "text": "Dividir a coreografia em partes, aprender cada uma e depois juntar"
+       },
+       {
+        "text": "Não ensaiar",
+        "misconceptionCode": "gestos"
+       },
+       {
+        "text": "Inventar passos sem relação",
+        "misconceptionCode": "gestos"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Ensaio por partes.",
+      "variants": [
+       {
+        "question": "Que cuidado de segurança no frevo, com passos de agachar?",
+        "options": [
+         {
+          "text": "Agachar o mais rápido possível sem aquecer",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "Pular de lugares altos",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "Dançar perto de objetos cortantes",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "Aquecer o corpo antes e respeitar os próprios limites"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Para aprender os passos do frevo, qual estratégia é adequada?",
+        "options": [
+         {
+          "text": "Inventar passos sem relação",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "Não ensaiar",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "Dividir a coreografia em partes, aprender cada uma e depois juntar"
+         },
+         {
+          "text": "Aprender tudo de uma vez, bem rápido",
+          "misconceptionCode": "gestos"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF11-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: festival de danças",
+    "prompt": "Do Brasil e do mundo.",
+    "estMinutes": 4,
+    "audioScript": "Do Brasil e do mundo. Pergunta 1. A turma vai apresentar danças no festival da escola. Qual organização é adequada? A: Dançar sem ensaiar; B: Escolher uma dança e zombar das outras; C: Escolher as danças, pesquisar suas origens, ensaiar em partes e preparar uma apresentação curta sobre cada uma; D: Não explicar a origem. Pergunta 2. Como incluir uma dança indígena no festival com respeito? A: Usar fantasias de cocar como brincadeira; B: Inventar passos e dizer que são indígenas; C: Fazer piada; D: Pesquisar com cuidado, se possível com pessoas do povo, e não fazer caricaturas. Pergunta 3. Ao final do festival, como avaliar a participação da turma? A: Conversar sobre o que aprenderam, o que foi difícil e como se sentiram; B: Dar nota só para os melhores dançarinos; C: Não conversar; D: Comparar quem dançou pior.",
+    "questions": [
+     {
+      "question": "A turma vai apresentar danças no festival da escola. Qual organização é adequada?",
+      "options": [
+       {
+        "text": "Dançar sem ensaiar",
+        "misconceptionCode": "gestos"
+       },
+       {
+        "text": "Escolher uma dança e zombar das outras",
+        "misconceptionCode": "origem"
+       },
+       {
+        "text": "Escolher as danças, pesquisar suas origens, ensaiar em partes e preparar uma apresentação curta sobre cada uma"
+       },
+       {
+        "text": "Não explicar a origem",
+        "misconceptionCode": "origem"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Planejamento.",
+      "variants": [
+       {
+        "question": "Que informação a turma pode apresentar antes de cada dança?",
+        "options": [
+         {
+          "text": "Nome, origem e elementos característicos"
+         },
+         {
+          "text": "O nome do cachorro de alguém",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "A cor favorita",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "origem"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A turma vai apresentar danças no festival da escola. Qual organização é adequada?",
+        "options": [
+         {
+          "text": "Não explicar a origem",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Escolher uma dança e zombar das outras",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Dançar sem ensaiar",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "Escolher as danças, pesquisar suas origens, ensaiar em partes e preparar uma apresentação curta sobre cada uma"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Como incluir uma dança indígena no festival com respeito?",
+      "options": [
+       {
+        "text": "Usar fantasias de cocar como brincadeira",
+        "misconceptionCode": "origem"
+       },
+       {
+        "text": "Inventar passos e dizer que são indígenas",
+        "misconceptionCode": "origem"
+       },
+       {
+        "text": "Fazer piada",
+        "misconceptionCode": "origem"
+       },
+       {
+        "text": "Pesquisar com cuidado, se possível com pessoas do povo, e não fazer caricaturas"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Respeito cultural.",
+      "variants": [
+       {
+        "question": "Por que evitar caricaturas?",
+        "options": [
+         {
+          "text": "Porque são caras",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Porque desrespeitam a cultura e as pessoas de cada povo"
+         },
+         {
+          "text": "Porque demoram",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Não é preciso evitar",
+          "misconceptionCode": "origem"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Como incluir uma dança indígena no festival com respeito?",
+        "options": [
+         {
+          "text": "Pesquisar com cuidado, se possível com pessoas do povo, e não fazer caricaturas"
+         },
+         {
+          "text": "Fazer piada",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Inventar passos e dizer que são indígenas",
+          "misconceptionCode": "origem"
+         },
+         {
+          "text": "Usar fantasias de cocar como brincadeira",
+          "misconceptionCode": "origem"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Ao final do festival, como avaliar a participação da turma?",
+      "options": [
+       {
+        "text": "Conversar sobre o que aprenderam, o que foi difícil e como se sentiram"
+       },
+       {
+        "text": "Dar nota só para os melhores dançarinos",
+        "misconceptionCode": "gestos"
+       },
+       {
+        "text": "Não conversar",
+        "misconceptionCode": "gestos"
+       },
+       {
+        "text": "Comparar quem dançou pior",
+        "misconceptionCode": "gestos"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Avaliação.",
+      "variants": [
+       {
+        "question": "Que aprendizado o festival pode trazer?",
+        "options": [
+         {
+          "text": "Que só uma dança é certa",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "Que dançar é chato",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "Conhecer e valorizar a diversidade de danças e culturas"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "gestos"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Ao final do festival, como avaliar a participação da turma?",
+        "options": [
+         {
+          "text": "Comparar quem dançou pior",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "Conversar sobre o que aprenderam, o que foi difícil e como se sentiram"
+         },
+         {
+          "text": "Não conversar",
+          "misconceptionCode": "gestos"
+         },
+         {
+          "text": "Dar nota só para os melhores dançarinos",
+          "misconceptionCode": "gestos"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF11-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: danças populares",
+    "prompt": "Explique os elementos das danças populares e as estratégias para dançá-las.",
+    "estMinutes": 6,
+    "audioScript": "Explique os elementos das danças populares e as estratégias para dançá-las.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "elementos",
+       "description": "Explica ritmo, espaço e gestos característicos com exemplos"
+      },
+      {
+       "code": "origem",
+       "description": "Relaciona danças às suas origens (brasileiras, indígenas, africanas, do mundo)"
+      },
+      {
+       "code": "estrategias",
+       "description": "Explica estratégias para aprender e executar as danças com segurança e respeito"
+      }
+     ],
+     "exemploBoaResposta": "As danças têm elementos como ritmo, espaço e gestos. Na ciranda, dançamos em roda de mãos dadas, com passos para o lado; no frevo, de Pernambuco, fazemos passos rápidos com sombrinha; o samba de roda, de matriz africana, da Bahia, tem palmas e um dançarino no centro; o carimbó, do Pará, tem saias rodadas; o toré é uma dança indígena com maracás; a tarantela é da Itália e a valsa, da Áustria. Para dançar, marcamos o ritmo com palmas, ensaiamos em partes, dançamos devagar e depois aceleramos, aquecemos o corpo e respeitamos as culturas, sem caricaturas."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF35EF14",
+  "subjectCode": "EF",
+  "subjectName": "Educação Física",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: Lutas com respeito",
+  "tituloAluno": "Estratégias, regras e segurança",
+  "activities": [
+   {
+    "id": "PK2-EF35EF14-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: lutas e regras",
+    "prompt": "Oponente não é inimigo.",
+    "estMinutes": 4,
+    "audioScript": "Oponente não é inimigo. Pergunta 1. Qual é a diferença entre lutar na aula e brigar? A: Não há diferença; B: Na luta vale tudo; C: A briga tem mais regras; D: Na luta há regras, respeito e o objetivo não é machucar; na briga não há regras. Pergunta 2. A capoeira é uma luta de matriz: A: Africana, desenvolvida no Brasil; B: Japonesa; C: Indígena do Xingu; D: Europeia. Pergunta 3. O huka-huka é uma luta de qual matriz? A: Africana; B: Indígena, de povos do Alto Xingu; C: Japonesa; D: Europeia. Pergunta 4. O que é ter uma base firme numa luta? A: Ficar na ponta dos pés; B: Juntar os pés; C: Ficar com os pés afastados e os joelhos dobrados para não cair facilmente; D: Ficar de olhos fechados. Pergunta 5. Qual é uma regra de segurança nas lutas da escola? A: Continuar mesmo se o colega pedir para parar; B: Bater na cabeça; C: Lutar no chão de cimento sem proteção; D: Parar imediatamente quando o colega pedir ou o professor apitar.",
+    "questions": [
+     {
+      "question": "Qual é a diferença entre lutar na aula e brigar?",
+      "options": [
+       {
+        "text": "Não há diferença",
+        "misconceptionCode": "regras"
+       },
+       {
+        "text": "Na luta vale tudo",
+        "misconceptionCode": "regras"
+       },
+       {
+        "text": "A briga tem mais regras",
+        "misconceptionCode": "regras"
+       },
+       {
+        "text": "Na luta há regras, respeito e o objetivo não é machucar; na briga não há regras"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Luta com regras.",
+      "variants": [
+       {
+        "question": "O colega na luta é:",
+        "options": [
+         {
+          "text": "Um inimigo",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Um oponente, que merece respeito"
+         },
+         {
+          "text": "Alguém para machucar",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Alguém para humilhar",
+          "misconceptionCode": "regras"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual é a diferença entre lutar na aula e brigar?",
+        "options": [
+         {
+          "text": "Na luta há regras, respeito e o objetivo não é machucar; na briga não há regras"
+         },
+         {
+          "text": "A briga tem mais regras",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Na luta vale tudo",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Não há diferença",
+          "misconceptionCode": "regras"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "A capoeira é uma luta de matriz:",
+      "options": [
+       {
+        "text": "Africana, desenvolvida no Brasil"
+       },
+       {
+        "text": "Japonesa",
+        "misconceptionCode": "matriz"
+       },
+       {
+        "text": "Indígena do Xingu",
+        "misconceptionCode": "matriz"
+       },
+       {
+        "text": "Europeia",
+        "misconceptionCode": "matriz"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Capoeira.",
+      "variants": [
+       {
+        "question": "Que movimento é a base da capoeira?",
+        "options": [
+         {
+          "text": "O pulo de cabeça para baixo apenas",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "O soco",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "A ginga"
+         },
+         {
+          "text": "Ficar parado",
+          "misconceptionCode": "matriz"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A capoeira é uma luta de matriz:",
+        "options": [
+         {
+          "text": "Europeia",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "Africana, desenvolvida no Brasil"
+         },
+         {
+          "text": "Indígena do Xingu",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "Japonesa",
+          "misconceptionCode": "matriz"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O huka-huka é uma luta de qual matriz?",
+      "options": [
+       {
+        "text": "Africana",
+        "misconceptionCode": "matriz"
+       },
+       {
+        "text": "Indígena, de povos do Alto Xingu"
+       },
+       {
+        "text": "Japonesa",
+        "misconceptionCode": "matriz"
+       },
+       {
+        "text": "Europeia",
+        "misconceptionCode": "matriz"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Huka-huka.",
+      "variants": [
+       {
+        "question": "Como começa o huka-huka?",
+        "options": [
+         {
+          "text": "Correndo",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "Com socos",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "Com chutes no ar",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "Com os lutadores ajoelhados, frente a frente"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O huka-huka é uma luta de qual matriz?",
+        "options": [
+         {
+          "text": "Europeia",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "Japonesa",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "Indígena, de povos do Alto Xingu"
+         },
+         {
+          "text": "Africana",
+          "misconceptionCode": "matriz"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O que é ter uma base firme numa luta?",
+      "options": [
+       {
+        "text": "Ficar na ponta dos pés",
+        "misconceptionCode": "estrategia"
+       },
+       {
+        "text": "Juntar os pés",
+        "misconceptionCode": "estrategia"
+       },
+       {
+        "text": "Ficar com os pés afastados e os joelhos dobrados para não cair facilmente"
+       },
+       {
+        "text": "Ficar de olhos fechados",
+        "misconceptionCode": "estrategia"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Base.",
+      "variants": [
+       {
+        "question": "Por que dobrar os joelhos ajuda?",
+        "options": [
+         {
+          "text": "Porque deixa o corpo mais estável"
+         },
+         {
+          "text": "Porque deixa o corpo mais alto",
+          "misconceptionCode": "estrategia"
+         },
+         {
+          "text": "Não ajuda",
+          "misconceptionCode": "estrategia"
+         },
+         {
+          "text": "Para cansar",
+          "misconceptionCode": "estrategia"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que é ter uma base firme numa luta?",
+        "options": [
+         {
+          "text": "Ficar de olhos fechados",
+          "misconceptionCode": "estrategia"
+         },
+         {
+          "text": "Juntar os pés",
+          "misconceptionCode": "estrategia"
+         },
+         {
+          "text": "Ficar na ponta dos pés",
+          "misconceptionCode": "estrategia"
+         },
+         {
+          "text": "Ficar com os pés afastados e os joelhos dobrados para não cair facilmente"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual é uma regra de segurança nas lutas da escola?",
+      "options": [
+       {
+        "text": "Continuar mesmo se o colega pedir para parar",
+        "misconceptionCode": "regras"
+       },
+       {
+        "text": "Bater na cabeça",
+        "misconceptionCode": "regras"
+       },
+       {
+        "text": "Lutar no chão de cimento sem proteção",
+        "misconceptionCode": "regras"
+       },
+       {
+        "text": "Parar imediatamente quando o colega pedir ou o professor apitar"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Segurança.",
+      "variants": [
+       {
+        "question": "Que material deixa as lutas mais seguras?",
+        "options": [
+         {
+          "text": "Pedras",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Colchonetes"
+         },
+         {
+          "text": "Cadeiras",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Mesas",
+          "misconceptionCode": "regras"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual é uma regra de segurança nas lutas da escola?",
+        "options": [
+         {
+          "text": "Parar imediatamente quando o colega pedir ou o professor apitar"
+         },
+         {
+          "text": "Lutar no chão de cimento sem proteção",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Bater na cabeça",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Continuar mesmo se o colega pedir para parar",
+          "misconceptionCode": "regras"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF14-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: aula de jogos de oposição",
+    "prompt": "A professora propôs três atividades: (1) \"empurra-empurra\" de costas, em duplas, dentro de um círculo: vence quem tirar o colega do círculo sem usar as mãos; (2) pega-fita: cada um tem uma fita presa na cintura e tenta pegar a do colega sem empurrar; (3) adaptação do huka-huka: em duplas, ajoelhados no colchonete, tentar tocar a parte de trás do joelho do colega. Antes e depois de cada luta, as duplas se cumprimentam.",
+    "estMinutes": 4,
+    "audioScript": "A professora propôs três atividades: (1) \"empurra-empurra\" de costas, em duplas, dentro de um círculo: vence quem tirar o colega do círculo sem usar as mãos; (2) pega-fita: cada um tem uma fita presa na cintura e tenta pegar a do colega sem empurrar; (3) adaptação do huka-huka: em duplas, ajoelhados no colchonete, tentar tocar a parte de trás do joelho do colega. Antes e depois de cada luta, as duplas se cumprimentam. Pergunta 1. No empurra-empurra de costas, que estratégia ajuda a não sair do círculo? A: Base firme, com pés afastados e joelhos dobrados; B: Ficar na ponta dos pés; C: Juntar os pés; D: Correr para fora. Pergunta 2. No pega-fita, qual estratégia é adequada? A: Empurrar o colega no chão; B: Mudar de direção e proteger a própria fita com movimentos do corpo; C: Segurar a fita com as duas mãos o tempo todo e não sair do lugar; D: Puxar a roupa do colega. Pergunta 3. Na adaptação do huka-huka, por que a luta é feita ajoelhado no colchonete? A: Para ficar mais perigoso; B: Porque é proibido levantar; C: Para seguir a origem da luta e evitar quedas de altura; D: Por acaso. Pergunta 4. Por que as duplas se cumprimentam antes e depois? A: Para distrair o colega; B: Por obrigação sem sentido; C: Para começar a briga; D: Para mostrar respeito ao colega como oponente.",
+    "questions": [
+     {
+      "question": "No empurra-empurra de costas, que estratégia ajuda a não sair do círculo?",
+      "options": [
+       {
+        "text": "Base firme, com pés afastados e joelhos dobrados"
+       },
+       {
+        "text": "Ficar na ponta dos pés",
+        "misconceptionCode": "estrategia"
+       },
+       {
+        "text": "Juntar os pés",
+        "misconceptionCode": "estrategia"
+       },
+       {
+        "text": "Correr para fora",
+        "misconceptionCode": "estrategia"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Base.",
+      "variants": [
+       {
+        "question": "Por que não se podem usar as mãos nessa atividade?",
+        "options": [
+         {
+          "text": "Para ficar mais fácil cair",
+          "misconceptionCode": "estrategia"
+         },
+         {
+          "text": "Por acaso",
+          "misconceptionCode": "estrategia"
+         },
+         {
+          "text": "Para trabalhar o equilíbrio e evitar empurrões perigosos"
+         },
+         {
+          "text": "Para machucar",
+          "misconceptionCode": "estrategia"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "No empurra-empurra de costas, que estratégia ajuda a não sair do círculo?",
+        "options": [
+         {
+          "text": "Correr para fora",
+          "misconceptionCode": "estrategia"
+         },
+         {
+          "text": "Base firme, com pés afastados e joelhos dobrados"
+         },
+         {
+          "text": "Juntar os pés",
+          "misconceptionCode": "estrategia"
+         },
+         {
+          "text": "Ficar na ponta dos pés",
+          "misconceptionCode": "estrategia"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "No pega-fita, qual estratégia é adequada?",
+      "options": [
+       {
+        "text": "Empurrar o colega no chão",
+        "misconceptionCode": "regras"
+       },
+       {
+        "text": "Mudar de direção e proteger a própria fita com movimentos do corpo"
+       },
+       {
+        "text": "Segurar a fita com as duas mãos o tempo todo e não sair do lugar",
+        "misconceptionCode": "estrategia"
+       },
+       {
+        "text": "Puxar a roupa do colega",
+        "misconceptionCode": "regras"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Estratégia e regras.",
+      "variants": [
+       {
+        "question": "O que é proibido no pega-fita?",
+        "options": [
+         {
+          "text": "Correr",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Mudar de direção",
+          "misconceptionCode": "estrategia"
+         },
+         {
+          "text": "Pegar a fita",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Empurrar ou segurar o colega"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "No pega-fita, qual estratégia é adequada?",
+        "options": [
+         {
+          "text": "Puxar a roupa do colega",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Segurar a fita com as duas mãos o tempo todo e não sair do lugar",
+          "misconceptionCode": "estrategia"
+         },
+         {
+          "text": "Mudar de direção e proteger a própria fita com movimentos do corpo"
+         },
+         {
+          "text": "Empurrar o colega no chão",
+          "misconceptionCode": "regras"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Na adaptação do huka-huka, por que a luta é feita ajoelhado no colchonete?",
+      "options": [
+       {
+        "text": "Para ficar mais perigoso",
+        "misconceptionCode": "regras"
+       },
+       {
+        "text": "Porque é proibido levantar",
+        "misconceptionCode": "regras"
+       },
+       {
+        "text": "Para seguir a origem da luta e evitar quedas de altura"
+       },
+       {
+        "text": "Por acaso",
+        "misconceptionCode": "regras"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Segurança e origem.",
+      "variants": [
+       {
+        "question": "Que parte do corpo do colega a dupla tenta tocar?",
+        "options": [
+         {
+          "text": "A parte de trás do joelho"
+         },
+         {
+          "text": "O rosto",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "O cabelo",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "O pescoço",
+          "misconceptionCode": "regras"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Na adaptação do huka-huka, por que a luta é feita ajoelhado no colchonete?",
+        "options": [
+         {
+          "text": "Por acaso",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Porque é proibido levantar",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Para ficar mais perigoso",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Para seguir a origem da luta e evitar quedas de altura"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Por que as duplas se cumprimentam antes e depois?",
+      "options": [
+       {
+        "text": "Para distrair o colega",
+        "misconceptionCode": "oponente"
+       },
+       {
+        "text": "Por obrigação sem sentido",
+        "misconceptionCode": "oponente"
+       },
+       {
+        "text": "Para começar a briga",
+        "misconceptionCode": "oponente"
+       },
+       {
+        "text": "Para mostrar respeito ao colega como oponente"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Respeito.",
+      "variants": [
+       {
+        "question": "Se um colega perder e ficar triste, qual atitude é adequada?",
+        "options": [
+         {
+          "text": "Rir dele",
+          "misconceptionCode": "oponente"
+         },
+         {
+          "text": "Cumprimentá-lo e dizer que a luta foi boa"
+         },
+         {
+          "text": "Comemorar na cara dele",
+          "misconceptionCode": "oponente"
+         },
+         {
+          "text": "Dizer que ele é fraco",
+          "misconceptionCode": "oponente"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Por que as duplas se cumprimentam antes e depois?",
+        "options": [
+         {
+          "text": "Para mostrar respeito ao colega como oponente"
+         },
+         {
+          "text": "Para começar a briga",
+          "misconceptionCode": "oponente"
+         },
+         {
+          "text": "Por obrigação sem sentido",
+          "misconceptionCode": "oponente"
+         },
+         {
+          "text": "Para distrair o colega",
+          "misconceptionCode": "oponente"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF14-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: estratégias e respeito",
+    "prompt": "Lutar com segurança.",
+    "estMinutes": 5,
+    "audioScript": "Lutar com segurança. Pergunta 1. Numa roda de capoeira, o que os capoeiristas fazem além de jogar? A: Cantam, batem palmas e tocam instrumentos como o berimbau; B: Ficam em silêncio total; C: Assistem TV; D: Jogam futebol. Pergunta 2. Durante uma luta, o colega reclama de dor. O que fazer? A: Continuar até vencer; B: Parar imediatamente e chamar o professor; C: Apertar mais; D: Rir. Pergunta 3. Que estratégia ajuda a desequilibrar o oponente sem machucar? A: Bater forte; B: Dar rasteira em pedras; C: Usar o movimento do outro, puxando ou empurrando levemente na hora certa, dentro das regras; D: Puxar o cabelo. Pergunta 4. Que luta comunitária pode ser praticada na escola com adaptação? A: Luta com objetos cortantes; B: Briga de rua; C: Luta sem regras; D: O cabo de guerra, como jogo de oposição com força e estratégia.",
+    "questions": [
+     {
+      "question": "Numa roda de capoeira, o que os capoeiristas fazem além de jogar?",
+      "options": [
+       {
+        "text": "Cantam, batem palmas e tocam instrumentos como o berimbau"
+       },
+       {
+        "text": "Ficam em silêncio total",
+        "misconceptionCode": "matriz"
+       },
+       {
+        "text": "Assistem TV",
+        "misconceptionCode": "matriz"
+       },
+       {
+        "text": "Jogam futebol",
+        "misconceptionCode": "matriz"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Capoeira: luta, dança e música.",
+      "variants": [
+       {
+        "question": "Que instrumento é característico da capoeira?",
+        "options": [
+         {
+          "text": "Violino",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "Piano",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "Berimbau"
+         },
+         {
+          "text": "Flauta doce",
+          "misconceptionCode": "matriz"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Numa roda de capoeira, o que os capoeiristas fazem além de jogar?",
+        "options": [
+         {
+          "text": "Jogam futebol",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "Cantam, batem palmas e tocam instrumentos como o berimbau"
+         },
+         {
+          "text": "Assistem TV",
+          "misconceptionCode": "matriz"
+         },
+         {
+          "text": "Ficam em silêncio total",
+          "misconceptionCode": "matriz"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Durante uma luta, o colega reclama de dor. O que fazer?",
+      "options": [
+       {
+        "text": "Continuar até vencer",
+        "misconceptionCode": "regras"
+       },
+       {
+        "text": "Parar imediatamente e chamar o professor"
+       },
+       {
+        "text": "Apertar mais",
+        "misconceptionCode": "regras"
+       },
+       {
+        "text": "Rir",
+        "misconceptionCode": "oponente"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Segurança.",
+      "variants": [
+       {
+        "question": "Por que parar é importante?",
+        "options": [
+         {
+          "text": "Para perder de propósito",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Para enganar o professor",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Não é importante",
+          "misconceptionCode": "oponente"
+         },
+         {
+          "text": "Para evitar machucados e respeitar o colega"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Durante uma luta, o colega reclama de dor. O que fazer?",
+        "options": [
+         {
+          "text": "Rir",
+          "misconceptionCode": "oponente"
+         },
+         {
+          "text": "Apertar mais",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Parar imediatamente e chamar o professor"
+         },
+         {
+          "text": "Continuar até vencer",
+          "misconceptionCode": "regras"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Que estratégia ajuda a desequilibrar o oponente sem machucar?",
+      "options": [
+       {
+        "text": "Bater forte",
+        "misconceptionCode": "regras"
+       },
+       {
+        "text": "Dar rasteira em pedras",
+        "misconceptionCode": "regras"
+       },
+       {
+        "text": "Usar o movimento do outro, puxando ou empurrando levemente na hora certa, dentro das regras"
+       },
+       {
+        "text": "Puxar o cabelo",
+        "misconceptionCode": "regras"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Estratégia.",
+      "variants": [
+       {
+        "question": "Como se proteger de ser desequilibrado?",
+        "options": [
+         {
+          "text": "Manter a base firme e o corpo baixo"
+         },
+         {
+          "text": "Ficar na ponta dos pés",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Juntar os pés",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Fechar os olhos",
+          "misconceptionCode": "regras"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Que estratégia ajuda a desequilibrar o oponente sem machucar?",
+        "options": [
+         {
+          "text": "Puxar o cabelo",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Dar rasteira em pedras",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Bater forte",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Usar o movimento do outro, puxando ou empurrando levemente na hora certa, dentro das regras"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Que luta comunitária pode ser praticada na escola com adaptação?",
+      "options": [
+       {
+        "text": "Luta com objetos cortantes",
+        "misconceptionCode": "regras"
+       },
+       {
+        "text": "Briga de rua",
+        "misconceptionCode": "regras"
+       },
+       {
+        "text": "Luta sem regras",
+        "misconceptionCode": "regras"
+       },
+       {
+        "text": "O cabo de guerra, como jogo de oposição com força e estratégia"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Jogo de oposição.",
+      "variants": [
+       {
+        "question": "Que estratégia ajuda o time no cabo de guerra?",
+        "options": [
+         {
+          "text": "Cada um puxar numa hora diferente",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Puxar todos juntos, ao mesmo tempo, com a base baixa"
+         },
+         {
+          "text": "Soltar a corda de repente",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Ficar em pé reto",
+          "misconceptionCode": "regras"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Que luta comunitária pode ser praticada na escola com adaptação?",
+        "options": [
+         {
+          "text": "O cabo de guerra, como jogo de oposição com força e estratégia"
+         },
+         {
+          "text": "Luta sem regras",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Briga de rua",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Luta com objetos cortantes",
+          "misconceptionCode": "regras"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF14-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: combinados para as lutas",
+    "prompt": "Planejar a aula.",
+    "estMinutes": 4,
+    "audioScript": "Planejar a aula. Pergunta 1. A turma vai criar os combinados para as aulas de lutas. Qual lista é adequada? A: Cumprimentar o colega; não bater na cabeça; parar quando pedirem; lutar no colchonete; B: Vale tudo para ganhar; C: Quem perder sai; D: Pode empurrar fora do colchonete. Pergunta 2. Como formar as duplas para as lutas de forma segura? A: Colocar o maior contra o menor sempre; B: Juntar colegas com tamanhos e forças parecidos; C: Formar duplas com quem está brigado; D: Sortear sem cuidado nenhum, mesmo com grandes diferenças de tamanho. Pergunta 3. Ao final da aula, que reflexão é útil? A: \"Quem bateu mais forte?\"; B: \"Quem é o mais fraco?\"; C: \"Que estratégias funcionaram? Respeitamos o colega e as regras?\"; D: Nenhuma.",
+    "questions": [
+     {
+      "question": "A turma vai criar os combinados para as aulas de lutas. Qual lista é adequada?",
+      "options": [
+       {
+        "text": "Cumprimentar o colega; não bater na cabeça; parar quando pedirem; lutar no colchonete"
+       },
+       {
+        "text": "Vale tudo para ganhar",
+        "misconceptionCode": "regras"
+       },
+       {
+        "text": "Quem perder sai",
+        "misconceptionCode": "oponente"
+       },
+       {
+        "text": "Pode empurrar fora do colchonete",
+        "misconceptionCode": "regras"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Combinados.",
+      "variants": [
+       {
+        "question": "Onde colocar os combinados?",
+        "options": [
+         {
+          "text": "Em lugar nenhum",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Só na memória de uma pessoa",
+          "misconceptionCode": "oponente"
+         },
+         {
+          "text": "Num cartaz na quadra, para todos lembrarem"
+         },
+         {
+          "text": "No lixo",
+          "misconceptionCode": "regras"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A turma vai criar os combinados para as aulas de lutas. Qual lista é adequada?",
+        "options": [
+         {
+          "text": "Pode empurrar fora do colchonete",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Cumprimentar o colega; não bater na cabeça; parar quando pedirem; lutar no colchonete"
+         },
+         {
+          "text": "Quem perder sai",
+          "misconceptionCode": "oponente"
+         },
+         {
+          "text": "Vale tudo para ganhar",
+          "misconceptionCode": "regras"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Como formar as duplas para as lutas de forma segura?",
+      "options": [
+       {
+        "text": "Colocar o maior contra o menor sempre",
+        "misconceptionCode": "regras"
+       },
+       {
+        "text": "Juntar colegas com tamanhos e forças parecidos"
+       },
+       {
+        "text": "Formar duplas com quem está brigado",
+        "misconceptionCode": "oponente"
+       },
+       {
+        "text": "Sortear sem cuidado nenhum, mesmo com grandes diferenças de tamanho",
+        "misconceptionCode": "regras"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Segurança.",
+      "variants": [
+       {
+        "question": "Por que essa organização é importante?",
+        "options": [
+         {
+          "text": "Para ganhar mais fácil",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Por acaso",
+          "misconceptionCode": "oponente"
+         },
+         {
+          "text": "Não é importante",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Para que a luta seja justa e ninguém se machuque"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Como formar as duplas para as lutas de forma segura?",
+        "options": [
+         {
+          "text": "Sortear sem cuidado nenhum, mesmo com grandes diferenças de tamanho",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "Formar duplas com quem está brigado",
+          "misconceptionCode": "oponente"
+         },
+         {
+          "text": "Juntar colegas com tamanhos e forças parecidos"
+         },
+         {
+          "text": "Colocar o maior contra o menor sempre",
+          "misconceptionCode": "regras"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Ao final da aula, que reflexão é útil?",
+      "options": [
+       {
+        "text": "\"Quem bateu mais forte?\"",
+        "misconceptionCode": "oponente"
+       },
+       {
+        "text": "\"Quem é o mais fraco?\"",
+        "misconceptionCode": "oponente"
+       },
+       {
+        "text": "\"Que estratégias funcionaram? Respeitamos o colega e as regras?\""
+       },
+       {
+        "text": "Nenhuma",
+        "misconceptionCode": "regras"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Reflexão.",
+      "variants": [
+       {
+        "question": "O que aprendemos com as lutas na escola?",
+        "options": [
+         {
+          "text": "A usar estratégias, controlar a força e respeitar o outro"
+         },
+         {
+          "text": "A brigar na rua",
+          "misconceptionCode": "oponente"
+         },
+         {
+          "text": "A machucar",
+          "misconceptionCode": "oponente"
+         },
+         {
+          "text": "A humilhar quem perde",
+          "misconceptionCode": "regras"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Ao final da aula, que reflexão é útil?",
+        "options": [
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "regras"
+         },
+         {
+          "text": "\"Quem é o mais fraco?\"",
+          "misconceptionCode": "oponente"
+         },
+         {
+          "text": "\"Quem bateu mais forte?\"",
+          "misconceptionCode": "oponente"
+         },
+         {
+          "text": "\"Que estratégias funcionaram? Respeitamos o colega e as regras?\""
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF35EF14-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: lutas na escola",
+    "prompt": "Explique como praticar lutas na escola com estratégias, regras e respeito.",
+    "estMinutes": 6,
+    "audioScript": "Explique como praticar lutas na escola com estratégias, regras e respeito.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "matriz",
+       "description": "Cita lutas de matriz africana (capoeira) e indígena (huka-huka) e jogos de oposição"
+      },
+      {
+       "code": "estrategias",
+       "description": "Explica estratégias básicas (base, equilíbrio, desequilibrar, proteger-se)"
+      },
+      {
+       "code": "respeito-seguranca",
+       "description": "Explica regras de segurança e o respeito ao oponente"
+      }
+     ],
+     "exemploBoaResposta": "Na escola, lutar é diferente de brigar: há regras, respeito e o objetivo não é machucar. Conhecemos a capoeira, de matriz africana, que mistura luta, dança e música, com ginga e berimbau; o huka-huka, de povos indígenas do Alto Xingu, que começa com os lutadores ajoelhados; e jogos de oposição, como o empurra-empurra e o pega-fita. Usamos estratégias como a base firme, com pés afastados e joelhos dobrados, e o equilíbrio. Lutamos no colchonete, sem golpes na cabeça, paramos quando o colega pede e cumprimentamos o oponente antes e depois."
+    }
+   }
+  ]
+ },
+ {
   "skillCode": "EF35EF01",
   "subjectCode": "EF",
   "subjectName": "Educação Física",

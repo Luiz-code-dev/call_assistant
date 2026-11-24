@@ -1,5 +1,3686 @@
 [
  {
+  "skillCode": "EF04ER03",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 4,
+  "version": 1,
+  "title": "Trilha: Ritos de passagem",
+  "tituloAluno": "Nascer, casar e despedir-se",
+  "activities": [
+   {
+    "id": "PK2-EF04ER03-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: momentos marcados",
+    "prompt": "Ritos e etapas da vida.",
+    "estMinutes": 4,
+    "audioScript": "Ritos e etapas da vida. Pergunta 1. O que é um rito de passagem? A: Uma brincadeira sem significado; B: Uma celebração que marca uma mudança importante na vida de uma pessoa; C: Uma prova escolar; D: Uma viagem de férias. Pergunta 2. No cristianismo, que rito marca a entrada na comunidade? A: O Bar Mitzvá; B: O axexê; C: O batismo; D: O nikah. Pergunta 3. No judaísmo, o que marca a maioridade religiosa dos meninos aos 13 anos? A: O batismo; B: O axexê; C: A Festa da Moça Nova; D: O Bar Mitzvá. Pergunta 4. Como se chama a tenda sob a qual acontece o casamento judaico? A: Chupá; B: Oca; C: Terreiro; D: Minarete. Pergunta 5. No candomblé, como se chama o rito fúnebre? A: Batismo; B: Axexê; C: Bar Mitzvá; D: Chupá. Pergunta 6. Qual atitude é respeitosa diante de um rito de outra tradição? A: Rir das roupas e dos gestos; B: Dizer que é errado; C: Observar com respeito e perguntar com curiosidade, sem zombar; D: Interromper a cerimônia.",
+    "questions": [
+     {
+      "question": "O que é um rito de passagem?",
+      "options": [
+       {
+        "text": "Uma brincadeira sem significado",
+        "misconceptionCode": "conceito"
+       },
+       {
+        "text": "Uma celebração que marca uma mudança importante na vida de uma pessoa"
+       },
+       {
+        "text": "Uma prova escolar",
+        "misconceptionCode": "conceito"
+       },
+       {
+        "text": "Uma viagem de férias",
+        "misconceptionCode": "conceito"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Rito de passagem.",
+      "variants": [
+       {
+        "question": "Quais momentos da vida costumam ser marcados por ritos de passagem?",
+        "options": [
+         {
+          "text": "Só o recreio",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Só as férias",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Nascimento, juventude, casamento e morte"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que é um rito de passagem?",
+        "options": [
+         {
+          "text": "Uma viagem de férias",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Uma prova escolar",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Uma celebração que marca uma mudança importante na vida de uma pessoa"
+         },
+         {
+          "text": "Uma brincadeira sem significado",
+          "misconceptionCode": "conceito"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "No cristianismo, que rito marca a entrada na comunidade?",
+      "options": [
+       {
+        "text": "O Bar Mitzvá",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "O axexê",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "O batismo"
+       },
+       {
+        "text": "O nikah",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Batismo.",
+      "variants": [
+       {
+        "question": "Em que lugar costuma ser celebrado o casamento cristão?",
+        "options": [
+         {
+          "text": "Na igreja"
+         },
+         {
+          "text": "Sob a chupá",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "No terreiro, como axexê",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Na mesquita, como Bar Mitzvá",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "No cristianismo, que rito marca a entrada na comunidade?",
+        "options": [
+         {
+          "text": "O nikah",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O axexê",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O Bar Mitzvá",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O batismo"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "No judaísmo, o que marca a maioridade religiosa dos meninos aos 13 anos?",
+      "options": [
+       {
+        "text": "O batismo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "O axexê",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "A Festa da Moça Nova",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "O Bar Mitzvá"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Bar Mitzvá.",
+      "variants": [
+       {
+        "question": "Com que idade as meninas judias celebram o Bat Mitzvá?",
+        "options": [
+         {
+          "text": "8 dias",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "12 anos"
+         },
+         {
+          "text": "30 anos",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "7 anos",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "No judaísmo, o que marca a maioridade religiosa dos meninos aos 13 anos?",
+        "options": [
+         {
+          "text": "O Bar Mitzvá"
+         },
+         {
+          "text": "A Festa da Moça Nova",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O axexê",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O batismo",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Como se chama a tenda sob a qual acontece o casamento judaico?",
+      "options": [
+       {
+        "text": "Chupá"
+       },
+       {
+        "text": "Oca",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Terreiro",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Minarete",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Chupá.",
+      "variants": [
+       {
+        "question": "Quantos dias dura a shivá, o luto judaico?",
+        "options": [
+         {
+          "text": "1",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "13",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "7"
+         },
+         {
+          "text": "40",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Como se chama a tenda sob a qual acontece o casamento judaico?",
+        "options": [
+         {
+          "text": "Minarete",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Chupá"
+         },
+         {
+          "text": "Terreiro",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Oca",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "No candomblé, como se chama o rito fúnebre?",
+      "options": [
+       {
+        "text": "Batismo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Axexê"
+       },
+       {
+        "text": "Bar Mitzvá",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Chupá",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Axexê.",
+      "variants": [
+       {
+        "question": "O que marca a iniciação no candomblé?",
+        "options": [
+         {
+          "text": "A maioridade aos 13 anos",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O casamento sob a tenda",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O chamado à oração no ouvido",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "A ligação da pessoa com seu orixá"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "No candomblé, como se chama o rito fúnebre?",
+        "options": [
+         {
+          "text": "Chupá",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Bar Mitzvá",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Axexê"
+         },
+         {
+          "text": "Batismo",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual atitude é respeitosa diante de um rito de outra tradição?",
+      "options": [
+       {
+        "text": "Rir das roupas e dos gestos",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Dizer que é errado",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Observar com respeito e perguntar com curiosidade, sem zombar"
+       },
+       {
+        "text": "Interromper a cerimônia",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Respeito.",
+      "variants": [
+       {
+        "question": "Por que respeitar os ritos de outras tradições?",
+        "options": [
+         {
+          "text": "Porque têm significado profundo para quem os pratica"
+         },
+         {
+          "text": "Porque são engraçados",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Não é preciso",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Porque são obrigatórios para todos",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual atitude é respeitosa diante de um rito de outra tradição?",
+        "options": [
+         {
+          "text": "Interromper a cerimônia",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Dizer que é errado",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Rir das roupas e dos gestos",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Observar com respeito e perguntar com curiosidade, sem zombar"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04ER03-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: a roda de conversa sobre ritos",
+    "prompt": "A professora pediu que os alunos contassem ritos de suas famílias. Ana: \"Meu irmão foi batizado na igreja; a família toda foi.\" Davi: \"Meu primo fez Bar Mitzvá; ele leu um trecho da Torá na sinagoga.\" Amina: \"Quando minha irmã nasceu, meu pai disse o chamado à oração no ouvido dela.\" Kauã: \"Na minha comunidade Tikuna, quando minha tia virou moça, teve a Festa da Moça Nova.\" Iara: \"Quando minha avó, que era do candomblé, faleceu, foi feito o axexê.\"",
+    "estMinutes": 4,
+    "audioScript": "A professora pediu que os alunos contassem ritos de suas famílias. Ana: \"Meu irmão foi batizado na igreja; a família toda foi.\" Davi: \"Meu primo fez Bar Mitzvá; ele leu um trecho da Torá na sinagoga.\" Amina: \"Quando minha irmã nasceu, meu pai disse o chamado à oração no ouvido dela.\" Kauã: \"Na minha comunidade Tikuna, quando minha tia virou moça, teve a Festa da Moça Nova.\" Iara: \"Quando minha avó, que era do candomblé, faleceu, foi feito o axexê.\" Pergunta 1. Que rito marca o nascimento ou a entrada na comunidade na fala de Ana? A: O Bar Mitzvá; B: O axexê; C: A Festa da Moça Nova; D: O batismo. Pergunta 2. Que momento da vida o Bar Mitzvá do primo de Davi marca? A: A maioridade religiosa; B: O nascimento; C: A morte; D: O casamento. Pergunta 3. A fala de Amina se refere a qual tradição? A: Judaica; B: Islâmica; C: Cristã; D: Candomblé. Pergunta 4. Que rito marca a passagem para a juventude na fala de Kauã? A: O axexê; B: O batismo; C: A Festa da Moça Nova; D: O nikah. Pergunta 5. O que as falas mostram em comum? A: Só uma tradição tem ritos; B: Os ritos são todos iguais; C: Ritos não têm significado; D: Diferentes tradições celebram momentos importantes da vida com ritos próprios.",
+    "questions": [
+     {
+      "question": "Que rito marca o nascimento ou a entrada na comunidade na fala de Ana?",
+      "options": [
+       {
+        "text": "O Bar Mitzvá",
+        "misconceptionCode": "momento"
+       },
+       {
+        "text": "O axexê",
+        "misconceptionCode": "momento"
+       },
+       {
+        "text": "A Festa da Moça Nova",
+        "misconceptionCode": "momento"
+       },
+       {
+        "text": "O batismo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Batismo.",
+      "variants": [
+       {
+        "question": "De que tradição é o rito citado por Ana?",
+        "options": [
+         {
+          "text": "Judaica",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "Cristã"
+         },
+         {
+          "text": "Islâmica",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "Candomblé",
+          "misconceptionCode": "momento"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Que rito marca o nascimento ou a entrada na comunidade na fala de Ana?",
+        "options": [
+         {
+          "text": "O batismo"
+         },
+         {
+          "text": "A Festa da Moça Nova",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "O axexê",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "O Bar Mitzvá",
+          "misconceptionCode": "momento"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Que momento da vida o Bar Mitzvá do primo de Davi marca?",
+      "options": [
+       {
+        "text": "A maioridade religiosa"
+       },
+       {
+        "text": "O nascimento",
+        "misconceptionCode": "momento"
+       },
+       {
+        "text": "A morte",
+        "misconceptionCode": "momento"
+       },
+       {
+        "text": "O casamento",
+        "misconceptionCode": "momento"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Maioridade.",
+      "variants": [
+       {
+        "question": "Onde o primo de Davi leu um trecho da Torá?",
+        "options": [
+         {
+          "text": "Na mesquita",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "No terreiro",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "Na sinagoga"
+         },
+         {
+          "text": "Na oca",
+          "misconceptionCode": "momento"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Que momento da vida o Bar Mitzvá do primo de Davi marca?",
+        "options": [
+         {
+          "text": "O casamento",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "A maioridade religiosa"
+         },
+         {
+          "text": "A morte",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "O nascimento",
+          "misconceptionCode": "momento"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "A fala de Amina se refere a qual tradição?",
+      "options": [
+       {
+        "text": "Judaica",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Islâmica"
+       },
+       {
+        "text": "Cristã",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Candomblé",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Islamismo.",
+      "variants": [
+       {
+        "question": "Que momento da vida esse rito marca?",
+        "options": [
+         {
+          "text": "A morte",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O casamento",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "A maioridade",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O nascimento"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A fala de Amina se refere a qual tradição?",
+        "options": [
+         {
+          "text": "Candomblé",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Cristã",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Islâmica"
+         },
+         {
+          "text": "Judaica",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Que rito marca a passagem para a juventude na fala de Kauã?",
+      "options": [
+       {
+        "text": "O axexê",
+        "misconceptionCode": "momento"
+       },
+       {
+        "text": "O batismo",
+        "misconceptionCode": "momento"
+       },
+       {
+        "text": "A Festa da Moça Nova"
+       },
+       {
+        "text": "O nikah",
+        "misconceptionCode": "momento"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Juventude.",
+      "variants": [
+       {
+        "question": "E o rito citado por Iara marca qual momento?",
+        "options": [
+         {
+          "text": "A morte, com o axexê"
+         },
+         {
+          "text": "O nascimento",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "O casamento",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "A maioridade",
+          "misconceptionCode": "momento"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Que rito marca a passagem para a juventude na fala de Kauã?",
+        "options": [
+         {
+          "text": "O nikah",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "O batismo",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "O axexê",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "A Festa da Moça Nova"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que as falas mostram em comum?",
+      "options": [
+       {
+        "text": "Só uma tradição tem ritos",
+        "misconceptionCode": "conceito"
+       },
+       {
+        "text": "Os ritos são todos iguais",
+        "misconceptionCode": "conceito"
+       },
+       {
+        "text": "Ritos não têm significado",
+        "misconceptionCode": "conceito"
+       },
+       {
+        "text": "Diferentes tradições celebram momentos importantes da vida com ritos próprios"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Diversidade.",
+      "variants": [
+       {
+        "question": "Quantas tradições diferentes aparecem nas falas?",
+        "options": [
+         {
+          "text": "Uma",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Cinco: cristã, judaica, islâmica, Tikuna e candomblé"
+         },
+         {
+          "text": "Duas",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Três",
+          "misconceptionCode": "conceito"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que as falas mostram em comum?",
+        "options": [
+         {
+          "text": "Diferentes tradições celebram momentos importantes da vida com ritos próprios"
+         },
+         {
+          "text": "Ritos não têm significado",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Os ritos são todos iguais",
+          "misconceptionCode": "conceito"
+         },
+         {
+          "text": "Só uma tradição tem ritos",
+          "misconceptionCode": "conceito"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04ER03-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: associar ritos",
+    "prompt": "Tradição e momento.",
+    "estMinutes": 5,
+    "audioScript": "Tradição e momento. Pergunta 1. O Brit Milá, no oitavo dia de vida dos meninos, é um rito de qual tradição? A: Judaica; B: Cristã; C: Islâmica; D: Candomblé. Pergunta 2. Na tradição islâmica, como se chama o casamento? A: Chupá; B: Nikah; C: Axexê; D: Bar Mitzvá. Pergunta 3. Por que muitas famílias, de várias tradições ou sem religião, fazem velório quando alguém morre? A: Para fazer festa sem motivo; B: Para esquecer a pessoa; C: Para se despedir, lembrar a pessoa e consolar uns aos outros; D: Por nenhum motivo. Pergunta 4. Um colega diz que o rito de outra religião é \"estranho\". Qual resposta é respeitosa? A: \"É mesmo estranho.\"; B: \"Só a nossa religião está certa.\"; C: \"Não devemos falar com eles.\"; D: \"É diferente do que conhecemos; vamos entender o que significa para eles.\".",
+    "questions": [
+     {
+      "question": "O Brit Milá, no oitavo dia de vida dos meninos, é um rito de qual tradição?",
+      "options": [
+       {
+        "text": "Judaica"
+       },
+       {
+        "text": "Cristã",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Islâmica",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Candomblé",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Brit Milá.",
+      "variants": [
+       {
+        "question": "Que momento ele marca?",
+        "options": [
+         {
+          "text": "A morte",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O casamento",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O nascimento e a entrada na aliança"
+         },
+         {
+          "text": "A velhice",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O Brit Milá, no oitavo dia de vida dos meninos, é um rito de qual tradição?",
+        "options": [
+         {
+          "text": "Candomblé",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Judaica"
+         },
+         {
+          "text": "Islâmica",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Cristã",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Na tradição islâmica, como se chama o casamento?",
+      "options": [
+       {
+        "text": "Chupá",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Nikah"
+       },
+       {
+        "text": "Axexê",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Bar Mitzvá",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Nikah.",
+      "variants": [
+       {
+        "question": "Na tradição islâmica, quando costuma ser feito o sepultamento?",
+        "options": [
+         {
+          "text": "Um ano depois",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Nunca",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Só no aniversário",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O quanto antes, após a morte"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Na tradição islâmica, como se chama o casamento?",
+        "options": [
+         {
+          "text": "Bar Mitzvá",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Axexê",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Nikah"
+         },
+         {
+          "text": "Chupá",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Por que muitas famílias, de várias tradições ou sem religião, fazem velório quando alguém morre?",
+      "options": [
+       {
+        "text": "Para fazer festa sem motivo",
+        "misconceptionCode": "momento"
+       },
+       {
+        "text": "Para esquecer a pessoa",
+        "misconceptionCode": "momento"
+       },
+       {
+        "text": "Para se despedir, lembrar a pessoa e consolar uns aos outros"
+       },
+       {
+        "text": "Por nenhum motivo",
+        "misconceptionCode": "momento"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Despedida.",
+      "variants": [
+       {
+        "question": "Que sentimento os ritos de despedida ajudam a acolher?",
+        "options": [
+         {
+          "text": "A tristeza e a saudade"
+         },
+         {
+          "text": "A raiva contra os outros",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "O medo de brincar",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "momento"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Por que muitas famílias, de várias tradições ou sem religião, fazem velório quando alguém morre?",
+        "options": [
+         {
+          "text": "Por nenhum motivo",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "Para esquecer a pessoa",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "Para fazer festa sem motivo",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "Para se despedir, lembrar a pessoa e consolar uns aos outros"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Um colega diz que o rito de outra religião é \"estranho\". Qual resposta é respeitosa?",
+      "options": [
+       {
+        "text": "\"É mesmo estranho.\"",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "\"Só a nossa religião está certa.\"",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "\"Não devemos falar com eles.\"",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "\"É diferente do que conhecemos; vamos entender o que significa para eles.\""
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Respeito.",
+      "variants": [
+       {
+        "question": "Como entender melhor o rito de outra tradição?",
+        "options": [
+         {
+          "text": "Zombando",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Perguntando com respeito a quem o pratica ou pesquisando em fontes confiáveis"
+         },
+         {
+          "text": "Inventando explicações",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Ignorando",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um colega diz que o rito de outra religião é \"estranho\". Qual resposta é respeitosa?",
+        "options": [
+         {
+          "text": "\"É diferente do que conhecemos; vamos entender o que significa para eles.\""
+         },
+         {
+          "text": "\"Não devemos falar com eles.\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"Só a nossa religião está certa.\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"É mesmo estranho.\"",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04ER03-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: o painel dos ritos",
+    "prompt": "Organizar e respeitar.",
+    "estMinutes": 4,
+    "audioScript": "Organizar e respeitar. Pergunta 1. A turma vai montar um painel com ritos de passagem. Como organizar? A: Em colunas por momento da vida (nascimento, juventude, casamento, morte), com exemplos de várias tradições; B: Só com ritos de uma tradição; C: Sem indicar a tradição; D: Com desenhos zombando dos ritos. Pergunta 2. Em que coluna entram o batismo e o Brit Milá? A: Morte; B: Nascimento ou entrada na comunidade; C: Casamento; D: Juventude. Pergunta 3. Que cuidado tomar ao usar fotos de ritos de famílias da turma? A: Expor sem perguntar; B: Fazer montagens engraçadas; C: Pedir autorização às famílias antes de expor; D: Publicar na internet sem permissão.",
+    "questions": [
+     {
+      "question": "A turma vai montar um painel com ritos de passagem. Como organizar?",
+      "options": [
+       {
+        "text": "Em colunas por momento da vida (nascimento, juventude, casamento, morte), com exemplos de várias tradições"
+       },
+       {
+        "text": "Só com ritos de uma tradição",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Sem indicar a tradição",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Com desenhos zombando dos ritos",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Organização.",
+      "variants": [
+       {
+        "question": "Em que coluna entra a Festa da Moça Nova?",
+        "options": [
+         {
+          "text": "Nascimento",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Casamento",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Juventude"
+         },
+         {
+          "text": "Morte",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "A turma vai montar um painel com ritos de passagem. Como organizar?",
+        "options": [
+         {
+          "text": "Com desenhos zombando dos ritos",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Em colunas por momento da vida (nascimento, juventude, casamento, morte), com exemplos de várias tradições"
+         },
+         {
+          "text": "Sem indicar a tradição",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Só com ritos de uma tradição",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Em que coluna entram o batismo e o Brit Milá?",
+      "options": [
+       {
+        "text": "Morte",
+        "misconceptionCode": "momento"
+       },
+       {
+        "text": "Nascimento ou entrada na comunidade"
+       },
+       {
+        "text": "Casamento",
+        "misconceptionCode": "momento"
+       },
+       {
+        "text": "Juventude",
+        "misconceptionCode": "momento"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Nascimento.",
+      "variants": [
+       {
+        "question": "Em que coluna entram a chupá e o nikah?",
+        "options": [
+         {
+          "text": "Nascimento",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "Morte",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "Juventude",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "Casamento"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Em que coluna entram o batismo e o Brit Milá?",
+        "options": [
+         {
+          "text": "Juventude",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "Casamento",
+          "misconceptionCode": "momento"
+         },
+         {
+          "text": "Nascimento ou entrada na comunidade"
+         },
+         {
+          "text": "Morte",
+          "misconceptionCode": "momento"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Que cuidado tomar ao usar fotos de ritos de famílias da turma?",
+      "options": [
+       {
+        "text": "Expor sem perguntar",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Fazer montagens engraçadas",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Pedir autorização às famílias antes de expor"
+       },
+       {
+        "text": "Publicar na internet sem permissão",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Cuidado.",
+      "variants": [
+       {
+        "question": "Que título combina com o painel?",
+        "options": [
+         {
+          "text": "\"Muitos jeitos de celebrar a vida\""
+         },
+         {
+          "text": "\"A única tradição certa\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"Ritos esquisitos\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"Sem significado\"",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Que cuidado tomar ao usar fotos de ritos de famílias da turma?",
+        "options": [
+         {
+          "text": "Publicar na internet sem permissão",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Fazer montagens engraçadas",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Expor sem perguntar",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Pedir autorização às famílias antes de expor"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04ER03-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: ritos de passagem",
+    "prompt": "Explique o que são ritos de passagem e dê exemplos de diferentes tradições.",
+    "estMinutes": 6,
+    "audioScript": "Explique o que são ritos de passagem e dê exemplos de diferentes tradições.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "conceito",
+       "description": "Explica o que é rito de passagem e de iniciação"
+      },
+      {
+       "code": "tradicao",
+       "description": "Associa ritos às tradições corretas"
+      },
+      {
+       "code": "momento",
+       "description": "Relaciona os ritos aos momentos da vida"
+      }
+     ],
+     "exemploBoaResposta": "Ritos de passagem são celebrações que marcam mudanças importantes na vida, como nascimento, juventude, casamento e morte. No cristianismo, o batismo marca a entrada na comunidade. No judaísmo, o Brit Milá acontece no oitavo dia dos meninos, o Bar Mitzvá aos 13 anos e o Bat Mitzvá aos 12 marcam a maioridade religiosa, o casamento é sob a chupá e o luto inclui a shivá de sete dias. No islamismo, o chamado à oração é dito ao ouvido do recém-nascido e o casamento é o nikah. Entre os Tikuna, a Festa da Moça Nova marca a juventude; no candomblé, o axexê é o rito fúnebre. Todos merecem respeito."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF04ER05",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 4,
+  "version": 1,
+  "title": "Trilha: O sagrado na arte",
+  "tituloAluno": "Pinturas, templos, esculturas e símbolos",
+  "activities": [
+   {
+    "id": "PK2-EF04ER05-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: arte e sagrado",
+    "prompt": "Expressões artísticas.",
+    "estMinutes": 4,
+    "audioScript": "Expressões artísticas. Pergunta 1. O Cristo Redentor, no Rio de Janeiro, é que tipo de expressão artística? A: Pintura; B: Música; C: Dança; D: Escultura. Pergunta 2. Uma igreja, uma mesquita e uma sinagoga são exemplos de qual expressão artística? A: Arquitetura; B: Pintura em tela; C: Escultura pequena; D: Fotografia. Pergunta 3. A menorá, candelabro de sete braços, é um símbolo de qual tradição? A: Islâmica; B: Judaica; C: Budista; D: Candomblé. Pergunta 4. Quem esculpiu os doze profetas em pedra-sabão em Congonhas, Minas Gerais? A: Tarsila do Amaral; B: Portinari; C: Aleijadinho; D: Santos Dumont. Pergunta 5. O que são ícones nas igrejas ortodoxas? A: Símbolos de computador; B: Estátuas de bronze gigantes; C: Músicas; D: Pinturas sagradas, geralmente em madeira, de figuras religiosas. Pergunta 6. As mandalas, desenhos circulares, aparecem em quais tradições? A: Budistas e hinduístas; B: Só no candomblé; C: Só no judaísmo; D: Em nenhuma.",
+    "questions": [
+     {
+      "question": "O Cristo Redentor, no Rio de Janeiro, é que tipo de expressão artística?",
+      "options": [
+       {
+        "text": "Pintura",
+        "misconceptionCode": "expressao"
+       },
+       {
+        "text": "Música",
+        "misconceptionCode": "expressao"
+       },
+       {
+        "text": "Dança",
+        "misconceptionCode": "expressao"
+       },
+       {
+        "text": "Escultura"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Escultura.",
+      "variants": [
+       {
+        "question": "Em que ano o Cristo Redentor foi inaugurado?",
+        "options": [
+         {
+          "text": "1500",
+          "misconceptionCode": "expressao"
+         },
+         {
+          "text": "1931"
+         },
+         {
+          "text": "1822",
+          "misconceptionCode": "expressao"
+         },
+         {
+          "text": "2000",
+          "misconceptionCode": "expressao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O Cristo Redentor, no Rio de Janeiro, é que tipo de expressão artística?",
+        "options": [
+         {
+          "text": "Escultura"
+         },
+         {
+          "text": "Dança",
+          "misconceptionCode": "expressao"
+         },
+         {
+          "text": "Música",
+          "misconceptionCode": "expressao"
+         },
+         {
+          "text": "Pintura",
+          "misconceptionCode": "expressao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Uma igreja, uma mesquita e uma sinagoga são exemplos de qual expressão artística?",
+      "options": [
+       {
+        "text": "Arquitetura"
+       },
+       {
+        "text": "Pintura em tela",
+        "misconceptionCode": "expressao"
+       },
+       {
+        "text": "Escultura pequena",
+        "misconceptionCode": "expressao"
+       },
+       {
+        "text": "Fotografia",
+        "misconceptionCode": "expressao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Arquitetura.",
+      "variants": [
+       {
+        "question": "Que elemento é comum na arquitetura de muitas mesquitas?",
+        "options": [
+         {
+          "text": "Chupá",
+          "misconceptionCode": "expressao"
+         },
+         {
+          "text": "Menorá gigante na fachada",
+          "misconceptionCode": "expressao"
+         },
+         {
+          "text": "Cúpulas e minaretes"
+         },
+         {
+          "text": "Totens indígenas",
+          "misconceptionCode": "expressao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Uma igreja, uma mesquita e uma sinagoga são exemplos de qual expressão artística?",
+        "options": [
+         {
+          "text": "Fotografia",
+          "misconceptionCode": "expressao"
+         },
+         {
+          "text": "Arquitetura"
+         },
+         {
+          "text": "Escultura pequena",
+          "misconceptionCode": "expressao"
+         },
+         {
+          "text": "Pintura em tela",
+          "misconceptionCode": "expressao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "A menorá, candelabro de sete braços, é um símbolo de qual tradição?",
+      "options": [
+       {
+        "text": "Islâmica",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Judaica"
+       },
+       {
+        "text": "Budista",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Candomblé",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Menorá.",
+      "variants": [
+       {
+        "question": "Que outro símbolo é muito associado ao judaísmo?",
+        "options": [
+         {
+          "text": "A cruz",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "A lua crescente",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O machado de Xangô",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "A estrela de Davi"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A menorá, candelabro de sete braços, é um símbolo de qual tradição?",
+        "options": [
+         {
+          "text": "Candomblé",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Budista",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Judaica"
+         },
+         {
+          "text": "Islâmica",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Quem esculpiu os doze profetas em pedra-sabão em Congonhas, Minas Gerais?",
+      "options": [
+       {
+        "text": "Tarsila do Amaral",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Portinari",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Aleijadinho"
+       },
+       {
+        "text": "Santos Dumont",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Aleijadinho.",
+      "variants": [
+       {
+        "question": "Que material Aleijadinho usou nos profetas?",
+        "options": [
+         {
+          "text": "Pedra-sabão"
+         },
+         {
+          "text": "Plástico",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Vidro",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Papel",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Quem esculpiu os doze profetas em pedra-sabão em Congonhas, Minas Gerais?",
+        "options": [
+         {
+          "text": "Santos Dumont",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Portinari",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Tarsila do Amaral",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Aleijadinho"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O que são ícones nas igrejas ortodoxas?",
+      "options": [
+       {
+        "text": "Símbolos de computador",
+        "misconceptionCode": "expressao"
+       },
+       {
+        "text": "Estátuas de bronze gigantes",
+        "misconceptionCode": "expressao"
+       },
+       {
+        "text": "Músicas",
+        "misconceptionCode": "expressao"
+       },
+       {
+        "text": "Pinturas sagradas, geralmente em madeira, de figuras religiosas"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Ícones.",
+      "variants": [
+       {
+        "question": "Por que muitas mesquitas são decoradas com caligrafia e padrões geométricos?",
+        "options": [
+         {
+          "text": "Porque não sabem pintar",
+          "misconceptionCode": "expressao"
+         },
+         {
+          "text": "Porque muitas tradições islâmicas evitam imagens de seres vivos nos espaços de oração"
+         },
+         {
+          "text": "Por acaso",
+          "misconceptionCode": "expressao"
+         },
+         {
+          "text": "Porque é proibido escrever",
+          "misconceptionCode": "expressao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O que são ícones nas igrejas ortodoxas?",
+        "options": [
+         {
+          "text": "Pinturas sagradas, geralmente em madeira, de figuras religiosas"
+         },
+         {
+          "text": "Músicas",
+          "misconceptionCode": "expressao"
+         },
+         {
+          "text": "Estátuas de bronze gigantes",
+          "misconceptionCode": "expressao"
+         },
+         {
+          "text": "Símbolos de computador",
+          "misconceptionCode": "expressao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "As mandalas, desenhos circulares, aparecem em quais tradições?",
+      "options": [
+       {
+        "text": "Budistas e hinduístas"
+       },
+       {
+        "text": "Só no candomblé",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Só no judaísmo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Em nenhuma",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Mandalas.",
+      "variants": [
+       {
+        "question": "Nas religiões afro-brasileiras, o machado de duas lâminas está associado a qual orixá?",
+        "options": [
+         {
+          "text": "Iemanjá",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Oxum",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Xangô"
+         },
+         {
+          "text": "Oxóssi",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "As mandalas, desenhos circulares, aparecem em quais tradições?",
+        "options": [
+         {
+          "text": "Em nenhuma",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Budistas e hinduístas"
+         },
+         {
+          "text": "Só no judaísmo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Só no candomblé",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04ER05-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: a visita virtual",
+    "prompt": "A turma fez uma visita virtual por obras de arte religiosa. Parada 1: uma igreja barroca de Ouro Preto, com talhas douradas. Parada 2: uma mesquita com azulejos azuis cheios de padrões geométricos e frases em caligrafia árabe. Parada 3: uma sinagoga com uma grande menorá. Parada 4: uma mandala colorida feita com areia por monges budistas. Parada 5: um terreiro com as cores e ferramentas dos orixás. Parada 6: uma aldeia onde os grafismos pintados no corpo têm significados ligados aos espíritos e à natureza.",
+    "estMinutes": 4,
+    "audioScript": "A turma fez uma visita virtual por obras de arte religiosa. Parada 1: uma igreja barroca de Ouro Preto, com talhas douradas. Parada 2: uma mesquita com azulejos azuis cheios de padrões geométricos e frases em caligrafia árabe. Parada 3: uma sinagoga com uma grande menorá. Parada 4: uma mandala colorida feita com areia por monges budistas. Parada 5: um terreiro com as cores e ferramentas dos orixás. Parada 6: uma aldeia onde os grafismos pintados no corpo têm significados ligados aos espíritos e à natureza. Pergunta 1. Qual parada mostra arquitetura cristã? A: A parada 4; B: A parada 1, a igreja barroca; C: A parada 5; D: A parada 6. Pergunta 2. Por que a mesquita usa padrões geométricos e caligrafia? A: Porque é mais barato; B: Porque não há artistas; C: Porque muitas tradições islâmicas evitam representar seres vivos nos espaços de oração; D: Por acaso. Pergunta 3. Que expressão artística aparece na parada 4? A: Uma escultura de bronze; B: Uma pintura a óleo; C: Um ícone ortodoxo; D: Uma mandala de areia, arte budista. Pergunta 4. O que a parada 6 mostra sobre a arte indígena? A: Que os grafismos corporais têm significados sagrados e fazem parte da identidade do povo; B: Que são só enfeites sem significado; C: Que não existe arte indígena; D: Que são copiados de outras culturas.",
+    "questions": [
+     {
+      "question": "Qual parada mostra arquitetura cristã?",
+      "options": [
+       {
+        "text": "A parada 4",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "A parada 1, a igreja barroca"
+       },
+       {
+        "text": "A parada 5",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "A parada 6",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Igreja barroca.",
+      "variants": [
+       {
+        "question": "Em que cidade fica a igreja da parada 1?",
+        "options": [
+         {
+          "text": "Congonhas",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Rio de Janeiro",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Salvador",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Ouro Preto"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual parada mostra arquitetura cristã?",
+        "options": [
+         {
+          "text": "A parada 6",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "A parada 5",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "A parada 1, a igreja barroca"
+         },
+         {
+          "text": "A parada 4",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Por que a mesquita usa padrões geométricos e caligrafia?",
+      "options": [
+       {
+        "text": "Porque é mais barato",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Porque não há artistas",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Porque muitas tradições islâmicas evitam representar seres vivos nos espaços de oração"
+       },
+       {
+        "text": "Por acaso",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Arte islâmica.",
+      "variants": [
+       {
+        "question": "De que cor eram os azulejos da mesquita?",
+        "options": [
+         {
+          "text": "Azuis"
+         },
+         {
+          "text": "Dourados",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Vermelhos",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Pretos",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Por que a mesquita usa padrões geométricos e caligrafia?",
+        "options": [
+         {
+          "text": "Por acaso",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Porque não há artistas",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Porque é mais barato",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Porque muitas tradições islâmicas evitam representar seres vivos nos espaços de oração"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Que expressão artística aparece na parada 4?",
+      "options": [
+       {
+        "text": "Uma escultura de bronze",
+        "misconceptionCode": "expressao"
+       },
+       {
+        "text": "Uma pintura a óleo",
+        "misconceptionCode": "expressao"
+       },
+       {
+        "text": "Um ícone ortodoxo",
+        "misconceptionCode": "expressao"
+       },
+       {
+        "text": "Uma mandala de areia, arte budista"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Mandala.",
+      "variants": [
+       {
+        "question": "Que símbolo judaico aparece na parada 3?",
+        "options": [
+         {
+          "text": "A cruz",
+          "misconceptionCode": "expressao"
+         },
+         {
+          "text": "A menorá"
+         },
+         {
+          "text": "A mandala",
+          "misconceptionCode": "expressao"
+         },
+         {
+          "text": "O machado de Xangô",
+          "misconceptionCode": "expressao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Que expressão artística aparece na parada 4?",
+        "options": [
+         {
+          "text": "Uma mandala de areia, arte budista"
+         },
+         {
+          "text": "Um ícone ortodoxo",
+          "misconceptionCode": "expressao"
+         },
+         {
+          "text": "Uma pintura a óleo",
+          "misconceptionCode": "expressao"
+         },
+         {
+          "text": "Uma escultura de bronze",
+          "misconceptionCode": "expressao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O que a parada 6 mostra sobre a arte indígena?",
+      "options": [
+       {
+        "text": "Que os grafismos corporais têm significados sagrados e fazem parte da identidade do povo"
+       },
+       {
+        "text": "Que são só enfeites sem significado",
+        "misconceptionCode": "identidade"
+       },
+       {
+        "text": "Que não existe arte indígena",
+        "misconceptionCode": "identidade"
+       },
+       {
+        "text": "Que são copiados de outras culturas",
+        "misconceptionCode": "identidade"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Grafismos.",
+      "variants": [
+       {
+        "question": "Quantas tradições religiosas a visita mostrou?",
+        "options": [
+         {
+          "text": "Duas",
+          "misconceptionCode": "identidade"
+         },
+         {
+          "text": "Três",
+          "misconceptionCode": "identidade"
+         },
+         {
+          "text": "Seis"
+         },
+         {
+          "text": "Quatro",
+          "misconceptionCode": "identidade"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que a parada 6 mostra sobre a arte indígena?",
+        "options": [
+         {
+          "text": "Que são copiados de outras culturas",
+          "misconceptionCode": "identidade"
+         },
+         {
+          "text": "Que os grafismos corporais têm significados sagrados e fazem parte da identidade do povo"
+         },
+         {
+          "text": "Que não existe arte indígena",
+          "misconceptionCode": "identidade"
+         },
+         {
+          "text": "Que são só enfeites sem significado",
+          "misconceptionCode": "identidade"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04ER05-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: reconhecer o sagrado na arte",
+    "prompt": "Associar.",
+    "estMinutes": 5,
+    "audioScript": "Associar. Pergunta 1. Uma pintura em madeira, com fundo dourado, de uma figura religiosa numa igreja ortodoxa é: A: Uma mandala; B: Um ícone; C: Um grafismo; D: Uma menorá. Pergunta 2. Por que o Cristo Redentor é considerado parte da identidade brasileira, além de símbolo religioso? A: Porque fica em outro país; B: Porque não tem relação com o Brasil; C: Porque se tornou um símbolo conhecido do Rio de Janeiro e do Brasil; D: Porque foi feito no ano passado. Pergunta 3. Numa visita a um templo de outra religião, qual atitude é adequada? A: Tocar em tudo sem pedir; B: Rir dos símbolos; C: Fazer barulho durante a oração; D: Seguir as orientações do lugar e tratar os objetos sagrados com respeito. Pergunta 4. As cores e ferramentas dos orixás nos terreiros representam: A: Características e histórias de cada orixá; B: Enfeites sem significado; C: Times de futebol; D: Bandeiras de países.",
+    "questions": [
+     {
+      "question": "Uma pintura em madeira, com fundo dourado, de uma figura religiosa numa igreja ortodoxa é:",
+      "options": [
+       {
+        "text": "Uma mandala",
+        "misconceptionCode": "expressao"
+       },
+       {
+        "text": "Um ícone"
+       },
+       {
+        "text": "Um grafismo",
+        "misconceptionCode": "expressao"
+       },
+       {
+        "text": "Uma menorá",
+        "misconceptionCode": "expressao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Ícone.",
+      "variants": [
+       {
+        "question": "Uma torre alta ao lado de uma mesquita, de onde se chama para a oração, é:",
+        "options": [
+         {
+          "text": "Um campanário cristão",
+          "misconceptionCode": "expressao"
+         },
+         {
+          "text": "Uma chupá",
+          "misconceptionCode": "expressao"
+         },
+         {
+          "text": "Uma oca",
+          "misconceptionCode": "expressao"
+         },
+         {
+          "text": "Um minarete"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Uma pintura em madeira, com fundo dourado, de uma figura religiosa numa igreja ortodoxa é:",
+        "options": [
+         {
+          "text": "Uma menorá",
+          "misconceptionCode": "expressao"
+         },
+         {
+          "text": "Um grafismo",
+          "misconceptionCode": "expressao"
+         },
+         {
+          "text": "Um ícone"
+         },
+         {
+          "text": "Uma mandala",
+          "misconceptionCode": "expressao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Por que o Cristo Redentor é considerado parte da identidade brasileira, além de símbolo religioso?",
+      "options": [
+       {
+        "text": "Porque fica em outro país",
+        "misconceptionCode": "identidade"
+       },
+       {
+        "text": "Porque não tem relação com o Brasil",
+        "misconceptionCode": "identidade"
+       },
+       {
+        "text": "Porque se tornou um símbolo conhecido do Rio de Janeiro e do Brasil"
+       },
+       {
+        "text": "Porque foi feito no ano passado",
+        "misconceptionCode": "identidade"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Identidade.",
+      "variants": [
+       {
+        "question": "As igrejas barrocas de Minas Gerais fazem parte de qual identidade?",
+        "options": [
+         {
+          "text": "Da história e da cultura de Minas e do Brasil"
+         },
+         {
+          "text": "De nenhuma cultura",
+          "misconceptionCode": "identidade"
+         },
+         {
+          "text": "Só de outro continente",
+          "misconceptionCode": "identidade"
+         },
+         {
+          "text": "De um jogo",
+          "misconceptionCode": "identidade"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Por que o Cristo Redentor é considerado parte da identidade brasileira, além de símbolo religioso?",
+        "options": [
+         {
+          "text": "Porque foi feito no ano passado",
+          "misconceptionCode": "identidade"
+         },
+         {
+          "text": "Porque não tem relação com o Brasil",
+          "misconceptionCode": "identidade"
+         },
+         {
+          "text": "Porque fica em outro país",
+          "misconceptionCode": "identidade"
+         },
+         {
+          "text": "Porque se tornou um símbolo conhecido do Rio de Janeiro e do Brasil"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Numa visita a um templo de outra religião, qual atitude é adequada?",
+      "options": [
+       {
+        "text": "Tocar em tudo sem pedir",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Rir dos símbolos",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Fazer barulho durante a oração",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Seguir as orientações do lugar e tratar os objetos sagrados com respeito"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Respeito.",
+      "variants": [
+       {
+        "question": "Por que alguns templos pedem para tirar os sapatos?",
+        "options": [
+         {
+          "text": "Para cansar os visitantes",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Por respeito e tradição daquele espaço sagrado"
+         },
+         {
+          "text": "Por acaso",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Para sujar o chão",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Numa visita a um templo de outra religião, qual atitude é adequada?",
+        "options": [
+         {
+          "text": "Seguir as orientações do lugar e tratar os objetos sagrados com respeito"
+         },
+         {
+          "text": "Fazer barulho durante a oração",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Rir dos símbolos",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Tocar em tudo sem pedir",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "As cores e ferramentas dos orixás nos terreiros representam:",
+      "options": [
+       {
+        "text": "Características e histórias de cada orixá"
+       },
+       {
+        "text": "Enfeites sem significado",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Times de futebol",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Bandeiras de países",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Símbolos afro-brasileiros.",
+      "variants": [
+       {
+        "question": "Iemanjá costuma ser associada a qual elemento da natureza?",
+        "options": [
+         {
+          "text": "O fogo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "A pedra",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O mar"
+         },
+         {
+          "text": "O deserto",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "As cores e ferramentas dos orixás nos terreiros representam:",
+        "options": [
+         {
+          "text": "Bandeiras de países",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Características e histórias de cada orixá"
+         },
+         {
+          "text": "Times de futebol",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Enfeites sem significado",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04ER05-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: a exposição \"Arte e fé\"",
+    "prompt": "Pesquisar e apresentar.",
+    "estMinutes": 4,
+    "audioScript": "Pesquisar e apresentar. Pergunta 1. A turma vai montar uma exposição com imagens de arte religiosa. Que cuidado é essencial? A: Incluir só uma tradição; B: Incluir várias tradições e explicar o significado de cada obra com respeito; C: Colocar legendas zombando; D: Não explicar nada. Pergunta 2. Um visitante pergunta por que a exposição tem tão poucas imagens de pessoas na seção islâmica. O que responder? A: Porque esqueceram; B: Porque o islã não tem arte; C: Muitas tradições islâmicas evitam imagens de seres vivos em espaços religiosos e valorizam a caligrafia e a geometria; D: Porque é proibido falar do islã. Pergunta 3. Que conclusão a exposição pode apresentar? A: Só uma religião tem arte; B: Arte religiosa não tem valor; C: Os símbolos religiosos são todos iguais; D: A arte religiosa expressa a fé e a identidade de muitos povos e merece respeito.",
+    "questions": [
+     {
+      "question": "A turma vai montar uma exposição com imagens de arte religiosa. Que cuidado é essencial?",
+      "options": [
+       {
+        "text": "Incluir só uma tradição",
+        "misconceptionCode": "identidade"
+       },
+       {
+        "text": "Incluir várias tradições e explicar o significado de cada obra com respeito"
+       },
+       {
+        "text": "Colocar legendas zombando",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Não explicar nada",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Cuidado.",
+      "variants": [
+       {
+        "question": "Que informação colocar na legenda de cada obra?",
+        "options": [
+         {
+          "text": "Só o preço",
+          "misconceptionCode": "identidade"
+         },
+         {
+          "text": "Só uma piada",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Nome, tipo de expressão artística, tradição e significado"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A turma vai montar uma exposição com imagens de arte religiosa. Que cuidado é essencial?",
+        "options": [
+         {
+          "text": "Não explicar nada",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Colocar legendas zombando",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Incluir várias tradições e explicar o significado de cada obra com respeito"
+         },
+         {
+          "text": "Incluir só uma tradição",
+          "misconceptionCode": "identidade"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Um visitante pergunta por que a exposição tem tão poucas imagens de pessoas na seção islâmica. O que responder?",
+      "options": [
+       {
+        "text": "Porque esqueceram",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Porque o islã não tem arte",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Muitas tradições islâmicas evitam imagens de seres vivos em espaços religiosos e valorizam a caligrafia e a geometria"
+       },
+       {
+        "text": "Porque é proibido falar do islã",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Explicação.",
+      "variants": [
+       {
+        "question": "Que obra islâmica poderia entrar na exposição?",
+        "options": [
+         {
+          "text": "Uma foto de azulejos com caligrafia árabe numa mesquita"
+         },
+         {
+          "text": "Um ícone ortodoxo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Uma menorá",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O Cristo Redentor",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Um visitante pergunta por que a exposição tem tão poucas imagens de pessoas na seção islâmica. O que responder?",
+        "options": [
+         {
+          "text": "Porque é proibido falar do islã",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Porque o islã não tem arte",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Porque esqueceram",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Muitas tradições islâmicas evitam imagens de seres vivos em espaços religiosos e valorizam a caligrafia e a geometria"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Que conclusão a exposição pode apresentar?",
+      "options": [
+       {
+        "text": "Só uma religião tem arte",
+        "misconceptionCode": "identidade"
+       },
+       {
+        "text": "Arte religiosa não tem valor",
+        "misconceptionCode": "identidade"
+       },
+       {
+        "text": "Os símbolos religiosos são todos iguais",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "A arte religiosa expressa a fé e a identidade de muitos povos e merece respeito"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Conclusão.",
+      "variants": [
+       {
+        "question": "Que obra brasileira poderia abrir a exposição?",
+        "options": [
+         {
+          "text": "Uma propaganda de refrigerante",
+          "misconceptionCode": "identidade"
+         },
+         {
+          "text": "Os profetas de Aleijadinho em Congonhas"
+         },
+         {
+          "text": "Um logotipo de empresa",
+          "misconceptionCode": "identidade"
+         },
+         {
+          "text": "Um carro",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Que conclusão a exposição pode apresentar?",
+        "options": [
+         {
+          "text": "A arte religiosa expressa a fé e a identidade de muitos povos e merece respeito"
+         },
+         {
+          "text": "Os símbolos religiosos são todos iguais",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Arte religiosa não tem valor",
+          "misconceptionCode": "identidade"
+         },
+         {
+          "text": "Só uma religião tem arte",
+          "misconceptionCode": "identidade"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04ER05-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: o sagrado na arte",
+    "prompt": "Explique como diferentes tradições expressam o sagrado na arte.",
+    "estMinutes": 6,
+    "audioScript": "Explique como diferentes tradições expressam o sagrado na arte.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "expressao",
+       "description": "Identifica expressões artísticas religiosas"
+      },
+      {
+       "code": "tradicao",
+       "description": "Associa obras e símbolos às tradições"
+      },
+      {
+       "code": "identidade",
+       "description": "Reconhece a arte religiosa como parte da identidade e a respeita"
+      }
+     ],
+     "exemploBoaResposta": "Muitas tradições expressam o sagrado na arte. No cristianismo há esculturas, como o Cristo Redentor, de 1931, e os profetas de Aleijadinho em pedra-sabão, igrejas barrocas de Minas e ícones ortodoxos. Nas mesquitas, a arquitetura tem cúpulas e minaretes, e a decoração usa caligrafia árabe e padrões geométricos, porque muitas tradições islâmicas evitam imagens de seres vivos nos espaços de oração. O judaísmo tem a menorá e a estrela de Davi; budistas e hinduístas fazem mandalas; nos terreiros há cores e ferramentas dos orixás; e os grafismos indígenas têm significados sagrados. Essas obras fazem parte da identidade dos povos e merecem respeito."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF04ER07",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 4,
+  "version": 1,
+  "title": "Trilha: Ideias de divindade",
+  "tituloAluno": "Um Deus, muitos deuses, outras visões",
+  "activities": [
+   {
+    "id": "PK2-EF04ER07-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: ideias de divindade",
+    "prompt": "Diferentes visões.",
+    "estMinutes": 4,
+    "audioScript": "Diferentes visões. Pergunta 1. O que é monoteísmo? A: A crença em muitos deuses; B: A crença em um único Deus; C: Não crer em nenhum deus; D: A crença só na natureza. Pergunta 2. Que palavra os muçulmanos usam para Deus? A: Shiva; B: Oxalá; C: Alá (Allah); D: Buda. Pergunta 3. No candomblé, como se chama a divindade suprema? A: Alá; B: Brahma; C: Javé; D: Olorum (ou Olodumare). Pergunta 4. Qual tradição tem deuses como Brahma, Vishnu e Shiva? A: Hinduísmo; B: Islamismo; C: Judaísmo; D: Candomblé. Pergunta 5. No budismo, qual é o centro da tradição? A: A adoração de Alá; B: Os ensinamentos de Buda, e não um deus criador; C: Os orixás; D: A Santíssima Trindade. Pergunta 6. Qual atitude é respeitosa com as ideias de divindade de outras pessoas? A: Dizer que o deus do outro é falso, zombando; B: Obrigar o outro a mudar de crença; C: Ouvir e respeitar, mesmo crendo de forma diferente; D: Excluir quem pensa diferente.",
+    "questions": [
+     {
+      "question": "O que é monoteísmo?",
+      "options": [
+       {
+        "text": "A crença em muitos deuses",
+        "misconceptionCode": "monoteismo"
+       },
+       {
+        "text": "A crença em um único Deus"
+       },
+       {
+        "text": "Não crer em nenhum deus",
+        "misconceptionCode": "monoteismo"
+       },
+       {
+        "text": "A crença só na natureza",
+        "misconceptionCode": "monoteismo"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Monoteísmo.",
+      "variants": [
+       {
+        "question": "Quais tradições são monoteístas?",
+        "options": [
+         {
+          "text": "Hinduísmo e candomblé",
+          "misconceptionCode": "monoteismo"
+         },
+         {
+          "text": "Só o budismo",
+          "misconceptionCode": "monoteismo"
+         },
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "monoteismo"
+         },
+         {
+          "text": "Judaísmo, cristianismo e islamismo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que é monoteísmo?",
+        "options": [
+         {
+          "text": "A crença só na natureza",
+          "misconceptionCode": "monoteismo"
+         },
+         {
+          "text": "Não crer em nenhum deus",
+          "misconceptionCode": "monoteismo"
+         },
+         {
+          "text": "A crença em um único Deus"
+         },
+         {
+          "text": "A crença em muitos deuses",
+          "misconceptionCode": "monoteismo"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Que palavra os muçulmanos usam para Deus?",
+      "options": [
+       {
+        "text": "Shiva",
+        "misconceptionCode": "monoteismo"
+       },
+       {
+        "text": "Oxalá",
+        "misconceptionCode": "monoteismo"
+       },
+       {
+        "text": "Alá (Allah)"
+       },
+       {
+        "text": "Buda",
+        "misconceptionCode": "monoteismo"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Alá.",
+      "variants": [
+       {
+        "question": "O que significa \"Allah\" em árabe?",
+        "options": [
+         {
+          "text": "Deus"
+         },
+         {
+          "text": "Sol",
+          "misconceptionCode": "monoteismo"
+         },
+         {
+          "text": "Rei",
+          "misconceptionCode": "monoteismo"
+         },
+         {
+          "text": "Profeta",
+          "misconceptionCode": "monoteismo"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Que palavra os muçulmanos usam para Deus?",
+        "options": [
+         {
+          "text": "Buda",
+          "misconceptionCode": "monoteismo"
+         },
+         {
+          "text": "Oxalá",
+          "misconceptionCode": "monoteismo"
+         },
+         {
+          "text": "Shiva",
+          "misconceptionCode": "monoteismo"
+         },
+         {
+          "text": "Alá (Allah)"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "No candomblé, como se chama a divindade suprema?",
+      "options": [
+       {
+        "text": "Alá",
+        "misconceptionCode": "politeismo"
+       },
+       {
+        "text": "Brahma",
+        "misconceptionCode": "politeismo"
+       },
+       {
+        "text": "Javé",
+        "misconceptionCode": "politeismo"
+       },
+       {
+        "text": "Olorum (ou Olodumare)"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Olorum.",
+      "variants": [
+       {
+        "question": "Qual destes é um orixá?",
+        "options": [
+         {
+          "text": "Vishnu",
+          "misconceptionCode": "politeismo"
+         },
+         {
+          "text": "Iemanjá"
+         },
+         {
+          "text": "Buda",
+          "misconceptionCode": "politeismo"
+         },
+         {
+          "text": "Alá",
+          "misconceptionCode": "politeismo"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "No candomblé, como se chama a divindade suprema?",
+        "options": [
+         {
+          "text": "Olorum (ou Olodumare)"
+         },
+         {
+          "text": "Javé",
+          "misconceptionCode": "politeismo"
+         },
+         {
+          "text": "Brahma",
+          "misconceptionCode": "politeismo"
+         },
+         {
+          "text": "Alá",
+          "misconceptionCode": "politeismo"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Qual tradição tem deuses como Brahma, Vishnu e Shiva?",
+      "options": [
+       {
+        "text": "Hinduísmo"
+       },
+       {
+        "text": "Islamismo",
+        "misconceptionCode": "politeismo"
+       },
+       {
+        "text": "Judaísmo",
+        "misconceptionCode": "politeismo"
+       },
+       {
+        "text": "Candomblé",
+        "misconceptionCode": "politeismo"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Hinduísmo.",
+      "variants": [
+       {
+        "question": "Como muitos hindus entendem seus vários deuses?",
+        "options": [
+         {
+          "text": "Como personagens de desenho animado",
+          "misconceptionCode": "politeismo"
+         },
+         {
+          "text": "Como pessoas comuns sem significado",
+          "misconceptionCode": "politeismo"
+         },
+         {
+          "text": "Como manifestações de uma realidade divina"
+         },
+         {
+          "text": "Como inimigos",
+          "misconceptionCode": "politeismo"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual tradição tem deuses como Brahma, Vishnu e Shiva?",
+        "options": [
+         {
+          "text": "Candomblé",
+          "misconceptionCode": "politeismo"
+         },
+         {
+          "text": "Hinduísmo"
+         },
+         {
+          "text": "Judaísmo",
+          "misconceptionCode": "politeismo"
+         },
+         {
+          "text": "Islamismo",
+          "misconceptionCode": "politeismo"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "No budismo, qual é o centro da tradição?",
+      "options": [
+       {
+        "text": "A adoração de Alá",
+        "misconceptionCode": "outras-visoes"
+       },
+       {
+        "text": "Os ensinamentos de Buda, e não um deus criador"
+       },
+       {
+        "text": "Os orixás",
+        "misconceptionCode": "outras-visoes"
+       },
+       {
+        "text": "A Santíssima Trindade",
+        "misconceptionCode": "outras-visoes"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Budismo.",
+      "variants": [
+       {
+        "question": "Como se chama quem não crê em divindades?",
+        "options": [
+         {
+          "text": "Monoteísta",
+          "misconceptionCode": "outras-visoes"
+         },
+         {
+          "text": "Politeísta",
+          "misconceptionCode": "outras-visoes"
+         },
+         {
+          "text": "Orixá",
+          "misconceptionCode": "outras-visoes"
+         },
+         {
+          "text": "Ateu"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "No budismo, qual é o centro da tradição?",
+        "options": [
+         {
+          "text": "A Santíssima Trindade",
+          "misconceptionCode": "outras-visoes"
+         },
+         {
+          "text": "Os orixás",
+          "misconceptionCode": "outras-visoes"
+         },
+         {
+          "text": "Os ensinamentos de Buda, e não um deus criador"
+         },
+         {
+          "text": "A adoração de Alá",
+          "misconceptionCode": "outras-visoes"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual atitude é respeitosa com as ideias de divindade de outras pessoas?",
+      "options": [
+       {
+        "text": "Dizer que o deus do outro é falso, zombando",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Obrigar o outro a mudar de crença",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Ouvir e respeitar, mesmo crendo de forma diferente"
+       },
+       {
+        "text": "Excluir quem pensa diferente",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Respeito.",
+      "variants": [
+       {
+        "question": "Uma pessoa sem religião merece respeito?",
+        "options": [
+         {
+          "text": "Sim, como todas as pessoas"
+         },
+         {
+          "text": "Não",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Só se mudar de ideia",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Só às vezes",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual atitude é respeitosa com as ideias de divindade de outras pessoas?",
+        "options": [
+         {
+          "text": "Excluir quem pensa diferente",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Obrigar o outro a mudar de crença",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Dizer que o deus do outro é falso, zombando",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Ouvir e respeitar, mesmo crendo de forma diferente"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04ER07-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: a pergunta da professora",
+    "prompt": "A professora perguntou: \"Como sua família pensa o sagrado?\" Pedro: \"Lá em casa somos cristãos; cremos em um só Deus: Pai, Filho e Espírito Santo.\" Fátima: \"Somos muçulmanos; cremos em um único Deus, Alá.\" Raj: \"Minha família é hindu; temos um altar com imagens de Ganesha e de Krishna.\" Odara: \"Minha avó é do candomblé; ela cultua os orixás e Olorum.\" Jaci: \"Na minha aldeia Guarani, falamos de Nhanderu, ligado à criação.\" Léo: \"Na minha família não temos religião, mas respeitamos as crenças de todos.\"",
+    "estMinutes": 4,
+    "audioScript": "A professora perguntou: \"Como sua família pensa o sagrado?\" Pedro: \"Lá em casa somos cristãos; cremos em um só Deus: Pai, Filho e Espírito Santo.\" Fátima: \"Somos muçulmanos; cremos em um único Deus, Alá.\" Raj: \"Minha família é hindu; temos um altar com imagens de Ganesha e de Krishna.\" Odara: \"Minha avó é do candomblé; ela cultua os orixás e Olorum.\" Jaci: \"Na minha aldeia Guarani, falamos de Nhanderu, ligado à criação.\" Léo: \"Na minha família não temos religião, mas respeitamos as crenças de todos.\" Pergunta 1. Quais falas representam o monoteísmo? A: As de Raj e Odara; B: A de Léo; C: A de Jaci, apenas; D: As de Pedro e Fátima. Pergunta 2. Que fala menciona divindades hindus? A: A de Raj, com Ganesha e Krishna; B: A de Odara; C: A de Fátima; D: A de Jaci. Pergunta 3. Que tradição aparece na fala de Jaci? A: O budismo; B: Uma tradição indígena Guarani, com Nhanderu; C: O islamismo; D: O judaísmo. Pergunta 4. Como a turma deve tratar a fala de Léo? A: Excluí-lo da conversa; B: Dizer que ele está errado; C: Com respeito, pois não ter religião também é uma forma de pensar; D: Obrigá-lo a escolher uma religião.",
+    "questions": [
+     {
+      "question": "Quais falas representam o monoteísmo?",
+      "options": [
+       {
+        "text": "As de Raj e Odara",
+        "misconceptionCode": "monoteismo"
+       },
+       {
+        "text": "A de Léo",
+        "misconceptionCode": "monoteismo"
+       },
+       {
+        "text": "A de Jaci, apenas",
+        "misconceptionCode": "monoteismo"
+       },
+       {
+        "text": "As de Pedro e Fátima"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Monoteísmo.",
+      "variants": [
+       {
+        "question": "Como Pedro descreve o Deus cristão?",
+        "options": [
+         {
+          "text": "Muitos deuses separados",
+          "misconceptionCode": "monoteismo"
+         },
+         {
+          "text": "Um só Deus em três pessoas: Pai, Filho e Espírito Santo"
+         },
+         {
+          "text": "Nenhum deus",
+          "misconceptionCode": "monoteismo"
+         },
+         {
+          "text": "Os orixás",
+          "misconceptionCode": "monoteismo"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Quais falas representam o monoteísmo?",
+        "options": [
+         {
+          "text": "As de Pedro e Fátima"
+         },
+         {
+          "text": "A de Jaci, apenas",
+          "misconceptionCode": "monoteismo"
+         },
+         {
+          "text": "A de Léo",
+          "misconceptionCode": "monoteismo"
+         },
+         {
+          "text": "As de Raj e Odara",
+          "misconceptionCode": "monoteismo"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Que fala menciona divindades hindus?",
+      "options": [
+       {
+        "text": "A de Raj, com Ganesha e Krishna"
+       },
+       {
+        "text": "A de Odara",
+        "misconceptionCode": "politeismo"
+       },
+       {
+        "text": "A de Fátima",
+        "misconceptionCode": "politeismo"
+       },
+       {
+        "text": "A de Jaci",
+        "misconceptionCode": "politeismo"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Hinduísmo.",
+      "variants": [
+       {
+        "question": "Que fala menciona orixás?",
+        "options": [
+         {
+          "text": "A de Raj",
+          "misconceptionCode": "politeismo"
+         },
+         {
+          "text": "A de Pedro",
+          "misconceptionCode": "politeismo"
+         },
+         {
+          "text": "A de Odara"
+         },
+         {
+          "text": "A de Léo",
+          "misconceptionCode": "politeismo"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Que fala menciona divindades hindus?",
+        "options": [
+         {
+          "text": "A de Jaci",
+          "misconceptionCode": "politeismo"
+         },
+         {
+          "text": "A de Raj, com Ganesha e Krishna"
+         },
+         {
+          "text": "A de Fátima",
+          "misconceptionCode": "politeismo"
+         },
+         {
+          "text": "A de Odara",
+          "misconceptionCode": "politeismo"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Que tradição aparece na fala de Jaci?",
+      "options": [
+       {
+        "text": "O budismo",
+        "misconceptionCode": "outras-visoes"
+       },
+       {
+        "text": "Uma tradição indígena Guarani, com Nhanderu"
+       },
+       {
+        "text": "O islamismo",
+        "misconceptionCode": "outras-visoes"
+       },
+       {
+        "text": "O judaísmo",
+        "misconceptionCode": "outras-visoes"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Guarani.",
+      "variants": [
+       {
+        "question": "A que Nhanderu está ligado, segundo Jaci?",
+        "options": [
+         {
+          "text": "Ao comércio",
+          "misconceptionCode": "outras-visoes"
+         },
+         {
+          "text": "Ao futebol",
+          "misconceptionCode": "outras-visoes"
+         },
+         {
+          "text": "À tecnologia",
+          "misconceptionCode": "outras-visoes"
+         },
+         {
+          "text": "À criação"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Que tradição aparece na fala de Jaci?",
+        "options": [
+         {
+          "text": "O judaísmo",
+          "misconceptionCode": "outras-visoes"
+         },
+         {
+          "text": "O islamismo",
+          "misconceptionCode": "outras-visoes"
+         },
+         {
+          "text": "Uma tradição indígena Guarani, com Nhanderu"
+         },
+         {
+          "text": "O budismo",
+          "misconceptionCode": "outras-visoes"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Como a turma deve tratar a fala de Léo?",
+      "options": [
+       {
+        "text": "Excluí-lo da conversa",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Dizer que ele está errado",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Com respeito, pois não ter religião também é uma forma de pensar"
+       },
+       {
+        "text": "Obrigá-lo a escolher uma religião",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Respeito.",
+      "variants": [
+       {
+        "question": "Quantas formas diferentes de pensar o sagrado apareceram?",
+        "options": [
+         {
+          "text": "Seis, incluindo a família sem religião"
+         },
+         {
+          "text": "Uma",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Duas",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Três",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Como a turma deve tratar a fala de Léo?",
+        "options": [
+         {
+          "text": "Obrigá-lo a escolher uma religião",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Dizer que ele está errado",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Excluí-lo da conversa",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Com respeito, pois não ter religião também é uma forma de pensar"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04ER07-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: reconhecer e respeitar",
+    "prompt": "Divindades.",
+    "estMinutes": 5,
+    "audioScript": "Divindades. Pergunta 1. Oxum, Ogum e Xangô são: A: Deuses hindus; B: Profetas do islamismo; C: Nomes do Deus judaico; D: Orixás das religiões afro-brasileiras. Pergunta 2. Ganesha, representado com cabeça de elefante, é uma divindade de qual tradição? A: Hinduísmo; B: Budismo; C: Candomblé; D: Cristianismo. Pergunta 3. Um colega diz: \"O meu Deus é o único verdadeiro, os dos outros são bobagem.\" Como responder com respeito? A: \"Concordo, os outros são bobagem.\"; B: \"Você pode crer no seu Deus, e os outros também podem crer de outro jeito; todos merecem respeito.\"; C: \"Seu Deus é que é bobagem.\"; D: \"Ninguém deveria crer em nada.\". Pergunta 4. Qual afirmação sobre o budismo está correta? A: Os budistas adoram Alá; B: O budismo cultua os orixás; C: Os ensinamentos de Buda estão no centro, e não um deus criador; D: O budismo é monoteísta como o islamismo.",
+    "questions": [
+     {
+      "question": "Oxum, Ogum e Xangô são:",
+      "options": [
+       {
+        "text": "Deuses hindus",
+        "misconceptionCode": "politeismo"
+       },
+       {
+        "text": "Profetas do islamismo",
+        "misconceptionCode": "politeismo"
+       },
+       {
+        "text": "Nomes do Deus judaico",
+        "misconceptionCode": "politeismo"
+       },
+       {
+        "text": "Orixás das religiões afro-brasileiras"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Orixás.",
+      "variants": [
+       {
+        "question": "Ogum costuma ser associado a:",
+        "options": [
+         {
+          "text": "Mar",
+          "misconceptionCode": "politeismo"
+         },
+         {
+          "text": "Ferro, metais e caminhos"
+         },
+         {
+          "text": "Rios de água doce",
+          "misconceptionCode": "politeismo"
+         },
+         {
+          "text": "Céu estrelado",
+          "misconceptionCode": "politeismo"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Oxum, Ogum e Xangô são:",
+        "options": [
+         {
+          "text": "Orixás das religiões afro-brasileiras"
+         },
+         {
+          "text": "Nomes do Deus judaico",
+          "misconceptionCode": "politeismo"
+         },
+         {
+          "text": "Profetas do islamismo",
+          "misconceptionCode": "politeismo"
+         },
+         {
+          "text": "Deuses hindus",
+          "misconceptionCode": "politeismo"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Ganesha, representado com cabeça de elefante, é uma divindade de qual tradição?",
+      "options": [
+       {
+        "text": "Hinduísmo"
+       },
+       {
+        "text": "Budismo",
+        "misconceptionCode": "politeismo"
+       },
+       {
+        "text": "Candomblé",
+        "misconceptionCode": "politeismo"
+       },
+       {
+        "text": "Cristianismo",
+        "misconceptionCode": "politeismo"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Ganesha.",
+      "variants": [
+       {
+        "question": "Em que país o hinduísmo tem o maior número de seguidores?",
+        "options": [
+         {
+          "text": "Brasil",
+          "misconceptionCode": "politeismo"
+         },
+         {
+          "text": "Argentina",
+          "misconceptionCode": "politeismo"
+         },
+         {
+          "text": "Índia"
+         },
+         {
+          "text": "Portugal",
+          "misconceptionCode": "politeismo"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Ganesha, representado com cabeça de elefante, é uma divindade de qual tradição?",
+        "options": [
+         {
+          "text": "Cristianismo",
+          "misconceptionCode": "politeismo"
+         },
+         {
+          "text": "Hinduísmo"
+         },
+         {
+          "text": "Candomblé",
+          "misconceptionCode": "politeismo"
+         },
+         {
+          "text": "Budismo",
+          "misconceptionCode": "politeismo"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um colega diz: \"O meu Deus é o único verdadeiro, os dos outros são bobagem.\" Como responder com respeito?",
+      "options": [
+       {
+        "text": "\"Concordo, os outros são bobagem.\"",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "\"Você pode crer no seu Deus, e os outros também podem crer de outro jeito; todos merecem respeito.\""
+       },
+       {
+        "text": "\"Seu Deus é que é bobagem.\"",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "\"Ninguém deveria crer em nada.\"",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Respeito mútuo.",
+      "variants": [
+       {
+        "question": "O que a Constituição brasileira garante sobre crença?",
+        "options": [
+         {
+          "text": "Que todos sigam a mesma religião",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Que é proibido ter religião",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Que é proibido não ter religião",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "A liberdade de crença"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um colega diz: \"O meu Deus é o único verdadeiro, os dos outros são bobagem.\" Como responder com respeito?",
+        "options": [
+         {
+          "text": "\"Ninguém deveria crer em nada.\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"Seu Deus é que é bobagem.\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"Você pode crer no seu Deus, e os outros também podem crer de outro jeito; todos merecem respeito.\""
+         },
+         {
+          "text": "\"Concordo, os outros são bobagem.\"",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual afirmação sobre o budismo está correta?",
+      "options": [
+       {
+        "text": "Os budistas adoram Alá",
+        "misconceptionCode": "outras-visoes"
+       },
+       {
+        "text": "O budismo cultua os orixás",
+        "misconceptionCode": "outras-visoes"
+       },
+       {
+        "text": "Os ensinamentos de Buda estão no centro, e não um deus criador"
+       },
+       {
+        "text": "O budismo é monoteísta como o islamismo",
+        "misconceptionCode": "outras-visoes"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Budismo.",
+      "variants": [
+       {
+        "question": "Como se chama quem não tem certeza se existem divindades?",
+        "options": [
+         {
+          "text": "Agnóstico"
+         },
+         {
+          "text": "Monoteísta",
+          "misconceptionCode": "outras-visoes"
+         },
+         {
+          "text": "Politeísta",
+          "misconceptionCode": "outras-visoes"
+         },
+         {
+          "text": "Profeta",
+          "misconceptionCode": "outras-visoes"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual afirmação sobre o budismo está correta?",
+        "options": [
+         {
+          "text": "O budismo é monoteísta como o islamismo",
+          "misconceptionCode": "outras-visoes"
+         },
+         {
+          "text": "O budismo cultua os orixás",
+          "misconceptionCode": "outras-visoes"
+         },
+         {
+          "text": "Os budistas adoram Alá",
+          "misconceptionCode": "outras-visoes"
+         },
+         {
+          "text": "Os ensinamentos de Buda estão no centro, e não um deus criador"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04ER07-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: o mural do respeito",
+    "prompt": "Diversidade de crenças.",
+    "estMinutes": 4,
+    "audioScript": "Diversidade de crenças. Pergunta 1. A turma vai fazer um mural sobre ideias de divindade. Como organizar? A: Só com uma tradição; B: Dizendo qual tradição é a certa; C: Sem explicar nada; D: Em grupos: um Deus; muitas divindades; outras visões (como o budismo e pessoas sem religião). Pergunta 2. Que frase pode ser o título do mural? A: \"Muitas formas de pensar o sagrado, um só respeito\"; B: \"A única crença certa\"; C: \"Crenças esquisitas\"; D: \"Quem não crê está errado\". Pergunta 3. Um aluno quer escrever no mural que o deus de outra religião \"não existe\". O que a turma deve fazer? A: Publicar a frase; B: Conversar e lembrar que o mural apresenta as crenças com respeito, sem atacar nenhuma; C: Rir junto; D: Apagar todas as tradições.",
+    "questions": [
+     {
+      "question": "A turma vai fazer um mural sobre ideias de divindade. Como organizar?",
+      "options": [
+       {
+        "text": "Só com uma tradição",
+        "misconceptionCode": "monoteismo"
+       },
+       {
+        "text": "Dizendo qual tradição é a certa",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Sem explicar nada",
+        "misconceptionCode": "outras-visoes"
+       },
+       {
+        "text": "Em grupos: um Deus; muitas divindades; outras visões (como o budismo e pessoas sem religião)"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Organização.",
+      "variants": [
+       {
+        "question": "Em que grupo entram o candomblé e o hinduísmo?",
+        "options": [
+         {
+          "text": "Um Deus",
+          "misconceptionCode": "monoteismo"
+         },
+         {
+          "text": "Muitas divindades"
+         },
+         {
+          "text": "Sem religião",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "outras-visoes"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A turma vai fazer um mural sobre ideias de divindade. Como organizar?",
+        "options": [
+         {
+          "text": "Em grupos: um Deus; muitas divindades; outras visões (como o budismo e pessoas sem religião)"
+         },
+         {
+          "text": "Sem explicar nada",
+          "misconceptionCode": "outras-visoes"
+         },
+         {
+          "text": "Dizendo qual tradição é a certa",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Só com uma tradição",
+          "misconceptionCode": "monoteismo"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Que frase pode ser o título do mural?",
+      "options": [
+       {
+        "text": "\"Muitas formas de pensar o sagrado, um só respeito\""
+       },
+       {
+        "text": "\"A única crença certa\"",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "\"Crenças esquisitas\"",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "\"Quem não crê está errado\"",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Título.",
+      "variants": [
+       {
+        "question": "Por que incluir pessoas sem religião no mural?",
+        "options": [
+         {
+          "text": "Para criticá-las",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Não é preciso",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Porque também fazem parte da diversidade e merecem respeito"
+         },
+         {
+          "text": "Para obrigá-las a escolher uma religião",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Que frase pode ser o título do mural?",
+        "options": [
+         {
+          "text": "\"Quem não crê está errado\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"Muitas formas de pensar o sagrado, um só respeito\""
+         },
+         {
+          "text": "\"Crenças esquisitas\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"A única crença certa\"",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um aluno quer escrever no mural que o deus de outra religião \"não existe\". O que a turma deve fazer?",
+      "options": [
+       {
+        "text": "Publicar a frase",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Conversar e lembrar que o mural apresenta as crenças com respeito, sem atacar nenhuma"
+       },
+       {
+        "text": "Rir junto",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Apagar todas as tradições",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Combinado.",
+      "variants": [
+       {
+        "question": "Qual frase respeitosa poderia substituí-la?",
+        "options": [
+         {
+          "text": "\"Só uma crença é verdadeira.\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"Os outros estão errados.\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"Ninguém deveria ter crença.\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"Cada tradição tem sua forma de entender o divino.\""
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um aluno quer escrever no mural que o deus de outra religião \"não existe\". O que a turma deve fazer?",
+        "options": [
+         {
+          "text": "Apagar todas as tradições",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Rir junto",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Conversar e lembrar que o mural apresenta as crenças com respeito, sem atacar nenhuma"
+         },
+         {
+          "text": "Publicar a frase",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF04ER07-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: ideias de divindade",
+    "prompt": "Explique diferentes ideias de divindade e por que respeitá-las.",
+    "estMinutes": 6,
+    "audioScript": "Explique diferentes ideias de divindade e por que respeitá-las.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "monoteismo",
+       "description": "Explica o monoteísmo com tradições"
+      },
+      {
+       "code": "politeismo",
+       "description": "Explica tradições com várias divindades"
+      },
+      {
+       "code": "outras-visoes-respeito",
+       "description": "Cita outras visões e a importância do respeito"
+      }
+     ],
+     "exemploBoaResposta": "As tradições pensam o sagrado de formas diferentes. Judaísmo, cristianismo e islamismo são monoteístas: creem em um único Deus; os cristãos creem num Deus em três pessoas e os muçulmanos o chamam de Alá. No hinduísmo há muitos deuses, como Brahma, Vishnu, Shiva e Ganesha, que muitos hindus veem como manifestações do divino; no candomblé há Olorum e os orixás, como Iemanjá, Xangô e Ogum. Os Guarani falam de Nhanderu. No budismo, o centro são os ensinamentos de Buda. Há também pessoas sem religião. A Constituição garante a liberdade de crença, e todas as pessoas merecem respeito."
+    }
+   }
+  ]
+ },
+ {
   "skillCode": "EF04ER01",
   "subjectCode": "ER",
   "subjectName": "Ensino Religioso",

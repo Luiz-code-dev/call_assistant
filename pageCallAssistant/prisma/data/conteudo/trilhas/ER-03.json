@@ -1,5 +1,2349 @@
 [
  {
+  "skillCode": "EF03ER04",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: Práticas celebrativas",
+  "tituloAluno": "Festas e ritos de diferentes tradições",
+  "activities": [
+   {
+    "id": "PK2-EF03ER04-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: o que são celebrações",
+    "prompt": "Momentos especiais para cada tradição.",
+    "estMinutes": 4,
+    "audioScript": "Momentos especiais para cada tradição. Pergunta 1. O que é uma prática celebrativa religiosa? A: Uma aula de matemática; B: Uma festa, ritual ou rito que marca um momento importante para uma tradição; C: Um jogo de futebol qualquer; D: Uma compra no mercado. Pergunta 2. A Páscoa é uma celebração importante para qual tradição? A: Islamismo; B: Budismo; C: Cristianismo; D: Hinduísmo. Pergunta 3. O Diwali, festa das luzes com muitas lamparinas acesas, é celebrado por qual tradição? A: Judaísmo; B: Islamismo; C: Budismo; D: Hinduísmo. Pergunta 4. O que é um rito de passagem? A: Uma celebração que marca uma nova fase da vida, como o nascimento, a juventude ou o casamento; B: Uma corrida; C: Uma passagem de ônibus; D: Uma brincadeira de pega-pega. Pergunta 5. Qual atitude é respeitosa diante da celebração de outra tradição? A: Zombar das roupas e dos cantos; B: Observar com atenção e respeito, sem rir ou desfazer; C: Dizer que só a sua festa vale; D: Atrapalhar a celebração.",
+    "questions": [
+     {
+      "question": "O que é uma prática celebrativa religiosa?",
+      "options": [
+       {
+        "text": "Uma aula de matemática",
+        "misconceptionCode": "identificar"
+       },
+       {
+        "text": "Uma festa, ritual ou rito que marca um momento importante para uma tradição"
+       },
+       {
+        "text": "Um jogo de futebol qualquer",
+        "misconceptionCode": "identificar"
+       },
+       {
+        "text": "Uma compra no mercado",
+        "misconceptionCode": "identificar"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Celebração.",
+      "variants": [
+       {
+        "question": "Qual destes é uma prática celebrativa?",
+        "options": [
+         {
+          "text": "Uma ida ao dentista",
+          "misconceptionCode": "identificar"
+         },
+         {
+          "text": "Uma prova escolar",
+          "misconceptionCode": "identificar"
+         },
+         {
+          "text": "Uma viagem de ônibus",
+          "misconceptionCode": "identificar"
+         },
+         {
+          "text": "Um casamento celebrado num templo"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que é uma prática celebrativa religiosa?",
+        "options": [
+         {
+          "text": "Uma compra no mercado",
+          "misconceptionCode": "identificar"
+         },
+         {
+          "text": "Um jogo de futebol qualquer",
+          "misconceptionCode": "identificar"
+         },
+         {
+          "text": "Uma festa, ritual ou rito que marca um momento importante para uma tradição"
+         },
+         {
+          "text": "Uma aula de matemática",
+          "misconceptionCode": "identificar"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "A Páscoa é uma celebração importante para qual tradição?",
+      "options": [
+       {
+        "text": "Islamismo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Budismo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Cristianismo"
+       },
+       {
+        "text": "Hinduísmo",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Tradição cristã.",
+      "variants": [
+       {
+        "question": "Pessach é uma celebração importante para qual tradição?",
+        "options": [
+         {
+          "text": "Judaísmo"
+         },
+         {
+          "text": "Cristianismo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Hinduísmo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Candomblé",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "A Páscoa é uma celebração importante para qual tradição?",
+        "options": [
+         {
+          "text": "Hinduísmo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Budismo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Islamismo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Cristianismo"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "O Diwali, festa das luzes com muitas lamparinas acesas, é celebrado por qual tradição?",
+      "options": [
+       {
+        "text": "Judaísmo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Islamismo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Budismo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Hinduísmo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Hinduísmo.",
+      "variants": [
+       {
+        "question": "O Ramadã, mês de jejum durante o dia, é vivido por quem segue:",
+        "options": [
+         {
+          "text": "O budismo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O islamismo"
+         },
+         {
+          "text": "O judaísmo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O hinduísmo",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O Diwali, festa das luzes com muitas lamparinas acesas, é celebrado por qual tradição?",
+        "options": [
+         {
+          "text": "Hinduísmo"
+         },
+         {
+          "text": "Budismo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Islamismo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Judaísmo",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O que é um rito de passagem?",
+      "options": [
+       {
+        "text": "Uma celebração que marca uma nova fase da vida, como o nascimento, a juventude ou o casamento"
+       },
+       {
+        "text": "Uma corrida",
+        "misconceptionCode": "identificar"
+       },
+       {
+        "text": "Uma passagem de ônibus",
+        "misconceptionCode": "identificar"
+       },
+       {
+        "text": "Uma brincadeira de pega-pega",
+        "misconceptionCode": "identificar"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Rito de passagem.",
+      "variants": [
+       {
+        "question": "Qual é um exemplo de rito de passagem?",
+        "options": [
+         {
+          "text": "Escovar os dentes",
+          "misconceptionCode": "identificar"
+         },
+         {
+          "text": "Almoçar",
+          "misconceptionCode": "identificar"
+         },
+         {
+          "text": "O bar mitzvá, no judaísmo"
+         },
+         {
+          "text": "Ir ao parque",
+          "misconceptionCode": "identificar"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O que é um rito de passagem?",
+        "options": [
+         {
+          "text": "Uma brincadeira de pega-pega",
+          "misconceptionCode": "identificar"
+         },
+         {
+          "text": "Uma celebração que marca uma nova fase da vida, como o nascimento, a juventude ou o casamento"
+         },
+         {
+          "text": "Uma passagem de ônibus",
+          "misconceptionCode": "identificar"
+         },
+         {
+          "text": "Uma corrida",
+          "misconceptionCode": "identificar"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Qual atitude é respeitosa diante da celebração de outra tradição?",
+      "options": [
+       {
+        "text": "Zombar das roupas e dos cantos",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Observar com atenção e respeito, sem rir ou desfazer"
+       },
+       {
+        "text": "Dizer que só a sua festa vale",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Atrapalhar a celebração",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Respeito.",
+      "variants": [
+       {
+        "question": "E as famílias que não seguem nenhuma religião?",
+        "options": [
+         {
+          "text": "Devem ser obrigadas a seguir uma",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Não podem participar da escola",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Devem ser excluídas",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Também merecem respeito"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Qual atitude é respeitosa diante da celebração de outra tradição?",
+        "options": [
+         {
+          "text": "Atrapalhar a celebração",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Dizer que só a sua festa vale",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Observar com atenção e respeito, sem rir ou desfazer"
+         },
+         {
+          "text": "Zombar das roupas e dos cantos",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER04-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: o calendário de festas da turma",
+    "prompt": "A turma montou um mural com celebrações das famílias e de outras tradições: Lia contou que a família vai à missa de Natal; Samir contou da festa do fim do Ramadã, com comidas e visitas; Davi contou do Pessach, com uma refeição especial que lembra a história do seu povo; Iara, de um povo indígena, contou de um ritual de sua aldeia; Joana contou que a família leva flores para Iemanjá no mar; Pedro disse que sua família não tem religião e que eles celebram os aniversários juntos.",
+    "estMinutes": 4,
+    "audioScript": "A turma montou um mural com celebrações das famílias e de outras tradições: Lia contou que a família vai à missa de Natal; Samir contou da festa do fim do Ramadã, com comidas e visitas; Davi contou do Pessach, com uma refeição especial que lembra a história do seu povo; Iara, de um povo indígena, contou de um ritual de sua aldeia; Joana contou que a família leva flores para Iemanjá no mar; Pedro disse que sua família não tem religião e que eles celebram os aniversários juntos. Pergunta 1. Que celebração Samir apresentou? A: O Natal; B: O Pessach; C: A festa do fim do Ramadã; D: O Diwali. Pergunta 2. Que tradição Joana apresentou? A: Budismo; B: Judaísmo; C: Hinduísmo; D: Uma tradição de matriz africana, com flores para Iemanjá. Pergunta 3. Qual é o sentido do Pessach para a família de Davi? A: Lembrar a história do seu povo, a saída do Egito, com uma refeição especial; B: Comemorar um jogo; C: Celebrar o fim do ano escolar; D: Não tem sentido. Pergunta 4. Como a turma deve tratar a fala de Pedro? A: Dizer que ele está errado; B: Com respeito, pois famílias sem religião também celebram momentos importantes à sua maneira; C: Excluí-lo do mural; D: Obrigá-lo a escolher uma religião. Pergunta 5. O que o mural mostra sobre a turma? A: Que só uma forma é certa; B: Que ninguém celebra nada; C: Que as famílias celebram de formas diferentes, e todas convivem na escola; D: Que todas as festas são iguais.",
+    "questions": [
+     {
+      "question": "Que celebração Samir apresentou?",
+      "options": [
+       {
+        "text": "O Natal",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "O Pessach",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "A festa do fim do Ramadã"
+       },
+       {
+        "text": "O Diwali",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Islamismo.",
+      "variants": [
+       {
+        "question": "O que acontece antes dessa festa?",
+        "options": [
+         {
+          "text": "Um mês de jejum durante o dia"
+         },
+         {
+          "text": "Um mês de férias na praia",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Uma corrida",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Que celebração Samir apresentou?",
+        "options": [
+         {
+          "text": "O Diwali",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O Pessach",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O Natal",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "A festa do fim do Ramadã"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Que tradição Joana apresentou?",
+      "options": [
+       {
+        "text": "Budismo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Judaísmo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Hinduísmo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Uma tradição de matriz africana, com flores para Iemanjá"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Candomblé ou umbanda.",
+      "variants": [
+       {
+        "question": "Onde costuma acontecer a homenagem a Iemanjá?",
+        "options": [
+         {
+          "text": "Num deserto",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "No mar ou na praia"
+         },
+         {
+          "text": "No alto de uma montanha nevada",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Num estacionamento",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Que tradição Joana apresentou?",
+        "options": [
+         {
+          "text": "Uma tradição de matriz africana, com flores para Iemanjá"
+         },
+         {
+          "text": "Hinduísmo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Judaísmo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Budismo",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Qual é o sentido do Pessach para a família de Davi?",
+      "options": [
+       {
+        "text": "Lembrar a história do seu povo, a saída do Egito, com uma refeição especial"
+       },
+       {
+        "text": "Comemorar um jogo",
+        "misconceptionCode": "sentido"
+       },
+       {
+        "text": "Celebrar o fim do ano escolar",
+        "misconceptionCode": "sentido"
+       },
+       {
+        "text": "Não tem sentido",
+        "misconceptionCode": "sentido"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Memória.",
+      "variants": [
+       {
+        "question": "Que elemento aparece em muitas celebrações?",
+        "options": [
+         {
+          "text": "Provas escritas",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Filas de banco",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Refeições especiais compartilhadas"
+         },
+         {
+          "text": "Silêncio total sempre",
+          "misconceptionCode": "sentido"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Qual é o sentido do Pessach para a família de Davi?",
+        "options": [
+         {
+          "text": "Não tem sentido",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Lembrar a história do seu povo, a saída do Egito, com uma refeição especial"
+         },
+         {
+          "text": "Celebrar o fim do ano escolar",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Comemorar um jogo",
+          "misconceptionCode": "sentido"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Como a turma deve tratar a fala de Pedro?",
+      "options": [
+       {
+        "text": "Dizer que ele está errado",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Com respeito, pois famílias sem religião também celebram momentos importantes à sua maneira"
+       },
+       {
+        "text": "Excluí-lo do mural",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Obrigá-lo a escolher uma religião",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Respeito à diversidade.",
+      "variants": [
+       {
+        "question": "Quantas tradições ou formas de celebrar diferentes apareceram no mural?",
+        "options": [
+         {
+          "text": "Duas",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Três",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Uma",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Seis"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Como a turma deve tratar a fala de Pedro?",
+        "options": [
+         {
+          "text": "Obrigá-lo a escolher uma religião",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Excluí-lo do mural",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Com respeito, pois famílias sem religião também celebram momentos importantes à sua maneira"
+         },
+         {
+          "text": "Dizer que ele está errado",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O que o mural mostra sobre a turma?",
+      "options": [
+       {
+        "text": "Que só uma forma é certa",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Que ninguém celebra nada",
+        "misconceptionCode": "identificar"
+       },
+       {
+        "text": "Que as famílias celebram de formas diferentes, e todas convivem na escola"
+       },
+       {
+        "text": "Que todas as festas são iguais",
+        "misconceptionCode": "sentido"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Diversidade.",
+      "variants": [
+       {
+        "question": "Que frase combina com o mural?",
+        "options": [
+         {
+          "text": "\"Cada família celebra do seu jeito, e todos merecem respeito.\""
+         },
+         {
+          "text": "\"Só a minha festa importa.\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"Festas diferentes são estranhas.\"",
+          "misconceptionCode": "identificar"
+         },
+         {
+          "text": "\"Religião não deve ser respeitada.\"",
+          "misconceptionCode": "sentido"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que o mural mostra sobre a turma?",
+        "options": [
+         {
+          "text": "Que todas as festas são iguais",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Que ninguém celebra nada",
+          "misconceptionCode": "identificar"
+         },
+         {
+          "text": "Que só uma forma é certa",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Que as famílias celebram de formas diferentes, e todas convivem na escola"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER04-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: relacionar celebrações e tradições",
+    "prompt": "Conhecer para respeitar.",
+    "estMinutes": 5,
+    "audioScript": "Conhecer para respeitar. Pergunta 1. O Vesak lembra o nascimento, a iluminação e a morte do Buda. É celebrado por qual tradição? A: Cristianismo; B: Judaísmo; C: Islamismo; D: Budismo. Pergunta 2. O Kuarup é um ritual de povos indígenas do Xingu. O que ele homenageia? A: Pessoas importantes que já morreram; B: O início das aulas; C: Um jogo de futebol; D: Uma loja. Pergunta 3. Um colega ri do canto de outra tradição numa apresentação. Como agir? A: Rir junto; B: Explicar que aquele canto é importante para quem o pratica e que devemos respeitar; C: Ignorar e repetir a zombaria; D: Apoiar a zombaria. Pergunta 4. Qual é um rito de passagem do cristianismo? A: O Diwali; B: O Ramadã; C: O batismo; D: O bar mitzvá.",
+    "questions": [
+     {
+      "question": "O Vesak lembra o nascimento, a iluminação e a morte do Buda. É celebrado por qual tradição?",
+      "options": [
+       {
+        "text": "Cristianismo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Judaísmo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Islamismo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Budismo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Budismo.",
+      "variants": [
+       {
+        "question": "O Natal lembra o nascimento de quem, para os cristãos?",
+        "options": [
+         {
+          "text": "Buda",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Jesus"
+         },
+         {
+          "text": "Moisés",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Maomé",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O Vesak lembra o nascimento, a iluminação e a morte do Buda. É celebrado por qual tradição?",
+        "options": [
+         {
+          "text": "Budismo"
+         },
+         {
+          "text": "Islamismo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Judaísmo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Cristianismo",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "O Kuarup é um ritual de povos indígenas do Xingu. O que ele homenageia?",
+      "options": [
+       {
+        "text": "Pessoas importantes que já morreram"
+       },
+       {
+        "text": "O início das aulas",
+        "misconceptionCode": "sentido"
+       },
+       {
+        "text": "Um jogo de futebol",
+        "misconceptionCode": "sentido"
+       },
+       {
+        "text": "Uma loja",
+        "misconceptionCode": "sentido"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Ritual indígena.",
+      "variants": [
+       {
+        "question": "Que elementos costumam fazer parte de rituais indígenas?",
+        "options": [
+         {
+          "text": "Provas escritas",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Fila de banco",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Cantos, danças e pinturas corporais"
+         },
+         {
+          "text": "Desfile de carros",
+          "misconceptionCode": "sentido"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O Kuarup é um ritual de povos indígenas do Xingu. O que ele homenageia?",
+        "options": [
+         {
+          "text": "Uma loja",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Pessoas importantes que já morreram"
+         },
+         {
+          "text": "Um jogo de futebol",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "O início das aulas",
+          "misconceptionCode": "sentido"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Um colega ri do canto de outra tradição numa apresentação. Como agir?",
+      "options": [
+       {
+        "text": "Rir junto",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Explicar que aquele canto é importante para quem o pratica e que devemos respeitar"
+       },
+       {
+        "text": "Ignorar e repetir a zombaria",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Apoiar a zombaria",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Atitude respeitosa.",
+      "variants": [
+       {
+        "question": "Por que zombar de uma celebração é desrespeitoso?",
+        "options": [
+         {
+          "text": "Porque é engraçado",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Não é desrespeitoso",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Porque todos zombam",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Porque desvaloriza algo importante para outras pessoas"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Um colega ri do canto de outra tradição numa apresentação. Como agir?",
+        "options": [
+         {
+          "text": "Apoiar a zombaria",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Ignorar e repetir a zombaria",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Explicar que aquele canto é importante para quem o pratica e que devemos respeitar"
+         },
+         {
+          "text": "Rir junto",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual é um rito de passagem do cristianismo?",
+      "options": [
+       {
+        "text": "O Diwali",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "O Ramadã",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "O batismo"
+       },
+       {
+        "text": "O bar mitzvá",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Batismo.",
+      "variants": [
+       {
+        "question": "O bat mitzvá marca a passagem de meninas judias para:",
+        "options": [
+         {
+          "text": "A maturidade religiosa, por volta dos 12 anos"
+         },
+         {
+          "text": "O ensino médio",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "A aposentadoria",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O primeiro dia de aula",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual é um rito de passagem do cristianismo?",
+        "options": [
+         {
+          "text": "O bar mitzvá",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O Ramadã",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O Diwali",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O batismo"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER04-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: mostra de celebrações",
+    "prompt": "Conhecer com respeito.",
+    "estMinutes": 4,
+    "audioScript": "Conhecer com respeito. Pergunta 1. A turma vai fazer uma mostra sobre celebrações. Que cuidado ter? A: Escolher a melhor celebração; B: Copiar roupas sagradas como fantasia; C: Obrigar todos a apresentar uma religião; D: Pedir que cada família conte sua celebração como quiser e apresentar com respeito. Pergunta 2. Que informação cada cartaz da mostra deve ter? A: Nome da celebração, tradição, o que se celebra e como; B: Só um desenho sem explicação; C: Qual é a melhor; D: Nada. Pergunta 3. O que a turma aprende com a mostra? A: Que só uma tradição existe; B: Que há muitas formas de celebrar e que conhecer as diferenças ajuda a conviver; C: Que as diferenças devem ser escondidas; D: Nada.",
+    "questions": [
+     {
+      "question": "A turma vai fazer uma mostra sobre celebrações. Que cuidado ter?",
+      "options": [
+       {
+        "text": "Escolher a melhor celebração",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Copiar roupas sagradas como fantasia",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Obrigar todos a apresentar uma religião",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Pedir que cada família conte sua celebração como quiser e apresentar com respeito"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Cuidado.",
+      "variants": [
+       {
+        "question": "Como incluir quem não tem religião na mostra?",
+        "options": [
+         {
+          "text": "Excluí-los",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Convidá-los a contar celebrações familiares, como aniversários, se quiserem"
+         },
+         {
+          "text": "Obrigá-los a escolher uma religião",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Ignorá-los",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "A turma vai fazer uma mostra sobre celebrações. Que cuidado ter?",
+        "options": [
+         {
+          "text": "Pedir que cada família conte sua celebração como quiser e apresentar com respeito"
+         },
+         {
+          "text": "Obrigar todos a apresentar uma religião",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Copiar roupas sagradas como fantasia",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Escolher a melhor celebração",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "Que informação cada cartaz da mostra deve ter?",
+      "options": [
+       {
+        "text": "Nome da celebração, tradição, o que se celebra e como"
+       },
+       {
+        "text": "Só um desenho sem explicação",
+        "misconceptionCode": "sentido"
+       },
+       {
+        "text": "Qual é a melhor",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "identificar"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Cartaz informativo.",
+      "variants": [
+       {
+        "question": "Qual legenda combina com o Diwali?",
+        "options": [
+         {
+          "text": "\"Festa do carnaval.\"",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "\"Festa sem sentido.\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"Festa das luzes do hinduísmo, com lamparinas que simbolizam a vitória da luz sobre a escuridão.\""
+         },
+         {
+          "text": "\"Festa de aniversário.\"",
+          "misconceptionCode": "identificar"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Que informação cada cartaz da mostra deve ter?",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "identificar"
+         },
+         {
+          "text": "Nome da celebração, tradição, o que se celebra e como"
+         },
+         {
+          "text": "Qual é a melhor",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Só um desenho sem explicação",
+          "misconceptionCode": "sentido"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "O que a turma aprende com a mostra?",
+      "options": [
+       {
+        "text": "Que só uma tradição existe",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Que há muitas formas de celebrar e que conhecer as diferenças ajuda a conviver"
+       },
+       {
+        "text": "Que as diferenças devem ser escondidas",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Nada",
+        "misconceptionCode": "sentido"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Convivência.",
+      "variants": [
+       {
+        "question": "Que atitude mostra que a turma aprendeu?",
+        "options": [
+         {
+          "text": "Rir das diferenças",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Dizer que tudo é estranho",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Não ouvir os colegas",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Perguntar com curiosidade e respeito sobre a celebração do colega"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "O que a turma aprende com a mostra?",
+        "options": [
+         {
+          "text": "Nada",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Que as diferenças devem ser escondidas",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Que há muitas formas de celebrar e que conhecer as diferenças ajuda a conviver"
+         },
+         {
+          "text": "Que só uma tradição existe",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER04-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: práticas celebrativas",
+    "prompt": "Explique o que são práticas celebrativas e dê exemplos de diferentes tradições.",
+    "estMinutes": 6,
+    "audioScript": "Explique o que são práticas celebrativas e dê exemplos de diferentes tradições.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "conceito",
+       "description": "Explica o que são práticas celebrativas e ritos de passagem"
+      },
+      {
+       "code": "exemplos",
+       "description": "Cita celebrações de pelo menos três tradições diferentes, associando corretamente"
+      },
+      {
+       "code": "respeito",
+       "description": "Explica a importância do respeito, inclusive a quem não tem religião"
+      }
+     ],
+     "exemploBoaResposta": "Práticas celebrativas são festas, rituais e ritos que marcam momentos importantes para as tradições religiosas. Os cristãos celebram o Natal e a Páscoa; os judeus, o Pessach, que lembra a saída do Egito; os muçulmanos vivem o jejum do Ramadã e a festa do seu fim; os hindus celebram o Diwali, a festa das luzes; os budistas, o Vesak; as tradições de matriz africana homenageiam Iemanjá; povos indígenas do Xingu realizam o Kuarup. Há ritos de passagem, como o batismo e o bar mitzvá. Todas as tradições, e também quem não tem religião, merecem respeito."
+    }
+   }
+  ]
+ },
+ {
+  "skillCode": "EF03ER06",
+  "subjectCode": "ER",
+  "subjectName": "Ensino Religioso",
+  "gradeYear": 3,
+  "version": 1,
+  "title": "Trilha: Vestimentas religiosas",
+  "tituloAluno": "Roupas e identidade",
+  "activities": [
+   {
+    "id": "PK2-EF03ER06-A1",
+    "step": "relembrar",
+    "type": "QUIZ",
+    "title": "Relembrar: roupas que falam de fé",
+    "prompt": "Identidade e significado.",
+    "estMinutes": 4,
+    "audioScript": "Identidade e significado. Pergunta 1. O quipá, pequeno chapéu redondo, é usado por homens de qual tradição? A: Budismo; B: Hinduísmo; C: Candomblé; D: Judaísmo. Pergunta 2. As túnicas cor de açafrão são usadas por monges de qual tradição? A: Budismo; B: Islamismo; C: Cristianismo; D: Judaísmo. Pergunta 3. Em quais tradições as roupas brancas e os fios de contas são muito usados? A: Budismo e hinduísmo; B: Candomblé e umbanda; C: Judaísmo e islamismo; D: Nenhuma. Pergunta 4. O que as vestimentas religiosas expressam? A: Nada; B: Só a moda do momento; C: A identidade e a fé de quem as usa; D: Só a cor favorita. Pergunta 5. Qual atitude é respeitosa diante de alguém com vestimenta religiosa? A: Puxar ou tocar a vestimenta; B: Rir; C: Imitar como fantasia de carnaval; D: Tratar a pessoa normalmente e, se tiver curiosidade, perguntar com educação.",
+    "questions": [
+     {
+      "question": "O quipá, pequeno chapéu redondo, é usado por homens de qual tradição?",
+      "options": [
+       {
+        "text": "Budismo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Hinduísmo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Candomblé",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Judaísmo"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Judaísmo.",
+      "variants": [
+       {
+        "question": "O hijab é um véu usado por muitas mulheres de qual tradição?",
+        "options": [
+         {
+          "text": "Judaísmo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Islamismo"
+         },
+         {
+          "text": "Budismo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Hinduísmo",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "O quipá, pequeno chapéu redondo, é usado por homens de qual tradição?",
+        "options": [
+         {
+          "text": "Judaísmo"
+         },
+         {
+          "text": "Candomblé",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Hinduísmo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Budismo",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     },
+     {
+      "question": "As túnicas cor de açafrão são usadas por monges de qual tradição?",
+      "options": [
+       {
+        "text": "Budismo"
+       },
+       {
+        "text": "Islamismo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Cristianismo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Judaísmo",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Budismo.",
+      "variants": [
+       {
+        "question": "O hábito é uma vestimenta usada por:",
+        "options": [
+         {
+          "text": "Monges budistas",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Rabinos",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Freiras e frades católicos"
+         },
+         {
+          "text": "Pajés",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "As túnicas cor de açafrão são usadas por monges de qual tradição?",
+        "options": [
+         {
+          "text": "Judaísmo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Budismo"
+         },
+         {
+          "text": "Cristianismo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Islamismo",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Em quais tradições as roupas brancas e os fios de contas são muito usados?",
+      "options": [
+       {
+        "text": "Budismo e hinduísmo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Candomblé e umbanda"
+       },
+       {
+        "text": "Judaísmo e islamismo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Nenhuma",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Tradições de matriz africana.",
+      "variants": [
+       {
+        "question": "O que os fios de contas coloridos podem representar no candomblé?",
+        "options": [
+         {
+          "text": "Um enfeite sem significado",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Um prêmio esportivo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Uma moda passageira",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "A ligação da pessoa com seus orixás"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Em quais tradições as roupas brancas e os fios de contas são muito usados?",
+        "options": [
+         {
+          "text": "Nenhuma",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Judaísmo e islamismo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Candomblé e umbanda"
+         },
+         {
+          "text": "Budismo e hinduísmo",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "O que as vestimentas religiosas expressam?",
+      "options": [
+       {
+        "text": "Nada",
+        "misconceptionCode": "sentido"
+       },
+       {
+        "text": "Só a moda do momento",
+        "misconceptionCode": "sentido"
+       },
+       {
+        "text": "A identidade e a fé de quem as usa"
+       },
+       {
+        "text": "Só a cor favorita",
+        "misconceptionCode": "sentido"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Significado.",
+      "variants": [
+       {
+        "question": "Todas as pessoas de uma religião usam as mesmas vestimentas sempre?",
+        "options": [
+         {
+          "text": "Não; muitas escolhem ou não usar, e há variações"
+         },
+         {
+          "text": "Sim, todas sempre",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Sim, é obrigatório para todos",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Ninguém usa",
+          "misconceptionCode": "sentido"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "O que as vestimentas religiosas expressam?",
+        "options": [
+         {
+          "text": "Só a cor favorita",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Só a moda do momento",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Nada",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "A identidade e a fé de quem as usa"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual atitude é respeitosa diante de alguém com vestimenta religiosa?",
+      "options": [
+       {
+        "text": "Puxar ou tocar a vestimenta",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Rir",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Imitar como fantasia de carnaval",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Tratar a pessoa normalmente e, se tiver curiosidade, perguntar com educação"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Respeito.",
+      "variants": [
+       {
+        "question": "Por que vestimentas sagradas não devem ser usadas como fantasia?",
+        "options": [
+         {
+          "text": "Porque são caras",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Porque têm significado religioso importante para quem as usa"
+         },
+         {
+          "text": "Porque são feias",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Porque não existem",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual atitude é respeitosa diante de alguém com vestimenta religiosa?",
+        "options": [
+         {
+          "text": "Tratar a pessoa normalmente e, se tiver curiosidade, perguntar com educação"
+         },
+         {
+          "text": "Imitar como fantasia de carnaval",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Rir",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Puxar ou tocar a vestimenta",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER06-A2",
+    "step": "exemplo_guiado",
+    "type": "QUIZ",
+    "title": "Exemplo guiado: a feira cultural da escola",
+    "prompt": "Na feira cultural, a turma conversou com convidados: Rabino Saul usava quipá e explicou que é um sinal de respeito a Deus; Fátima usava hijab e contou que, para ela, é uma expressão de fé; Mãe Odete, de um terreiro, vestia branco e usava fios de contas; o monge Tenzin vestia uma túnica cor de açafrão; e Jaci, de um povo indígena, mostrou a pintura corporal feita em dias de festa na aldeia.",
+    "estMinutes": 4,
+    "audioScript": "Na feira cultural, a turma conversou com convidados: Rabino Saul usava quipá e explicou que é um sinal de respeito a Deus; Fátima usava hijab e contou que, para ela, é uma expressão de fé; Mãe Odete, de um terreiro, vestia branco e usava fios de contas; o monge Tenzin vestia uma túnica cor de açafrão; e Jaci, de um povo indígena, mostrou a pintura corporal feita em dias de festa na aldeia. Pergunta 1. Que significado Rabino Saul deu ao quipá? A: Sinal de respeito a Deus; B: Proteção contra o sol; C: Enfeite de moda; D: Sinal de time de futebol. Pergunta 2. Que tradição Mãe Odete representa? A: Budismo; B: Uma tradição de matriz africana, como o candomblé ou a umbanda; C: Judaísmo; D: Islamismo. Pergunta 3. Qual é a tradição do monge Tenzin? A: Hinduísmo; B: Cristianismo; C: Budismo; D: Judaísmo. Pergunta 4. Um aluno quis tocar no hijab de Fátima sem pedir. O que deveria ter feito? A: Puxar o véu; B: Rir; C: Tirar uma foto escondido; D: Não tocar; se tivesse curiosidade, perguntar com respeito.",
+    "questions": [
+     {
+      "question": "Que significado Rabino Saul deu ao quipá?",
+      "options": [
+       {
+        "text": "Sinal de respeito a Deus"
+       },
+       {
+        "text": "Proteção contra o sol",
+        "misconceptionCode": "sentido"
+       },
+       {
+        "text": "Enfeite de moda",
+        "misconceptionCode": "sentido"
+       },
+       {
+        "text": "Sinal de time de futebol",
+        "misconceptionCode": "sentido"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Significado religioso.",
+      "variants": [
+       {
+        "question": "Que vestimenta Fátima usava?",
+        "options": [
+         {
+          "text": "Quipá",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Túnica de açafrão",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Hijab"
+         },
+         {
+          "text": "Hábito",
+          "misconceptionCode": "sentido"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Que significado Rabino Saul deu ao quipá?",
+        "options": [
+         {
+          "text": "Sinal de time de futebol",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Sinal de respeito a Deus"
+         },
+         {
+          "text": "Enfeite de moda",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Proteção contra o sol",
+          "misconceptionCode": "sentido"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Que tradição Mãe Odete representa?",
+      "options": [
+       {
+        "text": "Budismo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Uma tradição de matriz africana, como o candomblé ou a umbanda"
+       },
+       {
+        "text": "Judaísmo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Islamismo",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Matriz africana.",
+      "variants": [
+       {
+        "question": "O que Mãe Odete usava?",
+        "options": [
+         {
+          "text": "Quipá e talit",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Hijab",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Túnica cor de açafrão",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Roupa branca e fios de contas"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Que tradição Mãe Odete representa?",
+        "options": [
+         {
+          "text": "Islamismo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Judaísmo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Uma tradição de matriz africana, como o candomblé ou a umbanda"
+         },
+         {
+          "text": "Budismo",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Qual é a tradição do monge Tenzin?",
+      "options": [
+       {
+        "text": "Hinduísmo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Cristianismo",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "Budismo"
+       },
+       {
+        "text": "Judaísmo",
+        "misconceptionCode": "tradicao"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Budismo.",
+      "variants": [
+       {
+        "question": "O que a pintura corporal de Jaci representa?",
+        "options": [
+         {
+          "text": "Um elemento da cultura e da espiritualidade do seu povo, usado em festas"
+         },
+         {
+          "text": "Uma brincadeira sem significado",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Uma fantasia",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Uma marca de time",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Qual é a tradição do monge Tenzin?",
+        "options": [
+         {
+          "text": "Judaísmo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Cristianismo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Hinduísmo",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Budismo"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Um aluno quis tocar no hijab de Fátima sem pedir. O que deveria ter feito?",
+      "options": [
+       {
+        "text": "Puxar o véu",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Rir",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Tirar uma foto escondido",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Não tocar; se tivesse curiosidade, perguntar com respeito"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Respeito ao corpo e à fé.",
+      "variants": [
+       {
+        "question": "Quantos convidados participaram da conversa?",
+        "options": [
+         {
+          "text": "Três",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Cinco"
+         },
+         {
+          "text": "Quatro",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Seis",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Um aluno quis tocar no hijab de Fátima sem pedir. O que deveria ter feito?",
+        "options": [
+         {
+          "text": "Não tocar; se tivesse curiosidade, perguntar com respeito"
+         },
+         {
+          "text": "Tirar uma foto escondido",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Rir",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Puxar o véu",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER06-A3",
+    "step": "praticar",
+    "type": "QUIZ",
+    "title": "Praticar: reconhecer e respeitar",
+    "prompt": "Vestimentas e identidades.",
+    "estMinutes": 5,
+    "audioScript": "Vestimentas e identidades. Pergunta 1. O turbante usado pelos homens sikhs tem significado: A: Religioso, expressando sua fé e identidade; B: Apenas esportivo; C: De fantasia; D: Nenhum. Pergunta 2. Numa festa à fantasia, um colega quer se vestir de \"monge\" usando uma túnica de açafrão e fazendo piadas. Qual é o problema? A: Nenhum; B: Usar uma vestimenta sagrada para fazer piada desrespeita quem a usa com fé; C: A cor é feia; D: É uma ótima ideia. Pergunta 3. Por que algumas pessoas de uma mesma religião não usam vestimentas específicas? A: Porque estão erradas; B: Porque não têm fé; C: Porque a forma de viver a fé varia de pessoa para pessoa e de grupo para grupo; D: Porque é proibido. Pergunta 4. Qual é um exemplo de vestimenta católica? A: O hijab; B: O quipá; C: A túnica cor de açafrão; D: A batina de um padre.",
+    "questions": [
+     {
+      "question": "O turbante usado pelos homens sikhs tem significado:",
+      "options": [
+       {
+        "text": "Religioso, expressando sua fé e identidade"
+       },
+       {
+        "text": "Apenas esportivo",
+        "misconceptionCode": "sentido"
+       },
+       {
+        "text": "De fantasia",
+        "misconceptionCode": "sentido"
+       },
+       {
+        "text": "Nenhum",
+        "misconceptionCode": "sentido"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Significado.",
+      "variants": [
+       {
+        "question": "O talit é:",
+        "options": [
+         {
+          "text": "Uma túnica budista",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Um véu muçulmano",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Um xale de oração usado no judaísmo"
+         },
+         {
+          "text": "Uma roupa de festa junina",
+          "misconceptionCode": "sentido"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "O turbante usado pelos homens sikhs tem significado:",
+        "options": [
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Religioso, expressando sua fé e identidade"
+         },
+         {
+          "text": "De fantasia",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Apenas esportivo",
+          "misconceptionCode": "sentido"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "Numa festa à fantasia, um colega quer se vestir de \"monge\" usando uma túnica de açafrão e fazendo piadas. Qual é o problema?",
+      "options": [
+       {
+        "text": "Nenhum",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Usar uma vestimenta sagrada para fazer piada desrespeita quem a usa com fé"
+       },
+       {
+        "text": "A cor é feia",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "É uma ótima ideia",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Respeito.",
+      "variants": [
+       {
+        "question": "Que fantasia seria mais adequada?",
+        "options": [
+         {
+          "text": "Um padre com piadas",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Uma pessoa de terreiro com zombaria",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Um rabino caricato",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Um personagem inventado ou de uma história, sem símbolos sagrados de outras pessoas"
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "Numa festa à fantasia, um colega quer se vestir de \"monge\" usando uma túnica de açafrão e fazendo piadas. Qual é o problema?",
+        "options": [
+         {
+          "text": "É uma ótima ideia",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "A cor é feia",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Usar uma vestimenta sagrada para fazer piada desrespeita quem a usa com fé"
+         },
+         {
+          "text": "Nenhum",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Por que algumas pessoas de uma mesma religião não usam vestimentas específicas?",
+      "options": [
+       {
+        "text": "Porque estão erradas",
+        "misconceptionCode": "sentido"
+       },
+       {
+        "text": "Porque não têm fé",
+        "misconceptionCode": "sentido"
+       },
+       {
+        "text": "Porque a forma de viver a fé varia de pessoa para pessoa e de grupo para grupo"
+       },
+       {
+        "text": "Porque é proibido",
+        "misconceptionCode": "sentido"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Diversidade interna.",
+      "variants": [
+       {
+        "question": "O que essa variação mostra?",
+        "options": [
+         {
+          "text": "Que não devemos julgar a fé de alguém pela roupa"
+         },
+         {
+          "text": "Que todos são iguais",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Que roupa não importa nunca",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Que só quem usa roupa especial tem fé",
+          "misconceptionCode": "sentido"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Por que algumas pessoas de uma mesma religião não usam vestimentas específicas?",
+        "options": [
+         {
+          "text": "Porque é proibido",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Porque não têm fé",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Porque estão erradas",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Porque a forma de viver a fé varia de pessoa para pessoa e de grupo para grupo"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     },
+     {
+      "question": "Qual é um exemplo de vestimenta católica?",
+      "options": [
+       {
+        "text": "O hijab",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "O quipá",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "A túnica cor de açafrão",
+        "misconceptionCode": "tradicao"
+       },
+       {
+        "text": "A batina de um padre"
+       }
+      ],
+      "correctIndex": 3,
+      "explanation": "Catolicismo.",
+      "variants": [
+       {
+        "question": "Em muitas tradições, vestimentas especiais são usadas:",
+        "options": [
+         {
+          "text": "Só para dormir",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Em celebrações e momentos de oração"
+         },
+         {
+          "text": "Só em jogos de futebol",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "Nunca",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 1
+       },
+       {
+        "question": "Qual é um exemplo de vestimenta católica?",
+        "options": [
+         {
+          "text": "A batina de um padre"
+         },
+         {
+          "text": "A túnica cor de açafrão",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O quipá",
+          "misconceptionCode": "tradicao"
+         },
+         {
+          "text": "O hijab",
+          "misconceptionCode": "tradicao"
+         }
+        ],
+        "correctIndex": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER06-A4",
+    "step": "aplicar",
+    "type": "QUIZ",
+    "title": "Aplicar: respeito na escola",
+    "prompt": "Atitudes do dia a dia.",
+    "estMinutes": 4,
+    "audioScript": "Atitudes do dia a dia. Pergunta 1. Uma colega nova chega à escola usando hijab. Qual atitude é adequada? A: Recebê-la bem, tratá-la como qualquer colega e respeitar sua vestimenta; B: Perguntar em tom de deboche por que ela usa; C: Excluí-la das brincadeiras; D: Pedir que tire o véu. Pergunta 2. A turma vai fazer um mural sobre vestimentas religiosas. O que incluir em cada item? A: Desenhos engraçados; B: Nome da vestimenta, tradição e significado, com imagens respeitosas; C: Só o nome, sem explicação; D: Qual é a mais bonita. Pergunta 3. Por que conhecer as vestimentas de diferentes tradições ajuda a convivência? A: Não ajuda; B: Porque ensina a zombar; C: Porque reduz preconceitos e ajuda a respeitar as pessoas; D: Porque separa os grupos.",
+    "questions": [
+     {
+      "question": "Uma colega nova chega à escola usando hijab. Qual atitude é adequada?",
+      "options": [
+       {
+        "text": "Recebê-la bem, tratá-la como qualquer colega e respeitar sua vestimenta"
+       },
+       {
+        "text": "Perguntar em tom de deboche por que ela usa",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Excluí-la das brincadeiras",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Pedir que tire o véu",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 0,
+      "explanation": "Acolhimento.",
+      "variants": [
+       {
+        "question": "Se tiver curiosidade sobre o hijab, o que fazer?",
+        "options": [
+         {
+          "text": "Puxar o véu para ver",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Fazer piada",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Perguntar com educação, num momento adequado, se ela quiser falar"
+         },
+         {
+          "text": "Perguntar na frente de todos rindo",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 2
+       },
+       {
+        "question": "Uma colega nova chega à escola usando hijab. Qual atitude é adequada?",
+        "options": [
+         {
+          "text": "Pedir que tire o véu",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Recebê-la bem, tratá-la como qualquer colega e respeitar sua vestimenta"
+         },
+         {
+          "text": "Excluí-la das brincadeiras",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Perguntar em tom de deboche por que ela usa",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 1
+       }
+      ]
+     },
+     {
+      "question": "A turma vai fazer um mural sobre vestimentas religiosas. O que incluir em cada item?",
+      "options": [
+       {
+        "text": "Desenhos engraçados",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Nome da vestimenta, tradição e significado, com imagens respeitosas"
+       },
+       {
+        "text": "Só o nome, sem explicação",
+        "misconceptionCode": "sentido"
+       },
+       {
+        "text": "Qual é a mais bonita",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 1,
+      "explanation": "Mural informativo.",
+      "variants": [
+       {
+        "question": "Que frase combina com o mural?",
+        "options": [
+         {
+          "text": "\"Roupas religiosas são fantasias.\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"Só uma roupa é certa.\"",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "\"Não devemos respeitar.\"",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "\"As roupas também contam histórias de fé e identidade.\""
+         }
+        ],
+        "correctIndex": 3
+       },
+       {
+        "question": "A turma vai fazer um mural sobre vestimentas religiosas. O que incluir em cada item?",
+        "options": [
+         {
+          "text": "Qual é a mais bonita",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Só o nome, sem explicação",
+          "misconceptionCode": "sentido"
+         },
+         {
+          "text": "Nome da vestimenta, tradição e significado, com imagens respeitosas"
+         },
+         {
+          "text": "Desenhos engraçados",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 2
+       }
+      ]
+     },
+     {
+      "question": "Por que conhecer as vestimentas de diferentes tradições ajuda a convivência?",
+      "options": [
+       {
+        "text": "Não ajuda",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Porque ensina a zombar",
+        "misconceptionCode": "respeito"
+       },
+       {
+        "text": "Porque reduz preconceitos e ajuda a respeitar as pessoas"
+       },
+       {
+        "text": "Porque separa os grupos",
+        "misconceptionCode": "respeito"
+       }
+      ],
+      "correctIndex": 2,
+      "explanation": "Convivência.",
+      "variants": [
+       {
+        "question": "O que é preconceito religioso?",
+        "options": [
+         {
+          "text": "Julgar ou maltratar alguém por causa da sua religião"
+         },
+         {
+          "text": "Conhecer outras religiões",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Respeitar as diferenças",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Perguntar com educação",
+          "misconceptionCode": "respeito"
+         }
+        ],
+        "correctIndex": 0
+       },
+       {
+        "question": "Por que conhecer as vestimentas de diferentes tradições ajuda a convivência?",
+        "options": [
+         {
+          "text": "Porque separa os grupos",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Porque ensina a zombar",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Não ajuda",
+          "misconceptionCode": "respeito"
+         },
+         {
+          "text": "Porque reduz preconceitos e ajuda a respeitar as pessoas"
+         }
+        ],
+        "correctIndex": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "PK2-EF03ER06-A5",
+    "step": "explicar",
+    "type": "WRITTEN",
+    "allowSpoken": true,
+    "title": "Explicar: vestimentas religiosas",
+    "prompt": "Explique como as vestimentas expressam identidades religiosas e por que devem ser respeitadas.",
+    "estMinutes": 6,
+    "audioScript": "Explique como as vestimentas expressam identidades religiosas e por que devem ser respeitadas.",
+    "rubric": {
+     "type": "WRITTEN",
+     "criteria": [
+      {
+       "code": "exemplos",
+       "description": "Cita vestimentas de pelo menos três tradições, associando corretamente"
+      },
+      {
+       "code": "sentido",
+       "description": "Explica o significado das vestimentas para quem as usa"
+      },
+      {
+       "code": "respeito",
+       "description": "Explica atitudes de respeito e por que não são fantasias"
+      }
+     ],
+     "exemploBoaResposta": "As vestimentas religiosas expressam a fé e a identidade de quem as usa. No judaísmo, muitos homens usam o quipá, como sinal de respeito a Deus, e o talit para orar; muitas mulheres muçulmanas usam o hijab; padres e freiras católicos usam batina e hábito; no candomblé e na umbanda, usam-se roupas brancas e fios de contas; monges budistas vestem túnicas cor de açafrão; povos indígenas usam pinturas corporais em rituais. Nem todos de uma tradição as usam. Essas vestimentas não são fantasias e devem ser respeitadas."
+    }
+   }
+  ]
+ },
+ {
   "skillCode": "EF03ER01",
   "subjectCode": "ER",
   "subjectName": "Ensino Religioso",
