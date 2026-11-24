@@ -1,0 +1,667 @@
+// 4º ano — Matemática (parte 5): EF04MA18, EF04MA19, EF04MA20, EF04MA21
+
+#TRILHA EF04MA18 | MA | 4 | Trilha: Ângulos retos e não retos | O canto reto
+FAZ: Reconhece ângulos retos e não retos em figuras poligonais, usando dobraduras, esquadros ou o canto de uma folha.
+ERRO: tamanho-do-lado | Acha que o ângulo depende do tamanho dos lados
+ERRO: reto-posicao | Só reconhece o ângulo reto quando está "de pé"
+ERRO: conta-angulos | Erra a quantidade de ângulos retos da figura
+ERRO: reto-maior | Acha que todo ângulo grande é reto
+NOTA: Faça um "medidor de canto reto" dobrando uma folha duas vezes. Procure cantos retos na sala: porta, mesa, lousa.
+
+@relembrar | Relembrar: o ângulo reto | O ângulo reto é o canto de uma folha de papel, de uma porta ou de um quadrado.
+Q: Qual destes tem um ângulo reto?
++ O canto de uma folha de caderno
+- A ponta de um lápis apontado | reto-maior
+- A borda de um prato | reto-maior
+- A ponta de uma estrela | reto-maior
+E: O canto da folha é um ângulo reto.
+V: Qual destes tem um ângulo reto?
++ O canto de uma porta
+- A ponta de uma faca
+- A borda de uma moeda
+- A ponta de um chapéu de festa
+Q: Quantos ângulos retos tem um quadrado?
++ 4
+- 2 | conta-angulos
+- 0 | conta-angulos
+- 1 | conta-angulos
+E: Os 4 cantos do quadrado são retos.
+V: Quantos ângulos retos tem um retângulo?
++ 4
+- 2
+- 0
+- 1
+Q: Um quadrado foi girado e ficou "de ponta". Seus ângulos:
++ Continuam retos
+- Deixaram de ser retos | reto-posicao
+- Ficaram maiores | reto-maior
+- Ficaram menores | tamanho-do-lado
+E: Girar a figura não muda os ângulos.
+V: Uma folha foi girada na mesa. O canto dela:
++ Continua reto
+- Deixou de ser reto
+- Ficou maior
+- Ficou menor
+
+@exemplo_guiado | Exemplo guiado: testando com a dobradura | Dobre uma folha duas vezes: o canto da dobra é um ângulo reto. Encoste nos cantos das figuras: se encaixar certinho, é reto; se sobrar espaço, é maior; se o canto da figura ficar escondido, é menor.
+Q: Ao encostar o canto da dobradura no canto de uma figura, sobrou espaço. O ângulo da figura é:
++ Maior que o reto
+- Reto | reto-maior
+- Menor que o reto | tamanho-do-lado
+- Não dá para saber | reto-posicao
+E: Se sobra espaço, o ângulo é mais aberto que o reto.
+V: Ao encostar o canto da dobradura no canto de uma figura, o canto da figura ficou escondido embaixo. O ângulo da figura é:
++ Menor que o reto
+- Reto
+- Maior que o reto
+- Não dá para saber
+Q: Um triângulo pode ter quantos ângulos retos, no máximo?
++ 1
+- 2 | conta-angulos
+- 3 | conta-angulos
+- 4 | conta-angulos
+E: Se tivesse 2 cantos retos, os lados não fechariam um triângulo.
+V: Um triângulo de esquadro tem quantos ângulos retos?
++ 1
+- 2
+- 3
+- 0
+Q: Dois ângulos têm a mesma abertura. Um foi desenhado com lados de 10 cm e o outro com lados de 2 cm. Qual ângulo é maior?
++ Nenhum: são iguais, porque o ângulo é a abertura
+- O de lados de 10 cm | tamanho-do-lado
+- O de lados de 2 cm | tamanho-do-lado
+- Não dá para comparar | reto-posicao
+E: O tamanho dos lados não muda a abertura.
+V: Um ângulo desenhado com lados compridos e outro com lados curtos, com a mesma abertura:
++ São iguais
+- O de lados compridos é maior
+- O de lados curtos é maior
+- Não dá para comparar
+
+@praticar | Praticar: encontrando ângulos retos | Use o canto de uma folha como medidor.
+Q: Quantos ângulos retos tem um trapézio retângulo (com dois cantos retos)?
++ 2
+- 4 | conta-angulos
+- 1 | conta-angulos
+- 0 | conta-angulos
+E: O nome diz: tem 2 cantos retos.
+V: Um losango que não é quadrado tem quantos ângulos retos?
++ 0
+- 4
+- 2
+- 1
+Q: As ruas perpendiculares de um mapa se cruzam formando:
++ Ângulos retos
+- Ângulos menores que o reto | reto-maior
+- Ângulos maiores que o reto | reto-maior
+- Nenhum ângulo | reto-posicao
+E: Perpendicular quer dizer que forma ângulo reto.
+V: Os ponteiros de um relógio às 3 horas formam:
++ Um ângulo reto
+- Um ângulo menor que o reto
+- Um ângulo maior que o reto
+- Nenhum ângulo
+Q: Qual figura tem todos os ângulos retos?
++ Retângulo
+- Triângulo | conta-angulos
+- Trapézio comum | conta-angulos
+- Losango sem cantos retos | reto-maior
+E: Os 4 cantos do retângulo são retos.
+V: Qual figura NÃO tem ângulo reto nenhum?
++ Triângulo com os três lados iguais
+- Quadrado
+- Retângulo
+- Triângulo de esquadro
+Q: Às 6 horas, os ponteiros do relógio formam:
++ Um ângulo maior que o reto (uma linha reta)
+- Um ângulo reto | reto-maior
+- Um ângulo menor que o reto | reto-maior
+- Nenhuma abertura | reto-posicao
+E: Os ponteiros apontam para lados opostos: é mais aberto que o reto.
+V: À 1 hora, os ponteiros do relógio formam:
++ Um ângulo menor que o reto
+- Um ângulo reto
+- Um ângulo maior que o reto
+- Uma linha reta
+
+@aplicar | Aplicar: ângulos no dia a dia | Observe os cantos.
+Q: O pedreiro usa o esquadro para conferir se a parede faz canto reto com o chão. Por quê?
++ Para a parede ficar reta, sem pender
+- Para medir o comprimento da parede | tamanho-do-lado
+- Para pintar a parede | reto-maior
+- Para contar os tijolos | conta-angulos
+E: O esquadro tem um ângulo reto para conferir cantos.
+V: O marceneiro confere os cantos da mesa com o esquadro. Por quê?
++ Para os cantos ficarem retos
+- Para medir o peso da mesa
+- Para escolher a cor
+- Para contar as pernas
+Q: Uma janela retangular tem quantos ângulos retos?
++ 4
+- 2 | conta-angulos
+- 1 | conta-angulos
+- 0 | conta-angulos
+E: Retângulo: 4 cantos retos.
+V: Um campo de futebol retangular tem quantos ângulos retos nos cantos?
++ 4
+- 2
+- 1
+- 0
+Q: Um pedaço de pizza triangular tem a ponta bem fina. Esse ângulo é:
++ Menor que o reto
+- Reto | reto-maior
+- Maior que o reto | reto-maior
+- Não é um ângulo | reto-posicao
+E: Ponta fina é ângulo pouco aberto.
+V: Um leque bem aberto forma um ângulo:
++ Maior que o reto
+- Reto
+- Menor que o reto
+- Não é um ângulo
+
+@explicar | Explicar: como saber se é reto | Explique como você usaria uma folha de papel para descobrir se o canto de uma mesa é um ângulo reto.
+C: medidor | Diz que usa o canto da folha (ou uma dobradura) como medidor
+C: encaixe | Diz que encosta o canto da folha no canto da mesa
+C: conclusao | Explica como decidir: encaixa certinho é reto; sobra ou falta não é
+BOA: O canto da folha é um ângulo reto. Eu encosto o canto da folha no canto da mesa. Se encaixar certinho, o canto da mesa é reto. Se sobrar espaço, é maior que o reto; se ficar escondido, é menor.
+
+#TRILHA EF04MA19 | MA | 4 | Trilha: Simetria de reflexão | Como num espelho
+FAZ: Reconhece simetria de reflexão em figuras e em pares de figuras e a usa para construir figuras congruentes em malhas quadriculadas.
+ERRO: eixo-errado | Identifica o eixo de simetria no lugar errado
+ERRO: translada | Copia a figura ao lado, sem espelhar
+ERRO: conta-casas | Erra a distância até o eixo na malha
+ERRO: toda-figura-simetrica | Acha que toda figura tem simetria
+NOTA: Faça borrões de tinta dobrando a folha ao meio. Use espelho sobre figuras. Na malha, conte as casas de cada ponto até o eixo.
+
+@relembrar | Relembrar: eixo de simetria | Uma figura tem simetria quando, dobrando numa linha (eixo), as duas metades se encaixam certinho.
+Q: Quantos eixos de simetria tem um quadrado?
++ 4
+- 2 | eixo-errado
+- 1 | eixo-errado
+- 0 | toda-figura-simetrica
+E: Dois pelo meio dos lados e dois pelas diagonais.
+V: Quantos eixos de simetria tem um retângulo que não é quadrado?
++ 2
+- 4
+- 1
+- 0
+Q: Qual letra tem eixo de simetria vertical (em pé)?
++ A
+- F | toda-figura-simetrica
+- G | toda-figura-simetrica
+- J | toda-figura-simetrica
+E: Dobrando o A ao meio, em pé, as metades se encaixam.
+V: Qual letra tem eixo de simetria vertical (em pé)?
++ M
+- R
+- L
+- S
+Q: Um coração desenhado certinho tem simetria:
++ Sim, um eixo vertical no meio
+- Não, nenhuma | toda-figura-simetrica
+- Sim, um eixo deitado no meio | eixo-errado
+- Sim, quatro eixos | eixo-errado
+E: Dobrando em pé, no meio, as metades se encaixam.
+V: Uma borboleta desenhada certinho tem simetria:
++ Sim, um eixo vertical no meio do corpo
+- Não, nenhuma
+- Sim, um eixo deitado
+- Sim, quatro eixos
+
+@exemplo_guiado | Exemplo guiado: refletindo na malha | Para refletir um ponto, conte quantas casas ele está do eixo e marque do outro lado, à mesma distância. Um ponto a 2 casas à esquerda do eixo vai para 2 casas à direita.
+Q: Um ponto está 3 casas à esquerda do eixo. Onde fica o ponto refletido?
++ 3 casas à direita do eixo
+- 3 casas à esquerda do eixo | translada
+- 6 casas à direita do eixo | conta-casas
+- Em cima do eixo | conta-casas
+E: A mesma distância, do outro lado.
+V: Um ponto está 5 casas à direita do eixo. Onde fica o ponto refletido?
++ 5 casas à esquerda do eixo
+- 5 casas à direita do eixo
+- 10 casas à esquerda do eixo
+- Em cima do eixo
+Q: Uma bandeirinha aponta para a esquerda. Refletida num eixo em pé, ela aponta para:
++ A direita
+- A esquerda | translada
+- Cima | eixo-errado
+- Baixo | eixo-errado
+E: A reflexão inverte os lados, como no espelho.
+V: Uma seta aponta para cima. Refletida num eixo deitado, ela aponta para:
++ Baixo
+- Cima
+- A esquerda
+- A direita
+Q: Um ponto está em cima do eixo de simetria. O ponto refletido fica:
++ No mesmo lugar
+- 1 casa ao lado | conta-casas
+- Do outro lado da folha | translada
+- Some | eixo-errado
+E: Distância zero até o eixo: fica onde está.
+V: Um ponto está a 1 casa do eixo. O ponto refletido fica:
++ A 1 casa do eixo, do outro lado
+- No mesmo lugar
+- A 2 casas do eixo
+- Em cima do eixo
+
+@praticar | Praticar: simetria ou não? | Imagine a dobra.
+Q: Qual figura NÃO tem eixo de simetria?
++ Um raio desenhado em zigue-zague torto
+- Um círculo | toda-figura-simetrica
+- Um quadrado | toda-figura-simetrica
+- Um triângulo com lados iguais | toda-figura-simetrica
+E: Nenhuma dobra deixa as metades iguais.
+V: Qual figura NÃO tem eixo de simetria?
++ A letra F
+- A letra H
+- A letra O
+- A letra X
+Q: Quantos eixos de simetria tem um triângulo com os 3 lados iguais?
++ 3
+- 1 | eixo-errado
+- 0 | toda-figura-simetrica
+- 6 | eixo-errado
+E: Um eixo saindo de cada vértice até o meio do lado oposto.
+V: Quantos eixos de simetria tem um círculo?
++ Infinitos (qualquer reta pelo centro)
+- 1
+- 2
+- 4
+Q: Na malha, uma figura tem um quadradinho pintado 1 casa à esquerda do eixo e outro 4 casas à esquerda. Na reflexão, os pintados ficam:
++ 1 e 4 casas à direita do eixo
+- 1 e 4 casas à esquerda do eixo | translada
+- 2 e 8 casas à direita | conta-casas
+- 4 e 1 casas à esquerda | translada
+E: Cada um vai para a mesma distância do outro lado.
+V: Pontos estão 2 e 3 casas acima de um eixo deitado. Na reflexão, ficam:
++ 2 e 3 casas abaixo do eixo
+- 2 e 3 casas acima do eixo
+- 4 e 6 casas abaixo
+- Em cima do eixo
+Q: A figura refletida e a original são:
++ Congruentes (mesma forma e tamanho)
+- De tamanhos diferentes | conta-casas
+- Uma maior que a outra | conta-casas
+- Formas diferentes | translada
+E: A reflexão não muda forma nem tamanho.
+V: Ao refletir um retângulo de 3 por 2 casas, o refletido tem:
++ 3 por 2 casas
+- 6 por 4 casas
+- 1 por 1 casa
+- 3 por 3 casas
+
+@aplicar | Aplicar: simetria ao redor | Observe a natureza e os objetos.
+Q: Por que o rosto de uma pessoa é quase simétrico?
++ Tem um eixo vertical no meio, com um olho e uma orelha de cada lado
+- Porque tem um eixo deitado | eixo-errado
+- Porque tem quatro eixos | eixo-errado
+- Porque nenhuma parte se repete | toda-figura-simetrica
+E: As metades direita e esquerda são parecidas.
+V: Por que uma folha de árvore costuma ser simétrica?
++ Tem um eixo no meio, na nervura central
+- Porque tem um eixo deitado
+- Porque tem quatro eixos
+- Porque é redonda
+Q: Rafa quer terminar o desenho de uma casinha simétrica: a janela da esquerda está a 2 casas do eixo. Onde desenha a outra janela?
++ A 2 casas do eixo, do lado direito
+- A 2 casas do eixo, do lado esquerdo | translada
+- A 4 casas do eixo | conta-casas
+- No eixo | conta-casas
+E: Mesma distância, do outro lado.
+V: A porta de um castelo simétrico está no meio, em cima do eixo. Onde fica a porta refletida?
++ No mesmo lugar, em cima do eixo
+- Ao lado da porta
+- A 2 casas do eixo
+- Do lado de fora
+Q: Ao escrever AMBULÂNCIA espelhado na frente do carro, para quê serve?
++ Para o motorista da frente ler certo pelo retrovisor
+- Para enfeitar | toda-figura-simetrica
+- Porque as letras são todas simétricas | toda-figura-simetrica
+- Para ninguém ler | translada
+E: O espelho do retrovisor reflete e desfaz o espelhamento.
+V: Ao olhar no espelho um papel escrito "OLÁ", o que você vê?
++ As letras espelhadas, viradas
+- As letras iguais, sem mudança
+- As letras de cabeça para baixo
+- Nada
+
+@explicar | Explicar: completando a figura | Explique como completar, na malha, uma figura simétrica da qual só aparece a metade da esquerda.
+C: eixo | Identifica o eixo de simetria
+C: distancia | Conta a distância de cada ponto até o eixo
+C: reflete | Marca cada ponto à mesma distância do outro lado e liga os pontos
+BOA: Primeiro eu acho o eixo, que é a linha do meio. Para cada canto da metade da esquerda, conto quantas casas ele está do eixo e marco um ponto à mesma distância do lado direito. Depois ligo os pontos e a figura fica igual dos dois lados.
+
+#TRILHA EF04MA20 | MA | 4 | Trilha: Medidas de comprimento, massa e capacidade | Medindo de verdade
+FAZ: Mede e estima comprimentos (incluindo perímetros), massas e capacidades com as unidades padronizadas mais usuais.
+ERRO: perimetro-incompleto | Soma só alguns lados no perímetro
+ERRO: conversao | Erra as conversões (1 m = 100 cm, 1 kg = 1.000 g, 1 L = 1.000 mL)
+ERRO: unidade-errada | Usa unidade de outra grandeza
+ERRO: estimativa | Faz estimativa muito longe do real
+NOTA: Meça o contorno da mesa, da sala e da quadra. Pese objetos e meça líquidos com copo medidor. Peça estimativa antes de medir.
+
+@relembrar | Relembrar: perímetro | Perímetro é a medida do contorno de uma figura: soma de todos os lados.
+Q: Qual é o perímetro de um quadrado de 5 cm de lado?
++ 20 cm
+- 10 cm | perimetro-incompleto
+- 25 cm | perimetro-incompleto
+- 15 cm | perimetro-incompleto
+E: 5 + 5 + 5 + 5 = 20.
+V: Qual é o perímetro de um quadrado de 8 cm de lado?
++ 32 cm
+- 16 cm
+- 64 cm
+- 24 cm
+Q: Quantos gramas tem 2 kg?
++ 2.000 g
+- 200 g | conversao
+- 20 g | conversao
+- 2 g | conversao
+E: 1 kg = 1.000 g; 2 kg = 2.000 g.
+V: Quantos mililitros tem 3 litros?
++ 3.000 mL
+- 300 mL
+- 30 mL
+- 3 mL
+Q: Qual unidade usamos para medir a massa de uma pessoa?
++ Quilograma
+- Litro | unidade-errada
+- Metro | unidade-errada
+- Hora | unidade-errada
+E: Massa: quilogramas.
+V: Qual unidade usamos para medir a água de uma piscina?
++ Litro
+- Quilômetro
+- Grama
+- Minuto
+
+@exemplo_guiado | Exemplo guiado: perímetro do retângulo | Um retângulo de 6 m por 4 m tem perímetro 6 + 4 + 6 + 4 = 20 m. Os lados opostos são iguais.
+Q: Qual é o perímetro de um retângulo de 9 cm por 3 cm?
++ 24 cm
+- 12 cm | perimetro-incompleto
+- 27 cm | perimetro-incompleto
+- 18 cm | perimetro-incompleto
+E: 9 + 3 + 9 + 3 = 24.
+V: Qual é o perímetro de um retângulo de 10 m por 5 m?
++ 30 m
+- 15 m
+- 50 m
+- 20 m
+Q: Um triângulo tem lados de 4 cm, 5 cm e 6 cm. Qual é o perímetro?
++ 15 cm
+- 9 cm | perimetro-incompleto
+- 11 cm | perimetro-incompleto
+- 120 cm | unidade-errada
+E: 4 + 5 + 6 = 15.
+V: Um triângulo tem lados de 7 cm, 7 cm e 3 cm. Qual é o perímetro?
++ 17 cm
+- 14 cm
+- 10 cm
+- 147 cm
+Q: Quantos centímetros tem 1 m e 35 cm?
++ 135 cm
+- 36 cm | conversao
+- 1.035 cm | conversao
+- 13,5 cm | conversao
+E: 100 + 35 = 135.
+V: Quantos gramas tem 1 kg e 250 g?
++ 1.250 g
+- 251 g
+- 1.025 g
+- 12,5 g
+
+@praticar | Praticar: medindo e convertendo | Converta antes de comparar.
+Q: Uma sala retangular mede 7 m por 5 m. Quantos metros de rodapé são necessários para o contorno todo?
++ 24 m
+- 12 m | perimetro-incompleto
+- 35 m | perimetro-incompleto
+- 19 m | perimetro-incompleto
+E: 7 + 5 + 7 + 5 = 24 m.
+V: Um quintal retangular mede 12 m por 8 m. Quantos metros de cerca são necessários para o contorno?
++ 40 m
+- 20 m
+- 96 m
+- 32 m
+Q: O que é mais pesado: 1 kg e 200 g ou 1.300 g?
++ 1.300 g
+- 1 kg e 200 g | conversao
+- São iguais | conversao
+- Não dá para comparar | unidade-errada
+E: 1 kg e 200 g = 1.200 g, menos que 1.300 g.
+V: O que tem mais: 2 L ou 1.800 mL?
++ 2 L
+- 1.800 mL
+- São iguais
+- Não dá para comparar
+Q: Qual é a melhor estimativa para a massa de um saco de arroz de mercado?
++ 5 kg
+- 5 g | estimativa
+- 500 kg | estimativa
+- 5 mg | estimativa
+E: Sacos de arroz costumam ter 1, 2 ou 5 kg.
+V: Qual é a melhor estimativa para a capacidade de um balde?
++ 10 L
+- 10 mL
+- 1.000 L
+- 1 mL
+Q: Um quadrado tem perímetro de 36 cm. Quanto mede cada lado?
++ 9 cm
+- 36 cm | perimetro-incompleto
+- 18 cm | perimetro-incompleto
+- 12 cm | perimetro-incompleto
+E: Os 4 lados são iguais: 36 ÷ 4 = 9.
+V: Um quadrado tem perímetro de 48 cm. Quanto mede cada lado?
++ 12 cm
+- 48 cm
+- 24 cm
+- 16 cm
+
+@aplicar | Aplicar: medidas na comunidade | Use a unidade certa.
+Q: A feira vende farinha de mandioca a 6 reais o quilo. Quanto custam 500 g?
++ 3 reais
+- 6 reais | conversao
+- 3.000 reais | conversao
+- 12 reais | conversao
+E: 500 g é meio quilo: metade de 6 reais = 3 reais.
+V: O café custa 20 reais o quilo. Quanto custam 250 g?
++ 5 reais
+- 20 reais
+- 80 reais
+- 10 reais
+Q: Uma horta retangular tem 6 m por 3 m. Dona Lúcia quer cercar com 2 voltas de arame. Quantos metros de arame precisa?
++ 36 m
+- 18 m | perimetro-incompleto
+- 9 m | perimetro-incompleto
+- 72 m | perimetro-incompleto
+E: Uma volta: 6 + 3 + 6 + 3 = 18 m. Duas voltas: 36 m.
+V: Um canteiro tem 5 m por 2 m. Querem cercar com 3 voltas de fio. Quantos metros de fio precisam?
++ 42 m
+- 14 m
+- 10 m
+- 30 m
+Q: Uma garrafa de 2 L de suco vai encher copos de 250 mL. Quantos copos?
++ 8
+- 4 | conversao
+- 2 | conversao
+- 80 | conversao
+E: 2 L = 2.000 mL; 2.000 ÷ 250 = 8.
+V: Uma jarra de 1 L e meio vai encher copos de 300 mL. Quantos copos?
++ 5
+- 3
+- 15
+- 50
+
+@explicar | Explicar: perímetro | Explique como calcular quantos metros de fita são necessários para contornar um mural retangular de 3 m por 2 m.
+C: perimetro | Diz que precisa do contorno (perímetro)
+C: soma | Soma os quatro lados: 3 + 2 + 3 + 2
+C: resultado | Chega a 10 metros
+BOA: Para contornar o mural, preciso da medida do contorno, que é o perímetro. O retângulo tem dois lados de 3 m e dois de 2 m. Somo: 3 + 2 + 3 + 2 = 10 metros de fita.
+
+#TRILHA EF04MA21 | MA | 4 | Trilha: Área na malha quadriculada | Contando quadradinhos
+FAZ: Mede, compara e estima a área de figuras desenhadas em malha quadriculada, contando quadradinhos e metades, e reconhece que figuras diferentes podem ter a mesma área.
+ERRO: perimetro-area | Confunde área com perímetro
+ERRO: metade-esquecida | Esquece de juntar as metades de quadradinho
+ERRO: conta-errado | Conta quadradinhos duas vezes ou pula algum
+ERRO: forma-area | Acha que formas diferentes não podem ter a mesma área
+NOTA: Desenhe figuras na malha e peça para pintar e contar. Mostre que duas metades de quadradinho formam um inteiro.
+
+@relembrar | Relembrar: área é o "dentro" | Área é quantos quadradinhos cabem dentro da figura. Perímetro é o contorno.
+Q: Um retângulo na malha tem 4 quadradinhos de comprimento e 3 de altura. Qual é sua área?
++ 12 quadradinhos
+- 14 quadradinhos | perimetro-area
+- 7 quadradinhos | perimetro-area
+- 16 quadradinhos | conta-errado
+E: 3 fileiras de 4: 12.
+V: Um retângulo na malha tem 5 de comprimento e 4 de altura. Qual é sua área?
++ 20 quadradinhos
+- 18 quadradinhos
+- 9 quadradinhos
+- 25 quadradinhos
+Q: Duas metades de quadradinho formam:
++ 1 quadradinho inteiro
+- 2 quadradinhos | metade-esquecida
+- Meio quadradinho | metade-esquecida
+- Nada | metade-esquecida
+E: Meio + meio = 1.
+V: Quatro metades de quadradinho formam:
++ 2 quadradinhos inteiros
+- 4 quadradinhos
+- 1 quadradinho
+- Meio quadradinho
+Q: Para saber a área de uma figura na malha, contamos:
++ Os quadradinhos de dentro da figura
+- Os lados do contorno | perimetro-area
+- Os cantos da figura | conta-errado
+- Só a primeira fileira | conta-errado
+E: Área é o espaço de dentro.
+V: Para saber o perímetro de uma figura na malha, contamos:
++ Os lados dos quadradinhos no contorno
+- Os quadradinhos de dentro
+- Os cantos
+- Só a primeira fileira
+
+@exemplo_guiado | Exemplo guiado: quadradinhos e metades | Uma figura tem 6 quadradinhos inteiros e 4 metades. As 4 metades formam 2 inteiros. Área: 6 + 2 = 8 quadradinhos.
+Q: Uma figura tem 5 quadradinhos inteiros e 2 metades. Qual é a área?
++ 6 quadradinhos
+- 7 quadradinhos | metade-esquecida
+- 5 quadradinhos | metade-esquecida
+- 10 quadradinhos | conta-errado
+E: 2 metades = 1 inteiro; 5 + 1 = 6.
+V: Uma figura tem 8 quadradinhos inteiros e 6 metades. Qual é a área?
++ 11 quadradinhos
+- 14 quadradinhos
+- 8 quadradinhos
+- 20 quadradinhos
+Q: Um triângulo na malha ocupa metade de um retângulo de 4 por 2. Qual é a área do triângulo?
++ 4 quadradinhos
+- 8 quadradinhos | metade-esquecida
+- 6 quadradinhos | conta-errado
+- 2 quadradinhos | conta-errado
+E: O retângulo tem 8; a metade é 4.
+V: Um triângulo ocupa metade de um quadrado de 4 por 4. Qual é a área do triângulo?
++ 8 quadradinhos
+- 16 quadradinhos
+- 4 quadradinhos
+- 12 quadradinhos
+Q: Qual retângulo tem a mesma área que um retângulo de 6 por 2?
++ Um retângulo de 3 por 4
+- Um retângulo de 5 por 3 | perimetro-area
+- Um retângulo de 6 por 3 | conta-errado
+- Um quadrado de 4 por 4 | forma-area
+E: 6 × 2 = 12 e 3 × 4 = 12. O de 5 por 3 tem o mesmo contorno, mas área 15.
+V: Qual retângulo tem a mesma área que um quadrado de 4 por 4?
++ Um retângulo de 8 por 2
+- Um retângulo de 4 por 3
+- Um retângulo de 6 por 2
+- Um retângulo de 5 por 5
+
+@praticar | Praticar: comparando áreas | Conte e compare.
+Q: Figura A: retângulo de 6 por 2. Figura B: quadrado de 3 por 3. Qual tem área maior?
++ A figura A
+- A figura B | conta-errado
+- São iguais | forma-area
+- Não dá para comparar | forma-area
+E: A: 12. B: 9.
+V: Figura A: retângulo de 7 por 2. Figura B: quadrado de 4 por 4. Qual tem área maior?
++ A figura B
+- A figura A
+- São iguais
+- Não dá para comparar
+Q: Duas figuras têm áreas iguais de 10 quadradinhos. Elas precisam ter a mesma forma?
++ Não, formas diferentes podem ter a mesma área
+- Sim, sempre | forma-area
+- Sim, se estiverem na mesma malha | forma-area
+- Só se forem quadrados | forma-area
+E: Um retângulo 5 por 2 e uma figura em L podem ter 10 quadradinhos.
+V: Um retângulo de 8 por 1 e um de 4 por 2 têm:
++ A mesma área, 8 quadradinhos
+- Áreas diferentes
+- O mesmo perímetro
+- A mesma forma
+Q: Um quadrado de lado 2 tem área 4. Se o lado dobrar para 4, a área fica:
++ 16
+- 8 | perimetro-area
+- 6 | conta-errado
+- 4 | forma-area
+E: 4 × 4 = 16: a área fica 4 vezes maior.
+V: Um quadrado de lado 3 tem área 9. Se o lado dobrar para 6, a área fica:
++ 36
+- 18
+- 12
+- 9
+Q: Qual é o perímetro de um retângulo de 4 por 3 quadradinhos? (lado de cada quadradinho = 1)
++ 14
+- 12 | perimetro-area
+- 7 | conta-errado
+- 16 | conta-errado
+E: 4 + 3 + 4 + 3 = 14. A área é que seria 12.
+V: Qual é o perímetro de um retângulo de 5 por 2 quadradinhos? (lado = 1)
++ 14
+- 10
+- 7
+- 12
+
+@aplicar | Aplicar: áreas na escola | Use a área para resolver.
+Q: O piso de uma sala tem 6 lajotas de comprimento e 5 de largura. Quantas lajotas tem o piso?
++ 30
+- 22 | perimetro-area
+- 11 | perimetro-area
+- 36 | conta-errado
+E: 6 × 5 = 30.
+V: Um mural tem 8 cartolinas de comprimento e 3 de altura. Quantas cartolinas tem o mural?
++ 24
+- 22
+- 11
+- 32
+Q: Lia pintou uma figura com 9 quadradinhos inteiros e 4 metades. Rui pintou uma com 10 inteiros. Quem pintou mais?
++ Lia, com 11
+- Rui, com 10 | metade-esquecida
+- Os dois iguais | metade-esquecida
+- Lia, com 13 | metade-esquecida
+E: 4 metades = 2 inteiros; Lia: 9 + 2 = 11.
+V: Ana pintou 7 inteiros e 6 metades. Davi pintou 9 inteiros. Quem pintou mais?
++ Ana, com 10
+- Davi, com 9
+- Os dois iguais
+- Ana, com 13
+Q: Dois tapetes: um de 4 m por 2 m e outro de 3 m por 3 m. Qual cobre mais chão?
++ O de 3 m por 3 m
+- O de 4 m por 2 m, porque é mais comprido | conta-errado
+- Cobrem igual | forma-area
+- Não dá para saber | forma-area
+E: 4 × 2 = 8 m²; 3 × 3 = 9 m².
+V: Duas toalhas: uma de 5 por 2 e outra de 4 por 3. Qual cobre mais a mesa?
++ A de 4 por 3
+- A de 5 por 2
+- Cobrem igual
+- Não dá para saber
+
+@explicar | Explicar: área ou perímetro? | Explique a diferença entre área e perímetro usando um retângulo de 5 por 3 na malha.
+C: area | Diz que área é o espaço de dentro e calcula 15 quadradinhos
+C: perimetro | Diz que perímetro é o contorno e calcula 16
+C: diferenca | Deixa claro que são medidas diferentes
+BOA: A área é o espaço de dentro do retângulo: 5 × 3 = 15 quadradinhos. O perímetro é o contorno: 5 + 3 + 5 + 3 = 16. São medidas diferentes: uma mede o que cobre, a outra mede a volta.
+
+#PRE EF04MA18 > EF03MA15 | 3
+#PRE EF04MA19 > EF03MA16 | 3
+#PRE EF04MA20 > EF03MA19 | 2
+#PRE EF04MA20 > EF03MA20 | 2
+#PRE EF04MA21 > EF03MA21 | 3

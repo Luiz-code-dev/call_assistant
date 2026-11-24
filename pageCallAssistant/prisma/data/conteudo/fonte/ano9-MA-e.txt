@@ -1,0 +1,502 @@
+// 9º ano — Matemática (parte 5): EF09MA21, EF09MA22, EF09MA23
+
+#TRILHA EF09MA21 | MA | 9 | Trilha: Gráficos que enganam | Lendo a mídia com olhar crítico
+FAZ: Analisa e identifica, em gráficos da mídia, elementos que podem induzir a erros de leitura, como escalas inapropriadas, legendas confusas e omissão de fontes e datas.
+ERRO: eixo-cortado | Não percebe que o eixo começa acima de zero e exagera diferenças
+ERRO: area-ilustracao | Compara figuras pela altura sem notar que a área cresceu mais
+ERRO: fonte | Não estranha a falta de fonte, data ou unidade
+ERRO: calculo | Erra a leitura dos valores
+NOTA: Perguntas para todo gráfico: o eixo começa em zero? As escalas são regulares? Há fonte e data? As figuras estão proporcionais aos valores?
+
+@relembrar | Relembrar: o que conferir | Eixo vertical começando em zero (em colunas), intervalos iguais na escala, título, legenda, unidade, fonte e data.
+Q: Um gráfico de colunas mostra vendas de 98 e 102 com o eixo começando em 96. O que o leitor pode pensar errado?
++ Que a segunda venda é três vezes a primeira, quando a diferença é de cerca de 4%
+- Que as vendas são iguais | calculo
+- Nada, o gráfico está correto | eixo-cortado
+- Que as vendas caíram | calculo
+E: As colunas ficam com alturas 2 e 6, sugerindo o triplo.
+V: Um gráfico mostra 200 e 210 com o eixo começando em 190. As colunas ficam com alturas 10 e 20. O que parece?
++ Que o segundo valor é o dobro, quando é só 5% maior
+- Que os valores são iguais
+- Nada, o gráfico está correto
+- Que o segundo valor é menor
+Q: Um gráfico de colunas não informa de onde vieram os dados nem quando foram coletados. Qual é o problema?
++ O leitor não pode verificar a confiabilidade nem a atualidade
+- Nenhum | fonte
+- O gráfico fica feio | fonte
+- As colunas ficam erradas | calculo
+E: Fonte e data permitem checar a informação.
+V: Um gráfico sobre "desemprego" não traz a unidade (mil pessoas? porcentagem?). Qual é o problema?
++ Não dá para saber o que os números representam
+- Nenhum
+- O gráfico fica feio
+- Os números ficam maiores
+Q: Num eixo, as marcas são 0, 10, 20, 50, 100, espaçadas igualmente. Qual é o problema?
++ A escala é irregular e distorce a comparação
+- Nenhum | eixo-cortado
+- Faltam cores | fonte
+- O eixo começa em zero | eixo-cortado
+E: Intervalos iguais no desenho devem ter valores iguais.
+V: Num eixo de tempo, as marcas são 2010, 2015, 2016, 2017, 2023, espaçadas igualmente. Qual é o problema?
++ Os intervalos de tempo são diferentes, mas parecem iguais
+- Nenhum
+- Faltam cores
+- Os anos estão em ordem
+
+@exemplo_guiado | Exemplo guiado: figuras que enganam | Um gráfico mostra um saco de dinheiro para 100 e outro para 200, com o dobro de altura E de largura. O segundo saco parece 4 vezes maior, embora o valor seja só o dobro.
+Q: Uma ilustração usa uma garrafa de altura 2 cm para 1 milhão de litros e uma garrafa semelhante de altura 4 cm para 2 milhões. O que acontece?
++ A segunda parece 4 vezes maior (ou mais), embora o valor seja o dobro
+- A comparação fica correta | area-ilustracao
+- A segunda parece menor | calculo
+- As duas parecem iguais | calculo
+E: Ao dobrar a altura e a largura, a área quadruplica.
+V: Um gráfico usa um quadrado de lado 1 cm para 10 casos e um de lado 3 cm para 30 casos. O que acontece?
++ O segundo parece 9 vezes maior, embora o valor seja o triplo
+- A comparação fica correta
+- O segundo parece menor
+- Os dois parecem iguais
+Q: Qual é a forma correta de usar figuras num gráfico pictórico?
++ Repetir figuras do mesmo tamanho, cada uma valendo a mesma quantidade
+- Aumentar a figura em todas as direções | area-ilustracao
+- Usar figuras diferentes sem legenda | fonte
+- Não usar escala | eixo-cortado
+E: Assim a quantidade de figuras é proporcional ao valor.
+V: Num gráfico pictórico, cada boneco vale 1.000 pessoas. Para 5.000 pessoas, o correto é:
++ Desenhar 5 bonecos iguais
+- Desenhar 1 boneco 5 vezes mais alto
+- Desenhar 1 boneco 5 vezes mais largo
+- Desenhar 2 bonecos grandes
+Q: Um gráfico de setores sem porcentagens mostra três fatias parecidas, mas os números reais são 40%, 35% e 25%. Qual é o problema?
++ Sem os valores, o leitor não percebe as diferenças
+- Nenhum | fonte
+- Setores nunca devem ser usados | fonte
+- A soma deveria ser 50% | calculo
+E: Rótulos com valores evitam leituras erradas.
+V: Um gráfico de setores em 3D, inclinado, faz a fatia da frente parecer maior. Qual é o problema?
++ A perspectiva distorce o tamanho das fatias
+- Nenhum
+- Faltam cores
+- A soma passa de 100%
+
+@praticar | Praticar: detetive de gráficos | Encontre o problema.
+Q: Uma manchete diz "Vendas explodem!" e mostra colunas de 1.000 e 1.050 com eixo começando em 990. Qual é a leitura correta?
++ As vendas subiram 5%
+- As vendas subiram 500% | eixo-cortado
+- As vendas dobraram | eixo-cortado
+- As vendas caíram | calculo
+E: (1.050 − 1.000) ÷ 1.000 = 5%.
+V: Uma manchete diz "Preço dispara!" com colunas de 50 e 52 e eixo começando em 49. Qual é a leitura correta?
++ O preço subiu 4%
+- O preço subiu 200%
+- O preço triplicou
+- O preço caiu
+Q: Dois gráficos sobre o mesmo dado usam escalas diferentes no eixo vertical: um de 0 a 100, outro de 40 a 60. O que acontece?
++ O segundo exagera as variações
+- Os dois mostram igual | eixo-cortado
+- O primeiro exagera | eixo-cortado
+- Nenhum mostra os dados | fonte
+E: Quanto menor o intervalo do eixo, maiores parecem as variações.
+V: Um gráfico de linhas de temperatura usa eixo de 20 °C a 22 °C. Uma variação de 1 °C parece:
++ Enorme, ocupando metade da altura
+- Pequena
+- Normal, como num eixo de 0 a 40
+- Inexistente
+Q: Um gráfico compara o lucro de 2023 (só janeiro a junho) com o de 2022 (ano inteiro). Qual é o problema?
++ Os períodos são diferentes, a comparação é injusta
+- Nenhum | fonte
+- Faltam cores | fonte
+- O eixo começa em zero | eixo-cortado
+E: É preciso comparar períodos iguais.
+V: Uma reportagem compara acidentes em dezembro com acidentes em fevereiro sem dizer que dezembro tem mais dias e mais viagens. Qual é o problema?
++ Omite informações que explicam a diferença
+- Nenhum
+- Faltam cores
+- O eixo começa em zero
+Q: Qual destes cuidados torna um gráfico de colunas mais honesto?
++ Começar o eixo vertical em zero
+- Começar o eixo perto do menor valor | eixo-cortado
+- Retirar a fonte | fonte
+- Usar figuras de tamanhos diferentes | area-ilustracao
+E: Assim a altura das colunas é proporcional aos valores.
+V: Qual destes cuidados torna um gráfico mais confiável?
++ Informar fonte e data dos dados
+- Esconder a unidade
+- Usar escala irregular
+- Inclinar o gráfico em 3D
+
+@aplicar | Aplicar: mídia e decisões | Leia antes de concluir.
+Q: Uma propaganda mostra "90% dos dentistas recomendam" sem dizer quantos foram ouvidos. O que perguntar?
++ Quantos dentistas foram pesquisados e como foram escolhidos
+- Qual é a cor da embalagem | fonte
+- Nada, 90% é muito | fonte
+- Qual é o preço | calculo
+E: 9 de 10 dentistas é muito diferente de 900 de 1.000.
+V: Uma propaganda diz "8 em cada 10 clientes aprovam" sem fonte. O que perguntar?
++ Quantos clientes foram ouvidos, quem fez a pesquisa e quando
+- Qual é a cor do produto
+- Nada, 80% é muito
+- Qual é o preço
+Q: Um gráfico mostra os casos de uma doença crescendo, mas o eixo horizontal pula de 2019 para 2023. O que pode estar escondido?
++ O que aconteceu em 2020, 2021 e 2022
+- Nada | fonte
+- Os casos de 2019 | calculo
+- O eixo vertical | eixo-cortado
+E: A omissão de anos pode mudar a interpretação.
+V: Um gráfico de vendas mostra só os meses de alta, omitindo os de baixa. O que pode estar escondido?
++ A queda nos outros meses
+- Nada
+- O nome da empresa
+- O eixo vertical
+Q: Você vai compartilhar um gráfico numa rede social. O que deve verificar antes?
++ Fonte, data, unidades, escala e se as figuras estão proporcionais
+- Só se as cores são bonitas | fonte
+- Só o título | fonte
+- Nada | fonte
+E: Assim você evita espalhar informação distorcida.
+V: Antes de usar um gráfico num trabalho escolar, o que você deve conferir?
++ Fonte, data, unidades e escala
+- Só as cores
+- Só o título
+- Nada
+
+@explicar | Explicar: o eixo que engana | Explique por que um gráfico de colunas com o eixo vertical começando em 95, mostrando valores 100 e 105, pode enganar o leitor.
+C: alturas | Mostra que as colunas ficam com alturas 5 e 10
+C: impressao | Diz que parece que o segundo valor é o dobro
+C: real | Calcula a diferença real: 5%
+BOA: Com o eixo começando em 95, a coluna de 100 fica com altura 5 e a de 105 com altura 10. Visualmente, parece que o segundo valor é o dobro do primeiro. Na verdade, 105 é só 5% maior que 100. O eixo cortado exagera a diferença.
+
+#TRILHA EF09MA22 | MA | 9 | Trilha: Construindo o gráfico certo | Colunas, setores ou linhas
+FAZ: Escolhe e constrói o gráfico mais adequado (colunas, setores, linhas), com ou sem planilhas, para apresentar dados, destacando medidas de tendência central.
+ERRO: tipo | Escolhe um tipo de gráfico inadequado aos dados
+ERRO: angulo | Erra o ângulo do setor
+ERRO: medida | Erra ou escolhe mal a medida de tendência central
+ERRO: calculo | Erra a conta
+NOTA: Setor: ângulo = porcentagem × 360°. Planilha: selecione os dados e escolha o tipo de gráfico; acrescente título, rótulos e fonte. Uma linha horizontal pode marcar a média.
+
+@relembrar | Relembrar: escolha e construção | Colunas: comparar categorias. Linhas: tempo. Setores: partes de um todo. Setor de 30%: 0,3 × 360° = 108°.
+Q: Qual é o ângulo de um setor que representa 35%?
++ 126°
+- 35° | angulo
+- 108° | angulo
+- 135° | calculo
+E: 0,35 × 360° = 126°.
+V: Qual é o ângulo de um setor que representa 15%?
++ 54°
+- 15°
+- 45°
+- 60°
+Q: Para mostrar a evolução mensal do número de visitantes de um museu, qual gráfico é mais adequado?
++ Linhas
+- Setores | tipo
+- Pictórico sem escala | tipo
+- Nenhum | tipo
+E: Dados no tempo.
+V: Para mostrar como os alunos de uma escola se distribuem por turno (soma 100%), qual gráfico é adequado?
++ Setores ou colunas
+- Linhas
+- Histograma
+- Nenhum
+Q: Num gráfico de colunas das notas de uma turma, uma linha horizontal marca a média 6,5. Para que serve?
++ Para ver quais valores estão acima ou abaixo da média
+- Para enfeitar | medida
+- Para mostrar a moda | medida
+- Para mostrar a amplitude | medida
+E: A linha da média ajuda na comparação.
+V: Num gráfico de linhas de temperatura, uma linha tracejada marca a média de 24 °C. Para que serve?
++ Para ver em que dias fez mais ou menos calor que a média
+- Para enfeitar
+- Para mostrar a moda
+- Para mostrar a amplitude
+
+@exemplo_guiado | Exemplo guiado: do dado ao gráfico | Transporte de 40 alunos: a pé 10 (25%), ônibus 18 (45%), carro 12 (30%). Setores: 90°, 162°, 108°. Moda: ônibus.
+Q: Numa pesquisa com 60 pessoas, 15 preferem praia. Qual é o ângulo do setor "praia"?
++ 90°
+- 15° | angulo
+- 25° | angulo
+- 60° | calculo
+E: 15/60 = 25%; 0,25 × 360° = 90°.
+V: Numa pesquisa com 80 pessoas, 20 preferem cinema. Qual é o ângulo do setor "cinema"?
++ 90°
+- 20°
+- 25°
+- 80°
+Q: Pesquisa: futebol 12, vôlei 8, natação 5, basquete 5 (total 30). Qual é a moda?
++ Futebol
+- Natação e basquete | medida
+- 7,5 | medida
+- Vôlei | medida
+E: Futebol tem a maior frequência.
+V: Pesquisa: rock 6, pop 10, sertanejo 14, funk 10 (total 40). Qual é a moda?
++ Sertanejo
+- Pop e funk
+- 10
+- Rock
+Q: Numa planilha, para criar um gráfico de setores, qual passo vem primeiro?
++ Organizar os dados numa tabela (categoria e valor) e selecioná-los
+- Escolher as cores | tipo
+- Imprimir | tipo
+- Calcular a média de tudo | medida
+E: O gráfico é feito a partir dos dados selecionados.
+V: Depois de inserir o gráfico na planilha, o que é importante acrescentar?
++ Título, rótulos com valores e fonte dos dados
+- Mais cores
+- Efeito 3D
+- Uma animação
+
+@praticar | Praticar: escolhendo e calculando | Combine gráfico e medida.
+Q: Tempos de corrida (s) de 5 alunos: 14, 15, 15, 16, 30. Que medida e gráfico representam melhor o tempo típico?
++ Mediana (15 s) com gráfico de colunas por aluno
+- Média (18 s) com gráfico de setores | medida
+- Moda (30 s) com linhas | medida
+- Amplitude (16 s) com setores | tipo
+E: O 30 puxa a média; a mediana representa melhor.
+V: Salários de 5 funcionários: 2, 2, 3, 3 e 20 mil. Que medida representa melhor o salário típico?
++ Mediana (3 mil)
+- Média (6 mil)
+- Maior valor (20 mil)
+- Amplitude (18 mil)
+Q: Numa pesquisa, os setores têm 72°, 144° e 144°. Quais são as porcentagens?
++ 20%, 40% e 40%
+- 72%, 144% e 144% | angulo
+- 25%, 37,5% e 37,5% | calculo
+- 10%, 45% e 45% | calculo
+E: 72 ÷ 360 = 0,2; 144 ÷ 360 = 0,4.
+V: Os setores têm 180°, 90° e 90°. Quais são as porcentagens?
++ 50%, 25% e 25%
+- 180%, 90% e 90%
+- 60%, 20% e 20%
+- 40%, 30% e 30%
+Q: Qual gráfico é inadequado para "altura de cada aluno da turma"?
++ Setores
+- Colunas, uma por aluno | tipo
+- Histograma com classes | tipo
+- Uma tabela ordenada | tipo
+E: Alturas não são partes de um todo.
+V: Qual gráfico é inadequado para "temperatura média de cada mês"?
++ Setores
+- Linhas
+- Colunas
+- Uma tabela
+Q: A média de 4 valores num gráfico de colunas é 25. Três colunas valem 20, 30 e 15. Quanto vale a quarta?
++ 35
+- 25 | medida
+- 65 | calculo
+- 100 | calculo
+E: Soma 100; 100 − 65 = 35.
+V: A média de 5 valores é 12. Quatro valem 10, 14, 8 e 16. Quanto vale o quinto?
++ 12
+- 10
+- 48
+- 60
+
+@aplicar | Aplicar: comunicando resultados | O gráfico certo para o público certo.
+Q: Uma escola quer mostrar aos responsáveis a frequência média por mês, ao longo do ano. Qual é a melhor escolha?
++ Gráfico de linhas, com uma linha marcando a meta de frequência
+- Setores com 12 fatias | tipo
+- Pictórico sem escala | tipo
+- Só a média do ano | medida
+E: Mostra a evolução e a comparação com a meta.
+V: Uma prefeitura quer mostrar a coleta de lixo reciclável mês a mês e a média do ano. Qual é a melhor escolha?
++ Colunas ou linhas por mês, com uma linha horizontal na média
+- Setores com 12 fatias
+- Pictórico sem escala
+- Só a média do ano
+Q: Um grupo pesquisou o tipo de moradia de 50 famílias: casa 30, apartamento 15, outro 5. Qual é o ângulo do setor "apartamento"?
++ 108°
+- 15° | angulo
+- 30° | calculo
+- 54° | calculo
+E: 15/50 = 30%; 0,3 × 360° = 108°.
+V: Na mesma pesquisa, qual é o ângulo do setor "casa"?
++ 216°
+- 30°
+- 60°
+- 108°
+Q: Para comparar o desempenho de meninos e meninas em 3 provas, qual gráfico é melhor?
++ Colunas agrupadas (duas colunas por prova)
+- Um setor para cada aluno | tipo
+- Linhas ligando as provas como se fosse tempo, sem legenda | tipo
+- Nenhum | tipo
+E: Colunas agrupadas comparam duas séries em categorias.
+V: Para comparar as vendas de duas lojas em 4 trimestres, qual gráfico é melhor?
++ Colunas agrupadas ou duas linhas com legenda
+- Um setor para cada venda
+- Pictórico sem escala
+- Nenhum
+
+@explicar | Explicar: escolhendo o gráfico | Explique qual gráfico você usaria para mostrar a porcentagem de alunos por meio de transporte e como calcularia os ângulos.
+C: escolha | Escolhe setores (partes de um todo) ou colunas
+C: angulo | Explica: ângulo = porcentagem × 360°
+C: exemplo | Dá um exemplo (25% → 90°)
+BOA: Usaria um gráfico de setores, porque as porcentagens dos meios de transporte formam um todo de 100%. Para cada fatia, multiplico a porcentagem por 360°. Por exemplo, se 25% vão a pé, o setor tem 0,25 × 360° = 90°. Coloco título, valores em cada fatia e a fonte.
+
+#TRILHA EF09MA23 | MA | 9 | Trilha: Pesquisa amostral e relatório | Com planilhas eletrônicas
+FAZ: Planeja e executa pesquisa amostral sobre tema da realidade social e comunica os resultados em relatório com medidas de tendência central, amplitude, tabelas e gráficos feitos em planilhas.
+ERRO: amostra | Escolhe uma amostra não representativa
+ERRO: funcao | Usa a função errada da planilha
+ERRO: conclusao | Tira conclusões além do que os dados mostram
+ERRO: calculo | Erra a conta
+NOTA: Funções úteis: MÉDIA, MED, MODO, MÁXIMO, MÍNIMO, CONT.SE. Relatório: tema, objetivo, amostra, método, tabelas, gráficos, medidas e conclusões.
+
+@relembrar | Relembrar: funções da planilha | MÉDIA(A2:A31): média. MED(A2:A31): mediana. MODO(A2:A31): moda. MÁXIMO − MÍNIMO: amplitude. CONT.SE(B2:B31;"sim"): quantos "sim".
+Q: Qual função calcula a mediana dos valores de A2 a A41?
++ MED(A2:A41)
+- MÉDIA(A2:A41) | funcao
+- MODO(A2:A41) | funcao
+- SOMA(A2:A41) | funcao
+E: MED é a mediana.
+V: Qual função calcula a moda dos valores de B2 a B51?
++ MODO(B2:B51)
+- MÉDIA(B2:B51)
+- MED(B2:B51)
+- MÁXIMO(B2:B51)
+Q: Como calcular a amplitude dos dados de C2 a C30 numa planilha?
++ MÁXIMO(C2:C30) − MÍNIMO(C2:C30)
+- MÉDIA(C2:C30) | funcao
+- SOMA(C2:C30) | funcao
+- CONT.VALORES(C2:C30) | funcao
+E: Amplitude = maior − menor.
+V: Qual fórmula conta quantas respostas "não" há em D2:D101?
++ CONT.SE(D2:D101;"não")
+- SOMA(D2:D101)
+- MÉDIA(D2:D101)
+- MÁXIMO(D2:D101)
+Q: Uma pesquisa sobre "uso de transporte público" vai ser feita numa cidade. Qual amostra é mais adequada?
++ Moradores sorteados em todos os bairros, proporcionalmente
+- Só pessoas no ponto de ônibus | amostra
+- Só os vizinhos do pesquisador | amostra
+- Só motoristas de carro | amostra
+E: Amostra estratificada por bairro representa a cidade.
+V: Para pesquisar o hábito de leitura dos jovens de uma cidade, qual amostra é mais adequada?
++ Jovens sorteados em escolas de todas as regiões
+- Só jovens numa livraria
+- Só jovens de uma escola particular
+- Só amigos do pesquisador
+
+@exemplo_guiado | Exemplo guiado: um relatório | Tema: tempo de deslocamento até o trabalho no bairro. Amostra: 60 adultos sorteados em todas as ruas. Resultados na planilha: média 38 min, mediana 30 min, moda 25 min, amplitude 85 min. Gráfico: histograma por classes de 15 min. Conclusão: metade leva até 30 min, mas alguns levam muito mais, o que puxa a média para cima.
+Q: No exemplo, por que a média (38 min) é maior que a mediana (30 min)?
++ Alguns tempos muito altos puxam a média para cima
+- A média sempre é maior que a mediana | calculo
+- A planilha errou | funcao
+- A amostra foi pequena | amostra
+E: Valores extremos afetam a média, não a mediana.
+V: Numa pesquisa de renda, a média é R$ 5.000 e a mediana R$ 2.500. O que isso sugere?
++ Há algumas rendas muito altas puxando a média
+- A média está errada
+- Todos ganham R$ 5.000
+- A mediana é sempre metade da média
+Q: No exemplo, qual conclusão é adequada?
++ Metade dos adultos pesquisados leva até 30 minutos
+- Todos levam 38 minutos | conclusao
+- Ninguém leva mais de 30 minutos | conclusao
+- Todos os brasileiros levam 30 minutos | conclusao
+E: A mediana divide os dados ao meio.
+V: Numa pesquisa, a mediana de horas de estudo é 2 h. Qual conclusão é adequada?
++ Metade dos pesquisados estuda até 2 horas
+- Todos estudam 2 horas
+- Ninguém estuda mais de 2 horas
+- Todos os estudantes do país estudam 2 horas
+Q: Por que o relatório deve informar como a amostra foi escolhida?
++ Para o leitor avaliar se ela representa bem a população
+- Para ficar mais longo | conclusao
+- Porque a planilha exige | funcao
+- Não precisa informar | amostra
+E: A confiabilidade depende da amostra.
+V: Um relatório diz apenas "perguntamos a algumas pessoas". O que falta?
++ Quantas pessoas, como foram escolhidas e quando
+- Mais gráficos coloridos
+- Uma conclusão mais longa
+- Nada
+
+@praticar | Praticar: analisando com planilha | Funções e interpretação.
+Q: Numa planilha, as idades estão em A2:A21. MÉDIA deu 15,2 e MED deu 15. O que isso indica?
++ Os dados estão razoavelmente equilibrados em torno de 15
+- Há muitos valores extremos | calculo
+- A planilha errou | funcao
+- Todos têm 15 anos | conclusao
+E: Média e mediana próximas indicam poucos extremos.
+V: Notas em B2:B31: MÉDIA = 6,8 e MED = 7. O que isso indica?
++ As notas estão equilibradas em torno de 7
+- Há muitas notas extremas
+- A planilha errou
+- Todos tiraram 7
+Q: Numa pesquisa com 200 respostas, CONT.SE deu 130 para "sim". Qual é a porcentagem de "sim"?
++ 65%
+- 130% | calculo
+- 35% | calculo
+- 13% | calculo
+E: 130 ÷ 200 = 0,65.
+V: Com 400 respostas, CONT.SE deu 140 para "não". Qual é a porcentagem de "não"?
++ 35%
+- 140%
+- 65%
+- 14%
+Q: Os tempos (min) de 6 pessoas são 10, 20, 20, 25, 30, 75. Quais são média, mediana, moda e amplitude?
++ Média 30; mediana 22,5; moda 20; amplitude 65
+- Média 30; mediana 20; moda 75; amplitude 75 | calculo
+- Média 180; mediana 22,5; moda 20; amplitude 65 | calculo
+- Média 22,5; mediana 30; moda 20; amplitude 65 | calculo
+E: Soma 180 ÷ 6 = 30; mediana (20 + 25) ÷ 2 = 22,5; moda 20; 75 − 10 = 65.
+V: Os valores 4, 6, 6, 8, 10, 14 têm quais média, mediana, moda e amplitude?
++ Média 8; mediana 7; moda 6; amplitude 10
+- Média 8; mediana 6; moda 14; amplitude 14
+- Média 48; mediana 7; moda 6; amplitude 10
+- Média 7; mediana 8; moda 6; amplitude 10
+Q: Qual gráfico combina com a variável "tempo de deslocamento (min)" de 60 pessoas?
++ Histograma com classes
+- Setores com 60 fatias | funcao
+- Linhas ligando as pessoas | funcao
+- Pictórico sem escala | funcao
+E: Variável contínua com muitos valores.
+V: Qual gráfico combina com "meio de transporte preferido" de 60 pessoas?
++ Colunas ou setores
+- Histograma com classes
+- Linhas ligando as pessoas
+- Nenhum
+
+@aplicar | Aplicar: pesquisa social | Do tema à conclusão.
+Q: Um grupo quer saber se os moradores de um bairro aprovam a criação de uma ciclovia. Qual é a sequência correta?
++ Definir a pergunta, sortear moradores de todas as ruas, coletar, organizar na planilha, fazer gráfico e calcular porcentagens, concluir
+- Fazer o gráfico, depois perguntar | conclusao
+- Perguntar só aos ciclistas | amostra
+- Concluir antes de coletar | conclusao
+E: Etapas em ordem e amostra representativa.
+V: Uma turma quer saber quanto lixo as famílias do bairro produzem por semana. Qual é a sequência correta?
++ Definir a pergunta, sortear famílias de várias ruas, coletar os dados, organizar na planilha, calcular média, mediana e amplitude, fazer gráfico, concluir
+- Fazer o gráfico e depois inventar os dados
+- Perguntar só à própria família
+- Concluir antes de coletar
+Q: Numa pesquisa sobre renda, a amplitude foi R$ 15.000. O que isso indica?
++ Grande diferença entre a maior e a menor renda pesquisada
+- Que a média é R$ 15.000 | calculo
+- Que todos ganham R$ 15.000 | conclusao
+- Que a pesquisa errou | funcao
+E: Amplitude mede o espalhamento.
+V: Numa pesquisa de idades, a amplitude foi 2 anos. O que isso indica?
++ As idades são muito próximas
+- A média é 2 anos
+- Todos têm 2 anos
+- A pesquisa errou
+Q: Um relatório conclui "todos os jovens do Brasil usam muito o celular" com base em 30 alunos de uma escola. Qual é o problema?
++ Generalizou além da população pesquisada
+- Nenhum | conclusao
+- Faltou um gráfico de setores | funcao
+- 30 é muito | amostra
+E: A conclusão deve se limitar à população representada pela amostra.
+V: Uma pesquisa com clientes de uma loja conclui "todos os brasileiros preferem esta marca". Qual é o problema?
++ Generalizou além da população pesquisada
+- Nenhum
+- Faltou um gráfico
+- A loja é grande
+
+@explicar | Explicar: o relatório | Descreva o que deve conter o relatório de uma pesquisa amostral sobre o tempo que os alunos da escola passam nas redes sociais.
+C: metodo | Tema, objetivo e como a amostra foi escolhida
+C: resultados | Tabelas, gráfico adequado e medidas (média, mediana, moda, amplitude) feitas na planilha
+C: conclusao | Conclusão baseada nos dados, sem generalizar além da escola
+BOA: O relatório começa com o tema e o objetivo: saber quanto tempo os alunos passam nas redes sociais. Depois explica a amostra: alunos sorteados em todas as turmas, na proporção de cada uma. Em seguida, mostra a tabela, um histograma e as medidas calculadas na planilha: média, mediana, moda e amplitude. Por fim, traz a conclusão, por exemplo: "metade dos alunos pesquisados passa mais de 3 horas por dia nas redes", sem estender o resultado para alunos de outras escolas.
+
+#PRE EF09MA21 > EF08MA23 | 3
+#PRE EF09MA22 > EF08MA23 | 3
+#PRE EF09MA22 > EF08MA25 | 2
+#PRE EF09MA23 > EF08MA27 | 3
+#PRE EF09MA23 > EF09MA22 | 2

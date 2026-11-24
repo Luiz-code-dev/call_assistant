@@ -1,0 +1,670 @@
+// 7º ano — Matemática (parte 8): EF07MA34, EF07MA35, EF07MA36, EF07MA37
+
+#TRILHA EF07MA34 | MA | 7 | Trilha: Experimentos e frequência | Probabilidade na prática
+FAZ: Planeja e realiza experimentos aleatórios ou simulações, calculando probabilidades ou estimando-as pela frequência de ocorrências.
+ERRO: poucas-vezes | Tira conclusões com poucas repetições do experimento
+ERRO: frequencia-exata | Espera que a frequência seja exatamente igual à probabilidade
+ERRO: memoria | Acha que o resultado anterior influencia o próximo (moeda "deve" dar coroa)
+ERRO: calculo | Erra a conta
+NOTA: Lancem uma moeda 10, 50 e 200 vezes e registrem a frequência de cara. Mostre como ela se aproxima de 1/2 conforme aumentam os lançamentos.
+
+@relembrar | Relembrar: frequência relativa | Lançando uma moeda 50 vezes e saindo 23 caras, a frequência relativa de cara é 23/50 = 0,46 = 46%.
+Q: Um dado foi lançado 60 vezes e o 6 saiu 12 vezes. Qual é a frequência relativa do 6?
++ 12/60 = 20%
+- 1/6 | frequencia-exata
+- 12% | calculo
+- 6/60 | calculo
+E: 12 ÷ 60 = 0,2 = 20%.
+V: Um dado foi lançado 50 vezes e o 3 saiu 9 vezes. Qual é a frequência relativa do 3?
++ 9/50 = 18%
+- 1/6
+- 9%
+- 3/50
+Q: Qual é a probabilidade teórica de sair 6 num dado comum?
++ 1/6
+- 12/60 | frequencia-exata
+- 1/2 | calculo
+- 6/6 | calculo
+E: 1 caso favorável em 6.
+V: Qual é a probabilidade teórica de sair cara numa moeda?
++ 1/2
+- 23/50
+- 1/4
+- 2/2
+Q: Uma moeda deu cara 5 vezes seguidas. No próximo lançamento:
++ A chance de cara continua 1/2
+- Vai dar coroa com certeza | memoria
+- A chance de coroa é maior | memoria
+- A chance de cara é maior | memoria
+E: A moeda não tem memória; cada lançamento é independente.
+V: Num dado, o 4 não sai há 20 lançamentos. No próximo:
++ A chance de sair 4 continua 1/6
+- O 4 vai sair com certeza
+- A chance do 4 é maior agora
+- A chance do 4 é menor agora
+
+@exemplo_guiado | Exemplo guiado: mais lançamentos, mais perto | Moeda: 10 lançamentos, 7 caras (70%). 100 lançamentos, 54 caras (54%). 1.000 lançamentos, 502 caras (50,2%). Quanto mais repetições, mais a frequência se aproxima da probabilidade (50%).
+Q: Por que 10 lançamentos de moeda não bastam para concluir que ela é viciada?
++ Com poucas repetições, a frequência varia muito
+- Porque 10 é número par | calculo
+- Porque a moeda tem memória | memoria
+- Porque 10 lançamentos dão sempre 5 caras | frequencia-exata
+E: É preciso repetir muitas vezes.
+V: Um aluno lançou um dado 6 vezes e não saiu o 1. Ele pode concluir que o dado é viciado?
++ Não, 6 lançamentos são poucos para concluir
+- Sim, devia sair o 1 uma vez
+- Sim, o 1 nunca sai nesse dado
+- Não, porque o 1 sai só no 7º lançamento
+Q: Lançando uma moeda 400 vezes, quantas caras são esperadas, aproximadamente?
++ Cerca de 200
+- Exatamente 200 | frequencia-exata
+- Cerca de 100 | calculo
+- Cerca de 400 | calculo
+E: 1/2 de 400 = 200; o número real pode variar um pouco.
+V: Lançando um dado 600 vezes, quantas vezes o 5 deve sair, aproximadamente?
++ Cerca de 100
+- Exatamente 100
+- Cerca de 300
+- Cerca de 50
+Q: Um saco tem bolas azuis e vermelhas em quantidade desconhecida. Em 100 retiradas, com reposição, saiu azul 30 vezes. Qual é a estimativa da probabilidade de azul?
++ Cerca de 30%
+- Exatamente 50% | frequencia-exata
+- Cerca de 70% | calculo
+- Não dá para estimar | poucas-vezes
+E: A frequência relativa estima a probabilidade: 30/100.
+V: Numa roleta desconhecida, em 200 giros, parou no verde 50 vezes. Qual é a estimativa da probabilidade de verde?
++ Cerca de 25%
+- Exatamente 50%
+- Cerca de 75%
+- Não dá para estimar
+
+@praticar | Praticar: simulando | Compare frequência e probabilidade.
+Q: Lançando dois dados, a probabilidade de soma 7 é 6/36. Em 360 lançamentos, quantas somas 7 são esperadas?
++ Cerca de 60
+- Cerca de 36 | calculo
+- Cerca de 7 | calculo
+- Exatamente 60 | frequencia-exata
+E: 6/36 = 1/6; 360 ÷ 6 = 60.
+V: Lançando dois dados, a probabilidade de soma 2 é 1/36. Em 360 lançamentos, quantas somas 2 são esperadas?
++ Cerca de 10
+- Cerca de 36
+- Cerca de 2
+- Exatamente 10
+Q: Numa simulação de 50 lançamentos, a frequência de cara foi 0,56. Em outra, de 5.000 lançamentos, foi 0,503. Qual é mais confiável?
++ A de 5.000 lançamentos
+- A de 50 lançamentos | poucas-vezes
+- As duas são iguais | poucas-vezes
+- Nenhuma | frequencia-exata
+E: Mais repetições dão estimativa melhor.
+V: Uma pesquisa com 20 alunos e outra com 2.000 alunos estimaram a mesma probabilidade. Qual é mais confiável?
++ A de 2.000 alunos
+- A de 20 alunos
+- As duas são iguais
+- Nenhuma
+Q: Num dado, saíram estas frequências em 600 lançamentos: 1: 98; 2: 103; 3: 101; 4: 97; 5: 100; 6: 101. O dado parece:
++ Honesto: todas as faces perto de 100
+- Viciado no 2 | frequencia-exata
+- Viciado no 4 | frequencia-exata
+- Impossível dizer | poucas-vezes
+E: O esperado é cerca de 100 para cada face; as diferenças são pequenas.
+V: Em 600 lançamentos: 1: 40; 2: 45; 3: 50; 4: 42; 5: 48; 6: 375. O dado parece:
++ Viciado no 6
+- Honesto
+- Viciado no 3
+- Impossível dizer
+Q: Uma moeda foi lançada 20 vezes e deu 12 caras. Qual é a frequência relativa de coroa?
++ 40%
+- 60% | calculo
+- 50% | frequencia-exata
+- 8% | calculo
+E: Coroas: 20 − 12 = 8; 8/20 = 0,4.
+V: Uma moeda foi lançada 50 vezes e deu 28 caras. Qual é a frequência relativa de coroa?
++ 44%
+- 56%
+- 50%
+- 22%
+
+@aplicar | Aplicar: estimando com dados | Use a frequência como estimativa.
+Q: Numa fábrica, de 1.000 lâmpadas testadas, 15 eram defeituosas. Qual é a estimativa de defeituosas num lote de 20.000?
++ Cerca de 300
+- Cerca de 15 | calculo
+- Cerca de 1.500 | calculo
+- Exatamente 300 | frequencia-exata
+E: 15/1.000 = 1,5%; 1,5% de 20.000 = 300.
+V: De 500 peças testadas, 10 eram defeituosas. Qual é a estimativa de defeituosas num lote de 8.000?
++ Cerca de 160
+- Cerca de 10
+- Cerca de 800
+- Exatamente 160
+Q: Um jogador de basquete acertou 72 de 90 lances livres na temporada. Qual é a estimativa da chance de ele acertar o próximo?
++ 80%
+- 72% | calculo
+- 50% | frequencia-exata
+- 100% | memoria
+E: 72 ÷ 90 = 0,8.
+V: Um goleiro defendeu 15 de 60 pênaltis. Qual é a estimativa da chance de ele defender o próximo?
++ 25%
+- 15%
+- 50%
+- 0%
+Q: Para estimar a chance de chover em novembro numa cidade, o que é melhor?
++ Contar os dias de chuva em novembro em muitos anos anteriores
+- Olhar só o ano passado | poucas-vezes
+- Supor 50% | frequencia-exata
+- Ver se choveu ontem | memoria
+E: Mais dados históricos dão estimativa mais confiável.
+V: Para estimar a chance de um ônibus atrasar, o que é melhor?
++ Registrar os horários de chegada em muitos dias
+- Observar só um dia
+- Supor 50%
+- Ver se atrasou ontem
+
+@explicar | Explicar: frequência e probabilidade | Um colega lançou uma moeda 10 vezes, saíram 8 caras, e ele disse que a moeda é viciada. Explique o que você diria a ele.
+C: poucas | Diz que 10 lançamentos são poucos
+C: variacao | Diz que com poucas repetições a frequência varia muito
+C: proposta | Propõe repetir muitas vezes e ver se a frequência se aproxima de 50%
+BOA: Dez lançamentos são poucos. Com poucas repetições, é normal a frequência ficar longe de 50%, como 8 caras em 10. Para saber se a moeda é viciada, eu lançaria muitas vezes, umas 500 ou mais. Se a frequência de cara ficar perto de 50%, a moeda é honesta; se ficar muito longe, pode ser viciada.
+
+#TRILHA EF07MA35 | MA | 7 | Trilha: Média e amplitude | O que a média diz e o que ela esconde
+FAZ: Compreende a média como indicador da tendência de uma pesquisa, calcula seu valor e o relaciona, intuitivamente, com a amplitude dos dados.
+ERRO: esquece-dividir | Soma os valores e esquece de dividir pela quantidade
+ERRO: divide-errado | Divide pela quantidade errada de valores
+ERRO: amplitude | Calcula a amplitude errado (não faz maior − menor)
+ERRO: media-tudo | Acha que a média sozinha descreve bem qualquer conjunto
+ERRO: calculo | Erra a conta
+NOTA: Calcule a média de idades, alturas e notas da turma. Compare dois conjuntos com a mesma média e amplitudes diferentes.
+
+@relembrar | Relembrar: média e amplitude | Notas 6, 7, 8, 9: média = (6 + 7 + 8 + 9) ÷ 4 = 7,5. Amplitude = 9 − 6 = 3.
+Q: Qual é a média de 4, 8, 6 e 10?
++ 7
+- 28 | esquece-dividir
+- 9,33 | divide-errado
+- 6 | amplitude
+E: (4 + 8 + 6 + 10) ÷ 4 = 28 ÷ 4 = 7.
+V: Qual é a média de 5, 9, 7 e 3?
++ 6
+- 24
+- 8
+- 4
+Q: Qual é a amplitude de 12, 5, 20, 8, 15?
++ 15
+- 12 | amplitude
+- 20 | amplitude
+- 60 | esquece-dividir
+E: Maior − menor: 20 − 5 = 15.
+V: Qual é a amplitude de 31, 18, 25, 40, 22?
++ 22
+- 31
+- 40
+- 136
+Q: As idades de 5 amigos são 12, 13, 12, 14 e 14. Qual é a média?
++ 13
+- 65 | esquece-dividir
+- 16,25 | divide-errado
+- 2 | amplitude
+E: 65 ÷ 5 = 13.
+V: As alturas de 4 plantas são 20, 25, 30 e 25 cm. Qual é a média?
++ 25 cm
+- 100 cm
+- 33,3 cm
+- 10 cm
+
+@exemplo_guiado | Exemplo guiado: mesma média, dados diferentes | Turma A: notas 7, 7, 7, 7 (média 7, amplitude 0). Turma B: notas 4, 5, 9, 10 (média 7, amplitude 6). A média é igual, mas a turma B é muito mais desigual.
+Q: Dois grupos têm média de idade 20. Grupo X: 19, 20, 21. Grupo Y: 5, 20, 35. O que difere?
++ A amplitude: 2 no X e 30 no Y
+- A média | media-tudo
+- Nada, são iguais | media-tudo
+- O número de pessoas | divide-errado
+E: Mesma média, espalhamento muito diferente.
+V: Dois times têm média de gols 3 por jogo. Time A: 3, 3, 3. Time B: 0, 1, 8. O que difere?
++ A amplitude: 0 no A e 8 no B
+- A média
+- Nada, são iguais
+- O número de jogos
+Q: Um aluno tirou 6, 8 e 7 nas três primeiras provas. Quanto precisa tirar na quarta para ficar com média 7?
++ 7
+- 8 | calculo
+- 21 | esquece-dividir
+- 6 | calculo
+E: Média 7 em 4 provas: soma 28. Já tem 21. Falta 7.
+V: Uma aluna tirou 5, 9 e 6 nas três primeiras provas. Quanto precisa tirar na quarta para ficar com média 7?
++ 8
+- 7
+- 20
+- 6
+Q: Os salários numa empresa pequena: 2.000, 2.000, 2.500, 3.000 e 20.500. A média é 6.000. A média representa bem o salário típico?
++ Não, um valor muito alto puxa a média para cima
+- Sim, a média sempre representa bem | media-tudo
+- Sim, porque é um número redondo | media-tudo
+- Não, porque a média está errada | calculo
+E: Quatro dos cinco ganham bem menos que 6.000.
+V: Os tempos de entrega de uma loja: 2, 2, 3, 3 e 40 dias. A média é 10 dias. Ela representa bem o tempo típico?
++ Não, um valor muito alto puxa a média para cima
+- Sim, a média sempre representa bem
+- Sim, porque é um número redondo
+- Não, porque a média está errada
+
+@praticar | Praticar: calculando e interpretando | Calcule e pense no que o número significa.
+Q: Temperaturas de uma semana: 22, 25, 24, 26, 23, 21, 27. Qual é a média?
++ 24 °C
+- 168 °C | esquece-dividir
+- 6 °C | amplitude
+- 28 °C | divide-errado
+E: 168 ÷ 7 = 24.
+V: Chuva de 5 dias (mm): 10, 0, 15, 5, 20. Qual é a média?
++ 10 mm
+- 50 mm
+- 20 mm
+- 12,5 mm
+Q: A média de 5 números é 8. Qual é a soma deles?
++ 40
+- 13 | calculo
+- 8 | esquece-dividir
+- 1,6 | calculo
+E: Soma = média × quantidade = 8 × 5.
+V: A média de 6 números é 12. Qual é a soma deles?
++ 72
+- 18
+- 12
+- 2
+Q: Uma turma tem média de altura 1,50 m. Chega um aluno de 1,50 m. A média:
++ Continua 1,50 m
+- Aumenta | media-tudo
+- Diminui | media-tudo
+- Dobra | calculo
+E: Somar um valor igual à média não a altera.
+V: Um grupo tem média de idade 15 anos. Entra uma pessoa de 30 anos. A média:
++ Aumenta
+- Continua 15
+- Diminui
+- Dobra
+Q: Qual conjunto tem a maior amplitude?
++ 10, 50, 30
+- 25, 30, 35 | amplitude
+- 40, 45, 42 | amplitude
+- 20, 20, 20 | amplitude
+E: Amplitudes: 40, 10, 5 e 0.
+V: Qual conjunto tem a menor amplitude?
++ 18, 19, 20
+- 5, 20, 35
+- 10, 15, 30
+- 1, 10, 19
+
+@aplicar | Aplicar: média na vida | Use média e amplitude juntas.
+Q: Um carro gastou 40 L, 35 L e 45 L de gasolina em 3 meses. Qual é o gasto médio mensal?
++ 40 L
+- 120 L | esquece-dividir
+- 10 L | amplitude
+- 60 L | divide-errado
+E: 120 ÷ 3 = 40.
+V: Uma família gastou R$ 300, R$ 250 e R$ 350 de mercado em 3 semanas. Qual é o gasto médio semanal?
++ R$ 300
+- R$ 900
+- R$ 100
+- R$ 450
+Q: Duas máquinas fazem parafusos de 5 cm. Medidas da máquina A: 4,9; 5,0; 5,1. Da máquina B: 4,5; 5,0; 5,5. Qual é melhor?
++ A, porque tem a mesma média e menor amplitude
+- B, porque tem maior amplitude | amplitude
+- As duas são iguais, pois a média é 5 | media-tudo
+- Não dá para comparar | media-tudo
+E: Amplitudes: 0,2 e 1,0. A é mais regular.
+V: Dois atletas têm média de 10 s nos 100 m. Atleta A: 9,9; 10,0; 10,1. Atleta B: 9,5; 10,0; 10,5. Qual é mais regular?
++ A, com menor amplitude
+- B, com maior amplitude
+- São iguais, pois a média é 10
+- Não dá para comparar
+Q: Num jogo, as pontuações de Ana foram 80, 90 e 100. Quanto ela precisa no 4º jogo para ter média 92?
++ 98
+- 92 | calculo
+- 368 | esquece-dividir
+- 100 | calculo
+E: Soma necessária: 92 × 4 = 368. Já tem 270. Falta 98.
+V: As pontuações de Rui foram 70, 80 e 90. Quanto ele precisa no 4º jogo para ter média 85?
++ 100
+- 85
+- 340
+- 95
+
+@explicar | Explicar: média e amplitude | Duas turmas têm média 7 na prova. Explique por que é útil conhecer também a amplitude das notas.
+C: media | Diz que a média mostra o "centro" das notas
+C: amplitude | Diz que a amplitude mostra o quanto as notas estão espalhadas
+C: exemplo | Dá um exemplo de duas turmas com mesma média e amplitudes diferentes
+BOA: A média 7 mostra o valor central, mas não diz se as notas estão próximas ou espalhadas. Numa turma, todas as notas podem ficar entre 6 e 8 (amplitude 2). Na outra, podem ir de 2 a 10 (amplitude 8), com alunos muito bem e outros com muita dificuldade. A amplitude ajuda o professor a perceber essa diferença.
+
+#TRILHA EF07MA36 | MA | 7 | Trilha: Pesquisa censitária ou amostral | Planejando e comunicando
+FAZ: Planeja e realiza pesquisa sobre tema da realidade social, identificando se deve ser censitária ou por amostra, e comunica os dados em relatório, tabelas e gráficos, com apoio de planilhas.
+ERRO: censo-amostra | Confunde censo com amostra
+ERRO: amostra-viciada | Escolhe uma amostra que não representa a população
+ERRO: porcentagem | Erra o cálculo de porcentagem a partir dos dados
+ERRO: grafico | Escolhe um gráfico inadequado ou sem título e legenda
+NOTA: Discuta: para saber o esporte preferido da turma, dá para perguntar a todos (censo). Para saber o da cidade, só por amostra. A amostra precisa representar todos os grupos.
+
+@relembrar | Relembrar: censo e amostra | Censo: pesquisa com todos os elementos da população. Amostra: pesquisa com uma parte, escolhida para representar o todo.
+Q: Perguntar a todos os 30 alunos da turma qual é a fruta preferida é uma pesquisa:
++ Censitária
+- Amostral | censo-amostra
+- Viciada | amostra-viciada
+- Impossível | censo-amostra
+E: Todos os elementos da população foram pesquisados.
+V: O IBGE visita todos os domicílios do país a cada década. Essa pesquisa é:
++ Censitária
+- Amostral
+- Viciada
+- Impossível
+Q: Para saber a opinião dos moradores de uma cidade de 500 mil habitantes, o mais viável é:
++ Pesquisar uma amostra representativa
+- Pesquisar só os vizinhos | amostra-viciada
+- Pesquisar todos, um por um, em um dia | censo-amostra
+- Não fazer pesquisa | censo-amostra
+E: Pesquisar todos seria caro e demorado.
+V: Para testar a qualidade de 10.000 lâmpadas sem destruir todas, o certo é:
++ Testar uma amostra
+- Testar todas até queimarem
+- Testar só as da primeira caixa aberta
+- Não testar
+Q: Numa pesquisa, 45 de 150 entrevistados preferem ônibus. Qual é a porcentagem?
++ 30%
+- 45% | porcentagem
+- 15% | porcentagem
+- 3,3% | porcentagem
+E: 45 ÷ 150 = 0,3 = 30%.
+V: Numa pesquisa, 36 de 120 entrevistados preferem bicicleta. Qual é a porcentagem?
++ 30%
+- 36%
+- 12%
+- 3,3%
+
+@exemplo_guiado | Exemplo guiado: amostra que representa | Para saber o tempo de tela dos alunos de uma escola (600 alunos, do 6º ao 9º ano), sortear 15 alunos de cada turma é melhor que entrevistar só o 9º ano: todos os anos ficam representados.
+Q: Para saber o lazer preferido dos jovens de um bairro, qual amostra é mais representativa?
++ Jovens sorteados de várias ruas e idades do bairro
+- Só os jovens do time de futebol | amostra-viciada
+- Só os jovens de uma rua | amostra-viciada
+- Só os amigos do pesquisador | amostra-viciada
+E: A amostra precisa incluir diferentes grupos.
+V: Para saber o meio de transporte dos trabalhadores de uma cidade, qual amostra é melhor?
++ Pessoas sorteadas em vários bairros e horários
+- Só quem está no ponto de ônibus
+- Só quem tem carro
+- Só os moradores do centro
+Q: Uma pesquisa sobre "uso de bicicleta" entrevistou só pessoas numa loja de bicicletas. Qual é o problema?
++ A amostra é viciada: favorece quem usa bicicleta
+- Nenhum problema | amostra-viciada
+- Foi censo, não amostra | censo-amostra
+- A amostra é grande demais | censo-amostra
+E: O lugar escolhido distorce o resultado.
+V: Uma pesquisa sobre "gosto por leitura" entrevistou só pessoas numa biblioteca. Qual é o problema?
++ A amostra é viciada: favorece quem gosta de ler
+- Nenhum problema
+- Foi censo, não amostra
+- A amostra é grande demais
+Q: Numa planilha, a coluna B tem as respostas de 200 alunos. Para contar quantos responderam "sim", qual recurso ajuda?
++ Uma fórmula que conta as células iguais a "sim"
+- Somar os números da coluna A | grafico
+- Apagar as respostas "não" à mão | grafico
+- Fazer um gráfico antes de contar | grafico
+E: Planilhas têm funções de contagem, como CONT.SE.
+V: Para calcular a média das idades na coluna C de uma planilha, o que usar?
++ A função de média aplicada à coluna C
+- Somar só a primeira e a última idade
+- Contar quantas idades há
+- Fazer um gráfico de setores
+
+@praticar | Praticar: planejando a pesquisa | Pense na população, na amostra e na comunicação.
+Q: Uma escola tem 800 alunos. Uma amostra de 80 alunos corresponde a que porcentagem?
++ 10%
+- 80% | porcentagem
+- 1% | porcentagem
+- 8% | porcentagem
+E: 80 ÷ 800 = 0,1.
+V: Uma cidade tem 20.000 eleitores. Uma amostra de 1.000 corresponde a que porcentagem?
++ 5%
+- 10%
+- 1%
+- 50%
+Q: Numa amostra de 200 pessoas, 60% aprovam uma praça nova. Quantas pessoas aprovam?
++ 120
+- 60 | porcentagem
+- 80 | porcentagem
+- 140 | porcentagem
+E: 60% de 200 = 120.
+V: Numa amostra de 300 pessoas, 25% usam transporte público. Quantas pessoas?
++ 75
+- 25
+- 225
+- 100
+Q: Se 30% de uma amostra representativa gosta de teatro, numa cidade de 50.000 habitantes estimamos:
++ Cerca de 15.000 pessoas
+- Exatamente 30 pessoas | porcentagem
+- Cerca de 1.500 pessoas | porcentagem
+- Cerca de 35.000 pessoas | porcentagem
+E: 30% de 50.000 = 15.000.
+V: Se 12% de uma amostra representativa tem animal de estimação, numa cidade de 25.000 habitantes estimamos:
++ Cerca de 3.000 pessoas
+- Exatamente 12 pessoas
+- Cerca de 300 pessoas
+- Cerca de 22.000 pessoas
+Q: Qual item NÃO pode faltar num relatório de pesquisa?
++ A pergunta, quem foi pesquisado, os resultados e a conclusão
+- Só o gráfico, sem explicação | grafico
+- Só o nome dos entrevistados | grafico
+- Só a opinião do pesquisador | amostra-viciada
+E: O leitor precisa entender o que foi feito e o que se concluiu.
+V: Um bom gráfico num relatório precisa ter:
++ Título, rótulos nos eixos ou legenda, e fonte dos dados
+- Só cores bonitas
+- Só números, sem nomes
+- Muitos enfeites
+
+@aplicar | Aplicar: pesquisa social | Do planejamento à conclusão.
+Q: A prefeitura quer saber se os moradores aprovam a coleta de lixo. Qual é o plano mais adequado?
++ Sortear domicílios de todos os bairros, fazer a mesma pergunta e calcular as porcentagens
+- Perguntar só aos funcionários da coleta | amostra-viciada
+- Perguntar só num bairro | amostra-viciada
+- Supor que todos aprovam | censo-amostra
+E: Amostra sorteada de todos os bairros é representativa.
+V: Uma escola quer saber se os responsáveis aprovam o novo horário. Qual é o plano mais adequado?
++ Enviar o questionário a responsáveis de todas as turmas e calcular as porcentagens
+- Perguntar só aos responsáveis de uma turma
+- Perguntar só aos professores
+- Supor que todos aprovam
+Q: Numa pesquisa com 400 jovens, 140 disseram usar o celular mais de 5 horas por dia. Que frase resume corretamente?
++ 35% dos jovens pesquisados usam o celular mais de 5 horas por dia
+- 140% dos jovens usam o celular demais | porcentagem
+- Todos os jovens do Brasil usam o celular 5 horas por dia | amostra-viciada
+- 14% dos jovens usam o celular mais de 5 horas | porcentagem
+E: 140 ÷ 400 = 0,35.
+V: Numa pesquisa com 250 adultos, 50 disseram praticar exercício todos os dias. Que frase resume corretamente?
++ 20% dos adultos pesquisados praticam exercício todos os dias
+- 50% dos adultos praticam exercício
+- Todos os adultos do país praticam exercício
+- 5% dos adultos praticam exercício
+Q: Para comparar as respostas de 4 bairros sobre segurança, qual gráfico é mais indicado?
++ Gráfico de colunas, uma coluna por bairro
+- Gráfico de linhas ligando os bairros | grafico
+- Uma lista de nomes | grafico
+- Nenhum gráfico | grafico
+E: Colunas comparam categorias.
+V: Para mostrar a evolução do número de casos de dengue mês a mês, qual gráfico é mais indicado?
++ Gráfico de linhas
+- Gráfico de setores
+- Uma lista de nomes
+- Nenhum gráfico
+
+@explicar | Explicar: censo ou amostra | Explique quando é melhor fazer um censo e quando é melhor usar uma amostra, com um exemplo de cada.
+C: censo | Diz que censo é perguntar a todos, viável quando a população é pequena (ex.: a turma)
+C: amostra | Diz que amostra é perguntar a uma parte, quando a população é grande ou o teste destrói o produto
+C: representativa | Diz que a amostra precisa representar todos os grupos
+BOA: O censo pesquisa todos os elementos e é viável quando a população é pequena, como os 30 alunos da turma. A amostra pesquisa só uma parte e é usada quando a população é muito grande, como os moradores de uma cidade, ou quando o teste estraga o produto, como lâmpadas. A amostra precisa ser sorteada entre todos os grupos, para representar bem a população.
+
+#TRILHA EF07MA37 | MA | 7 | Trilha: Gráfico de setores | Partes de um todo
+FAZ: Interpreta e analisa dados em gráficos de setores divulgados pela mídia e compreende quando é possível ou conveniente usá-los.
+ERRO: soma-diferente | Não percebe que os setores devem somar 100%
+ERRO: angulo | Erra o cálculo do ângulo do setor
+ERRO: uso-errado | Usa gráfico de setores para dados que não são partes de um todo
+ERRO: porcentagem | Erra o cálculo da porcentagem ou da quantidade
+ERRO: calculo | Erra a conta
+NOTA: Recorte um círculo em partes proporcionais. 100% = 360°; 50% = 180°; 25% = 90°; 10% = 36°. Mostre exemplos da mídia, inclusive gráficos com erros.
+
+@relembrar | Relembrar: setores e porcentagens | Um gráfico de setores mostra partes de um todo. A soma dos setores é 100% (o círculo inteiro, 360°). Um setor de 25% ocupa 90°.
+Q: Num gráfico de setores, quanto vale a soma de todas as fatias?
++ 100%
+- 360% | angulo
+- Depende do número de fatias | soma-diferente
+- 50% | soma-diferente
+E: O círculo inteiro representa o total.
+V: Num gráfico de setores, quantos graus tem o círculo inteiro?
++ 360°
+- 100°
+- 180°
+- 90°
+Q: Qual é o ângulo de um setor que representa 50%?
++ 180°
+- 50° | angulo
+- 90° | angulo
+- 360° | angulo
+E: Metade de 360°.
+V: Qual é o ângulo de um setor que representa 25%?
++ 90°
+- 25°
+- 45°
+- 180°
+Q: Num gráfico de setores, as fatias são 40%, 35% e 20%. Isso é possível?
++ Não, a soma dá 95%; falta 5%
+- Sim, qualquer soma serve | soma-diferente
+- Sim, porque 40% é a maior | soma-diferente
+- Não, porque tem 3 fatias | uso-errado
+E: Num gráfico de setores, a soma precisa ser 100%.
+V: Num gráfico de setores, as fatias são 50%, 30% e 30%. Isso é possível?
++ Não, a soma dá 110%
+- Sim, qualquer soma serve
+- Sim, porque 50% é metade
+- Não, porque tem fatias iguais
+
+@exemplo_guiado | Exemplo guiado: do dado ao ângulo | Em 200 alunos, 50 vão a pé (25%), 90 de ônibus (45%), 60 de carro (30%). Ângulos: 25% de 360° = 90°; 45% = 162°; 30% = 108°. Soma: 360°.
+Q: Um setor representa 10% do total. Qual é o ângulo dele?
++ 36°
+- 10° | angulo
+- 3,6° | angulo
+- 100° | angulo
+E: 10% de 360° = 36°.
+V: Um setor representa 20% do total. Qual é o ângulo dele?
++ 72°
+- 20°
+- 7,2°
+- 200°
+Q: Num gráfico de setores sobre 400 pessoas, o setor "sim" tem 90°. Quantas pessoas responderam "sim"?
++ 100
+- 90 | porcentagem
+- 25 | porcentagem
+- 360 | angulo
+E: 90° é 1/4 do círculo; 1/4 de 400 = 100.
+V: Num gráfico de setores sobre 600 pessoas, o setor "não" tem 120°. Quantas responderam "não"?
++ 200
+- 120
+- 33
+- 360
+Q: Num gráfico sobre o orçamento de uma família, "moradia" é 30% de R$ 4.000. Quanto é gasto com moradia?
++ R$ 1.200
+- R$ 300 | porcentagem
+- R$ 3.000 | porcentagem
+- R$ 1.333 | porcentagem
+E: 30% de 4.000 = 1.200.
+V: "Alimentação" é 25% de um orçamento de R$ 3.200. Quanto é gasto com alimentação?
++ R$ 800
+- R$ 250
+- R$ 2.500
+- R$ 1.280
+
+@praticar | Praticar: quando usar setores | O gráfico de setores mostra partes de um todo.
+Q: Para qual destes dados um gráfico de setores é adequado?
++ A porcentagem de alunos por meio de transporte (somando 100%)
+- A temperatura de cada mês do ano | uso-errado
+- A altura de cada aluno | uso-errado
+- O número de gols em cada jogo do campeonato | uso-errado
+E: Setores só fazem sentido para partes de um mesmo todo.
+V: Para qual destes dados um gráfico de setores é adequado?
++ A divisão do orçamento de uma escola por tipo de gasto
+- A evolução da população ano a ano
+- O peso de cada aluno
+- A temperatura diária da semana
+Q: Uma pesquisa permitia marcar mais de uma resposta, e as porcentagens somaram 160%. Um gráfico de setores é adequado?
++ Não, porque as partes não formam um todo de 100%
+- Sim, sempre | uso-errado
+- Sim, se usar cores diferentes | uso-errado
+- Sim, desde que tenha título | uso-errado
+E: Nesse caso, um gráfico de colunas é melhor.
+V: Uma pesquisa de "o que você assiste" permitia várias respostas, somando 230%. Qual gráfico é melhor?
++ Gráfico de colunas
+- Gráfico de setores
+- Nenhum gráfico
+- Gráfico de setores com fatias maiores
+Q: Num gráfico de setores, as fatias são A: 45%, B: 30% e C. Quanto vale C?
++ 25%
+- 75% | soma-diferente
+- 15% | calculo
+- 30% | soma-diferente
+E: 100 − 45 − 30 = 25.
+V: Num gráfico de setores, as fatias são A: 52%, B: 18% e C. Quanto vale C?
++ 30%
+- 70%
+- 34%
+- 18%
+Q: Num gráfico de setores, a fatia azul tem 72°. Que porcentagem ela representa?
++ 20%
+- 72% | angulo
+- 7,2% | angulo
+- 36% | angulo
+E: 72 ÷ 360 = 0,2.
+V: Num gráfico de setores, a fatia verde tem 54°. Que porcentagem ela representa?
++ 15%
+- 54%
+- 5,4%
+- 27%
+
+@aplicar | Aplicar: gráficos da mídia | Leia com atenção e desconfie de erros.
+Q: Um jornal publicou um gráfico de setores sobre preferência de candidatos: A 45%, B 38%, C 25%. O que está errado?
++ A soma passa de 100% (dá 108%)
+- Nada | soma-diferente
+- O candidato A está na frente | soma-diferente
+- Faltam cores | uso-errado
+E: As fatias devem somar 100%.
+V: Uma revista mostrou um gráfico de setores: esporte 30%, música 40%, leitura 20%, outros 20%. O que está errado?
++ A soma passa de 100% (dá 110%)
+- Nada
+- Música está na frente
+- Faltam cores
+Q: Numa cidade de 80.000 habitantes, um gráfico mostra que 15% usam bicicleta. Quantas pessoas?
++ 12.000
+- 15.000 | porcentagem
+- 1.200 | porcentagem
+- 5.333 | porcentagem
+E: 15% de 80.000 = 12.000.
+V: Numa cidade de 60.000 habitantes, 35% usam ônibus. Quantas pessoas?
++ 21.000
+- 35.000
+- 2.100
+- 17.143
+Q: Um gráfico de setores mostra as fontes de energia: hidrelétrica 60%, eólica 15%, solar 5%, outras 20%. Qual é o ângulo da hidrelétrica?
++ 216°
+- 60° | angulo
+- 180° | angulo
+- 240° | angulo
+E: 60% de 360° = 216°.
+V: Qual é o ângulo da eólica (15%) no mesmo gráfico?
++ 54°
+- 15°
+- 45°
+- 60°
+
+@explicar | Explicar: quando usar setores | Explique quando um gráfico de setores é adequado e dê um exemplo em que ele não deve ser usado.
+C: todo | Diz que é adequado quando os dados são partes de um todo que somam 100%
+C: exemplo-bom | Dá um exemplo adequado (orçamento, transporte da turma)
+C: exemplo-ruim | Dá um exemplo inadequado (temperatura por mês, respostas múltiplas)
+BOA: O gráfico de setores serve para mostrar como um todo se divide em partes que somam 100%, como os gastos de uma família ou o meio de transporte dos alunos da turma. Ele não serve para mostrar a temperatura de cada mês, porque os meses não são partes de um todo; nesse caso, um gráfico de linhas é melhor.
+
+#PRE EF07MA34 > EF06MA30 | 3
+#PRE EF07MA35 > EF06MA32 | 2
+#PRE EF07MA36 > EF06MA33 | 3
+#PRE EF07MA36 > EF07MA35 | 2
+#PRE EF07MA37 > EF07MA36 | 2
+#PRE EF07MA37 > EF06MA13 | 2

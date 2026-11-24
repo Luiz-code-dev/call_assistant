@@ -1,0 +1,668 @@
+// 8º ano — Matemática (parte 4): EF08MA17, EF08MA18, EF08MA19, EF08MA20
+
+#TRILHA EF08MA17 | MA | 8 | Trilha: Mediatriz e bissetriz como lugares geométricos | Equidistância
+FAZ: Aplica os conceitos de mediatriz e bissetriz como lugares geométricos na resolução de problemas.
+ERRO: confunde | Usa bissetriz quando o problema pede mediatriz, ou o contrário
+ERRO: ponto-lado | Confunde distância a pontos com distância a retas
+ERRO: interseccao | Não usa a interseção de dois lugares geométricos
+ERRO: calculo | Erra a conta
+NOTA: Mediatriz de AB: pontos à mesma distância de A e de B. Bissetriz de um ângulo: pontos à mesma distância dos dois lados do ângulo.
+
+@relembrar | Relembrar: dois lugares geométricos | Mesma distância de dois PONTOS: mediatriz. Mesma distância de duas RETAS que se cruzam (lados de um ângulo): bissetriz.
+Q: Os pontos que estão à mesma distância de A e de B formam:
++ A mediatriz de AB
+- A bissetriz de um ângulo | confunde
+- Uma circunferência de centro A | ponto-lado
+- O segmento AB | ponto-lado
+E: Definição de mediatriz como lugar geométrico.
+V: Os pontos que estão à mesma distância dos dois lados de um ângulo formam:
++ A bissetriz do ângulo
+- A mediatriz de um segmento
+- Uma circunferência
+- Um dos lados do ângulo
+Q: Um ponto P está na mediatriz de AB e PA = 7 cm. Quanto mede PB?
++ 7 cm
+- 14 cm | calculo
+- 3,5 cm | calculo
+- Não dá para saber | confunde
+E: Na mediatriz, PA = PB.
+V: Um ponto Q está na mediatriz de CD e QC = 12 m. Quanto mede QD?
++ 12 m
+- 24 m
+- 6 m
+- Não dá para saber
+Q: Um ponto P está na bissetriz de um ângulo e fica a 4 cm de um dos lados. A que distância fica do outro lado?
++ 4 cm
+- 8 cm | calculo
+- 2 cm | calculo
+- Não dá para saber | confunde
+E: Na bissetriz, as distâncias aos dois lados são iguais.
+V: Um ponto R está na bissetriz de um ângulo e fica a 9 m de um dos lados. A que distância fica do outro lado?
++ 9 m
+- 18 m
+- 4,5 m
+- Não dá para saber
+
+@exemplo_guiado | Exemplo guiado: interseção | Para achar o ponto à mesma distância de três cidades A, B e C, traço a mediatriz de AB e a de BC. O cruzamento está à mesma distância das três. É o centro da circunferência que passa por A, B e C.
+Q: Um hospital deve ficar à mesma distância de três bairros A, B e C. Como encontrar o local?
++ Cruzando as mediatrizes de AB e de BC
+- Cruzando as bissetrizes do triângulo ABC | confunde
+- No ponto médio de AB | interseccao
+- Em qualquer ponto da mediatriz de AB | interseccao
+E: O ponto comum às mediatrizes é equidistante dos três.
+V: Uma antena deve ficar à mesma distância de três escolas P, Q e R. Como encontrar o local?
++ Cruzando as mediatrizes de PQ e de QR
+- Cruzando as bissetrizes do triângulo PQR
+- No ponto médio de PQ
+- Em qualquer ponto da mediatriz de PQ
+Q: Num terreno triangular, quer-se plantar uma árvore à mesma distância das três cercas (lados). Onde?
++ No cruzamento das bissetrizes dos ângulos
+- No cruzamento das mediatrizes dos lados | confunde
+- Num dos vértices | ponto-lado
+- No ponto médio de um lado | ponto-lado
+E: Distância a retas: bissetrizes. É o centro da circunferência inscrita.
+V: Numa praça triangular, quer-se pôr um chafariz à mesma distância das três calçadas (lados). Onde?
++ No cruzamento das bissetrizes dos ângulos
+- No cruzamento das mediatrizes dos lados
+- Num dos vértices
+- No ponto médio de um lado
+Q: O ponto onde as mediatrizes de um triângulo se cruzam é o centro da circunferência que:
++ Passa pelos três vértices
+- Toca os três lados por dentro | confunde
+- Passa pelos pontos médios | ponto-lado
+- Não existe | interseccao
+E: Ele está à mesma distância dos três vértices.
+V: O ponto onde as bissetrizes de um triângulo se cruzam é o centro da circunferência que:
++ Toca os três lados por dentro
+- Passa pelos três vértices
+- Passa pelos pontos médios
+- Não existe
+
+@praticar | Praticar: escolhendo o lugar geométrico | Pontos ou retas?
+Q: Um posto de gasolina deve ficar à mesma distância de duas estradas que se cruzam. Onde?
++ Na bissetriz do ângulo formado pelas estradas
+- Na mediatriz entre duas cidades | confunde
+- No cruzamento das estradas, apenas | interseccao
+- Em qualquer lugar | ponto-lado
+E: Estradas são retas: bissetriz.
+V: Uma placa deve ficar à mesma distância de duas cercas que formam um canto. Onde?
++ Na bissetriz do ângulo entre as cercas
+- Na mediatriz entre dois postes
+- Só no canto
+- Em qualquer lugar
+Q: Um ponto deve estar a 3 km de uma torre e à mesma distância de duas casas A e B. Como achar?
++ Cruzando a circunferência de raio 3 km da torre com a mediatriz de AB
+- Usando só a mediatriz de AB | interseccao
+- Usando só a circunferência | interseccao
+- Cruzando duas bissetrizes | confunde
+E: Duas condições: dois lugares geométricos.
+V: Um ponto deve estar a 2 m de um poste e à mesma distância de dois lados de um muro em canto. Como achar?
++ Cruzando a circunferência de raio 2 m do poste com a bissetriz do canto
+- Usando só a bissetriz
+- Usando só a circunferência
+- Cruzando duas mediatrizes
+Q: Num triângulo retângulo, o ponto de encontro das mediatrizes fica:
++ No ponto médio da hipotenusa
+- No vértice do ângulo reto | interseccao
+- Fora do triângulo | interseccao
+- No centro de um cateto | ponto-lado
+E: A hipotenusa é diâmetro da circunferência que passa pelos três vértices.
+V: Num triângulo retângulo de hipotenusa 10 cm, qual é o raio da circunferência que passa pelos três vértices?
++ 5 cm
+- 10 cm
+- 20 cm
+- Depende dos catetos
+Q: Quantos pontos estão, ao mesmo tempo, na mediatriz de AB e a 5 cm de A, se AB = 6 cm?
++ 2
+- 1 | interseccao
+- 0 | interseccao
+- Infinitos | interseccao
+E: A circunferência de raio 5 em A corta a mediatriz em 2 pontos (acima e abaixo de AB).
+V: Quantos pontos estão, ao mesmo tempo, na mediatriz de AB e a 2 cm de A, se AB = 6 cm?
++ 0
+- 1
+- 2
+- Infinitos
+
+@aplicar | Aplicar: problemas de localização | Combine lugares geométricos.
+Q: Três amigos moram em A, B e C. Querem se encontrar num ponto à mesma distância das três casas. Esse ponto é:
++ O cruzamento das mediatrizes do triângulo ABC
+- O ponto médio de AB | interseccao
+- A casa B | ponto-lado
+- O cruzamento das bissetrizes | confunde
+E: Mesma distância de três pontos.
+V: Três torres de celular formam um triângulo. O ponto à mesma distância das três é:
++ O cruzamento das mediatrizes
+- O cruzamento das bissetrizes
+- Um dos vértices
+- O ponto médio de um lado
+Q: Um tesouro está à mesma distância de duas árvores (P e Q) e a 10 passos da pedra R. O que fazer para achá-lo?
++ Traçar a mediatriz de PQ e a circunferência de raio 10 com centro em R; o tesouro está num cruzamento
+- Traçar só a mediatriz de PQ | interseccao
+- Andar 10 passos a partir de P | ponto-lado
+- Traçar a bissetriz entre P, Q e R | confunde
+E: Duas condições, dois lugares geométricos.
+V: Uma caixa está à mesma distância de dois muros que formam um canto e a 3 m do canto. O que fazer para achá-la?
++ Traçar a bissetriz do canto e marcar 3 m a partir do canto sobre ela
+- Traçar a mediatriz dos muros
+- Andar 3 m ao longo de um muro
+- Procurar no canto
+Q: Uma ponte será construída sobre um rio reto, à mesma distância de duas vilas A e B na mesma margem. Onde fica a ponte?
++ No ponto em que a mediatriz de AB cruza o rio
+- No ponto do rio mais próximo de A | ponto-lado
+- No ponto médio de AB | interseccao
+- Na bissetriz entre o rio e AB | confunde
+E: Mesma distância de A e de B: mediatriz.
+V: Um ponto de ônibus será colocado numa avenida reta, à mesma distância de duas escolas. Onde?
++ No ponto em que a mediatriz entre as escolas cruza a avenida
+- No ponto da avenida mais perto de uma escola
+- No ponto médio entre as escolas
+- Na bissetriz entre a avenida e as escolas
+
+@explicar | Explicar: qual lugar geométrico | Explique a diferença entre "estar à mesma distância de dois pontos" e "estar à mesma distância de duas retas que se cruzam", e qual construção serve para cada caso.
+C: mediatriz | Mesma distância de dois pontos: mediatriz do segmento
+C: bissetriz | Mesma distância de duas retas que se cruzam: bissetriz do ângulo
+C: exemplo | Dá um exemplo de cada (casas, estradas)
+BOA: Se quero um lugar à mesma distância de duas casas, que são pontos, uso a mediatriz do segmento que liga as casas. Se quero um lugar à mesma distância de duas estradas que se cruzam, que são retas, uso a bissetriz do ângulo entre as estradas. Pontos pedem mediatriz; retas pedem bissetriz.
+
+#TRILHA EF08MA18 | MA | 8 | Trilha: Composição de transformações | Uma transformação depois da outra
+FAZ: Reconhece e constrói figuras obtidas por composições de translação, reflexão e rotação, com instrumentos ou softwares.
+ERRO: ordem | Aplica as transformações fora de ordem
+ERRO: sinal | Erra o sinal ao refletir
+ERRO: so-uma | Aplica só uma das transformações
+ERRO: calculo | Erra a conta das coordenadas
+NOTA: Faça no plano cartesiano: aplique a primeira transformação, anote as coordenadas, e só então aplique a segunda. Mostre que mudar a ordem pode mudar o resultado.
+
+@relembrar | Relembrar: nas coordenadas | Translação (a, b): (x, y) → (x + a, y + b). Reflexão no eixo x: (x, y) → (x, −y). Reflexão no eixo y: (x, y) → (−x, y). Rotação de 180° na origem: (x, y) → (−x, −y).
+Q: O ponto (2, 3) sofre translação de (4, 1). Onde ele vai parar?
++ (6, 4)
+- (8, 3) | calculo
+- (2, 4) | so-uma
+- (−2, 2) | sinal
+E: (2 + 4, 3 + 1).
+V: O ponto (−1, 5) sofre translação de (3, −2). Onde ele vai parar?
++ (2, 3)
+- (−4, 7)
+- (−1, 3)
+- (2, 7)
+Q: O ponto (4, −2) é refletido no eixo y. Onde ele vai parar?
++ (−4, −2)
+- (4, 2) | sinal
+- (−4, 2) | sinal
+- (−2, 4) | calculo
+E: Muda o sinal do x.
+V: O ponto (−3, 6) é refletido no eixo x. Onde ele vai parar?
++ (−3, −6)
+- (3, 6)
+- (3, −6)
+- (6, −3)
+Q: Duas reflexões seguidas, uma no eixo x e outra no eixo y, equivalem a:
++ Uma rotação de 180° em torno da origem
+- Uma translação | so-uma
+- Nenhuma mudança | sinal
+- Uma reflexão só no eixo x | so-uma
+E: (x, y) → (x, −y) → (−x, −y).
+V: Duas reflexões seguidas no mesmo eixo equivalem a:
++ Nenhuma mudança: a figura volta ao lugar
+- Uma rotação de 180°
+- Uma translação
+- Uma reflexão no outro eixo
+
+@exemplo_guiado | Exemplo guiado: compondo | Ponto (1, 2). 1º: reflexão no eixo x → (1, −2). 2º: translação de (3, 0) → (4, −2).
+Q: O ponto (2, 1) é refletido no eixo y e depois transladado de (0, 3). Onde ele vai parar?
++ (−2, 4)
+- (2, 4) | so-uma
+- (−2, 1) | so-uma
+- (−2, −2) | sinal
+E: (2, 1) → (−2, 1) → (−2, 4).
+V: O ponto (3, 2) é refletido no eixo x e depois transladado de (−1, 0). Onde ele vai parar?
++ (2, −2)
+- (3, −2)
+- (2, 2)
+- (4, −2)
+Q: O ponto (1, 0): primeiro translação de (2, 0), depois reflexão no eixo y. E na ordem inversa? Os resultados são iguais?
++ Não: (−3, 0) numa ordem e (1, 0) na outra
+- Sim, a ordem não importa | ordem
+- Sim, os dois dão (−3, 0) | ordem
+- Sim, os dois dão (3, 0) | sinal
+E: Translação e depois reflexão: (3, 0) → (−3, 0). Reflexão e depois translação: (−1, 0) → (1, 0).
+V: O ponto (0, 2): primeiro translação de (0, 1), depois reflexão no eixo x. E na ordem inversa? Os resultados são iguais?
++ Não: (0, −3) numa ordem e (0, −1) na outra
+- Sim, a ordem não importa
+- Sim, os dois dão (0, −3)
+- Sim, os dois dão (0, 3)
+Q: Duas translações seguidas, de (2, 1) e de (3, −4), equivalem a uma única translação de:
++ (5, −3)
+- (6, −4) | calculo
+- (1, 5) | sinal
+- (2, 1) | so-uma
+E: Soma-se: (2 + 3, 1 − 4).
+V: Duas translações seguidas, de (−1, 3) e de (4, 2), equivalem a uma única translação de:
++ (3, 5)
+- (−4, 6)
+- (5, −1)
+- (−1, 3)
+
+@praticar | Praticar: compondo no plano | Anote cada etapa.
+Q: O triângulo A(1, 1), B(3, 1), C(1, 2) sofre rotação de 180° na origem. Onde fica B?
++ (−3, −1)
+- (3, −1) | so-uma
+- (−3, 1) | so-uma
+- (1, 3) | calculo
+E: Rotação de 180°: troca os dois sinais.
+V: No mesmo triângulo, onde fica C após a rotação de 180° na origem?
++ (−1, −2)
+- (1, −2)
+- (−1, 2)
+- (2, 1)
+Q: O ponto (2, 3) é refletido no eixo x, depois no eixo y, depois transladado de (1, 1). Onde ele vai parar?
++ (−1, −2)
+- (3, 4) | so-uma
+- (−2, −3) | so-uma
+- (1, 2) | sinal
+E: (2, 3) → (2, −3) → (−2, −3) → (−1, −2).
+V: O ponto (1, 4) é refletido no eixo y, depois no eixo x, depois transladado de (2, 2). Onde ele vai parar?
++ (1, −2)
+- (3, 6)
+- (−1, −4)
+- (−1, 2)
+Q: A composição de transformações muda o tamanho da figura?
++ Não, translação, reflexão e rotação preservam tamanho e forma
+- Sim, sempre aumenta | so-uma
+- Sim, sempre diminui | so-uma
+- Depende da ordem | ordem
+E: São transformações isométricas.
+V: Depois de uma reflexão e uma rotação, um quadrado de lado 4 cm passa a ter lado:
++ 4 cm
+- 8 cm
+- 2 cm
+- 16 cm
+Q: Um ponto foi refletido no eixo x e depois no eixo y, chegando a (−5, 2). Qual era o ponto inicial?
++ (5, −2)
+- (−5, 2) | so-uma
+- (5, 2) | sinal
+- (−5, −2) | sinal
+E: Duas reflexões = rotação de 180°; desfazendo, troca os dois sinais.
+V: Um ponto sofreu translação de (3, −1) e chegou a (4, 4). Qual era o ponto inicial?
++ (1, 5)
+- (7, 3)
+- (4, 4)
+- (1, 3)
+
+@aplicar | Aplicar: padrões e arte | Composições geram padrões.
+Q: Num mosaico, uma peça é refletida e depois transladada repetidamente. Que tipo de padrão surge?
++ Um friso com peças alternadas, espelhadas
+- Uma única peça parada | so-uma
+- Uma espiral | ordem
+- Peças cada vez maiores | so-uma
+E: Reflexão seguida de translação produz alternância.
+V: Num papel de parede, um desenho é girado 90° quatro vezes em torno de um ponto. O que se forma?
++ Um padrão com 4 cópias girando em volta do ponto
+- Uma única cópia
+- Uma linha reta de cópias
+- Cópias cada vez maiores
+Q: Num jogo, um personagem em (0, 0) anda 3 para a direita, depois é refletido no eixo y. Onde ele fica?
++ (−3, 0)
+- (3, 0) | so-uma
+- (0, 3) | calculo
+- (0, −3) | sinal
+E: (0, 0) → (3, 0) → (−3, 0).
+V: Um personagem em (1, 1) anda 2 para cima, depois é refletido no eixo x. Onde ele fica?
++ (1, −3)
+- (1, 3)
+- (−1, 3)
+- (3, −1)
+Q: Uma figura sofre uma rotação de 90° e depois outra de 90° em torno do mesmo ponto, no mesmo sentido. Isso equivale a:
++ Uma rotação de 180°
+- Uma rotação de 90° | so-uma
+- Uma reflexão | ordem
+- Nenhuma mudança | calculo
+E: Os ângulos se somam.
+V: Três rotações seguidas de 120° em torno do mesmo ponto equivalem a:
++ Uma volta completa: a figura volta ao lugar
+- Uma rotação de 120°
+- Uma reflexão
+- Uma rotação de 240°
+
+@explicar | Explicar: a ordem importa | Mostre com um exemplo que fazer uma translação e depois uma reflexão pode dar resultado diferente de fazer a reflexão e depois a translação.
+C: ponto | Escolhe um ponto e as duas transformações
+C: duas-ordens | Calcula o resultado nas duas ordens
+C: conclui | Conclui que os resultados são diferentes
+BOA: Pego o ponto (1, 0), a translação de (2, 0) e a reflexão no eixo y. Primeiro a translação: (3, 0); depois a reflexão: (−3, 0). Agora ao contrário: reflexão dá (−1, 0) e translação dá (1, 0). Os resultados são diferentes, então a ordem importa.
+
+#TRILHA EF08MA19 | MA | 8 | Trilha: Áreas de terrenos | Quadriláteros, triângulos e círculos
+FAZ: Resolve e elabora problemas de área de figuras usando expressões de cálculo de área de quadriláteros, triângulos e círculos, como na medida de terrenos.
+ERRO: perimetro | Calcula o perímetro em vez da área
+ERRO: raio-diametro | Usa o diâmetro no lugar do raio na área do círculo
+ERRO: metade | Esquece de dividir por 2 (triângulo, trapézio, losango)
+ERRO: calculo | Erra a conta
+NOTA: Área do círculo: π × r². Lembre que r² é r × r, e que o raio é metade do diâmetro.
+
+@relembrar | Relembrar: área do círculo | A = π × r². Raio 3 cm: A ≈ 3,14 × 9 = 28,26 cm².
+Q: Qual é a área de um círculo de raio 5 cm? (π ≈ 3,14)
++ 78,5 cm²
+- 31,4 cm² | perimetro
+- 314 cm² | raio-diametro
+- 15,7 cm² | calculo
+E: 3,14 × 25 = 78,5.
+V: Qual é a área de um círculo de raio 4 cm? (π ≈ 3,14)
++ 50,24 cm²
+- 25,12 cm²
+- 200,96 cm²
+- 12,56 cm²
+Q: Qual é a área de um círculo de diâmetro 20 m? (π ≈ 3,14)
++ 314 m²
+- 1.256 m² | raio-diametro
+- 62,8 m² | perimetro
+- 31,4 m² | calculo
+E: Raio 10: 3,14 × 100 = 314.
+V: Qual é a área de um círculo de diâmetro 6 m? (π ≈ 3,14)
++ 28,26 m²
+- 113,04 m²
+- 18,84 m²
+- 9,42 m²
+Q: Qual é a área de um terreno retangular de 25 m × 40 m?
++ 1.000 m²
+- 130 m² | perimetro
+- 65 m² | calculo
+- 500 m² | metade
+E: 25 × 40 = 1.000.
+V: Qual é a área de um terreno retangular de 12 m × 30 m?
++ 360 m²
+- 84 m²
+- 42 m²
+- 180 m²
+
+@exemplo_guiado | Exemplo guiado: terreno composto | Um terreno é um retângulo de 20 m × 10 m com um semicírculo de diâmetro 10 m num dos lados. Retângulo: 200 m². Semicírculo: (3,14 × 5²) ÷ 2 = 39,25 m². Total: 239,25 m².
+Q: Um terreno é um quadrado de lado 10 m com um semicírculo de diâmetro 10 m num lado. Qual é a área total? (π ≈ 3,14)
++ 139,25 m²
+- 178,5 m² | metade
+- 257 m² | raio-diametro
+- 115,7 m² | perimetro
+E: 100 + (3,14 × 25) ÷ 2 = 100 + 39,25.
+V: Um terreno é um retângulo de 8 m × 4 m com um semicírculo de diâmetro 4 m num lado. Qual é a área total? (π ≈ 3,14)
++ 38,28 m²
+- 44,56 m²
+- 57,12 m²
+- 38,56 m²
+Q: Uma praça circular de raio 10 m tem um canteiro circular de raio 4 m no centro. Qual é a área da praça sem o canteiro? (π ≈ 3,14)
++ 263,76 m²
+- 18,84 m² | perimetro
+- 113,04 m² | calculo
+- 364,24 m² | calculo
+E: 3,14 × 100 − 3,14 × 16 = 314 − 50,24.
+V: Um disco de raio 5 cm tem um furo de raio 1 cm no centro. Qual é a área do disco sem o furo? (π ≈ 3,14)
++ 75,36 cm²
+- 12,56 cm²
+- 50,24 cm²
+- 81,64 cm²
+Q: Um terreno triangular tem base 30 m e altura 20 m. Qual é a área?
++ 300 m²
+- 600 m² | metade
+- 50 m² | perimetro
+- 150 m² | calculo
+E: (30 × 20) ÷ 2 = 300.
+V: Um terreno triangular tem base 45 m e altura 18 m. Qual é a área?
++ 405 m²
+- 810 m²
+- 63 m²
+- 202,5 m²
+
+@praticar | Praticar: escolhendo a fórmula | Identifique a figura.
+Q: Uma pizza de diâmetro 30 cm tem área aproximada de: (π ≈ 3,14)
++ 706,5 cm²
+- 2.826 cm² | raio-diametro
+- 94,2 cm² | perimetro
+- 47,1 cm² | perimetro
+E: Raio 15: 3,14 × 225 = 706,5.
+V: Uma pizza de diâmetro 40 cm tem área aproximada de: (π ≈ 3,14)
++ 1.256 cm²
+- 5.024 cm²
+- 125,6 cm²
+- 62,8 cm²
+Q: Um terreno em forma de trapézio tem frentes de 18 m e 12 m e profundidade de 25 m. Qual é a área?
++ 375 m²
+- 750 m² | metade
+- 55 m² | perimetro
+- 5.400 m² | calculo
+E: (18 + 12) × 25 ÷ 2 = 375.
+V: Um terreno em forma de trapézio tem frentes de 22 m e 14 m e profundidade de 30 m. Qual é a área?
++ 540 m²
+- 1.080 m²
+- 66 m²
+- 9.240 m²
+Q: Se dobrarmos o raio de um círculo, a área:
++ Fica 4 vezes maior
+- Dobra | raio-diametro
+- Fica igual | calculo
+- Fica 8 vezes maior | calculo
+E: r² vira (2r)² = 4r².
+V: Se triplicarmos o raio de um círculo, a área:
++ Fica 9 vezes maior
+- Triplica
+- Fica igual
+- Fica 6 vezes maior
+Q: Uma mesa redonda de raio 0,6 m e uma quadrada de lado 1 m. Qual tem mais área? (π ≈ 3,14)
++ A redonda (cerca de 1,13 m² contra 1 m²)
+- A quadrada | calculo
+- As duas são iguais | calculo
+- Não dá para comparar | perimetro
+E: Redonda: 3,14 × 0,36 ≈ 1,13 m². Quadrada: 1 m².
+V: Um prato redondo de raio 10 cm e uma bandeja quadrada de lado 18 cm. Qual tem mais área? (π ≈ 3,14)
++ A bandeja (324 cm² contra 314 cm²)
+- O prato
+- Os dois são iguais
+- Não dá para comparar
+
+@aplicar | Aplicar: terrenos e projetos | Some e subtraia áreas.
+Q: Um irrigador gira e molha um círculo de raio 6 m. Qual é a área molhada? (π ≈ 3,14)
++ 113,04 m²
+- 37,68 m² | perimetro
+- 452,16 m² | raio-diametro
+- 18,84 m² | perimetro
+E: 3,14 × 36 = 113,04.
+V: Um aspersor molha um círculo de raio 3 m. Qual é a área molhada? (π ≈ 3,14)
++ 28,26 m²
+- 18,84 m²
+- 113,04 m²
+- 9,42 m²
+Q: Um lote retangular de 15 m × 30 m será vendido a R$ 200 o m². Qual é o preço?
++ R$ 90.000
+- R$ 18.000 | perimetro
+- R$ 45.000 | metade
+- R$ 9.000 | calculo
+E: Área 450 m²; 450 × 200 = 90.000.
+V: Um lote retangular de 12 m × 25 m será vendido a R$ 150 o m². Qual é o preço?
++ R$ 45.000
+- R$ 11.100
+- R$ 22.500
+- R$ 4.500
+Q: Uma quadra tem 28 m × 15 m. Em volta há uma faixa de 2 m de largura. Qual é a área da faixa?
++ 188 m²
+- 420 m² | calculo
+- 608 m² | calculo
+- 86 m² | perimetro
+E: Externo: 32 × 19 = 608. Quadra: 420. Faixa: 188.
+V: Uma piscina tem 10 m × 5 m. Em volta há uma calçada de 1 m de largura. Qual é a área da calçada?
++ 34 m²
+- 50 m²
+- 84 m²
+- 30 m²
+
+@explicar | Explicar: dobrar o raio | Explique por que, ao dobrar o raio de um círculo, a área fica 4 vezes maior, e não 2 vezes.
+C: formula | Usa a fórmula A = π × r²
+C: calcula | Mostra que com raio 2r a área é π × 4r²
+C: conclui | Conclui que a área multiplica por 4
+BOA: A área do círculo é π × r × r. Se o raio dobra, os dois fatores r dobram: π × 2r × 2r = π × 4 × r². Por isso a área fica 4 vezes maior. Por exemplo, raio 1 dá área π e raio 2 dá área 4π.
+
+#TRILHA EF08MA20 | MA | 8 | Trilha: Litro, dm³ e m³ | Capacidade de recipientes
+FAZ: Reconhece a relação entre litro e decímetro cúbico e entre litro e metro cúbico para resolver problemas de capacidade.
+ERRO: fator | Usa 10 ou 100 em vez de 1.000 nas conversões de volume
+ERRO: confunde-ml | Confunde mL com cm³ ou com dm³
+ERRO: sentido | Multiplica quando deveria dividir na conversão
+ERRO: calculo | Erra a conta
+NOTA: 1 dm³ = 1 L. 1 m³ = 1.000 L. 1 cm³ = 1 mL. Mostre uma caixa de leite de 1 L ao lado de um cubo de 10 cm de aresta.
+
+@relembrar | Relembrar: equivalências | 1 L = 1 dm³ = 1.000 cm³ = 1.000 mL. 1 m³ = 1.000 dm³ = 1.000 L.
+Q: Quantos litros cabem em 2,5 m³?
++ 2.500 L
+- 250 L | fator
+- 25 L | fator
+- 0,0025 L | sentido
+E: 2,5 × 1.000 = 2.500.
+V: Quantos litros cabem em 0,8 m³?
++ 800 L
+- 80 L
+- 8 L
+- 0,0008 L
+Q: Quantos mililitros há em 1 cm³?
++ 1 mL
+- 10 mL | fator
+- 1.000 mL | confunde-ml
+- 0,001 mL | sentido
+E: 1 cm³ = 1 mL.
+V: Quantos cm³ há em 250 mL?
++ 250 cm³
+- 25 cm³
+- 2,5 cm³
+- 250.000 cm³
+Q: Quantos m³ correspondem a 6.000 L?
++ 6 m³
+- 60 m³ | fator
+- 600 m³ | fator
+- 6.000.000 m³ | sentido
+E: 6.000 ÷ 1.000 = 6.
+V: Quantos m³ correspondem a 15.000 L?
++ 15 m³
+- 150 m³
+- 1.500 m³
+- 15.000.000 m³
+
+@exemplo_guiado | Exemplo guiado: capacidade de uma caixa | Uma caixa d'água tem 1,2 m × 1 m × 0,5 m. Volume: 0,6 m³ = 600 dm³ = 600 L.
+Q: Uma caixa d'água tem 2 m × 1,5 m × 1 m. Quantos litros cabem?
++ 3.000 L
+- 300 L | fator
+- 30 L | fator
+- 4,5 L | calculo
+E: 3 m³ = 3.000 L.
+V: Uma caixa d'água tem 1 m × 1 m × 0,8 m. Quantos litros cabem?
++ 800 L
+- 80 L
+- 8 L
+- 2,8 L
+Q: Um aquário tem 40 cm × 25 cm × 30 cm. Quantos litros cabem?
++ 30 L
+- 300 L | fator
+- 3 L | fator
+- 30.000 L | confunde-ml
+E: 30.000 cm³ = 30 dm³ = 30 L.
+V: Um aquário tem 50 cm × 20 cm × 40 cm. Quantos litros cabem?
++ 40 L
+- 400 L
+- 4 L
+- 40.000 L
+Q: Uma caixa de suco tem 10 cm × 6 cm × 20 cm. Quantos mililitros?
++ 1.200 mL
+- 120 mL | fator
+- 12 mL | fator
+- 1,2 mL | sentido
+E: 1.200 cm³ = 1.200 mL.
+V: Uma embalagem tem 8 cm × 5 cm × 15 cm. Quantos mililitros?
++ 600 mL
+- 60 mL
+- 6 mL
+- 0,6 mL
+
+@praticar | Praticar: convertendo capacidades | Atenção ao fator 1.000.
+Q: Uma piscina tem 50.000 L. Quantos m³?
++ 50 m³
+- 500 m³ | fator
+- 5.000 m³ | fator
+- 50.000.000 m³ | sentido
+E: 50.000 ÷ 1.000 = 50.
+V: Um reservatório tem 120.000 L. Quantos m³?
++ 120 m³
+- 1.200 m³
+- 12.000 m³
+- 120.000.000 m³
+Q: Quantas garrafas de 500 mL enchem uma caixa de 0,03 m³?
++ 60
+- 6 | fator
+- 600 | fator
+- 15 | calculo
+E: 0,03 m³ = 30 L = 30.000 mL; 30.000 ÷ 500 = 60.
+V: Quantas garrafas de 250 mL enchem uma caixa de 0,005 m³?
++ 20
+- 2
+- 200
+- 50
+Q: Um copo de 200 cm³ tem quantos litros?
++ 0,2 L
+- 2 L | fator
+- 20 L | fator
+- 200 L | confunde-ml
+E: 200 cm³ = 200 mL = 0,2 L.
+V: Uma xícara de 150 cm³ tem quantos litros?
++ 0,15 L
+- 1,5 L
+- 15 L
+- 150 L
+Q: Uma conta de água mostra 18 m³. Quantos litros foram consumidos?
++ 18.000 L
+- 1.800 L | fator
+- 180 L | fator
+- 0,018 L | sentido
+E: 18 × 1.000 = 18.000.
+V: Uma conta de água mostra 9,5 m³. Quantos litros foram consumidos?
++ 9.500 L
+- 950 L
+- 95 L
+- 0,0095 L
+
+@aplicar | Aplicar: capacidade no dia a dia | Monte o volume e converta.
+Q: Uma família gasta 150 L de água por pessoa por dia. São 4 pessoas. Quantos m³ gastam em 30 dias?
++ 18 m³
+- 180 m³ | fator
+- 1,8 m³ | fator
+- 18.000 m³ | sentido
+E: 150 × 4 × 30 = 18.000 L = 18 m³.
+V: Uma pessoa gasta 120 L por dia. Quantos m³ gasta em 50 dias?
++ 6 m³
+- 60 m³
+- 0,6 m³
+- 6.000 m³
+Q: Um caminhão-pipa leva 12 m³ de água. Quantas caixas d'água de 1.000 L ele enche?
++ 12
+- 120 | fator
+- 1,2 | fator
+- 12.000 | sentido
+E: 12 m³ = 12.000 L; 12.000 ÷ 1.000 = 12.
+V: Um caminhão-pipa leva 15 m³. Quantas caixas d'água de 500 L ele enche?
++ 30
+- 300
+- 3
+- 7,5
+Q: Um tanque de peixes tem 2 m × 1 m e a água chega a 60 cm de altura. Quantos litros de água há?
++ 1.200 L
+- 120 L | fator
+- 12.000 L | fator
+- 120.000 L | confunde-ml
+E: 2 × 1 × 0,6 = 1,2 m³ = 1.200 L.
+V: Um lago artificial tem 3 m × 2 m e a água chega a 50 cm de altura. Quantos litros?
++ 3.000 L
+- 300 L
+- 30.000 L
+- 300.000 L
+
+@explicar | Explicar: 1 dm³ = 1 L | Explique como descobrir quantos litros cabem num aquário de 60 cm × 30 cm × 40 cm.
+C: volume | Calcula o volume: 72.000 cm³ (ou 6 × 3 × 4 = 72 dm³)
+C: converte | Converte para dm³ ou usa 1.000 cm³ = 1 L
+C: resultado | Chega a 72 L
+BOA: Posso transformar as medidas em decímetros: 60 cm = 6 dm, 30 cm = 3 dm e 40 cm = 4 dm. O volume é 6 × 3 × 4 = 72 dm³. Como 1 dm³ = 1 L, cabem 72 litros.
+
+#PRE EF08MA17 > EF08MA15 | 3
+#PRE EF08MA18 > EF07MA21 | 3
+#PRE EF08MA18 > EF07MA20 | 2
+#PRE EF08MA19 > EF07MA31 | 3
+#PRE EF08MA19 > EF07MA33 | 2
+#PRE EF08MA20 > EF07MA30 | 3

@@ -1,0 +1,666 @@
+// 4º ano — Matemática (parte 3): EF04MA08, EF04MA11, EF04MA12, EF04MA13
+
+#TRILHA EF04MA08 | MA | 4 | Trilha: Problemas de contagem | Quantas combinações?
+FAZ: Resolve problemas simples de contagem, como combinar cada elemento de uma coleção com todos os elementos de outra, usando desenhos, tabelas ou listas.
+ERRO: soma-em-vez-de-vezes | Soma as quantidades em vez de multiplicar
+ERRO: esquece-combinacao | Esquece alguma combinação na lista
+ERRO: repete-combinacao | Conta a mesma combinação duas vezes
+ERRO: so-uma-colecao | Conta só os elementos de uma das coleções
+NOTA: Monte combinações com recortes de roupas (camisetas e bermudas) ou sorvetes (sabores e casquinhas). Organize numa tabela ou árvore.
+
+@relembrar | Relembrar: combinar | Combinar é juntar cada item de um grupo com cada item de outro. 2 camisetas e 3 bermudas dão 2 × 3 = 6 combinações.
+Q: Com 2 camisetas (azul e branca) e 2 bermudas (preta e jeans), quantas roupas diferentes dá para montar?
++ 4
+- 2 | so-uma-colecao
+- 3 | esquece-combinacao
+- 8 | repete-combinacao
+E: Azul-preta, azul-jeans, branca-preta, branca-jeans: 4.
+V: Com 2 sucos (uva e laranja) e 2 lanches (pão e bolo), quantos cafés diferentes dá para montar?
++ 4
+- 2
+- 3
+- 8
+Q: Com 3 sabores de sorvete e 2 tipos de casquinha, quantas combinações existem?
++ 6
+- 5 | soma-em-vez-de-vezes
+- 3 | so-uma-colecao
+- 9 | repete-combinacao
+E: Cada sabor pode ir em 2 casquinhas: 3 × 2 = 6.
+V: Com 4 sabores de sorvete e 2 tipos de casquinha, quantas combinações existem?
++ 8
+- 6
+- 4
+- 16
+Q: Para contar combinações de forma organizada, o que ajuda?
++ Fazer uma tabela ou uma árvore
+- Chutar um número | esquece-combinacao
+- Contar só um dos grupos | so-uma-colecao
+- Somar os dois grupos | soma-em-vez-de-vezes
+E: A tabela mostra todas as combinações, sem esquecer nem repetir.
+V: Para não esquecer nenhuma combinação, o melhor é:
++ Listar em ordem, item por item
+- Contar de cabeça rapidinho
+- Contar só um grupo
+- Somar os grupos
+
+@exemplo_guiado | Exemplo guiado: tabela de dupla entrada | Lanche com pão (francês, integral) e recheio (queijo, presunto, ovo). Na tabela: 2 linhas e 3 colunas = 2 × 3 = 6 lanches.
+Q: Com 2 tipos de pão e 4 recheios, quantos lanches diferentes existem?
++ 8
+- 6 | soma-em-vez-de-vezes
+- 4 | so-uma-colecao
+- 16 | repete-combinacao
+E: 2 × 4 = 8.
+V: Com 3 tipos de pão e 3 recheios, quantos lanches diferentes existem?
++ 9
+- 6
+- 3
+- 27
+Q: Uma lanchonete tem 5 sucos e 3 salgados. Quantos combos de 1 suco e 1 salgado existem?
++ 15
+- 8 | soma-em-vez-de-vezes
+- 5 | so-uma-colecao
+- 30 | repete-combinacao
+E: 5 × 3 = 15.
+V: Uma loja tem 4 bonés e 5 camisetas. Quantos conjuntos de 1 boné e 1 camiseta existem?
++ 20
+- 9
+- 5
+- 40
+Q: Com as letras A e B e os números 1, 2 e 3, quantos códigos de uma letra e um número existem?
++ 6
+- 5 | soma-em-vez-de-vezes
+- 3 | so-uma-colecao
+- 12 | repete-combinacao
+E: A1, A2, A3, B1, B2, B3: 6.
+V: Com as letras X, Y e Z e os números 1 e 2, quantos códigos de uma letra e um número existem?
++ 6
+- 5
+- 2
+- 12
+
+@praticar | Praticar: contando combinações | Multiplique as quantidades dos grupos.
+Q: Uma boneca tem 3 vestidos e 3 sapatos. De quantas formas diferentes pode ser vestida (1 vestido e 1 sapato)?
++ 9
+- 6 | soma-em-vez-de-vezes
+- 3 | so-uma-colecao
+- 18 | repete-combinacao
+E: 3 × 3 = 9.
+V: Um boneco tem 4 camisas e 2 calças. De quantas formas pode ser vestido?
++ 8
+- 6
+- 4
+- 16
+Q: Bia listou as combinações de 2 bermudas com 3 camisetas e achou 5. O que aconteceu?
++ Ela esqueceu uma combinação
+- Está certo | esquece-combinacao
+- Ela repetiu uma | repete-combinacao
+- O certo seria 6 + 5 | soma-em-vez-de-vezes
+E: O total é 2 × 3 = 6.
+V: Rui listou as combinações de 3 sabores com 2 coberturas e achou 7. O que aconteceu?
++ Ele contou alguma combinação duas vezes
+- Está certo
+- Ele esqueceu uma
+- O certo seria 3 + 2
+Q: Num restaurante há 2 entradas, 3 pratos principais e 1 sobremesa. Quantas refeições diferentes (1 de cada) existem?
++ 6
+- 5 | soma-em-vez-de-vezes
+- 3 | so-uma-colecao
+- 12 | repete-combinacao
+E: 2 × 3 × 1 = 6.
+V: Há 2 tipos de arroz, 2 de feijão e 3 carnes. Quantos pratos diferentes (1 de cada) existem?
++ 12
+- 7
+- 3
+- 24
+Q: Com 6 combinações de camiseta e bermuda, e 3 camisetas, quantas bermudas há?
++ 2
+- 3 | so-uma-colecao
+- 9 | soma-em-vez-de-vezes
+- 18 | repete-combinacao
+E: 3 × 2 = 6, então há 2 bermudas.
+V: Com 12 combinações de pão e recheio, e 4 recheios, quantos pães há?
++ 3
+- 4
+- 16
+- 48
+
+@aplicar | Aplicar: escolhas do dia a dia | Combine com cuidado.
+Q: Para ir à festa, Ana pode escolher entre 3 vestidos e 2 tiaras. Quantas opções ela tem?
++ 6
+- 5 | soma-em-vez-de-vezes
+- 3 | so-uma-colecao
+- 9 | repete-combinacao
+E: 3 × 2 = 6.
+V: Para o passeio, Davi pode escolher entre 4 bonés e 3 camisetas. Quantas opções ele tem?
++ 12
+- 7
+- 4
+- 16
+Q: Uma senha tem uma cor (vermelho, verde, azul) e um animal (gato, cão). Quantas senhas diferentes podem ser feitas?
++ 6
+- 5 | soma-em-vez-de-vezes
+- 2 | so-uma-colecao
+- 8 | repete-combinacao
+E: 3 × 2 = 6.
+V: Uma ficha tem uma fruta (maçã, uva, pera, kiwi) e uma cor (amarelo, roxo). Quantas fichas diferentes podem ser feitas?
++ 8
+- 6
+- 4
+- 16
+Q: Num time, há 4 meninas para goleira e 3 meninos para goleiro. Quantas duplas de goleiros (1 menina e 1 menino) podem ser formadas?
++ 12
+- 7 | soma-em-vez-de-vezes
+- 4 | so-uma-colecao
+- 24 | repete-combinacao
+E: 4 × 3 = 12.
+V: Há 5 alunos e 2 professores para formar duplas (1 aluno e 1 professor). Quantas duplas podem ser formadas?
++ 10
+- 7
+- 5
+- 20
+
+@explicar | Explicar: contando combinações | Explique como descobrir quantos lanches diferentes dá para fazer com 3 tipos de pão e 4 recheios, usando 1 pão e 1 recheio.
+C: organiza | Usa tabela, árvore ou lista organizada
+C: multiplica | Percebe que cada pão vai com cada recheio: 3 × 4
+C: resultado | Chega a 12 lanches
+BOA: Cada tipo de pão pode ir com os 4 recheios. Como são 3 pães, faço 3 vezes 4. Posso montar uma tabela com 3 linhas e 4 colunas. São 12 lanches diferentes.
+
+#TRILHA EF04MA11 | MA | 4 | Trilha: Sequências de múltiplos | Pulando de tanto em tanto
+FAZ: Identifica regularidades em sequências numéricas formadas por múltiplos de um número natural.
+ERRO: soma-um | Avança de 1 em 1 em vez de pular o número da sequência
+ERRO: multiplo-errado | Acha que um número é múltiplo sem conferir na tabuada
+ERRO: comeca-errado | Esquece que a sequência dos múltiplos começa no 0 (ou no próprio número)
+ERRO: confunde-divisor | Confunde múltiplo com divisor
+NOTA: Pinte os múltiplos de 2, 3 e 5 numa tabela de 1 a 100 e observe os padrões (colunas e diagonais).
+
+@relembrar | Relembrar: múltiplos | Os múltiplos de 4 são os resultados da tabuada do 4: 0, 4, 8, 12, 16, ...
+Q: Qual número é múltiplo de 5?
++ 35
+- 32 | multiplo-errado
+- 52 | multiplo-errado
+- 51 | multiplo-errado
+E: 5 × 7 = 35. Os múltiplos de 5 terminam em 0 ou 5.
+V: Qual número é múltiplo de 10?
++ 70
+- 75
+- 101
+- 17
+Q: Qual é o próximo número: 6, 12, 18, 24, ...?
++ 30
+- 25 | soma-um
+- 28 | multiplo-errado
+- 36 | multiplo-errado
+E: São os múltiplos de 6: 24 + 6 = 30.
+V: Qual é o próximo número: 7, 14, 21, 28, ...?
++ 35
+- 29
+- 32
+- 42
+Q: Qual destas sequências é dos múltiplos de 3?
++ 3, 6, 9, 12, 15
+- 3, 4, 5, 6, 7 | soma-um
+- 1, 3, 5, 7, 9 | multiplo-errado
+- 3, 9, 27, 81 | confunde-divisor
+E: Pulamos de 3 em 3.
+V: Qual destas sequências é dos múltiplos de 4?
++ 4, 8, 12, 16, 20
+- 4, 5, 6, 7, 8
+- 2, 4, 6, 8, 10
+- 4, 16, 64, 256
+
+@exemplo_guiado | Exemplo guiado: observando padrões | Múltiplos de 2 terminam em 0, 2, 4, 6 ou 8 (são os pares). Múltiplos de 5 terminam em 0 ou 5. Múltiplos de 10 terminam em 0.
+Q: Qual número é múltiplo de 2 e também de 5?
++ 40
+- 45 | multiplo-errado
+- 42 | multiplo-errado
+- 25 | multiplo-errado
+E: Termina em 0: é múltiplo de 2 e de 5 (e de 10).
+V: Qual número é múltiplo de 2 e também de 5?
++ 90
+- 95
+- 92
+- 55
+Q: Na sequência dos múltiplos de 9 (0, 9, 18, 27, ...), qual vem depois de 63?
++ 72
+- 64 | soma-um
+- 69 | multiplo-errado
+- 81 | multiplo-errado
+E: 63 + 9 = 72.
+V: Na sequência dos múltiplos de 8 (0, 8, 16, 24, ...), qual vem depois de 48?
++ 56
+- 49
+- 54
+- 64
+Q: Qual NÃO é múltiplo de 3?
++ 22
+- 21 | multiplo-errado
+- 24 | multiplo-errado
+- 27 | multiplo-errado
+E: 21, 24 e 27 estão na tabuada do 3. 22 não está.
+V: Qual NÃO é múltiplo de 4?
++ 30
+- 28
+- 32
+- 36
+
+@praticar | Praticar: sequências | Ache o salto e continue.
+Q: Qual número falta: 11, 22, __, 44, 55?
++ 33
+- 23 | soma-um
+- 34 | multiplo-errado
+- 30 | multiplo-errado
+E: Múltiplos de 11: 22 + 11 = 33.
+V: Qual número falta: 12, 24, __, 48, 60?
++ 36
+- 25
+- 34
+- 40
+Q: O 10º múltiplo de 6 (começando em 6) é:
++ 60
+- 16 | soma-um
+- 66 | comeca-errado
+- 54 | comeca-errado
+E: 6 × 10 = 60.
+V: O 10º múltiplo de 7 (começando em 7) é:
++ 70
+- 17
+- 77
+- 63
+Q: Quantos múltiplos de 5 há entre 1 e 30 (incluindo o 30)?
++ 6
+- 5 | comeca-errado
+- 30 | soma-um
+- 7 | comeca-errado
+E: 5, 10, 15, 20, 25, 30.
+V: Quantos múltiplos de 4 há entre 1 e 24 (incluindo o 24)?
++ 6
+- 5
+- 24
+- 7
+Q: Qual é a diferença entre um múltiplo de 7 e o próximo múltiplo de 7?
++ Sempre 7
+- Sempre 1 | soma-um
+- Depende do número | multiplo-errado
+- Sempre 14 | multiplo-errado
+E: Na sequência dos múltiplos de 7 pulamos sempre 7.
+V: Qual é a diferença entre um múltiplo de 9 e o próximo múltiplo de 9?
++ Sempre 9
+- Sempre 1
+- Depende do número
+- Sempre 18
+
+@aplicar | Aplicar: padrões no dia a dia | Pense nos múltiplos.
+Q: Um ônibus passa no ponto a cada 15 minutos, a partir das 7h. Ele passa às 8h?
++ Sim, porque 60 é múltiplo de 15
+- Não, porque 8 não é múltiplo de 15 | confunde-divisor
+- Só passa às 7h15 | comeca-errado
+- Não dá para saber | multiplo-errado
+E: De 7h a 8h são 60 minutos; 60 = 4 × 15.
+V: Um alarme toca a cada 20 minutos, a partir das 9h. Ele toca às 10h?
++ Sim, porque 60 é múltiplo de 20
+- Não, porque 10 não é múltiplo de 20
+- Só toca às 9h20
+- Não dá para saber
+Q: Ovos são vendidos em caixas de 6. Qual quantidade dá para comprar só com caixas fechadas?
++ 36 ovos
+- 32 ovos | multiplo-errado
+- 40 ovos | multiplo-errado
+- 15 ovos | multiplo-errado
+E: 36 = 6 × 6.
+V: Lápis são vendidos em pacotes de 8. Qual quantidade dá para comprar só com pacotes fechados?
++ 56 lápis
+- 50 lápis
+- 60 lápis
+- 30 lápis
+Q: Numa fila, cada 4ª criança ganha um balão. A criança de número 18 ganha?
++ Não, porque 18 não é múltiplo de 4
+- Sim, porque 18 é par | multiplo-errado
+- Sim, porque 18 é maior que 4 | confunde-divisor
+- Só a 4ª ganha | comeca-errado
+E: Ganham a 4ª, 8ª, 12ª, 16ª, 20ª... A 18ª não.
+V: Numa fila, cada 5ª criança ganha um apito. A criança de número 25 ganha?
++ Sim, porque 25 é múltiplo de 5
+- Não, porque 25 é ímpar
+- Não, porque 25 é grande
+- Só a 5ª ganha
+
+@explicar | Explicar: reconhecendo múltiplos | Explique como saber se 84 é múltiplo de 4, usando a tabuada ou uma sequência.
+C: estrategia | Usa a tabuada ou a sequência dos múltiplos de 4
+C: calculo | Mostra que 4 × 21 = 84 (ou divide 84 por 4 sem resto)
+C: conclusao | Conclui que 84 é múltiplo de 4
+BOA: Eu divido 84 por 4: dá 21 e não sobra nada, porque 4 × 21 = 84. Então 84 está na sequência dos múltiplos de 4 e é múltiplo de 4.
+
+#TRILHA EF04MA12 | MA | 4 | Trilha: Restos iguais na divisão | O que sobra?
+FAZ: Reconhece, investigando, que há grupos de números naturais que, divididos por um mesmo número, deixam restos iguais, e identifica regularidades.
+ERRO: resto-maior | Deixa resto maior ou igual ao divisor
+ERRO: ignora-resto | Ignora o resto e acha que toda divisão é exata
+ERRO: calculo | Erra o quociente ou o resto
+ERRO: padrao | Não percebe que os números com mesmo resto pulam de tanto em tanto
+NOTA: Faça divisões com fichas em grupos de 3 e marque o que sobra. Mostre que 1, 4, 7, 10, 13 sempre sobram 1 quando divididos por 3.
+
+@relembrar | Relembrar: divisão com resto | 14 ÷ 3: formamos 4 grupos de 3 (12) e sobram 2. Quociente 4, resto 2. O resto é sempre menor que o divisor.
+Q: Qual é o resto de 17 ÷ 5?
++ 2
+- 3 | calculo
+- 0 | ignora-resto
+- 7 | resto-maior
+E: 5 × 3 = 15; 17 − 15 = 2.
+V: Qual é o resto de 23 ÷ 4?
++ 3
+- 1
+- 0
+- 7
+Q: Qual é o resto de 20 ÷ 4?
++ 0
+- 4 | resto-maior
+- 1 | calculo
+- 5 | calculo
+E: 4 × 5 = 20; não sobra nada.
+V: Qual é o resto de 18 ÷ 6?
++ 0
+- 6
+- 1
+- 3
+Q: Numa divisão por 3, o resto pode ser:
++ 0, 1 ou 2
+- 0, 1, 2 ou 3 | resto-maior
+- Só 0 | ignora-resto
+- Qualquer número | resto-maior
+E: O resto é sempre menor que o divisor.
+V: Numa divisão por 5, o resto pode ser:
++ 0, 1, 2, 3 ou 4
+- 0, 1, 2, 3, 4 ou 5
+- Só 0
+- Qualquer número
+
+@exemplo_guiado | Exemplo guiado: grupos com o mesmo resto | Dividindo por 3: 1, 4, 7, 10 e 13 deixam resto 1. Eles pulam de 3 em 3. Já 2, 5, 8, 11 deixam resto 2.
+Q: Qual número deixa resto 1 quando dividido por 3, como 4 e 7?
++ 10
+- 9 | padrao
+- 11 | padrao
+- 12 | padrao
+E: 10 = 3 × 3 + 1.
+V: Qual número deixa resto 2 quando dividido por 3, como 5 e 8?
++ 11
+- 9
+- 10
+- 12
+Q: Os números 6, 10, 14 e 18 divididos por 4 deixam resto:
++ 2
+- 0 | ignora-resto
+- 4 | resto-maior
+- 1 | calculo
+E: 6 = 4 + 2; 10 = 8 + 2; 14 = 12 + 2; 18 = 16 + 2.
+V: Os números 7, 12, 17 e 22 divididos por 5 deixam resto:
++ 2
+- 0
+- 5
+- 1
+Q: Qual é o próximo número da sequência que deixa resto 3 quando dividido por 5: 3, 8, 13, 18, ...?
++ 23
+- 19 | padrao
+- 21 | padrao
+- 25 | padrao
+E: Pulam de 5 em 5: 18 + 5 = 23.
+V: Qual é o próximo número da sequência que deixa resto 1 quando dividido por 4: 1, 5, 9, 13, ...?
++ 17
+- 14
+- 15
+- 16
+
+@praticar | Praticar: investigando restos | Faça a divisão e observe o que sobra.
+Q: Qual destes NÃO deixa o mesmo resto que os outros quando dividido por 2?
++ 14
+- 9 | padrao
+- 15 | padrao
+- 21 | padrao
+E: 9, 15 e 21 são ímpares (resto 1). 14 é par (resto 0).
+V: Qual destes NÃO deixa o mesmo resto que os outros quando dividido por 2?
++ 31
+- 10
+- 18
+- 26
+Q: Qual é o resto de 38 ÷ 6?
++ 2
+- 3 | calculo
+- 8 | resto-maior
+- 0 | ignora-resto
+E: 6 × 6 = 36; 38 − 36 = 2.
+V: Qual é o resto de 47 ÷ 7?
++ 5
+- 4
+- 7
+- 0
+Q: Todo número par dividido por 2 deixa resto:
++ 0
+- 1 | padrao
+- 2 | resto-maior
+- Depende do número | padrao
+E: Os pares formam grupos de 2 sem sobrar.
+V: Todo número ímpar dividido por 2 deixa resto:
++ 1
+- 0
+- 2
+- Depende do número
+Q: Dividindo por 10, qual é o resto de 47?
++ 7
+- 4 | calculo
+- 0 | ignora-resto
+- 10 | resto-maior
+E: 47 = 4 × 10 + 7. O resto é o algarismo das unidades.
+V: Dividindo por 10, qual é o resto de 83?
++ 3
+- 8
+- 0
+- 10
+
+@aplicar | Aplicar: o que sobra no dia a dia | Pense em grupos e sobras.
+Q: 29 alunos vão formar grupos de 4. Quantos alunos ficam sem grupo completo?
++ 1
+- 7 | calculo
+- 0 | ignora-resto
+- 5 | resto-maior
+E: 4 × 7 = 28; sobra 1.
+V: 34 alunos vão formar grupos de 5. Quantos ficam sem grupo completo?
++ 4
+- 6
+- 0
+- 9
+Q: Os dias 3, 10, 17 e 24 de um mês caem no mesmo dia da semana. Por quê?
++ Eles pulam de 7 em 7, deixam o mesmo resto quando divididos por 7
+- Porque são números ímpares | padrao
+- Porque terminam em números diferentes | padrao
+- Por acaso | ignora-resto
+E: A semana tem 7 dias; somando 7, volta ao mesmo dia.
+V: Se o dia 5 é uma segunda-feira, qual destes dias também é segunda?
++ Dia 19
+- Dia 15
+- Dia 20
+- Dia 10
+Q: Bombons foram repartidos em caixas de 6 e sobraram 4. Qual pode ser o total de bombons?
++ 28
+- 24 | ignora-resto
+- 30 | ignora-resto
+- 26 | calculo
+E: 28 = 6 × 4 + 4.
+V: Balas foram repartidas em saquinhos de 5 e sobraram 3. Qual pode ser o total de balas?
++ 23
+- 25
+- 20
+- 24
+
+@explicar | Explicar: restos iguais | Explique por que 5, 9, 13 e 17 deixam o mesmo resto quando divididos por 4.
+C: calcula | Mostra a divisão de pelo menos dois deles com resto 1
+C: padrao | Percebe que eles pulam de 4 em 4
+C: conclusao | Conclui que somar 4 não muda o resto
+BOA: 5 dividido por 4 dá 1 e sobra 1. 9 dividido por 4 dá 2 e sobra 1. Os números pulam de 4 em 4: cada vez que somo 4, forma mais um grupo de 4 e o que sobra continua sendo 1. Por isso todos deixam resto 1.
+
+#TRILHA EF04MA13 | MA | 4 | Trilha: Operações inversas em problemas | Desfazendo contas
+FAZ: Reconhece, com ou sem calculadora, as relações inversas entre adição e subtração e entre multiplicação e divisão e as aplica na resolução de problemas.
+ERRO: desfaz-errado | Desfaz a conta com a mesma operação
+ERRO: ordem-inversa | Desfaz as operações fora de ordem
+ERRO: calculo | Erra o cálculo
+ERRO: perde-o-inicio | Responde o resultado final em vez do número do início
+NOTA: Proponha "máquinas de números": entra um número, sai outro. Peça para descobrir o número que entrou, fazendo o caminho de volta.
+
+@relembrar | Relembrar: o caminho de volta | Somar 8 se desfaz subtraindo 8. Multiplicar por 3 se desfaz dividindo por 3.
+Q: Qual operação desfaz "multiplicar por 6"?
++ Dividir por 6
+- Multiplicar por 6 | desfaz-errado
+- Somar 6 | desfaz-errado
+- Subtrair 6 | desfaz-errado
+E: A divisão é a inversa da multiplicação.
+V: Qual operação desfaz "somar 15"?
++ Subtrair 15
+- Somar 15
+- Multiplicar por 15
+- Dividir por 15
+Q: Uma máquina soma 20. Saiu 75. Qual número entrou?
++ 55
+- 95 | desfaz-errado
+- 75 | perde-o-inicio
+- 65 | calculo
+E: 75 − 20 = 55.
+V: Uma máquina soma 35. Saiu 90. Qual número entrou?
++ 55
+- 125
+- 90
+- 65
+Q: Uma máquina multiplica por 4. Saiu 64. Qual número entrou?
++ 16
+- 256 | desfaz-errado
+- 60 | desfaz-errado
+- 64 | perde-o-inicio
+E: 64 ÷ 4 = 16.
+V: Uma máquina multiplica por 5. Saiu 85. Qual número entrou?
++ 17
+- 425
+- 80
+- 85
+
+@exemplo_guiado | Exemplo guiado: duas operações | Pensei num número, multipliquei por 3 e somei 5. Deu 26. Volta: 26 − 5 = 21; 21 ÷ 3 = 7. Pensei no 7.
+Q: Pensei num número, multipliquei por 2 e somei 4. Deu 30. Em que número pensei?
++ 13
+- 17 | ordem-inversa
+- 64 | desfaz-errado
+- 30 | perde-o-inicio
+E: 30 − 4 = 26; 26 ÷ 2 = 13.
+V: Pensei num número, multipliquei por 3 e somei 6. Deu 33. Em que número pensei?
++ 9
+- 13
+- 105
+- 33
+Q: Pensei num número, somei 10 e dividi por 2. Deu 15. Em que número pensei?
++ 20
+- 40 | ordem-inversa
+- 5 | ordem-inversa
+- 15 | perde-o-inicio
+E: Volta: 15 × 2 = 30; 30 − 10 = 20.
+V: Pensei num número, somei 6 e dividi por 3. Deu 9. Em que número pensei?
++ 21
+- 33
+- 1
+- 9
+Q: Para desfazer "dividir por 5 e depois subtrair 3", qual é a ordem?
++ Primeiro somar 3, depois multiplicar por 5
+- Primeiro multiplicar por 5, depois somar 3 | ordem-inversa
+- Primeiro subtrair 3, depois dividir por 5 | desfaz-errado
+- Primeiro dividir por 5, depois subtrair 3 | desfaz-errado
+E: Desfazemos de trás para a frente, com as operações inversas.
+V: Para desfazer "multiplicar por 2 e depois somar 7", qual é a ordem?
++ Primeiro subtrair 7, depois dividir por 2
+- Primeiro dividir por 2, depois subtrair 7
+- Primeiro somar 7, depois multiplicar por 2
+- Primeiro multiplicar por 2, depois somar 7
+
+@praticar | Praticar: descobrindo o início | Faça o caminho de volta.
+Q: Uma máquina tira 48. Saiu 152. Qual número entrou?
++ 200
+- 104 | desfaz-errado
+- 152 | perde-o-inicio
+- 190 | calculo
+E: 152 + 48 = 200.
+V: Uma máquina tira 65. Saiu 135. Qual número entrou?
++ 200
+- 70
+- 135
+- 190
+Q: Uma máquina divide por 8. Saiu 12. Qual número entrou?
++ 96
+- 4 | desfaz-errado
+- 20 | desfaz-errado
+- 12 | perde-o-inicio
+E: 12 × 8 = 96.
+V: Uma máquina divide por 9. Saiu 7. Qual número entrou?
++ 63
+- 2
+- 16
+- 7
+Q: Pensei num número, tirei 7 e multipliquei por 4. Deu 32. Em que número pensei?
++ 15
+- 121 | ordem-inversa
+- 1 | desfaz-errado
+- 32 | perde-o-inicio
+E: 32 ÷ 4 = 8; 8 + 7 = 15.
+V: Pensei num número, tirei 3 e multipliquei por 5. Deu 40. Em que número pensei?
++ 11
+- 197
+- 5
+- 40
+Q: Na calculadora, Rui digitou um número, apertou "× 7" e apareceu 168. Qual número ele digitou?
++ 24
+- 1.176 | desfaz-errado
+- 161 | desfaz-errado
+- 168 | perde-o-inicio
+E: 168 ÷ 7 = 24.
+V: Na calculadora, Ana digitou um número, apertou "× 9" e apareceu 117. Qual número ela digitou?
++ 13
+- 1.053
+- 108
+- 117
+
+@aplicar | Aplicar: problemas de volta | Comece pelo fim.
+Q: Lia gastou 18 reais e depois ganhou 25. Ficou com 52. Quanto ela tinha no começo?
++ 45 reais
+- 59 reais | desfaz-errado
+- 52 reais | perde-o-inicio
+- 95 reais | desfaz-errado
+E: 52 − 25 = 27; 27 + 18 = 45.
+V: Davi gastou 12 reais e depois ganhou 30. Ficou com 70. Quanto ele tinha no começo?
++ 52 reais
+- 88 reais
+- 70 reais
+- 112 reais
+Q: Uma professora dividiu igualmente as folhas entre 6 alunos e cada um ganhou 15. Quantas folhas ela tinha?
++ 90
+- 21 | desfaz-errado
+- 9 | desfaz-errado
+- 15 | perde-o-inicio
+E: 15 × 6 = 90.
+V: Um avô dividiu igualmente as bolinhas entre 4 netos e cada um ganhou 23. Quantas bolinhas ele tinha?
++ 92
+- 27
+- 19
+- 23
+Q: Um número foi multiplicado por 3 e o resultado foi dividido por 2, dando 27. Qual era o número?
++ 18
+- 81 | ordem-inversa
+- 27 | perde-o-inicio
+- 9 | calculo
+E: 27 × 2 = 54; 54 ÷ 3 = 18.
+V: Um número foi multiplicado por 4 e o resultado foi dividido por 3, dando 20. Qual era o número?
++ 15
+- 60
+- 20
+- 5
+
+@explicar | Explicar: o caminho de volta | Explique como descobrir o número pensado: "multipliquei por 4, somei 6 e deu 50".
+C: comeca-pelo-fim | Começa pelo resultado 50
+C: inversas | Usa as inversas na ordem contrária: tira 6, divide por 4
+C: resultado | Chega a 11 e confere
+BOA: Começo pelo fim. A última coisa foi somar 6, então tiro 6: 50 − 6 = 44. Antes eu tinha multiplicado por 4, então divido: 44 ÷ 4 = 11. Conferindo: 11 × 4 = 44 e 44 + 6 = 50.
+
+#PRE EF04MA08 > EF04MA06 | 2
+#PRE EF04MA11 > EF04MA06 | 2
+#PRE EF04MA12 > EF04MA07 | 3
+#PRE EF04MA13 > EF04MA04 | 3

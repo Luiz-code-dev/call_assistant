@@ -1,0 +1,502 @@
+// 8º ano — Matemática (parte 6): EF08MA25, EF08MA26, EF08MA27
+
+#TRILHA EF08MA25 | MA | 8 | Trilha: Média, moda e mediana | Três medidas de centro
+FAZ: Obtém média, moda e mediana de uma pesquisa, compreendendo seus significados, e as relaciona com a dispersão indicada pela amplitude.
+ERRO: mediana-sem-ordenar | Calcula a mediana sem colocar os dados em ordem
+ERRO: mediana-par | Erra a mediana quando a quantidade de dados é par
+ERRO: moda | Confunde moda com o maior valor
+ERRO: calculo | Erra a conta da média
+NOTA: Média: soma ÷ quantidade. Mediana: valor do meio com os dados em ordem (se par, média dos dois do meio). Moda: valor que mais se repete.
+
+@relembrar | Relembrar: as três medidas | Dados: 3, 5, 5, 7, 10. Média: 30 ÷ 5 = 6. Mediana: 5 (o do meio). Moda: 5 (o que mais aparece). Amplitude: 10 − 3 = 7.
+Q: Qual é a mediana de 8, 3, 9, 6, 4?
++ 6
+- 9 | mediana-sem-ordenar
+- 3 | moda
+- 30 | calculo
+E: Em ordem: 3, 4, 6, 8, 9. O do meio é 6.
+V: Qual é a mediana de 12, 7, 15, 9, 10?
++ 10
+- 15
+- 7
+- 53
+Q: Qual é a moda de 2, 4, 4, 5, 7, 7, 7, 9?
++ 7
+- 9 | moda
+- 4 | moda
+- 5,625 | calculo
+E: O 7 aparece 3 vezes.
+V: Qual é a moda de 1, 3, 3, 3, 6, 8, 8?
++ 3
+- 8
+- 6
+- 4,57
+Q: Qual é a mediana de 2, 5, 7, 10?
++ 6
+- 5 | mediana-par
+- 7 | mediana-par
+- 12 | mediana-par
+E: Quantidade par: média dos dois do meio, (5 + 7) ÷ 2 = 6.
+V: Qual é a mediana de 3, 4, 8, 11, 12, 15?
++ 9,5
+- 8
+- 11
+- 19
+
+@exemplo_guiado | Exemplo guiado: qual medida usar | Salários: 1.500, 1.600, 1.600, 1.700, 12.000. Média: 3.680. Mediana: 1.600. Moda: 1.600. A média foi puxada pelo valor muito alto; a mediana representa melhor o salário típico.
+Q: Idades num grupo: 10, 11, 11, 12, 46. Qual medida representa melhor a idade típica?
++ A mediana (11)
+- A média (18) | calculo
+- O maior valor (46) | moda
+- A amplitude (36) | moda
+E: O 46 puxa a média para cima.
+V: Preços de casas numa rua (mil reais): 200, 210, 220, 230, 1.500. Qual medida representa melhor o preço típico?
++ A mediana (220)
+- A média (472)
+- O maior valor (1.500)
+- A amplitude (1.300)
+Q: Uma loja de sapatos quer saber qual número mais vende para fazer estoque. Qual medida usar?
++ A moda
+- A média | calculo
+- A mediana | mediana-par
+- A amplitude | moda
+E: O número mais vendido é o que mais se repete.
+V: Uma sorveteria quer saber o sabor mais pedido. Qual medida usar?
++ A moda
+- A média
+- A mediana
+- A amplitude
+Q: Notas: 5, 6, 7, 8, 9. Qual é a amplitude e o que ela indica?
++ 4; as notas estão pouco espalhadas
+- 7; é a média | calculo
+- 9; é a maior nota | moda
+- 35; é a soma | calculo
+E: 9 − 5 = 4.
+V: Notas: 2, 5, 7, 9, 10. Qual é a amplitude e o que ela indica?
++ 8; as notas estão bem espalhadas
+- 6,6; é a média
+- 10; é a maior nota
+- 33; é a soma
+
+@praticar | Praticar: calculando as três | Ordene antes da mediana.
+Q: Dados: 4, 7, 7, 8, 9, 13. Quais são a média, a mediana e a moda?
++ Média 8; mediana 7,5; moda 7
+- Média 8; mediana 7; moda 13 | moda
+- Média 48; mediana 7,5; moda 7 | calculo
+- Média 8; mediana 8; moda 7 | mediana-par
+E: Soma 48 ÷ 6 = 8; mediana (7 + 8) ÷ 2 = 7,5; moda 7.
+V: Dados: 1, 3, 3, 6, 8, 9. Quais são a média, a mediana e a moda?
++ Média 5; mediana 4,5; moda 3
+- Média 5; mediana 3; moda 9
+- Média 30; mediana 4,5; moda 3
+- Média 5; mediana 6; moda 3
+Q: Um conjunto pode ter mais de uma moda?
++ Sim, quando dois ou mais valores aparecem o mesmo número máximo de vezes
+- Não, nunca | moda
+- Sim, a moda é sempre todos os valores | moda
+- Só se tiver números negativos | moda
+E: Exemplo: 1, 2, 2, 3, 3: modas 2 e 3.
+V: Qual é a moda de 1, 2, 3, 4, 5?
++ Não há moda: nenhum valor se repete
+- 3
+- 5
+- 1
+Q: A média de 4 números é 10. Três deles são 8, 9 e 12. Qual é o quarto?
++ 11
+- 10 | calculo
+- 29 | calculo
+- 40 | calculo
+E: Soma = 40; 40 − 29 = 11.
+V: A média de 5 números é 6. Quatro deles são 4, 5, 7 e 8. Qual é o quinto?
++ 6
+- 5
+- 24
+- 30
+Q: Se somarmos 3 a todos os valores de um conjunto, o que acontece com a média e a amplitude?
++ A média aumenta 3; a amplitude não muda
+- As duas aumentam 3 | calculo
+- As duas ficam iguais | calculo
+- A média triplica | calculo
+E: Todos sobem igual: a distância entre maior e menor se mantém.
+V: Se multiplicarmos todos os valores por 2, o que acontece com a média e a amplitude?
++ As duas dobram
+- Só a média dobra
+- Nenhuma muda
+- As duas aumentam 2
+
+@aplicar | Aplicar: medidas em pesquisas | Escolha a medida que faz sentido.
+Q: Tempo de espera (min) num posto de saúde: 10, 12, 15, 15, 18, 20, 90. Qual frase é correta?
++ A mediana (15 min) representa melhor a espera típica que a média (25,7 min)
+- A média representa melhor, porque usa todos os valores | calculo
+- A moda é 90 | moda
+- A mediana é 18 | mediana-sem-ordenar
+E: O 90 puxa a média para cima.
+V: Gols por jogo de um time: 0, 1, 1, 2, 2, 2, 9. Qual frase é correta?
++ A mediana (2) representa melhor o desempenho típico que a média (cerca de 2,4)
+- A média representa melhor, porque usa todos os valores
+- A moda é 9
+- A mediana é 1
+Q: Duas turmas têm média 7. Turma A: amplitude 2. Turma B: amplitude 8. O que isso indica?
++ A turma A é mais homogênea; a B tem notas mais espalhadas
+- As duas turmas são iguais | calculo
+- A turma B tem notas maiores | moda
+- A turma A tem notas menores | moda
+E: Mesma média, dispersões diferentes.
+V: Dois jogadores têm média de 20 pontos. Jogador X: amplitude 4. Jogador Y: amplitude 20. Qual é mais regular?
++ X
+- Y
+- Os dois iguais
+- Não dá para saber
+Q: Uma pesquisa sobre o número de irmãos de 20 alunos deu: 0 (4), 1 (9), 2 (5), 3 (2). Qual é a moda?
++ 1 irmão
+- 9 | moda
+- 3 irmãos | moda
+- 2 irmãos | mediana-par
+E: O valor 1 aparece 9 vezes.
+V: Nos mesmos dados, qual é a mediana?
++ 1 irmão
+- 2 irmãos
+- 1,5 irmão
+- 0 irmão
+
+@explicar | Explicar: média ou mediana | Explique por que, em dados com um valor muito diferente dos outros, a mediana pode representar melhor o "valor típico" do que a média.
+C: media | Diz que a média usa todos os valores, então é puxada pelo valor extremo
+C: mediana | Diz que a mediana é o valor do meio, que não muda muito com um extremo
+C: exemplo | Dá um exemplo numérico
+BOA: A média soma todos os valores, então um valor muito grande puxa o resultado para cima. A mediana é só o valor do meio, com os dados em ordem, e um valor extremo não a altera muito. Por exemplo, nas idades 10, 11, 11, 12 e 46, a média é 18, mas quase todos têm cerca de 11 anos; a mediana, 11, representa melhor o grupo.
+
+#TRILHA EF08MA26 | MA | 8 | Trilha: Por que usar amostras | Casual, sistemática e estratificada
+FAZ: Seleciona razões (físicas, éticas ou econômicas) que justificam pesquisas amostrais e reconhece que a amostra pode ser casual simples, sistemática ou estratificada.
+ERRO: tipo-amostra | Confunde os tipos de amostragem
+ERRO: razao | Não reconhece o motivo para usar amostra
+ERRO: viciada | Escolhe uma amostra que não representa a população
+ERRO: calculo | Erra a conta
+NOTA: Casual simples: sorteio entre todos. Sistemática: um a cada k da lista (ex.: de 10 em 10). Estratificada: divide a população em grupos (estratos) e sorteia em cada um, proporcionalmente.
+
+@relembrar | Relembrar: três tipos | Casual simples: sortear 50 nomes de uma urna com os 500. Sistemática: pegar o 3º, 13º, 23º... da lista. Estratificada: sortear alunos de cada série, na proporção de cada uma.
+Q: Sortear 30 alunos entre todos os 600 da escola, com nomes numa urna, é uma amostra:
++ Casual simples
+- Sistemática | tipo-amostra
+- Estratificada | tipo-amostra
+- Censitária | razao
+E: Todos têm a mesma chance, por sorteio.
+V: Um programa de computador sorteia 100 clientes entre os 5.000 cadastrados. Que tipo de amostra é?
++ Casual simples
+- Sistemática
+- Estratificada
+- Censitária
+Q: Numa fila de 400 pessoas, entrevista-se a cada 20ª pessoa. Que tipo de amostra é?
++ Sistemática
+- Casual simples | tipo-amostra
+- Estratificada | tipo-amostra
+- Censitária | razao
+E: Seleção em intervalos fixos.
+V: Numa linha de produção, testa-se cada 50ª peça. Que tipo de amostra é?
++ Sistemática
+- Casual simples
+- Estratificada
+- Censitária
+Q: Uma escola tem 60% de alunos do fundamental e 40% do médio. A amostra mantém essas proporções, sorteando em cada grupo. Que tipo é?
++ Estratificada
+- Casual simples | tipo-amostra
+- Sistemática | tipo-amostra
+- Censitária | razao
+E: A população foi dividida em estratos.
+V: Uma pesquisa numa cidade sorteia moradores de cada bairro, proporcionalmente à população de cada um. Que tipo é?
++ Estratificada
+- Casual simples
+- Sistemática
+- Censitária
+
+@exemplo_guiado | Exemplo guiado: razões para amostra | Física: testar todas as lâmpadas destruiria a produção. Econômica: entrevistar 10 milhões de pessoas custa muito. Ética: não se testa um remédio em toda a população de uma vez.
+Q: Uma fábrica testa a resistência de fósforos acendendo-os. Por que não testar todos?
++ Razão física: o teste destrói o produto
+- Razão ética | razao
+- Porque é proibido testar | razao
+- Porque fósforos são iguais | razao
+E: Se testar todos, não sobra nenhum para vender.
+V: Uma vinícola prova o vinho antes de vender. Por que não prova todas as garrafas?
++ Razão física: provar consome o produto
+- Razão ética
+- Porque é proibido provar
+- Porque os vinhos são iguais
+Q: Um instituto quer saber a opinião dos eleitores do país. Por que usa amostra?
++ Razão econômica e de tempo: entrevistar todos é caro e demorado
+- Razão física: a entrevista destrói o eleitor | razao
+- Porque não pode haver censo | razao
+- Porque os eleitores pensam igual | viciada
+E: Uma boa amostra dá resultado confiável com menos custo.
+V: Uma empresa quer saber a satisfação de 2 milhões de clientes. Por que usa amostra?
++ Razão econômica e de tempo
+- Razão física
+- Porque é proibido perguntar a todos
+- Porque os clientes pensam igual
+Q: Para testar uma vacina nova, os pesquisadores usam um grupo de voluntários. Que razão é essa?
++ Razão ética: não se expõe toda a população a algo ainda em teste
+- Razão física: a vacina acaba | razao
+- Razão econômica apenas | razao
+- Nenhuma razão | razao
+E: Segurança das pessoas.
+V: Um novo tratamento médico é testado primeiro num grupo pequeno de voluntários. Que razão é essa?
++ Razão ética
+- Razão física
+- Razão econômica apenas
+- Nenhuma razão
+
+@praticar | Praticar: montando amostras | Calcule e escolha o tipo.
+Q: Numa lista de 1.000 clientes, quer-se uma amostra sistemática de 50. De quantos em quantos se escolhe?
++ De 20 em 20
+- De 50 em 50 | calculo
+- De 10 em 10 | calculo
+- De 5 em 5 | calculo
+E: 1.000 ÷ 50 = 20.
+V: Numa lista de 600 alunos, quer-se uma amostra sistemática de 30. De quantos em quantos se escolhe?
++ De 20 em 20
+- De 30 em 30
+- De 10 em 10
+- De 60 em 60
+Q: Uma escola tem 300 alunos do 6º ano e 200 do 7º. Numa amostra estratificada de 50 alunos, quantos devem ser do 6º ano?
++ 30
+- 25 | viciada
+- 20 | calculo
+- 300 | calculo
+E: 6º ano: 300 de 500 = 60%. 60% de 50 = 30.
+V: Uma empresa tem 120 homens e 80 mulheres. Numa amostra estratificada de 40, quantas mulheres?
++ 16
+- 20
+- 24
+- 80
+Q: Qual amostra é viciada para saber o meio de transporte dos moradores de uma cidade?
++ Entrevistar só pessoas num estacionamento de carros
+- Sortear moradores de todos os bairros | viciada
+- Pegar 1 a cada 100 moradores na lista de toda a cidade | viciada
+- Sortear em cada bairro proporcionalmente | viciada
+E: No estacionamento, quase todos usam carro.
+V: Qual amostra é viciada para saber o hábito de leitura dos alunos?
++ Entrevistar só alunos na biblioteca
+- Sortear alunos de todas as turmas
+- Pegar 1 a cada 10 alunos na lista geral
+- Sortear em cada turma proporcionalmente
+Q: Quando a população tem grupos bem diferentes (ex.: zona rural e urbana), qual amostragem é mais indicada?
++ Estratificada
+- Casual simples sem cuidado | tipo-amostra
+- Sistemática por ordem alfabética | tipo-amostra
+- Só a zona urbana | viciada
+E: Garante que cada grupo esteja representado.
+V: Para pesquisar alunos de manhã, tarde e noite de uma escola, qual amostragem garante os três turnos?
++ Estratificada por turno
+- Casual simples sem cuidado
+- Sistemática por ordem alfabética
+- Só o turno da manhã
+
+@aplicar | Aplicar: planejando a amostra | Pense no tipo e no tamanho.
+Q: Uma prefeitura quer saber a opinião sobre a coleta de lixo em 4 bairros com 2.000, 3.000, 1.000 e 4.000 moradores. Numa amostra estratificada de 500, quantos do bairro com 4.000?
++ 200
+- 125 | viciada
+- 400 | calculo
+- 40 | calculo
+E: 4.000 de 10.000 = 40%; 40% de 500 = 200.
+V: Nos mesmos bairros, quantos do bairro com 1.000 moradores?
++ 50
+- 125
+- 100
+- 10
+Q: Um supermercado quer testar a validade de 2.000 latas, olhando 100. Qual método é prático e sem vício?
++ Sistemático: uma lata a cada 20 da produção
+- Só as 100 primeiras da manhã | viciada
+- Só as latas amassadas | viciada
+- Todas as 2.000 | razao
+E: 2.000 ÷ 100 = 20.
+V: Uma fábrica quer inspecionar 50 de 1.500 peças. Qual método é prático e sem vício?
++ Sistemático: uma peça a cada 30
+- Só as 50 últimas do dia
+- Só as peças com defeito visível
+- Todas as 1.500
+Q: Por que, numa pesquisa eleitoral, não basta entrevistar pessoas no centro da cidade?
++ Porque a amostra não representaria os eleitores de outros bairros
+- Porque o centro tem poucas pessoas | razao
+- Porque é proibido | razao
+- Não há problema | viciada
+E: Amostra viciada.
+V: Por que uma pesquisa sobre internet feita só por formulário on-line pode ser viciada?
++ Porque só responde quem já usa internet
+- Porque formulários são proibidos
+- Porque a internet é lenta
+- Não há problema
+
+@explicar | Explicar: tipos de amostra | Explique a diferença entre amostra casual simples, sistemática e estratificada, com um exemplo de cada numa escola.
+C: casual | Casual simples: sorteio entre todos os alunos
+C: sistematica | Sistemática: um a cada k alunos de uma lista
+C: estratificada | Estratificada: sorteio em cada turma ou série, na proporção de cada uma
+BOA: Na casual simples, coloco o nome de todos os alunos numa urna e sorteio. Na sistemática, pego a lista de chamada geral e escolho, por exemplo, um a cada 10 alunos. Na estratificada, separo os alunos por série e sorteio em cada uma, numa quantidade proporcional ao tamanho da série. Assim todas as séries ficam representadas.
+
+#TRILHA EF08MA27 | MA | 8 | Trilha: Pesquisa amostral completa | Do plano ao relatório
+FAZ: Planeja e executa pesquisa amostral com técnica adequada e escreve relatório com gráficos apropriados, medidas de tendência central, amplitude e conclusões.
+ERRO: etapa | Esquece uma etapa da pesquisa
+ERRO: grafico | Escolhe gráfico inadequado para os dados
+ERRO: medida | Usa a medida de centro errada para a situação
+ERRO: calculo | Erra a conta
+NOTA: Etapas: pergunta e objetivo → população e amostra → coleta → organização (tabela) → gráfico → medidas (média, mediana, moda, amplitude) → conclusão.
+
+@relembrar | Relembrar: etapas | 1) Definir a pergunta. 2) Definir população e amostra. 3) Coletar. 4) Organizar em tabelas. 5) Fazer gráficos. 6) Calcular medidas. 7) Concluir.
+Q: Qual é a primeira etapa de uma pesquisa?
++ Definir a pergunta e o objetivo
+- Fazer o gráfico | etapa
+- Calcular a média | etapa
+- Escrever a conclusão | etapa
+E: Sem pergunta, não se sabe o que coletar.
+V: Qual etapa vem logo depois de coletar os dados?
++ Organizar os dados em tabelas
+- Definir a pergunta
+- Escolher a amostra
+- Definir o objetivo
+Q: Numa pesquisa sobre "horas de sono", qual é o tipo de variável?
++ Quantitativa (numérica) contínua
+- Qualitativa | medida
+- Não é variável | etapa
+- Qualitativa ordinal | medida
+E: As respostas são medidas em horas.
+V: Numa pesquisa sobre "time de futebol preferido", qual é o tipo de variável?
++ Qualitativa (categórica)
+- Quantitativa contínua
+- Quantitativa discreta
+- Não é variável
+Q: Para a variável "time preferido", qual medida de tendência central faz sentido?
++ A moda
+- A média | medida
+- A mediana | medida
+- A amplitude | medida
+E: Não dá para somar nomes de times.
+V: Para a variável "cor dos olhos", qual medida de tendência central faz sentido?
++ A moda
+- A média
+- A mediana
+- A amplitude
+
+@exemplo_guiado | Exemplo guiado: um relatório | Pergunta: quantas horas os alunos do 8º ano dormem? Amostra estratificada de 40 alunos (20 de cada turma). Resultados: média 7,6 h; mediana 8 h; moda 8 h; amplitude 4 h (de 5 h a 9 h). Gráfico: histograma. Conclusão: a maioria dorme cerca de 8 h, mas alguns dormem pouco.
+Q: No exemplo, por que o histograma é adequado?
++ Porque "horas de sono" é uma variável numérica contínua agrupável em classes
+- Porque é o gráfico mais bonito | grafico
+- Porque mostra partes de um todo | grafico
+- Porque mostra evolução no tempo | grafico
+E: Histograma mostra a distribuição de variáveis contínuas.
+V: Numa pesquisa sobre "altura dos alunos", qual gráfico é adequado para a distribuição?
++ Histograma
+- Setores
+- Linhas no tempo
+- Pictórico sem escala
+Q: No exemplo, o que a amplitude de 4 h indica?
++ Que há diferença de 4 h entre quem dorme mais e quem dorme menos
+- Que a média é 4 h | medida
+- Que todos dormem 4 h | medida
+- Que 4 alunos foram pesquisados | etapa
+E: Amplitude = maior − menor.
+V: Numa pesquisa, as idades vão de 12 a 15 anos. Qual é a amplitude e o que ela indica?
++ 3 anos; a diferença entre o mais velho e o mais novo
+- 13,5 anos; a média
+- 12 anos; o menor valor
+- 4 anos; a quantidade de idades
+Q: Qual conclusão está de acordo com os dados do exemplo?
++ A maioria dos alunos pesquisados dorme cerca de 8 horas
+- Todos os alunos do Brasil dormem 8 horas | etapa
+- Nenhum aluno dorme pouco | medida
+- Os alunos dormem 4 horas | medida
+E: A conclusão deve se limitar aos dados e à população estudada.
+V: Numa pesquisa com alunos de uma escola, 70% disseram ler pelo menos um livro por mês. Qual conclusão é adequada?
++ A maioria dos alunos pesquisados lê pelo menos um livro por mês
+- Todos os brasileiros leem um livro por mês
+- 30% dos alunos nunca leram
+- Os alunos leem 70 livros
+
+@praticar | Praticar: analisando os dados | Calcule e interprete.
+Q: Numa amostra, os tempos de tela (h/dia) foram: 2, 3, 3, 4, 4, 4, 5, 7. Qual é a média?
++ 4 h
+- 4,5 h | medida
+- 3 h | calculo
+- 32 h | calculo
+E: Soma 32 ÷ 8 = 4.
+V: Nos mesmos dados, qual é a mediana?
++ 4 h
+- 3,5 h
+- 4,5 h
+- 5 h
+Q: Nos dados 2, 3, 3, 4, 4, 4, 5, 7, qual é a moda e a amplitude?
++ Moda 4; amplitude 5
+- Moda 7; amplitude 5 | medida
+- Moda 4; amplitude 7 | calculo
+- Moda 3; amplitude 4 | medida
+E: O 4 aparece 3 vezes; 7 − 2 = 5.
+V: Nos dados 1, 2, 2, 2, 5, 6, 9, qual é a moda e a amplitude?
++ Moda 2; amplitude 8
+- Moda 9; amplitude 8
+- Moda 2; amplitude 9
+- Moda 5; amplitude 7
+Q: Uma pesquisa amostral teve 200 respostas: 120 "sim" e 80 "não". Qual é a porcentagem de "sim"?
++ 60%
+- 120% | calculo
+- 40% | calculo
+- 12% | calculo
+E: 120 ÷ 200 = 0,6.
+V: Uma pesquisa teve 250 respostas: 175 "sim". Qual é a porcentagem de "sim"?
++ 70%
+- 175%
+- 30%
+- 17,5%
+Q: Num relatório, o que NÃO deve faltar?
++ Objetivo, como foi feita a amostra, resultados (tabelas, gráficos, medidas) e conclusão
+- Só a conclusão | etapa
+- Só o gráfico | etapa
+- Só a lista de nomes dos entrevistados | etapa
+E: O leitor precisa saber como e por que a pesquisa foi feita.
+V: Por que o relatório deve dizer como a amostra foi escolhida?
++ Para o leitor avaliar se a amostra representa bem a população
+- Para ficar mais longo
+- Porque é obrigatório ter muitas páginas
+- Não precisa dizer
+
+@aplicar | Aplicar: planejando uma pesquisa real | Pense em todas as etapas.
+Q: Um grupo quer saber se os alunos da escola (800) aprovam o cardápio da merenda. Qual plano é o melhor?
++ Amostra estratificada por turno, questionário igual para todos, tabela, gráfico de setores ou colunas e conclusão
+- Perguntar só aos amigos do grupo | etapa
+- Perguntar só na fila da merenda de um dia | etapa
+- Fazer o gráfico antes de coletar | etapa
+E: Amostra representativa e etapas em ordem.
+V: Uma turma quer saber o tempo que os alunos da escola levam até a escola. Qual plano é o melhor?
++ Amostra sorteada em todas as turmas, anotar os tempos, histograma, média, mediana e amplitude, conclusão
+- Perguntar só aos que chegam atrasados
+- Perguntar só à própria turma
+- Escrever a conclusão antes de coletar
+Q: Numa pesquisa sobre renda familiar, há algumas rendas muito altas. Qual medida descreve melhor a renda típica?
++ A mediana
+- A média | medida
+- A amplitude | medida
+- O maior valor | medida
+E: A mediana não é puxada pelos valores extremos.
+V: Numa pesquisa sobre preço de imóveis, há algumas mansões muito caras. Qual medida descreve melhor o preço típico?
++ A mediana
+- A média
+- A amplitude
+- O maior valor
+Q: Numa planilha, as horas de sono de 40 alunos estão em B2:B41. Que funções ajudam no relatório?
++ MÉDIA, MED, MODO, MÁXIMO e MÍNIMO
+- Só SOMA | calculo
+- Só CONT.SE com o nome dos alunos | calculo
+- Nenhuma | etapa
+E: Média, mediana, moda e os extremos para a amplitude.
+V: Numa planilha, como obter a amplitude dos dados em C2:C51?
++ MÁXIMO(C2:C51) − MÍNIMO(C2:C51)
+- SOMA(C2:C51)
+- MÉDIA(C2:C51)
+- CONT.VALORES(C2:C51)
+
+@explicar | Explicar: relatório completo | Descreva as etapas de uma pesquisa amostral sobre o tempo de tela dos alunos do 8º ano, do planejamento à conclusão.
+C: plano | Define pergunta, população e tipo de amostra
+C: analise | Organiza em tabela, escolhe gráfico e calcula média, mediana, moda e amplitude
+C: conclusao | Escreve uma conclusão baseada nos dados e limitada à população estudada
+BOA: Primeiro defino a pergunta: quantas horas por dia os alunos do 8º ano usam telas. A população são todos os alunos do 8º ano; sorteio alguns de cada turma (amostra estratificada). Coleto as respostas, organizo numa tabela por classes e faço um histograma. Calculo média, mediana, moda e amplitude. Por fim, escrevo a conclusão, por exemplo: "metade dos alunos pesquisados usa telas mais de 4 horas por dia", sem generalizar para além do 8º ano da escola.
+
+#PRE EF08MA25 > EF07MA35 | 3
+#PRE EF08MA26 > EF07MA36 | 3
+#PRE EF08MA27 > EF08MA26 | 3
+#PRE EF08MA27 > EF08MA25 | 3
+#PRE EF08MA27 > EF08MA24 | 2

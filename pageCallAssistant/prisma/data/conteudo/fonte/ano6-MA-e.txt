@@ -1,0 +1,666 @@
+// 6º ano — Matemática (parte 5): EF06MA17, EF06MA18, EF06MA19, EF06MA20
+
+#TRILHA EF06MA17 | MA | 6 | Trilha: Prismas e pirâmides | Vértices, faces e arestas pela base
+FAZ: Quantifica e relaciona o número de vértices, faces e arestas de prismas e pirâmides em função do polígono da base.
+ERRO: confunde | Confunde prisma com pirâmide
+ERRO: contagem | Conta errado faces, vértices ou arestas
+ERRO: base | Não usa o número de lados da base
+ERRO: calculo | Erra a conta
+NOTA: Prisma com base de n lados: 2n vértices, n + 2 faces, 3n arestas. Pirâmide com base de n lados: n + 1 vértices, n + 1 faces, 2n arestas. Relação de Euler: V + F = A + 2.
+
+@relembrar | Relembrar: as fórmulas pela base | Prisma de base pentagonal (n = 5): 10 vértices, 7 faces, 15 arestas. Pirâmide de base pentagonal: 6 vértices, 6 faces, 10 arestas.
+Q: Quantas arestas tem um prisma de base hexagonal?
++ 18
+- 12 | contagem
+- 8 | base
+- 7 | confunde
+E: 3 × 6 = 18.
+V: Quantas arestas tem um prisma de base triangular?
++ 9
+- 6
+- 5
+- 4
+Q: Quantos vértices tem uma pirâmide de base hexagonal?
++ 7
+- 12 | confunde
+- 6 | contagem
+- 8 | base
+E: 6 da base + 1 vértice no topo.
+V: Quantos vértices tem uma pirâmide de base quadrada?
++ 5
+- 8
+- 4
+- 6
+Q: Quantas faces tem um prisma de base pentagonal?
++ 7
+- 6 | confunde
+- 5 | base
+- 10 | contagem
+E: 5 laterais + 2 bases.
+V: Quantas faces tem um prisma de base octogonal?
++ 10
+- 9
+- 8
+- 16
+
+@exemplo_guiado | Exemplo guiado: contando organizado | Cubo (prisma de base quadrada): 8 vértices, 6 faces, 12 arestas. Euler: 8 + 6 = 12 + 2.
+Q: Uma pirâmide tem 8 arestas. Qual é o polígono da base?
++ Quadrado (4 lados)
+- Octógono | confunde
+- Triângulo | calculo
+- Hexágono | calculo
+E: Pirâmide: arestas = 2n; 2n = 8; n = 4.
+V: Uma pirâmide tem 10 arestas. Qual é o polígono da base?
++ Pentágono
+- Decágono
+- Quadrado
+- Hexágono
+Q: Um prisma tem 12 vértices. Qual é o polígono da base?
++ Hexágono
+- Dodecágono | confunde
+- Quadrado | calculo
+- Pentágono | calculo
+E: Prisma: vértices = 2n; n = 6.
+V: Um prisma tem 16 vértices. Qual é o polígono da base?
++ Octógono
+- Polígono de 16 lados
+- Hexágono
+- Heptágono
+Q: Verifique a relação de Euler para a pirâmide de base triangular (4 vértices, 4 faces, 6 arestas).
++ 4 + 4 = 6 + 2
+- 4 + 6 = 4 + 2 | calculo
+- 4 + 4 = 6 | calculo
+- 4 × 4 = 6 + 2 | calculo
+E: V + F = A + 2: 8 = 8.
+V: Verifique a relação de Euler para o prisma de base triangular (6 vértices, 5 faces, 9 arestas).
++ 6 + 5 = 9 + 2
+- 6 + 9 = 5 + 2
+- 6 + 5 = 9
+- 6 × 5 = 9 + 2
+
+@praticar | Praticar: pela base | Use n, o número de lados da base.
+Q: Quantas faces laterais tem uma pirâmide de base heptagonal?
++ 7
+- 8 | contagem
+- 14 | confunde
+- 9 | confunde
+E: Uma face lateral para cada lado da base.
+V: Quantas faces laterais tem um prisma de base hexagonal?
++ 6
+- 8
+- 12
+- 7
+Q: Qual sólido tem 6 vértices, 5 faces e 9 arestas?
++ Prisma de base triangular
+- Pirâmide de base quadrada | confunde
+- Pirâmide de base pentagonal | confunde
+- Cubo | contagem
+E: n = 3: 2n = 6, n + 2 = 5, 3n = 9.
+V: Qual sólido tem 5 vértices, 5 faces e 8 arestas?
++ Pirâmide de base quadrada
+- Prisma de base triangular
+- Cubo
+- Pirâmide de base pentagonal
+Q: Um poliedro tem 10 vértices e 15 arestas. Pela relação de Euler, quantas faces tem?
++ 7
+- 5 | calculo
+- 25 | calculo
+- 3 | calculo
+E: 10 + F = 15 + 2; F = 7.
+V: Um poliedro tem 8 vértices e 12 arestas. Quantas faces tem?
++ 6
+- 4
+- 20
+- 2
+Q: Quantas arestas tem uma pirâmide de base decagonal?
++ 20
+- 30 | confunde
+- 11 | contagem
+- 10 | base
+E: 2 × 10 = 20.
+V: Quantas arestas tem um prisma de base decagonal?
++ 30
+- 20
+- 12
+- 10
+
+@aplicar | Aplicar: sólidos ao redor | Embalagens e construções.
+Q: Uma embalagem de chocolate é um prisma de base triangular. Quantas faces precisam ser impressas?
++ 5
+- 3 | base
+- 6 | contagem
+- 9 | contagem
+E: 3 laterais + 2 bases.
+V: Uma caixa de presente é um prisma de base hexagonal. Quantas faces tem?
++ 8
+- 6
+- 12
+- 18
+Q: Para montar o esqueleto de uma pirâmide de base quadrada com palitos (um por aresta), quantos palitos são necessários?
++ 8
+- 4 | base
+- 12 | confunde
+- 5 | contagem
+E: 4 na base + 4 laterais.
+V: Para o esqueleto de um prisma de base pentagonal, quantos palitos (um por aresta)?
++ 15
+- 10
+- 5
+- 7
+Q: Para montar um cubo com bolinhas de massinha nos vértices, quantas bolinhas são necessárias?
++ 8
+- 6 | contagem
+- 12 | contagem
+- 4 | base
+E: O cubo tem 8 vértices.
+V: Para montar uma pirâmide de base triangular com bolinhas nos vértices, quantas bolinhas?
++ 4
+- 3
+- 6
+- 5
+
+@explicar | Explicar: arestas do prisma | Explique por que um prisma de base com n lados tem 3n arestas.
+C: bases | Diz que cada base tem n arestas (2n nas duas bases)
+C: laterais | Diz que há n arestas laterais ligando as bases
+C: soma | Soma: n + n + n = 3n
+BOA: O prisma tem duas bases iguais, e cada uma tem n lados, que são arestas: 2n arestas nas bases. Cada vértice de uma base é ligado ao vértice correspondente da outra por uma aresta lateral, e há n desses. Somando: n + n + n = 3n arestas.
+
+#TRILHA EF06MA18 | MA | 6 | Trilha: Polígonos regulares e não regulares | No plano e nas faces dos poliedros
+FAZ: Reconhece, nomeia e compara polígonos, considerando lados, vértices e ângulos, e os classifica em regulares e não regulares, no plano e em faces de poliedros.
+ERRO: regular | Acha que lados iguais bastam para ser regular
+ERRO: nome | Troca o nome do polígono
+ERRO: poligono | Considera polígono uma figura aberta ou curva
+ERRO: calculo | Erra a contagem
+NOTA: Regular: todos os lados iguais E todos os ângulos iguais. O losango tem lados iguais, mas não é regular (se não for quadrado). O retângulo tem ângulos iguais, mas não é regular (se não for quadrado).
+
+@relembrar | Relembrar: regular | Triângulo equilátero e quadrado são regulares. Retângulo comprido e losango "deitado" não são.
+Q: Qual destes polígonos é regular?
++ Triângulo equilátero
+- Retângulo de 2 cm × 5 cm | regular
+- Losango com ângulos de 60° e 120° | regular
+- Triângulo de lados 3, 4 e 5 | regular
+E: Lados e ângulos iguais.
+V: Qual destes polígonos é regular?
++ Quadrado
+- Retângulo de 3 cm × 6 cm
+- Losango não quadrado
+- Trapézio
+Q: Um losango tem os 4 lados iguais e ângulos de 70° e 110°. Ele é regular?
++ Não, os ângulos não são todos iguais
+- Sim, os lados são iguais | regular
+- Sim, todo losango é regular | regular
+- Não, os lados são diferentes | calculo
+E: Regular exige lados e ângulos iguais.
+V: Um retângulo tem lados 4 cm e 9 cm e 4 ângulos retos. Ele é regular?
++ Não, os lados não são todos iguais
+- Sim, os ângulos são iguais
+- Sim, todo retângulo é regular
+- Não, os ângulos são diferentes
+Q: Como se chama o polígono de 8 lados?
++ Octógono
+- Hexágono | nome
+- Decágono | nome
+- Heptágono | nome
+E: Octo = oito.
+V: Como se chama o polígono de 10 lados?
++ Decágono
+- Octógono
+- Eneágono
+- Dodecágono
+
+@exemplo_guiado | Exemplo guiado: faces de poliedros | Cubo: 6 faces quadradas (regulares). Prisma de base triangular equilátera: 2 triângulos regulares e 3 retângulos (que podem não ser regulares). Pirâmide de base quadrada: 1 quadrado e 4 triângulos.
+Q: Quais são as faces de um cubo?
++ 6 quadrados, polígonos regulares
+- 6 retângulos não regulares | regular
+- 4 quadrados e 2 triângulos | calculo
+- 8 quadrados | calculo
+E: Todas as arestas do cubo têm o mesmo tamanho.
+V: Quais são as faces de um tetraedro regular?
++ 4 triângulos equiláteros
+- 4 quadrados
+- 3 triângulos e 1 quadrado
+- 6 triângulos
+Q: Uma pirâmide de base hexagonal regular tem que tipos de faces?
++ 1 hexágono e 6 triângulos
+- 2 hexágonos e 6 retângulos | calculo
+- 6 hexágonos | nome
+- 1 hexágono e 5 triângulos | calculo
+E: A base e uma face triangular para cada lado.
+V: Um prisma de base pentagonal tem que tipos de faces?
++ 2 pentágonos e 5 retângulos
+- 1 pentágono e 5 triângulos
+- 5 pentágonos
+- 2 pentágonos e 4 retângulos
+Q: Qual figura NÃO é um polígono?
++ Um círculo
+- Um hexágono | poligono
+- Um triângulo | poligono
+- Um trapézio | poligono
+E: Polígono é fechado e formado só por segmentos de reta.
+V: Qual figura NÃO é um polígono?
++ Uma linha aberta em zigue-zague
+- Um quadrado
+- Um pentágono
+- Um losango
+
+@praticar | Praticar: comparando polígonos | Lados, vértices e ângulos.
+Q: Quantos vértices tem um eneágono?
++ 9
+- 8 | nome
+- 10 | nome
+- 11 | nome
+E: Ene = nove.
+V: Quantos lados tem um dodecágono?
++ 12
+- 10
+- 11
+- 20
+Q: Um hexágono tem todos os lados de 3 cm, mas ângulos diferentes. Ele é:
++ Não regular
+- Regular | regular
+- Um quadrado | nome
+- Um triângulo | nome
+E: Faltam ângulos iguais.
+V: Um octógono tem todos os ângulos iguais, mas lados de dois tamanhos. Ele é:
++ Não regular
+- Regular
+- Um hexágono
+- Um quadrado
+Q: Qual é o perímetro de um pentágono regular de lado 6 cm?
++ 30 cm
+- 36 cm | calculo
+- 24 cm | calculo
+- 11 cm | calculo
+E: 5 × 6 = 30.
+V: Qual é o perímetro de um hexágono regular de lado 4 cm?
++ 24 cm
+- 20 cm
+- 28 cm
+- 10 cm
+Q: Qual afirmação é verdadeira?
++ Todo quadrado é um polígono regular
+- Todo retângulo é regular | regular
+- Todo losango é regular | regular
+- Todo hexágono é regular | regular
+E: O quadrado tem lados e ângulos iguais.
+V: Qual afirmação é verdadeira?
++ Nem todo triângulo isósceles é regular
+- Todo triângulo isósceles é regular
+- Todo trapézio é regular
+- Todo pentágono é regular
+
+@aplicar | Aplicar: polígonos na vida | Placas, pisos e bolas.
+Q: Uma placa de "PARE" é um octógono regular de lado 25 cm. Qual é o perímetro?
++ 200 cm
+- 225 cm | calculo
+- 175 cm | calculo
+- 33 cm | calculo
+E: 8 × 25 = 200.
+V: Uma mesa é um hexágono regular de lado 60 cm. Qual é o perímetro?
++ 360 cm
+- 300 cm
+- 420 cm
+- 66 cm
+Q: Uma bola de futebol clássica tem faces pentagonais e hexagonais. Esses polígonos são:
++ Regulares (lados e ângulos iguais)
+- Não regulares | regular
+- Círculos | poligono
+- Quadrados | nome
+E: O desenho clássico usa polígonos regulares.
+V: Os favos de mel lembram hexágonos. Para encaixarem perfeitamente, eles se aproximam de:
++ Hexágonos regulares
+- Hexágonos não regulares
+- Círculos
+- Quadrados
+Q: Um piso usa só triângulos equiláteros iguais. Que tipo de polígono é cada peça?
++ Regular
+- Não regular | regular
+- Quadrilátero | nome
+- Hexágono | nome
+E: Lados e ângulos iguais.
+V: Um piso usa peças retangulares de 20 cm × 40 cm. Que tipo de polígono é cada peça?
++ Não regular
+- Regular
+- Triângulo
+- Hexágono
+
+@explicar | Explicar: regular ou não | Explique por que o losango nem sempre é um polígono regular, mas o quadrado sempre é.
+C: losango | Diz que o losango tem lados iguais, mas pode ter ângulos diferentes
+C: quadrado | Diz que o quadrado tem lados e ângulos iguais
+C: criterio | Explica que regular exige as duas condições
+BOA: Um polígono regular precisa ter todos os lados iguais e todos os ângulos iguais. O losango sempre tem os lados iguais, mas seus ângulos podem ser, por exemplo, 60° e 120°, então nem sempre é regular. O quadrado tem os 4 lados iguais e os 4 ângulos retos, então é sempre regular.
+
+#TRILHA EF06MA19 | MA | 6 | Trilha: Classificando triângulos | Pelos lados e pelos ângulos
+FAZ: Identifica características dos triângulos e os classifica quanto às medidas dos lados e dos ângulos.
+ERRO: lados | Erra a classificação pelos lados
+ERRO: angulos | Erra a classificação pelos ângulos
+ERRO: soma | Esquece que a soma dos ângulos é 180°
+ERRO: calculo | Erra a conta
+NOTA: Lados: equilátero (3 iguais), isósceles (pelo menos 2 iguais), escaleno (todos diferentes). Ângulos: acutângulo (3 agudos), retângulo (1 reto), obtusângulo (1 obtuso).
+
+@relembrar | Relembrar: as classificações | Lados 5, 5 e 5: equilátero. Lados 5, 5 e 3: isósceles. Lados 3, 4 e 6: escaleno. Ângulos 90°, 60°, 30°: retângulo.
+Q: Um triângulo tem lados 7 cm, 7 cm e 4 cm. Como se classifica pelos lados?
++ Isósceles
+- Equilátero | lados
+- Escaleno | lados
+- Retângulo | angulos
+E: Dois lados iguais.
+V: Um triângulo tem lados 5 cm, 8 cm e 10 cm. Como se classifica pelos lados?
++ Escaleno
+- Isósceles
+- Equilátero
+- Obtusângulo
+Q: Um triângulo tem ângulos de 30°, 50° e 100°. Como se classifica pelos ângulos?
++ Obtusângulo
+- Acutângulo | angulos
+- Retângulo | angulos
+- Equilátero | lados
+E: Tem um ângulo maior que 90°.
+V: Um triângulo tem ângulos de 50°, 60° e 70°. Como se classifica pelos ângulos?
++ Acutângulo
+- Obtusângulo
+- Retângulo
+- Isósceles
+Q: Dois ângulos de um triângulo medem 40° e 75°. Quanto mede o terceiro?
++ 65°
+- 245° | soma
+- 115° | calculo
+- 55° | calculo
+E: 180 − 40 − 75 = 65.
+V: Dois ângulos medem 90° e 35°. Quanto mede o terceiro?
++ 55°
+- 235°
+- 125°
+- 65°
+
+@exemplo_guiado | Exemplo guiado: as duas classificações juntas | Triângulo com lados 6, 6 e 8 e ângulos 48°, 48° e 84°: isósceles (pelos lados) e acutângulo (pelos ângulos).
+Q: Um triângulo tem dois lados iguais e um ângulo de 90°. Como se classifica?
++ Isósceles e retângulo
+- Equilátero e retângulo | lados
+- Escaleno e retângulo | lados
+- Isósceles e obtusângulo | angulos
+E: Dois lados iguais; um ângulo reto.
+V: Um triângulo tem lados todos diferentes e um ângulo de 120°. Como se classifica?
++ Escaleno e obtusângulo
+- Isósceles e obtusângulo
+- Escaleno e acutângulo
+- Equilátero e obtusângulo
+Q: Num triângulo equilátero, quanto mede cada ângulo?
++ 60°
+- 90° | angulos
+- 180° | soma
+- 45° | calculo
+E: 180° ÷ 3 = 60°.
+V: Um triângulo equilátero pode ser retângulo?
++ Não, seus ângulos medem 60°
+- Sim, sempre
+- Sim, se for grande
+- Só se for isósceles
+Q: Num triângulo isósceles, os dois ângulos da base medem 70° cada. Quanto mede o terceiro?
++ 40°
+- 70° | lados
+- 110° | calculo
+- 220° | soma
+E: 180 − 70 − 70 = 40.
+V: Num triângulo isósceles, os ângulos da base medem 45° cada. Quanto mede o terceiro?
++ 90°
+- 45°
+- 135°
+- 270°
+
+@praticar | Praticar: classificando | Lados e ângulos.
+Q: Um triângulo pode ter dois ângulos obtusos?
++ Não, a soma passaria de 180°
+- Sim | soma
+- Só se for isósceles | lados
+- Só se for grande | calculo
+E: Dois ângulos maiores que 90° já somam mais de 180°.
+V: Um triângulo pode ter dois ângulos retos?
++ Não, eles já somariam 180°
+- Sim
+- Só se for equilátero
+- Só se for grande
+Q: Um triângulo tem lados 4, 4 e 4. Qual afirmação é verdadeira?
++ É equilátero e também é isósceles
+- É só escaleno | lados
+- É retângulo | angulos
+- Não é triângulo | calculo
+E: Equilátero tem pelo menos dois lados iguais, então também é isósceles.
+V: Todo triângulo equilátero é isósceles?
++ Sim, porque tem pelo menos dois lados iguais
+- Não, nunca
+- Só se for retângulo
+- Só se for obtusângulo
+Q: Os ângulos de um triângulo medem x, 2x e 3x. Como ele se classifica pelos ângulos?
++ Retângulo (30°, 60° e 90°)
+- Acutângulo | angulos
+- Obtusângulo | angulos
+- Equilátero | lados
+E: 6x = 180; x = 30; ângulos 30°, 60°, 90°.
+V: Os ângulos de um triângulo medem x, x e 2x. Como ele se classifica pelos ângulos?
++ Retângulo (45°, 45° e 90°)
+- Acutângulo
+- Obtusângulo
+- Equilátero
+Q: Um triângulo tem ângulos de 60° e 60°. Como se classifica pelos lados?
++ Equilátero
+- Escaleno | lados
+- Isósceles, mas não equilátero | lados
+- Retângulo | angulos
+E: O terceiro ângulo também é 60°: todos iguais.
+V: Um triângulo tem ângulos de 50° e 80°. Como se classifica pelos lados?
++ Isósceles (o terceiro ângulo é 50°)
+- Equilátero
+- Escaleno
+- Retângulo
+
+@aplicar | Aplicar: triângulos ao redor | Telhados, esquadros e placas.
+Q: Um esquadro tem ângulos de 90°, 45° e 45°. Como ele se classifica?
++ Retângulo e isósceles
+- Equilátero | lados
+- Obtusângulo | angulos
+- Escaleno e acutângulo | lados
+E: Ângulo reto; dois ângulos iguais indicam dois lados iguais.
+V: Outro esquadro tem ângulos de 90°, 60° e 30°. Como ele se classifica?
++ Retângulo e escaleno
+- Retângulo e isósceles
+- Equilátero
+- Obtusângulo
+Q: Uma placa de trânsito é um triângulo com os três lados iguais. Quanto mede cada ângulo?
++ 60°
+- 90° | angulos
+- 120° | calculo
+- 180° | soma
+E: Triângulo equilátero.
+V: Uma bandeirinha triangular tem lados 10, 10 e 6 cm. Como se classifica pelos lados?
++ Isósceles
+- Equilátero
+- Escaleno
+- Retângulo
+Q: O telhado de uma casa forma um triângulo com ângulo de 120° no topo e dois lados iguais. Quanto mede cada ângulo da base?
++ 30°
+- 60° | calculo
+- 120° | lados
+- 240° | soma
+E: (180 − 120) ÷ 2 = 30.
+V: Um telhado tem ângulo de 100° no topo e dois lados iguais. Quanto mede cada ângulo da base?
++ 40°
+- 80°
+- 100°
+- 260°
+
+@explicar | Explicar: classificar | Explique como classificar, pelos lados e pelos ângulos, um triângulo de lados 5, 5 e 7 e ângulos de 44°, 44° e 92°.
+C: lados | Pelos lados: isósceles (dois lados de 5)
+C: angulos | Pelos ângulos: obtusângulo (92° > 90°)
+C: soma | Confere a soma: 44 + 44 + 92 = 180
+BOA: Pelos lados, o triângulo tem dois lados iguais a 5 e um diferente, então é isósceles. Pelos ângulos, tem um ângulo de 92°, maior que 90°, então é obtusângulo. Confiro a soma dos ângulos: 44 + 44 + 92 = 180.
+
+#TRILHA EF06MA20 | MA | 6 | Trilha: Quadriláteros | Classes, inclusões e interseções
+FAZ: Identifica características dos quadriláteros, classifica-os quanto a lados e ângulos e reconhece inclusões e interseções de classes entre eles.
+ERRO: inclusao | Não reconhece que o quadrado é também retângulo e losango
+ERRO: paralelos | Erra a quantidade de pares de lados paralelos
+ERRO: propriedade | Atribui uma propriedade errada a um quadrilátero
+ERRO: calculo | Erra a conta
+NOTA: Trapézio: pelo menos um par de lados paralelos. Paralelogramo: dois pares. Retângulo: paralelogramo com 4 ângulos retos. Losango: paralelogramo com 4 lados iguais. Quadrado: retângulo e losango ao mesmo tempo.
+
+@relembrar | Relembrar: famílias | Todo quadrado é retângulo (4 ângulos retos) e é losango (4 lados iguais). Nem todo retângulo é quadrado.
+Q: Todo quadrado é um retângulo?
++ Sim, porque tem 4 ângulos retos
+- Não, porque tem lados iguais | inclusao
+- Não, são figuras diferentes | inclusao
+- Só se for grande | calculo
+E: O retângulo exige só os 4 ângulos retos.
+V: Todo quadrado é um losango?
++ Sim, porque tem 4 lados iguais
+- Não, porque tem ângulos retos
+- Não, são figuras diferentes
+- Só se for inclinado
+Q: Quantos pares de lados paralelos tem um paralelogramo?
++ 2
+- 1 | paralelos
+- 0 | paralelos
+- 4 | paralelos
+E: Lados opostos paralelos.
+V: Quantos pares de lados paralelos tem um trapézio que não é paralelogramo?
++ 1
+- 2
+- 0
+- 4
+Q: Qual quadrilátero tem 4 lados iguais, mas pode não ter ângulos retos?
++ Losango
+- Retângulo | propriedade
+- Trapézio | propriedade
+- Quadrado | inclusao
+E: O losango pode ser "inclinado".
+V: Qual quadrilátero tem 4 ângulos retos, mas pode não ter lados todos iguais?
++ Retângulo
+- Losango
+- Trapézio
+- Quadrado
+
+@exemplo_guiado | Exemplo guiado: o diagrama das famílias | Quadriláteros ⊃ trapézios ⊃ paralelogramos. Dentro dos paralelogramos: retângulos e losangos. Na interseção dos dois: quadrados.
+Q: Onde fica o quadrado no diagrama das famílias?
++ Na interseção de retângulos e losangos
+- Só entre os retângulos | inclusao
+- Só entre os losangos | inclusao
+- Fora dos paralelogramos | inclusao
+E: O quadrado tem as propriedades das duas famílias.
+V: Um retângulo que também é losango é necessariamente:
++ Um quadrado
+- Um trapézio não paralelogramo
+- Um losango não quadrado
+- Impossível
+Q: Todo paralelogramo é um trapézio (pela definição de "pelo menos um par de lados paralelos")?
++ Sim, porque tem pelo menos um par de lados paralelos
+- Não, nunca | paralelos
+- Só se for quadrado | inclusao
+- Só se for losango | inclusao
+E: Com essa definição, paralelogramos estão dentro dos trapézios.
+V: Todo retângulo é um paralelogramo?
++ Sim, porque tem dois pares de lados paralelos
+- Não, nunca
+- Só se for quadrado
+- Só se for losango
+Q: Qual afirmação é FALSA?
++ Todo losango é quadrado
+- Todo quadrado é losango | inclusao
+- Todo quadrado é retângulo | inclusao
+- Todo retângulo é paralelogramo | inclusao
+E: Um losango com ângulos de 60° e 120° não é quadrado.
+V: Qual afirmação é FALSA?
++ Todo retângulo é quadrado
+- Todo quadrado é retângulo
+- Todo losango é paralelogramo
+- Todo quadrado é paralelogramo
+
+@praticar | Praticar: propriedades | Lados, ângulos e diagonais.
+Q: Num paralelogramo, um ângulo mede 65°. Quanto mede o ângulo oposto?
++ 65°
+- 115° | propriedade
+- 25° | calculo
+- 295° | calculo
+E: Ângulos opostos de paralelogramo são iguais.
+V: Num paralelogramo, um ângulo mede 65°. Quanto mede um ângulo vizinho a ele?
++ 115°
+- 65°
+- 25°
+- 295°
+Q: Qual é a soma dos ângulos internos de qualquer quadrilátero?
++ 360°
+- 180° | calculo
+- 540° | calculo
+- 90° | calculo
+E: Uma diagonal divide em 2 triângulos: 2 × 180°.
+V: Num quadrilátero, três ângulos medem 90°, 80° e 100°. Quanto mede o quarto?
++ 90°
+- 70°
+- 110°
+- 270°
+Q: Num retângulo, as diagonais são:
++ Iguais
+- Sempre perpendiculares | propriedade
+- Diferentes | propriedade
+- Paralelas | paralelos
+E: Propriedade do retângulo.
+V: Num losango, as diagonais são:
++ Perpendiculares
+- Sempre iguais
+- Paralelas
+- Iguais aos lados
+Q: Um quadrilátero tem lados 5, 5, 5 e 5 e ângulos de 70°, 110°, 70° e 110°. O que ele é?
++ Um losango que não é quadrado
+- Um quadrado | inclusao
+- Um retângulo | propriedade
+- Um trapézio não paralelogramo | paralelos
+E: Lados iguais, ângulos não retos.
+V: Um quadrilátero tem lados 3, 7, 3 e 7 e quatro ângulos retos. O que ele é?
++ Um retângulo que não é quadrado
+- Um quadrado
+- Um losango
+- Um trapézio não paralelogramo
+
+@aplicar | Aplicar: quadriláteros ao redor | Portas, pipas e terrenos.
+Q: Uma porta tem quatro ângulos retos e lados 80 cm e 210 cm. Que quadrilátero é?
++ Retângulo
+- Quadrado | inclusao
+- Losango | propriedade
+- Trapézio não paralelogramo | paralelos
+E: Ângulos retos e lados diferentes.
+V: Um azulejo tem quatro lados de 20 cm e quatro ângulos retos. Que quadrilátero é?
++ Quadrado (também é retângulo e losango)
+- Só losango
+- Só retângulo
+- Trapézio não paralelogramo
+Q: Uma mesa tem só um par de lados paralelos (os outros dois são inclinados). Que quadrilátero é?
++ Trapézio
+- Paralelogramo | paralelos
+- Retângulo | propriedade
+- Losango | propriedade
+E: Exatamente um par de lados paralelos.
+V: Uma rampa de skate vista de lado tem um par de lados paralelos e os outros não. Que quadrilátero é?
++ Trapézio
+- Paralelogramo
+- Retângulo
+- Quadrado
+Q: O perímetro de um losango de lado 9 cm é:
++ 36 cm
+- 18 cm | calculo
+- 81 cm | calculo
+- 27 cm | calculo
+E: 4 × 9 = 36.
+V: O perímetro de um retângulo de lados 6 cm e 11 cm é:
++ 34 cm
+- 17 cm
+- 66 cm
+- 23 cm
+
+@explicar | Explicar: o quadrado em duas famílias | Explique por que o quadrado é, ao mesmo tempo, um retângulo e um losango.
+C: retangulo | Diz que retângulo é ter 4 ângulos retos, e o quadrado tem
+C: losango | Diz que losango é ter 4 lados iguais, e o quadrado tem
+C: conclui | Conclui que o quadrado está na interseção das duas classes
+BOA: Um retângulo é um quadrilátero com 4 ângulos retos; o quadrado tem 4 ângulos retos, então é retângulo. Um losango é um quadrilátero com 4 lados iguais; o quadrado também tem, então é losango. Por isso o quadrado pertence às duas famílias ao mesmo tempo.
+
+#PRE EF06MA17 > EF05MA16 | 3
+#PRE EF06MA18 > EF05MA17 | 3
+#PRE EF06MA19 > EF06MA18 | 2
+#PRE EF06MA20 > EF06MA18 | 2

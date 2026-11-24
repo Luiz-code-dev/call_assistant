@@ -1,0 +1,669 @@
+// 8º ano — Matemática (parte 2): EF08MA07, EF08MA09, EF08MA10, EF08MA11
+
+#TRILHA EF08MA07 | MA | 8 | Trilha: Equação com duas incógnitas e a reta | Cada solução é um ponto
+FAZ: Associa uma equação linear de 1º grau com duas incógnitas a uma reta no plano cartesiano.
+ERRO: uma-solucao | Acha que a equação tem uma única solução
+ERRO: substitui | Erra ao substituir x para achar y
+ERRO: ponto-errado | Troca a ordem das coordenadas do ponto
+ERRO: calculo | Erra a conta
+NOTA: Monte uma tabela com x = 0, 1, 2, 3, calcule y e marque os pontos. Eles ficam alinhados: a reta é o conjunto de todas as soluções.
+
+@relembrar | Relembrar: infinitas soluções | x + y = 5 tem soluções (0, 5), (1, 4), (2, 3), (5, 0), (2,5; 2,5)... Marcando no plano, todos os pontos ficam numa reta.
+Q: Qual par (x, y) é solução de x + y = 7?
++ (3, 4)
+- (3, 5) | calculo
+- (7, 7) | calculo
+- (4, 4) | calculo
+E: 3 + 4 = 7.
+V: Qual par (x, y) é solução de x + y = 10?
++ (6, 4)
+- (6, 5)
+- (10, 10)
+- (5, 4)
+Q: Quantas soluções tem a equação x + y = 5?
++ Infinitas
+- Uma | uma-solucao
+- Duas | uma-solucao
+- Nenhuma | uma-solucao
+E: Para cada x existe um y; os pontos formam uma reta.
+V: Quantas soluções tem a equação 2x − y = 3?
++ Infinitas
+- Uma
+- Duas
+- Nenhuma
+Q: Na equação y = 2x + 1, quanto vale y para x = 3?
++ 7
+- 6 | calculo
+- 9 | substitui
+- 5 | calculo
+E: 2 × 3 + 1 = 7.
+V: Na equação y = 3x − 2, quanto vale y para x = 4?
++ 10
+- 12
+- 14
+- 5
+
+@exemplo_guiado | Exemplo guiado: da tabela à reta | y = 2x − 1. x = 0 → y = −1; x = 1 → y = 1; x = 2 → y = 3. Pontos: (0, −1), (1, 1), (2, 3). Ligando, temos uma reta.
+Q: Qual ponto pertence à reta de y = 2x − 1?
++ (3, 5)
+- (5, 3) | ponto-errado
+- (3, 6) | calculo
+- (3, 7) | substitui
+E: 2 × 3 − 1 = 5.
+V: Qual ponto pertence à reta de y = 3x + 2?
++ (2, 8)
+- (8, 2)
+- (2, 7)
+- (2, 6)
+Q: Onde a reta de x + y = 6 corta o eixo x?
++ (6, 0)
+- (0, 6) | ponto-errado
+- (3, 3) | calculo
+- (6, 6) | calculo
+E: No eixo x, y = 0; então x = 6.
+V: Onde a reta de 2x + y = 8 corta o eixo y?
++ (0, 8)
+- (8, 0)
+- (4, 0)
+- (0, 4)
+Q: O ponto (2, 5) está na reta de y = x + 3?
++ Sim, porque 2 + 3 = 5
+- Não, porque 2 + 5 = 7 | ponto-errado
+- Não, porque a reta só tem um ponto | uma-solucao
+- Sim, porque 5 − 3 = 3 | calculo
+E: Substituindo x = 2: y = 5. O ponto satisfaz a equação.
+V: O ponto (4, 6) está na reta de y = 2x − 1?
++ Não, porque 2 × 4 − 1 = 7
+- Sim, porque 4 + 2 = 6
+- Sim, qualquer ponto serve
+- Não, porque a reta só tem um ponto
+
+@praticar | Praticar: reta e equação | Substitua e confira.
+Q: Para a equação 2x + y = 10, qual é o valor de y quando x = 3?
++ 4
+- 7 | calculo
+- 16 | substitui
+- 6 | calculo
+E: 6 + y = 10; y = 4.
+V: Para a equação 3x + y = 12, qual é o valor de y quando x = 2?
++ 6
+- 10
+- 18
+- 9
+Q: Quais pontos estão na reta de y = −x + 4?
++ (0, 4) e (4, 0)
+- (4, 4) e (0, 0) | calculo
+- (0, −4) e (−4, 0) | substitui
+- (1, 5) e (5, 1) | calculo
+E: x = 0 → y = 4; x = 4 → y = 0.
+V: Quais pontos estão na reta de y = −2x + 6?
++ (0, 6) e (3, 0)
+- (6, 6) e (0, 0)
+- (0, −6) e (−3, 0)
+- (1, 8) e (3, 12)
+Q: Quantos pontos são suficientes para desenhar a reta de uma equação do 1º grau?
++ 2
+- 1 | uma-solucao
+- 10 | uma-solucao
+- Infinitos | uma-solucao
+E: Por dois pontos passa uma única reta.
+V: Se dois pontos de uma equação estão marcados, o que falta para desenhar a reta?
++ Ligá-los com a régua e prolongar
+- Marcar pelo menos mais 10 pontos
+- Nada, a reta são só os dois pontos
+- Calcular a área
+Q: Qual equação tem a reta passando por (0, 3) e (1, 5)?
++ y = 2x + 3
+- y = 3x + 2 | ponto-errado
+- y = 5x | calculo
+- y = x + 3 | calculo
+E: Em x = 0, y = 3; a cada 1 em x, y sobe 2.
+V: Qual equação tem a reta passando por (0, 1) e (1, 4)?
++ y = 3x + 1
+- y = x + 3
+- y = 4x
+- y = x + 1
+
+@aplicar | Aplicar: problemas com duas incógnitas | Cada solução é um ponto da reta.
+Q: Ingressos de adulto custam R$ 20 e de criança R$ 10. Uma família gastou R$ 80. Qual equação representa? (a adultos, c crianças)
++ 20a + 10c = 80
+- a + c = 80 | substitui
+- 10a + 20c = 80 | ponto-errado
+- 30(a + c) = 80 | calculo
+E: Cada adulto custa 20 e cada criança 10.
+V: Canetas custam R$ 3 e lápis R$ 2. Gastei R$ 20. Qual equação representa? (c canetas, l lápis)
++ 3c + 2l = 20
+- c + l = 20
+- 2c + 3l = 20
+- 5(c + l) = 20
+Q: Com 20a + 10c = 80, se foram 2 adultos, quantas crianças?
++ 4
+- 6 | calculo
+- 2 | calculo
+- 8 | substitui
+E: 40 + 10c = 80; c = 4.
+V: Com 3c + 2l = 20, se comprei 4 canetas, quantos lápis?
++ 4
+- 8
+- 6
+- 2
+Q: Ana tem moedas de R$ 1 (x) e de R$ 0,50 (y) somando R$ 5. Qual par NÃO é solução?
++ x = 3 e y = 3
+- x = 4 e y = 2 | calculo
+- x = 2 e y = 6 | calculo
+- x = 5 e y = 0 | calculo
+E: x + 0,5y = 5. Para x = 3 e y = 3: 3 + 1,5 = 4,5.
+V: Com x + 0,5y = 5, qual par NÃO é solução?
++ x = 1 e y = 6
+- x = 1 e y = 8
+- x = 3 e y = 4
+- x = 0 e y = 10
+
+@explicar | Explicar: equação e reta | Explique por que a equação x + y = 4 está associada a uma reta no plano cartesiano.
+C: solucoes | Diz que a equação tem infinitas soluções (pares x, y)
+C: pontos | Mostra alguns pares, como (0, 4), (1, 3), (4, 0), e os marca
+C: reta | Diz que todos os pontos ficam alinhados, formando uma reta
+BOA: A equação x + y = 4 tem infinitos pares que a satisfazem, como (0, 4), (1, 3), (2, 2) e (4, 0). Cada par é um ponto no plano cartesiano. Marcando esses pontos, percebo que todos ficam alinhados. A reta que passa por eles representa todas as soluções da equação.
+
+#TRILHA EF08MA09 | MA | 8 | Trilha: Equação ax² = b | Duas raízes, uma positiva e uma negativa
+FAZ: Resolve e elabora problemas que podem ser representados por equações do 2º grau do tipo ax² = b.
+ERRO: esquece-negativa | Esquece a raiz negativa
+ERRO: divide-por-dois | Divide por 2 em vez de tirar a raiz quadrada
+ERRO: ordem | Tira a raiz antes de dividir por a
+ERRO: contexto | Aceita a raiz negativa quando o problema é de medida
+ERRO: calculo | Erra a conta
+NOTA: x² = 25 tem duas soluções: 5 e −5, porque (−5)² = 25. Em problemas de medida, só a positiva faz sentido.
+
+@relembrar | Relembrar: as duas raízes | x² = 36 → x = 6 ou x = −6. 2x² = 50 → x² = 25 → x = 5 ou x = −5.
+Q: Quais são as soluções de x² = 49?
++ 7 e −7
+- Só 7 | esquece-negativa
+- 24,5 | divide-por-dois
+- 49 e −49 | calculo
+E: 7² = 49 e (−7)² = 49.
+V: Quais são as soluções de x² = 81?
++ 9 e −9
+- Só 9
+- 40,5
+- 81 e −81
+Q: Quais são as soluções de 3x² = 27?
++ 3 e −3
+- 9 e −9 | ordem
+- Só 3 | esquece-negativa
+- 4,5 | divide-por-dois
+E: x² = 27 ÷ 3 = 9; x = ±3.
+V: Quais são as soluções de 2x² = 32?
++ 4 e −4
+- 16 e −16
+- Só 4
+- 8
+Q: A equação x² = −16 tem solução real?
++ Não, nenhum número real ao quadrado dá negativo
+- Sim, 4 e −4 | esquece-negativa
+- Sim, −4 | esquece-negativa
+- Sim, −8 | divide-por-dois
+E: O quadrado de um número real nunca é negativo.
+V: A equação x² + 9 = 0 tem solução real?
++ Não, x² = −9 não tem solução real
+- Sim, 3 e −3
+- Sim, −3
+- Sim, −4,5
+
+@exemplo_guiado | Exemplo guiado: problema de área | Um quadrado tem área 64 m². Lado: x² = 64 → x = 8 ou x = −8. Como é medida, o lado é 8 m.
+Q: Um terreno quadrado tem área 225 m². Quanto mede o lado?
++ 15 m
+- −15 m | contexto
+- 112,5 m | divide-por-dois
+- 15 m e −15 m | contexto
+E: x² = 225; x = 15 (a negativa não serve para medida).
+V: Uma sala quadrada tem área 49 m². Quanto mede o lado?
++ 7 m
+- −7 m
+- 24,5 m
+- 7 m e −7 m
+Q: Quais são as soluções de x² − 100 = 0?
++ 10 e −10
+- Só 10 | esquece-negativa
+- 50 | divide-por-dois
+- 100 e −100 | calculo
+E: x² = 100; x = ±10.
+V: Quais são as soluções de x² − 144 = 0?
++ 12 e −12
+- Só 12
+- 72
+- 144 e −144
+Q: Quais são as soluções de 5x² = 80?
++ 4 e −4
+- 16 e −16 | ordem
+- 8 | divide-por-dois
+- Só 4 | esquece-negativa
+E: x² = 16; x = ±4.
+V: Quais são as soluções de 4x² = 100?
++ 5 e −5
+- 25 e −25
+- 12,5
+- Só 5
+
+@praticar | Praticar: resolvendo ax² = b | Divida por a, depois tire a raiz.
+Q: Quais são as soluções de x² = 2?
++ √2 e −√2
+- 1 e −1 | divide-por-dois
+- Só √2 | esquece-negativa
+- 4 e −4 | calculo
+E: x = ±√2 ≈ ±1,41.
+V: Quais são as soluções de x² = 5?
++ √5 e −√5
+- 2,5 e −2,5
+- Só √5
+- 25 e −25
+Q: Quais são as soluções de x²/4 = 9?
++ 6 e −6
+- 3 e −3 | ordem
+- 18 | divide-por-dois
+- Só 6 | esquece-negativa
+E: x² = 36; x = ±6.
+V: Quais são as soluções de x²/2 = 8?
++ 4 e −4
+- 2 e −2
+- 8
+- Só 4
+Q: Qual é o raio de um círculo de área 314 cm²? (use π ≈ 3,14)
++ 10 cm
+- 100 cm | divide-por-dois
+- −10 cm | contexto
+- 50 cm | divide-por-dois
+E: 3,14 × r² = 314; r² = 100; r = 10.
+V: Qual é o raio de um círculo de área 78,5 cm²? (use π ≈ 3,14)
++ 5 cm
+- 25 cm
+- −5 cm
+- 12,5 cm
+Q: O quadrado de um número é 0,25. Qual pode ser o número?
++ 0,5 ou −0,5
+- 0,125 | divide-por-dois
+- Só 0,5 | esquece-negativa
+- 0,05 ou −0,05 | calculo
+E: 0,5 × 0,5 = 0,25.
+V: O quadrado de um número é 0,09. Qual pode ser o número?
++ 0,3 ou −0,3
+- 0,045
+- Só 0,3
+- 0,03 ou −0,03
+
+@aplicar | Aplicar: ax² = b em problemas | Decida se a negativa faz sentido.
+Q: Um objeto cai de uma altura e a distância percorrida é d = 5t². Em quanto tempo ele cai 45 m?
++ 3 s
+- 9 s | ordem
+- −3 s e 3 s | contexto
+- 4,5 s | divide-por-dois
+E: 5t² = 45; t² = 9; t = 3 (tempo não é negativo).
+V: Pela mesma fórmula d = 5t², em quanto tempo o objeto cai 80 m?
++ 4 s
+- 16 s
+- −4 s e 4 s
+- 8 s
+Q: Um piso quadrado será feito com 400 ladrilhos quadrados iguais. Quantos ladrilhos haverá em cada lado?
++ 20
+- 200 | divide-por-dois
+- 100 | calculo
+- −20 | contexto
+E: n² = 400; n = 20.
+V: Um painel quadrado será feito com 169 azulejos quadrados iguais. Quantos azulejos em cada lado?
++ 13
+- 84,5
+- 42
+- −13
+Q: A área de um quadrado mais 11 m² dá 47 m². Quanto mede o lado?
++ 6 m
+- 18 m | divide-por-dois
+- 36 m | ordem
+- 7,6 m | calculo
+E: x² + 11 = 47; x² = 36; x = 6.
+V: A área de um quadrado menos 20 m² dá 44 m². Quanto mede o lado?
++ 8 m
+- 32 m
+- 64 m
+- 4,9 m
+
+@explicar | Explicar: duas soluções | Explique por que x² = 16 tem duas soluções, mas "o lado de um quadrado de área 16" tem só uma.
+C: duas | Diz que 4² = 16 e (−4)² = 16
+C: medida | Diz que um lado é uma medida e não pode ser negativo
+C: conclui | Conclui que o lado é 4
+BOA: A equação x² = 16 tem duas soluções, 4 e −4, porque 4 × 4 = 16 e (−4) × (−4) = 16. Mas o lado de um quadrado é uma medida de comprimento, e comprimento não é negativo. Por isso, no problema, só a solução 4 serve: o lado mede 4.
+
+#TRILHA EF08MA10 | MA | 8 | Trilha: Sequências não recursivas | Termo pela posição
+FAZ: Identifica a regularidade de uma sequência numérica ou figural não recursiva e constrói um fluxograma que indica os termos seguintes a partir da posição.
+ERRO: posicao | Confunde a posição com o valor do termo
+ERRO: recursiva | Usa o termo anterior quando a regra depende da posição
+ERRO: formula | Escreve a regra errada para o termo geral
+ERRO: calculo | Erra a conta
+NOTA: Numa sequência não recursiva, calculo o termo direto pela posição n, sem precisar do anterior. Exemplo: termo = n² + 1. Monte o fluxograma: leia n → calcule → mostre.
+
+@relembrar | Relembrar: termo pela posição | Na sequência 2, 5, 10, 17, 26, ... o termo da posição n é n² + 1. O 10º termo é 10² + 1 = 101, sem calcular os anteriores.
+Q: Na sequência de termo geral n² + 1, qual é o 6º termo?
++ 37
+- 13 | formula
+- 7 | posicao
+- 36 | calculo
+E: 6² + 1 = 36 + 1 = 37.
+V: Na sequência de termo geral n² + 1, qual é o 9º termo?
++ 82
+- 19
+- 10
+- 81
+Q: Na sequência 1, 4, 9, 16, 25, ... qual é o termo geral?
++ n²
+- n + 3 | recursiva
+- 3n − 2 | formula
+- 2n | formula
+E: São os quadrados das posições.
+V: Na sequência 1, 8, 27, 64, ... qual é o termo geral?
++ n³
+- n + 7
+- 7n − 6
+- 3n
+Q: A regra "termo = 3 × posição − 1" é recursiva ou não recursiva?
++ Não recursiva: depende só da posição
+- Recursiva: depende do termo anterior | recursiva
+- As duas | recursiva
+- Nenhuma | formula
+E: Para achar o termo, basta saber n.
+V: A regra "cada termo é o anterior mais 3" é recursiva ou não recursiva?
++ Recursiva: depende do termo anterior
+- Não recursiva: depende só da posição
+- As duas
+- Nenhuma
+
+@exemplo_guiado | Exemplo guiado: fluxograma | Início → Leia n → Calcule T = n² + 1 → Mostre T → Fim. Para n = 4: T = 17. Para n = 7: T = 50.
+Q: No fluxograma "Leia n → T = 2n² → Mostre T", qual é a saída para n = 3?
++ 18
+- 36 | calculo
+- 12 | formula
+- 9 | posicao
+E: 2 × 3² = 2 × 9 = 18.
+V: No fluxograma "Leia n → T = 2n² → Mostre T", qual é a saída para n = 5?
++ 50
+- 100
+- 20
+- 25
+Q: A sequência 3, 6, 11, 18, 27, ... tem qual termo geral?
++ n² + 2
+- n + 3 | recursiva
+- 3n | formula
+- n² + 3 | calculo
+E: 1 + 2 = 3; 4 + 2 = 6; 9 + 2 = 11.
+V: A sequência 0, 3, 8, 15, 24, ... tem qual termo geral?
++ n² − 1
+- n + 3
+- 3n − 3
+- n² + 1
+Q: Numa sequência de figuras, a figura n tem n × (n + 1) bolinhas. Quantas bolinhas tem a figura 5?
++ 30
+- 11 | formula
+- 25 | calculo
+- 6 | posicao
+E: 5 × 6 = 30.
+V: Na mesma sequência, quantas bolinhas tem a figura 8?
++ 72
+- 17
+- 64
+- 9
+
+@praticar | Praticar: descobrindo a regra | Compare cada termo com sua posição.
+Q: Qual é o 20º termo da sequência 2, 4, 8, 16, 32, ... (termo = 2ⁿ)?
++ 2^20 = 1.048.576
+- 40 | formula
+- 400 | formula
+- 20 | posicao
+E: 2 elevado a 20.
+V: Qual é o 10º termo da sequência 2, 4, 8, 16, ... (termo = 2ⁿ)?
++ 1.024
+- 20
+- 100
+- 512
+Q: Em qual posição da sequência n² + 1 aparece o número 65?
++ 8
+- 64 | posicao
+- 65 | posicao
+- 7 | calculo
+E: n² + 1 = 65; n² = 64; n = 8.
+V: Em qual posição da sequência n² + 1 aparece o número 122?
++ 11
+- 121
+- 122
+- 12
+Q: O termo geral de uma sequência é (n + 1)². Quais são os três primeiros termos?
++ 4, 9, 16
+- 1, 4, 9 | formula
+- 2, 3, 4 | calculo
+- 2, 5, 10 | formula
+E: n = 1: 4; n = 2: 9; n = 3: 16.
+V: O termo geral de uma sequência é n² − n. Quais são os três primeiros termos?
++ 0, 2, 6
+- 1, 4, 9
+- 0, 1, 2
+- 1, 2, 3
+Q: Qual é a vantagem de uma regra não recursiva?
++ Calcular qualquer termo direto pela posição
+- Precisar sempre do termo anterior | recursiva
+- Funcionar só para os primeiros termos | formula
+- Não ter nenhuma regra | formula
+E: Dá para achar o 100º termo sem os 99 anteriores.
+V: Para saber o 500º termo de n² + 3, o que é preciso?
++ Só substituir n = 500
+- Calcular os 499 termos anteriores
+- Contar de 1 a 500
+- Não dá para saber
+
+@aplicar | Aplicar: padrões com figuras | Use a posição.
+Q: Quadrados de lado n formados por quadradinhos: lado 1 usa 1, lado 2 usa 4, lado 3 usa 9. Quantos quadradinhos no quadrado de lado 15?
++ 225
+- 30 | formula
+- 45 | formula
+- 15 | posicao
+E: 15² = 225.
+V: Na mesma sequência, quantos quadradinhos no quadrado de lado 12?
++ 144
+- 24
+- 36
+- 12
+Q: Triângulos de bolinhas: 1, 3, 6, 10, ... (termo = n(n + 1)/2). Quantas bolinhas tem o 10º triângulo?
++ 55
+- 110 | calculo
+- 20 | formula
+- 10 | posicao
+E: 10 × 11 ÷ 2 = 55.
+V: Na mesma sequência, quantas bolinhas tem o 6º triângulo?
++ 21
+- 42
+- 12
+- 6
+Q: Num torneio, cada um dos n times joga uma vez com cada outro. O número de jogos é n(n − 1)/2. Quantos jogos com 8 times?
++ 28
+- 56 | calculo
+- 16 | formula
+- 7 | posicao
+E: 8 × 7 ÷ 2 = 28.
+V: Pela mesma regra, quantos jogos com 6 times?
++ 15
+- 30
+- 12
+- 5
+
+@explicar | Explicar: não recursiva | Explique como montar um fluxograma que mostre o termo de qualquer posição da sequência 2, 5, 10, 17, ...
+C: regra | Encontra a regra n² + 1
+C: fluxo | Descreve o fluxograma: leia n, calcule n² + 1, mostre o resultado
+C: teste | Testa com uma posição (ex.: n = 5 dá 26)
+BOA: Comparo cada termo com a posição: 1² + 1 = 2, 2² + 1 = 5, 3² + 1 = 10. A regra é n² + 1. O fluxograma: Início, leia n, calcule T = n² + 1, mostre T, Fim. Testando com n = 5: 25 + 1 = 26, que é o quinto termo.
+
+#TRILHA EF08MA11 | MA | 8 | Trilha: Sequências recursivas e fluxogramas | Repetir a partir do anterior
+FAZ: Identifica a regularidade de uma sequência numérica recursiva e constrói um fluxograma que indica os números seguintes.
+ERRO: posicao | Usa a posição quando a regra depende do termo anterior
+ERRO: repeticao | Erra o número de repetições do laço
+ERRO: regra | Identifica errado a regra da recursão
+ERRO: calculo | Erra a conta
+NOTA: Recursiva: preciso do termo anterior. Fluxograma com laço: T = primeiro termo → mostre T → T = regra(T) → volte, até chegar ao termo desejado.
+
+@relembrar | Relembrar: o laço | Sequência: começa em 3; cada termo = anterior × 2. Laço: T = 3 → mostre → T = T × 2 → repita. Saída: 3, 6, 12, 24...
+Q: Uma sequência começa em 5 e cada termo é o anterior × 3. Qual é o 4º termo?
++ 135
+- 45 | repeticao
+- 405 | repeticao
+- 20 | posicao
+E: 5, 15, 45, 135.
+V: Uma sequência começa em 2 e cada termo é o anterior × 4. Qual é o 4º termo?
++ 128
+- 32
+- 512
+- 16
+Q: Uma sequência começa em 100 e cada termo é o anterior − 7. Qual é o 5º termo?
++ 72
+- 65 | repeticao
+- 79 | repeticao
+- 93 | calculo
+E: 100, 93, 86, 79, 72.
+V: Uma sequência começa em 50 e cada termo é o anterior − 6. Qual é o 5º termo?
++ 26
+- 20
+- 32
+- 44
+Q: Na sequência 1, 3, 7, 15, 31, ... qual é a regra recursiva?
++ Cada termo é o anterior × 2 + 1
+- Cada termo é o anterior + 2 | regra
+- Cada termo é a posição × 2 | posicao
+- Cada termo é o anterior × 3 | regra
+E: 1 × 2 + 1 = 3; 3 × 2 + 1 = 7.
+V: Na sequência 2, 5, 11, 23, 47, ... qual é a regra recursiva?
++ Cada termo é o anterior × 2 + 1
+- Cada termo é o anterior + 3
+- Cada termo é a posição × 3
+- Cada termo é o anterior × 3
+
+@exemplo_guiado | Exemplo guiado: fluxograma com contador | Início → T = 1, k = 1 → Mostre T → "k = 5?" Sim: Fim. Não: T = T + 4, k = k + 1 → volta para "Mostre T". Saída: 1, 5, 9, 13, 17.
+Q: No fluxograma do exemplo, se trocarmos "k = 5?" por "k = 3?", quais números aparecem?
++ 1, 5, 9
+- 1, 5, 9, 13 | repeticao
+- 1, 5 | repeticao
+- 3, 7, 11 | regra
+E: O laço para quando k chega a 3.
+V: Se trocarmos "T = T + 4" por "T = T + 2" (com k = 5), quais números aparecem?
++ 1, 3, 5, 7, 9
+- 1, 3, 5, 7
+- 2, 4, 6, 8, 10
+- 1, 5, 9, 13, 17
+Q: Para gerar a sequência 2, 6, 18, 54, o que deve estar no retângulo do laço?
++ T = T × 3
+- T = T + 4 | regra
+- T = T × 2 | regra
+- T = 3 × k | posicao
+E: Cada termo é o anterior vezes 3.
+V: Para gerar a sequência 80, 40, 20, 10, o que deve estar no retângulo do laço?
++ T = T ÷ 2
+- T = T − 40
+- T = T − 20
+- T = 80 ÷ k
+Q: Sequência de Fibonacci: 1, 1, 2, 3, 5, 8, ... Quantos termos anteriores são necessários para calcular o próximo?
++ 2
+- 1 | regra
+- 3 | regra
+- Nenhum | posicao
+E: Cada termo é a soma dos dois anteriores.
+V: Na sequência de Fibonacci, qual é o termo depois de 21 e 34?
++ 55
+- 47
+- 68
+- 13
+
+@praticar | Praticar: seguindo laços | Conte as repetições com cuidado.
+Q: T começa em 1. Laço: T = T × 2, repetido 5 vezes. Qual é o valor final de T?
++ 32
+- 10 | posicao
+- 16 | repeticao
+- 64 | repeticao
+E: 1 → 2 → 4 → 8 → 16 → 32.
+V: T começa em 1. Laço: T = T × 3, repetido 4 vezes. Qual é o valor final de T?
++ 81
+- 12
+- 27
+- 243
+Q: T começa em 10. Laço: T = T + 5, repetido 6 vezes. Qual é o valor final?
++ 40
+- 35 | repeticao
+- 45 | repeticao
+- 60 | regra
+E: 10 + 6 × 5 = 40.
+V: T começa em 7. Laço: T = T + 3, repetido 8 vezes. Qual é o valor final?
++ 31
+- 28
+- 34
+- 56
+Q: Uma sequência recursiva: começa em 4, cada termo = anterior × 2 − 3. Quais são os 4 primeiros termos?
++ 4, 5, 7, 11
+- 4, 8, 16, 32 | regra
+- 4, 5, 6, 7 | regra
+- 4, 1, −1, −5 | calculo
+E: 4 × 2 − 3 = 5; 5 × 2 − 3 = 7; 7 × 2 − 3 = 11.
+V: Começa em 2, cada termo = anterior × 3 − 2. Quais são os 4 primeiros termos?
++ 2, 4, 10, 28
+- 2, 6, 18, 54
+- 2, 4, 6, 8
+- 2, 0, −2, −8
+Q: Qual sequência é recursiva e também pode ser escrita pela posição como 3n?
++ 3, 6, 9, 12 (anterior + 3)
+- 1, 1, 2, 3, 5 | posicao
+- 2, 4, 8, 16 | regra
+- 1, 3, 7, 15 | regra
+E: Anterior + 3 começando em 3 dá os múltiplos de 3.
+V: Qual sequência é recursiva e também pode ser escrita pela posição como 5n?
++ 5, 10, 15, 20 (anterior + 5)
+- 1, 1, 2, 3, 5
+- 5, 25, 125, 625
+- 1, 6, 11, 16
+
+@aplicar | Aplicar: recursão em situações | Monte o laço mentalmente.
+Q: Uma aplicação rende 10% ao mês. Começa com R$ 1.000. Qual é o saldo após 3 meses?
++ R$ 1.331
+- R$ 1.300 | regra
+- R$ 1.210 | repeticao
+- R$ 1.464,10 | repeticao
+E: 1.000 → 1.100 → 1.210 → 1.331.
+V: Uma aplicação rende 5% ao mês. Começa com R$ 2.000. Qual é o saldo após 2 meses?
++ R$ 2.205
+- R$ 2.200
+- R$ 2.100
+- R$ 2.315,25
+Q: Uma bola cai de 16 m e cada quique sobe metade da altura anterior. Qual é a altura do 3º quique?
++ 2 m
+- 4 m | repeticao
+- 1 m | repeticao
+- 10 m | regra
+E: 16 → 8 → 4 → 2.
+V: Uma bola cai de 27 m e cada quique sobe 1/3 da altura anterior. Qual é a altura do 2º quique?
++ 3 m
+- 9 m
+- 1 m
+- 21 m
+Q: Uma notícia se espalha: cada pessoa conta para 3 novas pessoas a cada hora, começando com 1 pessoa. Quantas pessoas novas ficam sabendo na 4ª hora?
++ 81
+- 12 | posicao
+- 27 | repeticao
+- 243 | repeticao
+E: 1ª hora: 3; 2ª: 9; 3ª: 27; 4ª: 81.
+V: Na mesma regra, mas cada pessoa conta para 2 novas pessoas por hora, quantas pessoas novas ficam sabendo na 5ª hora?
++ 32
+- 10
+- 16
+- 64
+
+@explicar | Explicar: fluxograma recursivo | Descreva um fluxograma que mostre os 6 primeiros termos da sequência que começa em 1 e em que cada termo é o anterior × 2.
+C: inicio | Começa com T = 1 e um contador k = 1
+C: laco | Mostra T, faz T = T × 2 e k = k + 1, volta
+C: parada | Usa a decisão "k > 6?" ou "k = 6?" para parar
+BOA: Início: T = 1 e k = 1. Mostro T. Pergunto no losango: k é igual a 6? Se sim, fim. Se não, faço T = T × 2 e k = k + 1 e volto para "mostre T". A saída é 1, 2, 4, 8, 16, 32.
+
+#PRE EF08MA07 > EF07MA13 | 3
+#PRE EF08MA07 > EF07MA19 | 2
+#PRE EF08MA09 > EF08MA02 | 2
+#PRE EF08MA10 > EF07MA15 | 3
+#PRE EF08MA11 > EF07MA14 | 3
+#PRE EF08MA11 > EF07MA07 | 2

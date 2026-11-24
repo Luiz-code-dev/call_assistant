@@ -1,0 +1,671 @@
+// 7º ano — Matemática (parte 4): EF07MA16, EF07MA17, EF07MA19, EF07MA20
+
+#TRILHA EF07MA16 | MA | 7 | Trilha: Expressões equivalentes | Duas fórmulas, a mesma sequência
+FAZ: Reconhece se duas expressões algébricas obtidas para descrever a regularidade de uma mesma sequência são ou não equivalentes.
+ERRO: um-valor | Testa só um valor e conclui que são equivalentes
+ERRO: distributiva | Erra a propriedade distributiva
+ERRO: termos-semelhantes | Junta termos que não são semelhantes
+ERRO: calculo | Erra a conta
+NOTA: Duas expressões são equivalentes quando dão o mesmo valor para qualquer n. Teste vários valores e simplifique: 2(n + 1) = 2n + 2.
+
+@relembrar | Relembrar: simplificando | 3(n + 2) = 3n + 6. 2n + 3n = 5n. n + n + 4 = 2n + 4.
+Q: Qual expressão é equivalente a 4(n + 3)?
++ 4n + 12
+- 4n + 3 | distributiva
+- n + 12 | distributiva
+- 7n | termos-semelhantes
+E: 4 × n + 4 × 3 = 4n + 12.
+V: Qual expressão é equivalente a 5(n − 2)?
++ 5n − 10
+- 5n − 2
+- n − 10
+- 3n
+Q: Qual expressão é equivalente a 2n + 5n − 3?
++ 7n − 3
+- 4n | termos-semelhantes
+- 10n − 3 | calculo
+- 7n + 3 | calculo
+E: 2n + 5n = 7n; o −3 continua.
+V: Qual expressão é equivalente a 6n − 2n + 8?
++ 4n + 8
+- 12n
+- 8n + 8
+- 4n − 8
+Q: As expressões 2n + 2 e 2(n + 1) são equivalentes?
++ Sim, 2(n + 1) = 2n + 2
+- Não, uma tem parênteses | distributiva
+- Só para n = 1 | um-valor
+- Não, 2(n + 1) = 2n + 1 | distributiva
+E: Aplicando a distributiva.
+V: As expressões 3n + 6 e 3(n + 2) são equivalentes?
++ Sim, 3(n + 2) = 3n + 6
+- Não, uma tem parênteses
+- Só para n = 2
+- Não, 3(n + 2) = 3n + 2
+
+@exemplo_guiado | Exemplo guiado: duas formas de contar | Quadrados de palitos em fila: 1 quadrado, 4 palitos; 2 quadrados, 7; 3 quadrados, 10. Ana escreveu 3n + 1. Bia escreveu 4 + 3(n − 1). Bia: 4 + 3n − 3 = 3n + 1. São equivalentes.
+Q: As expressões 4 + 3(n − 1) e 3n + 1 são equivalentes?
++ Sim, 4 + 3n − 3 = 3n + 1
+- Não, 4 + 3(n − 1) = 3n + 3 | distributiva
+- Só para n = 1 | um-valor
+- Não, uma começa com 4 | distributiva
+E: Desenvolvendo: 4 + 3n − 3 = 3n + 1.
+V: As expressões 5 + 2(n − 1) e 2n + 3 são equivalentes?
++ Sim, 5 + 2n − 2 = 2n + 3
+- Não, 5 + 2(n − 1) = 2n + 4
+- Só para n = 1
+- Não, uma começa com 5
+Q: As expressões 2n + 4 e 3n + 3 dão o mesmo valor para n = 1. Isso prova que são equivalentes?
++ Não; para n = 2 dão 8 e 9
+- Sim, um valor basta | um-valor
+- Sim, porque as duas têm n | um-valor
+- Não dá para saber | um-valor
+E: Equivalentes precisam coincidir para todo n.
+V: As expressões n + 6 e 2n + 4 dão o mesmo valor para n = 2. Isso prova que são equivalentes?
++ Não; para n = 3 dão 9 e 10
+- Sim, um valor basta
+- Sim, porque as duas têm n
+- Não dá para saber
+Q: Qual expressão NÃO é equivalente a 6n + 6?
++ 6(n + 6)
+- 6(n + 1) | distributiva
+- 3(2n + 2) | distributiva
+- 2(3n + 3) | distributiva
+E: 6(n + 6) = 6n + 36.
+V: Qual expressão NÃO é equivalente a 4n + 8?
++ 4(n + 8)
+- 4(n + 2)
+- 2(2n + 4)
+- 8 + 4n
+
+@praticar | Praticar: testando e simplificando | Simplifique as duas e compare.
+Q: As expressões 5(n + 1) − 2 e 5n + 3 são equivalentes?
++ Sim
+- Não | distributiva
+- Só para n = 0 | um-valor
+- Só para n positivo | um-valor
+E: 5n + 5 − 2 = 5n + 3.
+V: As expressões 4(n + 2) − 5 e 4n + 3 são equivalentes?
++ Sim
+- Não
+- Só para n = 0
+- Só para n positivo
+Q: As expressões 2(n + 3) e 2n + 3 são equivalentes?
++ Não: 2(n + 3) = 2n + 6
+- Sim | distributiva
+- Só para n = 0 | um-valor
+- Só para n = 3 | um-valor
+E: O 2 multiplica também o 3.
+V: As expressões 3(n − 1) e 3n − 1 são equivalentes?
++ Não: 3(n − 1) = 3n − 3
+- Sim
+- Só para n = 0
+- Só para n = 1
+Q: Qual é a forma simplificada de n + n + n + 2 + 2?
++ 3n + 4
+- 3n + 2 | termos-semelhantes
+- 7n | termos-semelhantes
+- n + 7 | termos-semelhantes
+E: Três n e dois 2: 3n + 4.
+V: Qual é a forma simplificada de 2n + 3 + n + 5?
++ 3n + 8
+- 3n + 3
+- 11n
+- 2n + 8
+Q: Uma sequência é 6, 10, 14, 18. Qual par de expressões descreve a sequência?
++ 4n + 2 e 2(2n + 1)
+- 4n + 2 e 4(n + 2) | distributiva
+- 6n e 4n + 2 | um-valor
+- n + 4 e 4n + 2 | um-valor
+E: 2(2n + 1) = 4n + 2. Para n = 1: 6.
+V: Uma sequência é 5, 8, 11, 14. Qual par de expressões descreve a sequência?
++ 3n + 2 e 5 + 3(n − 1)
+- 3n + 2 e 3(n + 2)
+- 5n e 3n + 2
+- n + 3 e 3n + 2
+
+@aplicar | Aplicar: fórmulas de colegas | Verifique se as fórmulas contam a mesma coisa.
+Q: Para o perímetro de um retângulo de lados a e b, Rui escreveu 2a + 2b e Lia escreveu 2(a + b). Quem acertou?
++ Os dois: as expressões são equivalentes
+- Só Rui | distributiva
+- Só Lia | distributiva
+- Nenhum | distributiva
+E: 2(a + b) = 2a + 2b.
+V: Para o perímetro de um quadrado de lado L, Caio escreveu L + L + L + L e Davi escreveu 4L. Quem acertou?
++ Os dois: as expressões são equivalentes
+- Só Caio
+- Só Davi
+- Nenhum
+Q: Mesas em fila: cada mesa tem 4 lugares, mas quando duas se juntam, perdem-se 2. Uma aluna escreveu 4n − 2(n − 1). Isso equivale a:
++ 2n + 2
+- 2n − 2 | distributiva
+- 4n − 2 | distributiva
+- 6n − 2 | termos-semelhantes
+E: 4n − 2n + 2 = 2n + 2.
+V: Uma expressão de colega foi 6n − 2(n − 1). Isso equivale a:
++ 4n + 2
+- 4n − 2
+- 6n − 2
+- 8n − 2
+Q: Um professor deu a sequência 3, 7, 11, 15. Três alunos escreveram: A: 4n − 1; B: 3 + 4(n − 1); C: 4n + 3. Quais estão certos?
++ A e B
+- A, B e C | um-valor
+- Só A | distributiva
+- Só C | um-valor
+E: B: 3 + 4n − 4 = 4n − 1. C dá 7 para n = 1.
+V: Para a sequência 2, 5, 8, 11, alunos escreveram: A: 3n − 1; B: 2 + 3(n − 1); C: 3n + 2. Quais estão certos?
++ A e B
+- A, B e C
+- Só A
+- Só C
+
+@explicar | Explicar: são ou não equivalentes? | Explique se 3(n + 4) e 3n + 4 são equivalentes.
+C: distributiva | Desenvolve 3(n + 4) = 3n + 12
+C: compara | Compara com 3n + 4 e nota a diferença
+C: teste | Testa um valor (por exemplo n = 1: 15 e 7)
+BOA: Desenvolvendo, 3(n + 4) = 3n + 12, porque o 3 multiplica o n e também o 4. Comparando com 3n + 4, a parte fixa é diferente: 12 e 4. Testando n = 1: 3 × 5 = 15 e 3 + 4 = 7. Não são equivalentes.
+
+#TRILHA EF07MA17 | MA | 7 | Trilha: Proporcionalidade direta e inversa | Quando um sobe, o outro sobe ou desce?
+FAZ: Resolve e elabora problemas de proporcionalidade direta e inversa entre duas grandezas, usando sentença algébrica para expressar a relação.
+ERRO: troca-tipo | Trata proporção inversa como direta, ou o contrário
+ERRO: nao-proporcional | Considera proporcionais grandezas que não são
+ERRO: regra-de-tres | Monta a regra de três errada
+ERRO: calculo | Erra a conta
+NOTA: Direta: dobra uma, dobra a outra (preço e quantidade). Inversa: dobra uma, a outra cai pela metade (velocidade e tempo, operários e dias).
+
+@relembrar | Relembrar: direta ou inversa | Direta: 2 kg custam 10; 4 kg custam 20. Inversa: 2 pintores levam 6 dias; 4 pintores levam 3 dias.
+Q: Velocidade e tempo de viagem (mesma distância) são grandezas:
++ Inversamente proporcionais
+- Diretamente proporcionais | troca-tipo
+- Não proporcionais | nao-proporcional
+- Iguais | troca-tipo
+E: Dobrando a velocidade, o tempo cai pela metade.
+V: Número de torneiras iguais abertas e tempo para encher um tanque são grandezas:
++ Inversamente proporcionais
+- Diretamente proporcionais
+- Não proporcionais
+- Iguais
+Q: Quantidade de pães e preço a pagar são grandezas:
++ Diretamente proporcionais
+- Inversamente proporcionais | troca-tipo
+- Não proporcionais | nao-proporcional
+- Sem relação | nao-proporcional
+E: Dobrando os pães, dobra o preço.
+V: Quantidade de litros de gasolina e valor pago são grandezas:
++ Diretamente proporcionais
+- Inversamente proporcionais
+- Não proporcionais
+- Sem relação
+Q: Idade e altura de uma pessoa são grandezas proporcionais?
++ Não, não variam na mesma razão
+- Sim, diretamente | nao-proporcional
+- Sim, inversamente | nao-proporcional
+- Sim, sempre | nao-proporcional
+E: Uma pessoa com o dobro da idade não tem o dobro da altura.
+V: O número de um calçado e o preço dele são grandezas proporcionais?
++ Não, não variam na mesma razão
+- Sim, diretamente
+- Sim, inversamente
+- Sim, sempre
+
+@exemplo_guiado | Exemplo guiado: sentenças | Direta: preço P de n canetas a R$ 3: P = 3n. Inversa: 120 km a velocidade v leva t horas: v × t = 120, ou t = 120/v.
+Q: A 60 km/h, uma viagem leva 4 horas. A 80 km/h, quanto tempo leva?
++ 3 horas
+- 5,33 horas | troca-tipo
+- 4 horas | nao-proporcional
+- 2 horas | calculo
+E: v × t = 240; 240 ÷ 80 = 3.
+V: A 50 km/h, uma viagem leva 6 horas. A 75 km/h, quanto tempo leva?
++ 4 horas
+- 9 horas
+- 6 horas
+- 3 horas
+Q: 3 operários fazem um muro em 12 dias. Em quantos dias 9 operários fazem o mesmo muro, no mesmo ritmo?
++ 4 dias
+- 36 dias | troca-tipo
+- 6 dias | calculo
+- 12 dias | nao-proporcional
+E: 3 × 12 = 36 dias-operário; 36 ÷ 9 = 4.
+V: 4 máquinas fazem um serviço em 15 horas. Em quantas horas 6 máquinas fazem o mesmo serviço, no mesmo ritmo?
++ 10 horas
+- 22,5 horas
+- 12 horas
+- 15 horas
+Q: 5 cadernos custam R$ 35. Qual sentença dá o preço P de n cadernos?
++ P = 7n
+- P = 35n | regra-de-tres
+- P = 35/n | troca-tipo
+- P = n + 30 | nao-proporcional
+E: 35 ÷ 5 = 7 por caderno.
+V: 4 ingressos custam R$ 60. Qual sentença dá o preço P de n ingressos?
++ P = 15n
+- P = 60n
+- P = 60/n
+- P = n + 56
+
+@praticar | Praticar: resolvendo | Decida primeiro se é direta ou inversa.
+Q: Um carro gasta 8 litros para 96 km. Quantos litros para 300 km?
++ 25 litros
+- 2,56 litros | troca-tipo
+- 30 litros | calculo
+- 36 litros | regra-de-tres
+E: 96 ÷ 8 = 12 km por litro; 300 ÷ 12 = 25.
+V: Uma moto gasta 3 litros para 105 km. Quantos litros para 280 km?
++ 8 litros
+- 1,125 litro
+- 7 litros
+- 9 litros
+Q: Uma ração dura 20 dias para 6 cachorros. Para 8 cachorros, quanto dura?
++ 15 dias
+- 26,67 dias | troca-tipo
+- 18 dias | calculo
+- 22 dias | nao-proporcional
+E: 20 × 6 = 120 porções; 120 ÷ 8 = 15.
+V: Uma comida dura 12 dias para 10 pessoas. Para 15 pessoas, quanto dura?
++ 8 dias
+- 18 dias
+- 7 dias
+- 17 dias
+Q: Para encher uma piscina, 2 mangueiras levam 9 horas. Quantas horas levam 3 mangueiras iguais?
++ 6 horas
+- 13,5 horas | troca-tipo
+- 8 horas | calculo
+- 10 horas | nao-proporcional
+E: 2 × 9 = 18; 18 ÷ 3 = 6.
+V: 4 bombas iguais esvaziam um tanque em 6 horas. Quantas horas levam 3 bombas?
++ 8 horas
+- 4,5 horas
+- 7 horas
+- 5 horas
+Q: Um retângulo tem área fixa de 36 cm². Qual sentença relaciona comprimento c e largura l?
++ c × l = 36
+- c + l = 36 | nao-proporcional
+- c = 36l | troca-tipo
+- c − l = 36 | nao-proporcional
+E: Área = c × l. Se c dobra, l cai pela metade.
+V: Uma distância fixa de 200 km. Qual sentença relaciona velocidade v e tempo t?
++ v × t = 200
+- v + t = 200
+- v = 200t
+- v − t = 200
+
+@aplicar | Aplicar: proporção na vida | Monte a sentença e resolva.
+Q: Uma família gasta R$ 180 de luz em 30 dias. Mantendo o consumo, quanto gasta em 45 dias?
++ R$ 270
+- R$ 120 | troca-tipo
+- R$ 195 | nao-proporcional
+- R$ 225 | calculo
+E: 180 ÷ 30 = 6 por dia; 45 × 6 = 270.
+V: Uma escola gasta R$ 240 de água em 20 dias. Mantendo o consumo, quanto gasta em 35 dias?
++ R$ 420
+- R$ 137,14
+- R$ 255
+- R$ 360
+Q: Um prêmio de R$ 1.200 seria dividido entre 8 pessoas. Se forem 6 pessoas, quanto cada uma recebe?
++ R$ 200
+- R$ 112,50 | troca-tipo
+- R$ 150 | nao-proporcional
+- R$ 180 | calculo
+E: Inversa: 1.200 ÷ 6 = 200.
+V: Uma conta de R$ 900 seria dividida entre 6 amigos. Se forem 9 amigos, quanto cada um paga?
++ R$ 100
+- R$ 225
+- R$ 150
+- R$ 120
+Q: Um ciclista a 15 km/h leva 2 horas num percurso. Quanto tempo levaria a 20 km/h?
++ 1,5 hora
+- 2,67 horas | troca-tipo
+- 1 hora | calculo
+- 2 horas | nao-proporcional
+E: 15 × 2 = 30 km; 30 ÷ 20 = 1,5.
+V: Um corredor a 10 km/h leva 3 horas num percurso. Quanto tempo levaria a 12 km/h?
++ 2,5 horas
+- 3,6 horas
+- 2 horas
+- 3 horas
+
+@explicar | Explicar: direta ou inversa | Explique por que "número de pintores e dias para pintar uma casa" é uma relação inversa.
+C: sentido | Diz que, com mais pintores, a obra leva menos dias
+C: razao | Mostra que, dobrando os pintores, os dias caem pela metade
+C: produto | Diz que o produto pintores × dias fica constante
+BOA: Quanto mais pintores, menos dias o trabalho leva. Se 2 pintores levam 10 dias, 4 pintores levam 5 dias: dobrando uma grandeza, a outra cai pela metade. O produto pintores × dias fica sempre 20. Por isso a relação é inversamente proporcional.
+
+#TRILHA EF07MA19 | MA | 7 | Trilha: Transformações no plano cartesiano | Multiplicando as coordenadas
+FAZ: Realiza transformações de polígonos no plano cartesiano multiplicando as coordenadas dos vértices por um número inteiro.
+ERRO: so-uma | Multiplica só uma das coordenadas
+ERRO: soma | Soma o número em vez de multiplicar
+ERRO: sinal | Erra o sinal ao multiplicar por negativo
+ERRO: efeito | Não reconhece o efeito (ampliação, reflexão) da transformação
+ERRO: calculo | Erra a conta
+NOTA: Desenhe o triângulo original e o transformado na mesma malha. Multiplicar por 2 amplia; por −1 reflete em relação à origem.
+
+@relembrar | Relembrar: multiplicar coordenadas | O ponto (2, 3) multiplicado por 2 vira (4, 6). Multiplicado por −1 vira (−2, −3).
+Q: O ponto (3, 1) multiplicado por 3 vira:
++ (9, 3)
+- (6, 4) | soma
+- (9, 1) | so-uma
+- (3, 3) | so-uma
+E: 3 × 3 = 9 e 1 × 3 = 3.
+V: O ponto (4, 2) multiplicado por 2 vira:
++ (8, 4)
+- (6, 4)
+- (8, 2)
+- (4, 4)
+Q: O ponto (2, −5) multiplicado por −1 vira:
++ (−2, 5)
+- (−2, −5) | sinal
+- (2, 5) | so-uma
+- (1, −6) | soma
+E: 2 × (−1) = −2 e −5 × (−1) = 5.
+V: O ponto (−3, 4) multiplicado por −1 vira:
++ (3, −4)
+- (−3, −4)
+- (3, 4)
+- (−4, 3)
+Q: Multiplicando as coordenadas de um triângulo por 2, o que acontece com a figura?
++ Fica ampliada, com lados de medida dobrada
+- Fica do mesmo tamanho | efeito
+- Fica com metade do tamanho | efeito
+- Fica deformada | efeito
+E: É uma ampliação com a mesma forma.
+V: Multiplicando as coordenadas de um quadrado por 3, o que acontece com a figura?
++ Fica ampliada, com lados de medida triplicada
+- Fica do mesmo tamanho
+- Fica com a terça parte do tamanho
+- Fica deformada
+
+@exemplo_guiado | Exemplo guiado: triângulo ampliado | Triângulo A(1, 1), B(3, 1), C(1, 2). Multiplicando por 2: A'(2, 2), B'(6, 2), C'(2, 4). O lado AB media 2; A'B' mede 4.
+Q: O quadrado de vértices (0, 0), (2, 0), (2, 2), (0, 2) foi multiplicado por 3. Qual é o novo lado?
++ 6
+- 2 | efeito
+- 5 | soma
+- 3 | so-uma
+E: (6, 0) e (0, 0): lado 6.
+V: O quadrado de vértices (0, 0), (1, 0), (1, 1), (0, 1) foi multiplicado por 4. Qual é o novo lado?
++ 4
+- 1
+- 5
+- 8
+Q: O triângulo de vértices (1, 2), (3, 2), (2, 4) foi multiplicado por −1. Quais são os novos vértices?
++ (−1, −2), (−3, −2), (−2, −4)
+- (−1, 2), (−3, 2), (−2, 4) | so-uma
+- (1, −2), (3, −2), (2, −4) | so-uma
+- (0, 1), (2, 1), (1, 3) | soma
+E: Cada coordenada vezes −1.
+V: O segmento de (2, 1) a (4, 3) foi multiplicado por −1. Quais são os novos extremos?
++ (−2, −1) e (−4, −3)
+- (−2, 1) e (−4, 3)
+- (2, −1) e (4, −3)
+- (1, 0) e (3, 2)
+Q: Multiplicar as coordenadas por −1 faz com a figura:
++ Uma reflexão em relação à origem (a figura "gira" meia volta)
+- Uma ampliação | efeito
+- Uma redução | efeito
+- Nada muda | efeito
+E: Cada ponto vai para o lado oposto da origem.
+V: Multiplicar as coordenadas por −2 faz com a figura:
++ Amplia para o dobro e reflete em relação à origem
+- Só amplia para o dobro
+- Reduz à metade
+- Nada muda
+
+@praticar | Praticar: transformando | Multiplique as duas coordenadas.
+Q: O retângulo de vértices (1, 1), (4, 1), (4, 3), (1, 3) multiplicado por 2 tem quais dimensões?
++ 6 por 4
+- 3 por 2 | efeito
+- 5 por 4 | soma
+- 6 por 2 | so-uma
+E: Original: 3 por 2. Ampliado: 6 por 4.
+V: O retângulo de vértices (0, 0), (5, 0), (5, 2), (0, 2) multiplicado por 3 tem quais dimensões?
++ 15 por 6
+- 5 por 2
+- 8 por 5
+- 15 por 2
+Q: Ao multiplicar as coordenadas por 2, a área do quadrado:
++ Fica 4 vezes maior
+- Dobra | efeito
+- Fica igual | efeito
+- Fica 8 vezes maior | calculo
+E: Lado dobra; área = lado × lado: 2 × 2 = 4 vezes.
+V: Ao multiplicar as coordenadas por 3, a área do quadrado:
++ Fica 9 vezes maior
+- Triplica
+- Fica igual
+- Fica 6 vezes maior
+Q: O ponto A(−2, 3) foi multiplicado por 2. Em que quadrante fica A'?
++ 2º quadrante: (−4, 6)
+- 1º quadrante: (4, 6) | sinal
+- 3º quadrante: (−4, −6) | sinal
+- 2º quadrante: (0, 5) | soma
+E: −2 × 2 = −4 e 3 × 2 = 6.
+V: O ponto B(3, −1) foi multiplicado por 2. Em que quadrante fica B'?
++ 4º quadrante: (6, −2)
+- 1º quadrante: (6, 2)
+- 3º quadrante: (−6, −2)
+- 4º quadrante: (5, 1)
+Q: Qual número multiplica as coordenadas de (2, 5) para chegar a (−6, −15)?
++ −3
+- 3 | sinal
+- −4 | soma
+- −2 | calculo
+E: 2 × (−3) = −6 e 5 × (−3) = −15.
+V: Qual número multiplica as coordenadas de (3, 4) para chegar a (−6, −8)?
++ −2
+- 2
+- −3
+- −9
+
+@aplicar | Aplicar: transformações em desenhos | Pense no efeito antes de calcular.
+Q: Um logotipo foi desenhado com vértices em (1, 0), (2, 1), (1, 2), (0, 1). Para ficar 5 vezes maior, onde fica o vértice (2, 1)?
++ (10, 5)
+- (7, 6) | soma
+- (10, 1) | so-uma
+- (2, 5) | so-uma
+E: 2 × 5 = 10 e 1 × 5 = 5.
+V: Para ficar 4 vezes maior, onde fica o vértice (1, 2)?
++ (4, 8)
+- (5, 6)
+- (4, 2)
+- (1, 8)
+Q: Num jogo, um personagem em (3, 2) é refletido pela origem. Onde ele aparece?
++ (−3, −2)
+- (3, −2) | so-uma
+- (−3, 2) | so-uma
+- (2, 3) | efeito
+E: Multiplicar por −1.
+V: Num jogo, uma nave em (−4, 1) é refletida pela origem. Onde ela aparece?
++ (4, −1)
+- (−4, −1)
+- (4, 1)
+- (1, −4)
+Q: O perímetro de um triângulo é 12. Multiplicando as coordenadas dos vértices por 3, o novo perímetro é:
++ 36
+- 15 | soma
+- 12 | efeito
+- 108 | calculo
+E: Cada lado triplica, então o perímetro triplica.
+V: O perímetro de um quadrado é 10. Multiplicando as coordenadas por 2, o novo perímetro é:
++ 20
+- 12
+- 10
+- 40
+
+@explicar | Explicar: o efeito da multiplicação | Explique o que acontece com um triângulo quando multiplicamos as coordenadas dos vértices por 2 e quando multiplicamos por −1.
+C: dobro | Diz que, por 2, a figura é ampliada e os lados dobram, mantendo a forma
+C: oposto | Diz que, por −1, cada ponto vai para o lado oposto da origem
+C: exemplo | Dá um exemplo com coordenadas
+BOA: Multiplicando por 2, cada vértice fica duas vezes mais longe da origem e os lados dobram de tamanho, mas a forma continua a mesma: é uma ampliação. Por exemplo, (1, 2) vira (2, 4). Multiplicando por −1, cada ponto troca de sinal e vai para o lado oposto da origem: (1, 2) vira (−1, −2). O tamanho continua igual, mas a figura fica "de cabeça para baixo".
+
+#TRILHA EF07MA20 | MA | 7 | Trilha: Simetria no plano cartesiano | Em relação aos eixos e à origem
+FAZ: Reconhece e representa, no plano cartesiano, o simétrico de figuras em relação aos eixos e à origem.
+ERRO: troca-eixo | Troca o sinal da coordenada errada
+ERRO: troca-ambos | Troca os dois sinais quando é só um eixo
+ERRO: troca-ordem | Inverte a ordem das coordenadas
+ERRO: efeito | Não reconhece o tipo de simetria
+ERRO: calculo | Erra a conta
+NOTA: Eixo x (horizontal) é o espelho: muda o y. Eixo y (vertical) é o espelho: muda o x. Origem: muda os dois.
+
+@relembrar | Relembrar: as três simetrias | Simétrico de (3, 2) em relação ao eixo x: (3, −2). Ao eixo y: (−3, 2). À origem: (−3, −2).
+Q: Qual é o simétrico de (4, 1) em relação ao eixo x?
++ (4, −1)
+- (−4, 1) | troca-eixo
+- (−4, −1) | troca-ambos
+- (1, 4) | troca-ordem
+E: O eixo x é o espelho: o x fica, o y troca de sinal.
+V: Qual é o simétrico de (2, 5) em relação ao eixo x?
++ (2, −5)
+- (−2, 5)
+- (−2, −5)
+- (5, 2)
+Q: Qual é o simétrico de (4, 1) em relação ao eixo y?
++ (−4, 1)
+- (4, −1) | troca-eixo
+- (−4, −1) | troca-ambos
+- (1, −4) | troca-ordem
+E: O eixo y é o espelho: o y fica, o x troca de sinal.
+V: Qual é o simétrico de (3, −2) em relação ao eixo y?
++ (−3, −2)
+- (3, 2)
+- (−3, 2)
+- (−2, 3)
+Q: Qual é o simétrico de (−5, 2) em relação à origem?
++ (5, −2)
+- (−5, −2) | troca-eixo
+- (5, 2) | troca-eixo
+- (2, −5) | troca-ordem
+E: Os dois sinais trocam.
+V: Qual é o simétrico de (6, −3) em relação à origem?
++ (−6, 3)
+- (6, 3)
+- (−6, −3)
+- (−3, 6)
+
+@exemplo_guiado | Exemplo guiado: triângulo refletido | Triângulo A(1, 1), B(4, 1), C(1, 3). Refletido no eixo y: A'(−1, 1), B'(−4, 1), C'(−1, 3). A figura fica do outro lado, como num espelho.
+Q: O triângulo (1, 2), (3, 2), (2, 5) foi refletido no eixo x. Quais são os novos vértices?
++ (1, −2), (3, −2), (2, −5)
+- (−1, 2), (−3, 2), (−2, 5) | troca-eixo
+- (−1, −2), (−3, −2), (−2, −5) | troca-ambos
+- (2, 1), (2, 3), (5, 2) | troca-ordem
+E: O y de cada vértice troca de sinal.
+V: O triângulo (2, 1), (4, 1), (3, 3) foi refletido no eixo x. Quais são os novos vértices?
++ (2, −1), (4, −1), (3, −3)
+- (−2, 1), (−4, 1), (−3, 3)
+- (−2, −1), (−4, −1), (−3, −3)
+- (1, 2), (1, 4), (3, 3)
+Q: Os pontos (3, 4) e (−3, 4) são simétricos em relação a:
++ Eixo y
+- Eixo x | troca-eixo
+- Origem | troca-ambos
+- Não são simétricos | efeito
+E: Só o x mudou de sinal.
+V: Os pontos (2, −6) e (2, 6) são simétricos em relação a:
++ Eixo x
+- Eixo y
+- Origem
+- Não são simétricos
+Q: Os pontos (1, 5) e (−1, −5) são simétricos em relação a:
++ Origem
+- Eixo x | troca-eixo
+- Eixo y | troca-eixo
+- Não são simétricos | efeito
+E: Os dois sinais mudaram.
+V: Os pontos (−4, 2) e (4, −2) são simétricos em relação a:
++ Origem
+- Eixo x
+- Eixo y
+- Não são simétricos
+
+@praticar | Praticar: localizando simétricos | Identifique o espelho antes.
+Q: O ponto P(2, 3) está no 1º quadrante. Seu simétrico em relação ao eixo y está em qual quadrante?
++ 2º quadrante
+- 4º quadrante | troca-eixo
+- 3º quadrante | troca-ambos
+- 1º quadrante | efeito
+E: (−2, 3): x negativo, y positivo.
+V: O ponto Q(5, 1) está no 1º quadrante. Seu simétrico em relação ao eixo x está em qual quadrante?
++ 4º quadrante
+- 2º quadrante
+- 3º quadrante
+- 1º quadrante
+Q: A distância de (0, 4) até seu simétrico em relação ao eixo x é:
++ 8
+- 4 | efeito
+- 0 | troca-eixo
+- 16 | calculo
+E: O simétrico é (0, −4). De 4 a −4 são 8.
+V: A distância de (3, 0) até seu simétrico em relação ao eixo y é:
++ 6
+- 3
+- 0
+- 9
+Q: Qual ponto é simétrico de si mesmo em relação ao eixo x?
++ (5, 0)
+- (0, 5) | troca-eixo
+- (5, 5) | efeito
+- (−5, 5) | efeito
+E: Pontos sobre o eixo x não mudam ao refletir nele.
+V: Qual ponto é simétrico de si mesmo em relação ao eixo y?
++ (0, −3)
+- (−3, 0)
+- (3, 3)
+- (3, −3)
+Q: Um quadrado tem vértices (1, 1), (3, 1), (3, 3), (1, 3). Refletido na origem, um dos novos vértices é:
++ (−3, −3)
+- (3, −3) | troca-eixo
+- (−3, 3) | troca-eixo
+- (1, −1) | troca-eixo
+E: (3, 3) vira (−3, −3).
+V: Um retângulo tem vértices (2, 1), (5, 1), (5, 2), (2, 2). Refletido na origem, um dos novos vértices é:
++ (−5, −2)
+- (5, −2)
+- (−5, 2)
+- (2, −1)
+
+@aplicar | Aplicar: simetria em desenhos | Use o eixo como espelho.
+Q: Uma borboleta é desenhada simétrica em relação ao eixo y. Uma ponta da asa direita está em (6, 4). Onde está a ponta correspondente da asa esquerda?
++ (−6, 4)
+- (6, −4) | troca-eixo
+- (−6, −4) | troca-ambos
+- (4, 6) | troca-ordem
+E: Simetria no eixo y: troca o sinal do x.
+V: Uma máscara é simétrica em relação ao eixo y. O olho direito está em (2, 5). Onde está o olho esquerdo?
++ (−2, 5)
+- (2, −5)
+- (−2, −5)
+- (5, 2)
+Q: Um lago reflete uma árvore. Tomando a superfície da água como eixo x, a copa está em (3, 7). Onde aparece o reflexo da copa?
++ (3, −7)
+- (−3, 7) | troca-eixo
+- (−3, −7) | troca-ambos
+- (7, 3) | troca-ordem
+E: O espelho horizontal troca o sinal do y.
+V: Com a água como eixo x, um pássaro está em (−2, 4). Onde aparece o reflexo?
++ (−2, −4)
+- (2, 4)
+- (2, −4)
+- (4, −2)
+Q: Um ponto e seu simétrico em relação à origem estão em (a, 3) e (−4, b). Quais são a e b?
++ a = 4 e b = −3
+- a = −4 e b = 3 | troca-eixo
+- a = 4 e b = 3 | troca-eixo
+- a = 3 e b = −4 | troca-ordem
+E: Na origem, os dois sinais trocam: a = 4 e b = −3.
+V: Um ponto e seu simétrico em relação ao eixo y estão em (a, 5) e (2, b). Quais são a e b?
++ a = −2 e b = 5
+- a = 2 e b = −5
+- a = −2 e b = −5
+- a = 5 e b = 2
+
+@explicar | Explicar: os três espelhos | Explique como encontrar os simétricos de (2, 3) em relação ao eixo x, ao eixo y e à origem.
+C: eixo-x | Eixo x: troca o sinal do y, (2, −3)
+C: eixo-y | Eixo y: troca o sinal do x, (−2, 3)
+C: origem | Origem: troca os dois, (−2, −3)
+BOA: No eixo x, o espelho é horizontal: o ponto fica na mesma posição para o lado, mas vai para baixo: (2, −3). No eixo y, o espelho é vertical: troca o lado, (−2, 3). Na origem, troca os dois: (−2, −3).
+
+#PRE EF07MA16 > EF07MA15 | 3
+#PRE EF07MA17 > EF07MA09 | 3
+#PRE EF07MA17 > EF07MA13 | 2
+#PRE EF07MA19 > EF07MA03 | 2
+#PRE EF07MA19 > EF06MA16 | 3
+#PRE EF07MA20 > EF07MA19 | 2
+#PRE EF07MA20 > EF06MA16 | 3

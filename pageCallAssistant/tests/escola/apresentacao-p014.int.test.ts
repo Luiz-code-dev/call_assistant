@@ -23,6 +23,7 @@ const ROOT = join(__dirname, "..", "..");
 const TRILHAS_DIR = join(ROOT, "prisma", "data", "conteudo", "trilhas");
 const DIAG_DIR    = join(ROOT, "prisma", "data", "conteudo", "diagnosticos");
 const FORBIDDEN   = /demonstra[cç][aã]o|aguarda revis[aã]o|lorem ipsum/i;
+const LP_DEMO     = ["EF15LP03", "EF35LP03", "EF35LP04", "EF35LP05"];
 
 // ── 1. Arquivos do pacote existem ─────────────────────────────────────────────
 describe("P0.14 — arquivos do pacote", () => {
@@ -34,12 +35,15 @@ describe("P0.14 — arquivos do pacote", () => {
     expect(data.length).toBe(8);
   });
 
-  it("LP-05.json existe e é array com 4 trilhas", () => {
+  it("LP-05.json existe e mantém as 4 trilhas do pacote demo", () => {
     const path = join(TRILHAS_DIR, "LP-05.json");
     expect(existsSync(path)).toBe(true);
     const data = JSON.parse(readFileSync(path, "utf8"));
     expect(Array.isArray(data)).toBe(true);
-    expect(data.length).toBe(4);
+    // O arquivo cresceu com a cobertura BNCC completa do 5º ano; o pacote demo continua dentro dele.
+    const skills = new Set(data.map((t: { skillCode: string }) => t.skillCode));
+    for (const s of LP_DEMO) expect(skills.has(s), `faltando ${s}`).toBe(true);
+    expect(data.length).toBeGreaterThanOrEqual(LP_DEMO.length);
   });
 
   it("4 diagnósticos existem", () => {
@@ -141,7 +145,8 @@ describe("P0.14 — IDs únicos (idempotência)", () => {
   it("total de 12 trilhas no pacote demo (8 Frações + 4 Leitura)", () => {
     const frac = JSON.parse(readFileSync(join(TRILHAS_DIR, "FRAC.json"), "utf8"));
     const lp   = JSON.parse(readFileSync(join(TRILHAS_DIR, "LP-05.json"), "utf8"));
-    expect(frac.length + lp.length).toBe(12);
+    const lpDemo = lp.filter((t: { skillCode: string }) => LP_DEMO.includes(t.skillCode));
+    expect(frac.length + lpDemo.length).toBe(12);
   });
 });
 

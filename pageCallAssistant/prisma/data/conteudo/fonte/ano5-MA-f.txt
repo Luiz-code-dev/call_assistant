@@ -1,0 +1,836 @@
+// 5º ano — Matemática (parte 6): EF05MA21, EF05MA22, EF05MA23, EF05MA24, EF05MA25
+
+#TRILHA EF05MA21 | MA | 5 | Trilha: Volume | Empilhando cubinhos
+FAZ: Reconhece volume como a grandeza associada ao espaço ocupado por um sólido e mede volumes empilhando cubos.
+ERRO: so-uma-camada | Conta só uma camada e esquece as outras
+ERRO: soma-dimensoes | Soma as medidas em vez de multiplicar
+ERRO: confunde-area | Confunde volume com área
+ERRO: calculo | Erra a conta
+NOTA: Use cubinhos do material dourado ou dados. Monte caixas de 2 × 3 × 2 e conte camada por camada.
+
+@relembrar | Relembrar: o que é volume | Volume é o espaço que um objeto ocupa. Uma caixa com 2 camadas de 6 cubinhos tem volume de 12 cubinhos.
+Q: Uma camada tem 3 fileiras de 4 cubinhos. Quantos cubinhos há nessa camada?
++ 12
+- 7 | soma-dimensoes
+- 4 | so-uma-camada
+- 16 | calculo
+E: 3 × 4 = 12.
+V: Uma camada tem 5 fileiras de 2 cubinhos. Quantos cubinhos há nessa camada?
++ 10
+- 7
+- 5
+- 12
+Q: Uma pilha tem 3 camadas iguais de 8 cubinhos. Qual é o volume, em cubinhos?
++ 24
+- 11 | soma-dimensoes
+- 8 | so-uma-camada
+- 32 | calculo
+E: 3 × 8 = 24.
+V: Uma pilha tem 4 camadas iguais de 6 cubinhos. Qual é o volume, em cubinhos?
++ 24
+- 10
+- 6
+- 30
+Q: O que o volume de uma caixa mede?
++ O espaço que ela ocupa
+- O contorno da tampa | confunde-area
+- O tamanho do fundo | confunde-area
+- O peso da caixa | confunde-area
+E: Volume é o espaço ocupado, em três dimensões.
+V: Para saber quantos cubinhos cabem dentro de uma caixa, medimos:
++ O volume
+- O perímetro
+- A área do fundo
+- A massa
+
+@exemplo_guiado | Exemplo guiado: comprimento, largura e altura | Uma caixa de 4 cubinhos de comprimento, 3 de largura e 2 de altura: cada camada tem 4 × 3 = 12; com 2 camadas, 12 × 2 = 24 cubinhos.
+Q: Uma caixa tem 5 de comprimento, 2 de largura e 3 de altura, em cubinhos. Qual é o volume?
++ 30 cubinhos
+- 10 cubinhos | so-uma-camada
+- 10 cubinhos de área | confunde-area
+- 25 cubinhos | calculo
+E: 5 × 2 = 10 por camada; 10 × 3 = 30.
+V: Uma caixa tem 3 de comprimento, 3 de largura e 2 de altura, em cubinhos. Qual é o volume?
++ 18 cubinhos
+- 9 cubinhos
+- 8 cubinhos
+- 12 cubinhos
+Q: Um cubo grande foi montado com 2 cubinhos em cada aresta. Quantos cubinhos foram usados?
++ 8
+- 4 | so-uma-camada
+- 6 | soma-dimensoes
+- 12 | calculo
+E: 2 × 2 × 2 = 8.
+V: Um cubo grande foi montado com 3 cubinhos em cada aresta. Quantos cubinhos foram usados?
++ 27
+- 9
+- 9 de área
+- 18
+Q: Duas caixas: A tem 2 × 2 × 5 cubinhos e B tem 3 × 3 × 2. Qual tem maior volume?
++ A, com 20 cubinhos (B tem 18)
+- B, com 18 cubinhos (A tem 20) | calculo
+- São iguais | soma-dimensoes
+- A, porque é mais alta | confunde-area
+E: A: 2 × 2 × 5 = 20. B: 3 × 3 × 2 = 18.
+V: Duas caixas: A tem 4 × 1 × 3 cubinhos e B tem 2 × 2 × 2. Qual tem maior volume?
++ A, com 12 cubinhos (B tem 8)
+- B, com 8 cubinhos (A tem 12)
+- São iguais
+- B, porque é um cubo
+
+@praticar | Praticar: medindo volume | Conte camada por camada.
+Q: Uma caixa de 6 × 4 × 2 cubinhos. Qual é o volume?
++ 48
+- 12 | soma-dimensoes
+- 24 | so-uma-camada
+- 36 | calculo
+E: 6 × 4 = 24; 24 × 2 = 48.
+V: Uma caixa de 5 × 4 × 3 cubinhos. Qual é o volume?
++ 60
+- 12
+- 20
+- 45
+Q: Uma caixa tem volume de 24 cubinhos e fundo de 4 × 3. Quantas camadas ela tem?
++ 2
+- 12 | confunde-area
+- 17 | soma-dimensoes
+- 8 | calculo
+E: Cada camada tem 12; 24 ÷ 12 = 2.
+V: Uma caixa tem volume de 30 cubinhos e fundo de 5 × 2. Quantas camadas ela tem?
++ 3
+- 10
+- 23
+- 6
+Q: Se dobrarmos a altura de uma caixa, mantendo o fundo, o volume:
++ Dobra
+- Fica igual | so-uma-camada
+- Aumenta 2 cubinhos | soma-dimensoes
+- Fica pela metade | calculo
+E: Dobra o número de camadas.
+V: Se triplicarmos a altura de uma caixa, mantendo o fundo, o volume:
++ Triplica
+- Fica igual
+- Aumenta 3 cubinhos
+- Fica pela terça parte
+Q: Duas pilhas, uma de 2 × 3 × 4 e outra de 4 × 3 × 2 cubinhos. O que se pode dizer dos volumes?
++ São iguais: 24 cubinhos
+- O primeiro é maior | calculo
+- O segundo é maior | calculo
+- Não dá para comparar | confunde-area
+E: 2 × 3 × 4 = 24 e 4 × 3 × 2 = 24.
+V: Duas pilhas, uma de 1 × 6 × 2 e outra de 3 × 2 × 2 cubinhos. O que se pode dizer dos volumes?
++ São iguais: 12 cubinhos
+- O primeiro é maior
+- O segundo é maior
+- Não dá para comparar
+
+@aplicar | Aplicar: caixas e embalagens | Pense nas camadas.
+Q: Uma caixa de leite tem a forma de um bloco. Quantos dados cabem numa caixa de 5 dados de comprimento, 3 de largura e 4 de altura?
++ 60
+- 12 | soma-dimensoes
+- 15 | so-uma-camada
+- 45 | calculo
+E: 5 × 3 × 4 = 60.
+V: Quantos cubinhos cabem numa caixa de 4 de comprimento, 4 de largura e 3 de altura?
++ 48
+- 11
+- 16
+- 36
+Q: Um aquário tem fundo de 10 × 5 cubinhos de 1 dm. Com água até a altura de 3 dm, quantos cubinhos de 1 dm de água ele tem?
++ 150
+- 50 | so-uma-camada
+- 18 | soma-dimensoes
+- 300 | calculo
+E: 10 × 5 = 50 por camada; 3 camadas: 150.
+V: Uma piscina de brinquedo tem fundo de 6 × 4 cubinhos de 1 dm. Com água até 2 dm, quantos cubinhos de 1 dm de água ela tem?
++ 48
+- 24
+- 12
+- 36
+Q: Para guardar 36 cubinhos numa caixa com fundo de 3 × 4, que altura a caixa precisa ter?
++ 3 cubinhos
+- 12 cubinhos | confunde-area
+- 29 cubinhos | soma-dimensoes
+- 4 cubinhos | calculo
+E: Fundo com 12; 36 ÷ 12 = 3 camadas.
+V: Para guardar 40 cubinhos numa caixa com fundo de 4 × 5, que altura a caixa precisa ter?
++ 2 cubinhos
+- 20 cubinhos
+- 31 cubinhos
+- 4 cubinhos
+
+@explicar | Explicar: camadas | Explique como descobrir quantos cubinhos formam uma caixa de 4 × 2 × 3.
+C: camada | Calcula uma camada: 4 × 2 = 8
+C: camadas | Multiplica pelo número de camadas: 8 × 3
+C: resultado | Chega a 24 cubinhos
+BOA: Primeiro vejo quantos cubinhos tem uma camada: 4 × 2 = 8. A caixa tem 3 camadas iguais, então 8 × 3 = 24. O volume é de 24 cubinhos.
+
+#TRILHA EF05MA22 | MA | 5 | Trilha: Resultados possíveis | Igualmente prováveis ou não?
+FAZ: Apresenta todos os resultados possíveis de um experimento aleatório e estima se são igualmente prováveis ou não.
+ERRO: esquece-resultado | Esquece algum resultado possível
+ERRO: inventa | Inclui resultado impossível
+ERRO: equiprovavel | Acha que todos os resultados têm sempre a mesma chance
+ERRO: ordem | Não percebe que a ordem gera resultados diferentes
+NOTA: Faça experimentos reais: dado, moeda, roleta com partes de tamanhos diferentes, saquinho com bolinhas de cores.
+
+@relembrar | Relembrar: listar tudo | Num dado comum os resultados possíveis são 1, 2, 3, 4, 5 e 6. Todos têm a mesma chance.
+Q: Quais são os resultados possíveis ao lançar uma moeda?
++ Cara ou coroa
+- Só cara | esquece-resultado
+- Cara, coroa ou empate | inventa
+- 1, 2, 3, 4, 5 ou 6 | inventa
+E: Dois resultados, com a mesma chance.
+V: Quantos resultados possíveis há ao lançar um dado comum?
++ 6
+- 5
+- 7
+- 12
+Q: Num saquinho há 3 bolinhas vermelhas e 1 azul. Os resultados "vermelha" e "azul" têm a mesma chance?
++ Não, vermelha tem mais chance
+- Sim, são só duas cores | equiprovavel
+- Não, azul tem mais chance | equiprovavel
+- Não dá para saber | equiprovavel
+E: Há mais bolinhas vermelhas.
+V: Num saquinho há 2 bolinhas verdes e 5 amarelas. Os resultados têm a mesma chance?
++ Não, amarela tem mais chance
+- Sim, são só duas cores
+- Não, verde tem mais chance
+- Não dá para saber
+Q: Num dado comum, é possível sair o número 7?
++ Não, é impossível
+- Sim, às vezes | inventa
+- Sim, se jogar com força | inventa
+- Só no segundo lançamento | inventa
+E: As faces vão de 1 a 6.
+V: Lançando uma moeda, é possível sair "cara e coroa ao mesmo tempo"?
++ Não, é impossível
+- Sim, às vezes
+- Sim, se cair em pé no chão
+- Só no segundo lançamento
+
+@exemplo_guiado | Exemplo guiado: dois lançamentos | Lançando uma moeda duas vezes: cara-cara, cara-coroa, coroa-cara, coroa-coroa. São 4 resultados igualmente prováveis.
+Q: Lançando uma moeda duas vezes, quantos resultados possíveis há?
++ 4
+- 3 | ordem
+- 2 | esquece-resultado
+- 6 | inventa
+E: CC, CK, KC, KK (C = cara, K = coroa).
+V: Lançando uma moeda três vezes, quantos resultados possíveis há?
++ 8
+- 4
+- 6
+- 3
+Q: Uma roleta tem metade pintada de azul e metade dividida igualmente em verde e amarelo. Qual cor tem mais chance?
++ Azul
+- Todas têm a mesma chance | equiprovavel
+- Verde | equiprovavel
+- Amarelo | equiprovavel
+E: O azul ocupa metade; verde e amarelo, um quarto cada.
+V: Uma roleta tem 3 partes iguais vermelhas e 1 parte igual branca. Qual cor tem mais chance?
++ Vermelho
+- As duas têm a mesma chance
+- Branco
+- Não dá para saber
+Q: Ao lançar dois dados e somar os pontos, qual soma é impossível?
++ 1
+- 2 | inventa
+- 7 | inventa
+- 12 | inventa
+E: A menor soma possível é 1 + 1 = 2.
+V: Ao lançar dois dados e somar os pontos, qual soma é impossível?
++ 13
+- 12
+- 2
+- 6
+
+@praticar | Praticar: chances diferentes | Pense em quantas maneiras cada resultado pode sair.
+Q: Lançando dois dados e somando, qual soma tem mais chance: 2 ou 7?
++ 7
+- 2 | equiprovavel
+- As duas têm a mesma chance | equiprovavel
+- Nenhuma das duas pode sair | inventa
+E: Soma 2 só sai com 1 + 1. Soma 7 sai de 6 maneiras: 1+6, 2+5, 3+4, 4+3, 5+2, 6+1.
+V: Lançando dois dados e somando, qual soma tem mais chance: 12 ou 6?
++ 6
+- 12
+- As duas têm a mesma chance
+- Nenhuma das duas pode sair
+Q: Num pote há 4 balas de morango, 4 de uva e 4 de limão. Tirando uma sem olhar, os sabores:
++ Têm a mesma chance
+- Morango tem mais chance | equiprovavel
+- Limão tem menos chance | equiprovavel
+- Não dá para saber | equiprovavel
+E: Há a mesma quantidade de cada sabor.
+V: Num pote há 5 fichas azuis e 5 fichas vermelhas. Tirando uma sem olhar, as cores:
++ Têm a mesma chance
+- Azul tem mais chance
+- Vermelho tem menos chance
+- Não dá para saber
+Q: Quais são os resultados possíveis ao girar uma roleta com os números 1, 2 e 3?
++ 1, 2 ou 3
+- 1 ou 2 | esquece-resultado
+- 1, 2, 3 ou 4 | inventa
+- 0, 1, 2 ou 3 | inventa
+E: Só os números que estão na roleta.
+V: Quais são os resultados possíveis ao tirar uma bola de um saco com bolas numeradas de 1 a 4?
++ 1, 2, 3 ou 4
+- 1, 2 ou 3
+- 1, 2, 3, 4 ou 5
+- 0, 1, 2, 3 ou 4
+Q: Uma família tem 2 filhos. Quais são as possibilidades de ordem de nascimento (menino ou menina)?
++ Menino-menino, menino-menina, menina-menino, menina-menina
+- Dois meninos, duas meninas ou um de cada | ordem
+- Só menino-menina | esquece-resultado
+- Menino-menino e menina-menina | esquece-resultado
+E: São 4 possibilidades considerando a ordem.
+V: Lançando uma moeda e depois outra, quais são os resultados considerando a ordem?
++ Cara-cara, cara-coroa, coroa-cara, coroa-coroa
+- Duas caras, duas coroas ou uma de cada
+- Só cara-coroa
+- Cara-cara e coroa-coroa
+
+@aplicar | Aplicar: jogos e sorteios | Liste tudo e compare as chances.
+Q: Num jogo, Ana ganha se sair número par no dado e Bia ganha se sair número ímpar. O jogo é justo?
++ Sim, cada uma tem 3 resultados
+- Não, Ana tem mais chance | equiprovavel
+- Não, Bia tem mais chance | equiprovavel
+- Não dá para saber | equiprovavel
+E: Pares: 2, 4, 6. Ímpares: 1, 3, 5.
+V: Caio ganha se sair 1 ou 2 no dado; Davi ganha se sair 3, 4, 5 ou 6. O jogo é justo?
++ Não, Davi tem mais chance
+- Sim, cada um tem a mesma chance
+- Não, Caio tem mais chance
+- Não dá para saber
+Q: Uma rifa tem 100 números. Rui comprou 10 e Lia comprou 1. Quem tem mais chance de ganhar?
++ Rui
+- Lia | equiprovavel
+- Os dois têm a mesma chance | equiprovavel
+- Ninguém pode ganhar | inventa
+E: Rui tem 10 números; Lia, só 1.
+V: Uma rifa tem 50 números. Gil comprou 2 e Teo comprou 8. Quem tem mais chance de ganhar?
++ Teo
+- Gil
+- Os dois têm a mesma chance
+- Ninguém pode ganhar
+Q: Num sorteio com os nomes de 12 meninas e 18 meninos da turma, o sorteado tem mais chance de ser:
++ Menino
+- Menina | equiprovavel
+- Os dois têm a mesma chance | equiprovavel
+- Nenhum dos dois | inventa
+E: Há mais nomes de meninos.
+V: Num sorteio com 15 fichas verdes e 10 azuis, a ficha sorteada tem mais chance de ser:
++ Verde
+- Azul
+- As duas cores têm a mesma chance
+- Nenhuma das duas
+
+@explicar | Explicar: chances iguais ou diferentes | Explique por que, num saquinho com 3 bolas azuis e 1 vermelha, os resultados "azul" e "vermelho" não são igualmente prováveis.
+C: lista | Lista os resultados possíveis: azul ou vermelho
+C: compara | Compara as quantidades: 3 azuis e 1 vermelha
+C: conclui | Conclui que azul tem mais chance
+BOA: Os resultados possíveis são azul ou vermelho, mas não têm a mesma chance. Há 3 bolas azuis e só 1 vermelha, então existem 3 maneiras de tirar azul e só 1 de tirar vermelho. Por isso azul é mais provável.
+
+#TRILHA EF05MA23 | MA | 5 | Trilha: Probabilidade | Casos favoráveis sobre casos possíveis
+FAZ: Determina a probabilidade de um resultado quando todos os resultados possíveis têm a mesma chance, expressando-a como fração.
+ERRO: inverte-fracao | Inverte a fração (possíveis sobre favoráveis)
+ERRO: total-errado | Conta errado o total de resultados possíveis
+ERRO: favoraveis-errado | Conta errado os casos favoráveis
+ERRO: desfavoraveis | Usa os casos desfavoráveis no lugar dos favoráveis
+NOTA: Escreva sempre: probabilidade = casos favoráveis / casos possíveis. Confira contando nos dedos.
+
+@relembrar | Relembrar: a fração da chance | No dado, a chance de sair 3 é 1 em 6: 1/6. A chance de sair par (2, 4, 6) é 3 em 6: 3/6, que é 1/2.
+Q: Qual é a probabilidade de sair cara ao lançar uma moeda?
++ 1/2
+- 2/1 | inverte-fracao
+- 1/1 | total-errado
+- 1/3 | total-errado
+E: 1 caso favorável em 2 possíveis.
+V: Qual é a probabilidade de sair 5 num dado comum?
++ 1/6
+- 6/1
+- 1/5
+- 5/6
+Q: Qual é a probabilidade de sair um número maior que 4 num dado comum?
++ 2/6
+- 4/6 | desfavoraveis
+- 6/2 | inverte-fracao
+- 1/6 | favoraveis-errado
+E: Maiores que 4: 5 e 6. São 2 em 6.
+V: Qual é a probabilidade de sair um número menor que 3 num dado comum?
++ 2/6
+- 4/6
+- 6/2
+- 3/6
+Q: Num saquinho com 2 bolas azuis e 3 vermelhas, qual é a probabilidade de tirar azul?
++ 2/5
+- 2/3 | total-errado
+- 3/5 | desfavoraveis
+- 5/2 | inverte-fracao
+E: 2 azuis em 5 bolas.
+V: Num saquinho com 4 bolas verdes e 1 amarela, qual é a probabilidade de tirar amarela?
++ 1/5
+- 1/4
+- 4/5
+- 5/1
+
+@exemplo_guiado | Exemplo guiado: roleta | Uma roleta com 8 partes iguais: 3 azuis, 4 verdes e 1 branca. A chance de azul é 3/8; de verde, 4/8 = 1/2; de branca, 1/8.
+Q: Numa roleta com 10 partes iguais, 3 são vermelhas. Qual é a probabilidade de parar no vermelho?
++ 3/10
+- 7/10 | desfavoraveis
+- 10/3 | inverte-fracao
+- 3/7 | total-errado
+E: 3 partes favoráveis em 10.
+V: Numa roleta com 12 partes iguais, 5 são amarelas. Qual é a probabilidade de parar no amarelo?
++ 5/12
+- 7/12
+- 12/5
+- 5/7
+Q: Uma caixa tem cartões numerados de 1 a 10. Qual é a probabilidade de tirar um número par?
++ 5/10
+- 4/10 | favoraveis-errado
+- 10/5 | inverte-fracao
+- 6/10 | favoraveis-errado
+E: Pares: 2, 4, 6, 8, 10. São 5 em 10.
+V: Uma caixa tem cartões numerados de 1 a 20. Qual é a probabilidade de tirar um número terminado em 0?
++ 2/20
+- 1/20
+- 20/2
+- 3/20
+Q: Um pote tem 6 balas de morango, 3 de uva e 1 de limão. Qual é a probabilidade de pegar uma de uva?
++ 3/10
+- 3/9 | total-errado
+- 7/10 | desfavoraveis
+- 1/3 | total-errado
+E: Total: 6 + 3 + 1 = 10. Uva: 3.
+V: Um pote tem 5 balas de menta, 2 de canela e 3 de mel. Qual é a probabilidade de pegar uma de canela?
++ 2/10
+- 2/8
+- 8/10
+- 1/2
+
+@praticar | Praticar: calculando probabilidades | Favoráveis em cima, possíveis embaixo.
+Q: Qual é a probabilidade de sair um número múltiplo de 3 num dado comum?
++ 2/6
+- 3/6 | favoraveis-errado
+- 4/6 | desfavoraveis
+- 1/6 | favoraveis-errado
+E: Múltiplos de 3: 3 e 6.
+V: Qual é a probabilidade de sair um número primo num dado comum?
++ 3/6
+- 2/6
+- 4/6
+- 1/6
+Q: Numa turma de 25 alunos, 1 será sorteado. Qual é a probabilidade de ser Ana?
++ 1/25
+- 24/25 | desfavoraveis
+- 25/1 | inverte-fracao
+- 1/24 | total-errado
+E: 1 caso em 25.
+V: Num grupo de 30 crianças, 1 será sorteada. Qual é a probabilidade de ser Caio?
++ 1/30
+- 29/30
+- 30/1
+- 1/29
+Q: Qual é a probabilidade de sair um número menor que 7 num dado comum?
++ 6/6, ou seja, é certo
+- 0/6 | favoraveis-errado
+- 1/6 | favoraveis-errado
+- 7/6 | total-errado
+E: Todos os números do dado são menores que 7.
+V: Qual é a probabilidade de sair o número 8 num dado comum?
++ 0/6, ou seja, é impossível
+- 1/6
+- 6/6
+- 8/6
+Q: Lançando duas moedas, qual é a probabilidade de saírem duas caras?
++ 1/4
+- 1/2 | total-errado
+- 1/3 | total-errado
+- 3/4 | desfavoraveis
+E: Resultados: CC, CK, KC, KK. Só 1 tem duas caras.
+V: Lançando duas moedas, qual é a probabilidade de sair uma cara e uma coroa (em qualquer ordem)?
++ 2/4
+- 1/4
+- 1/3
+- 3/4
+
+@aplicar | Aplicar: probabilidade no dia a dia | Conte os casos com cuidado.
+Q: Uma rifa tem 200 números e Lia comprou 5. Qual é a probabilidade de ela ganhar?
++ 5/200
+- 195/200 | desfavoraveis
+- 200/5 | inverte-fracao
+- 1/200 | favoraveis-errado
+E: 5 números favoráveis em 200.
+V: Uma rifa tem 150 números e Rui comprou 3. Qual é a probabilidade de ele ganhar?
++ 3/150
+- 147/150
+- 150/3
+- 1/150
+Q: Numa caixa há 4 lápis azuis, 5 vermelhos e 3 pretos. Qual é a probabilidade de tirar um lápis que NÃO seja preto?
++ 9/12
+- 3/12 | desfavoraveis
+- 9/3 | inverte-fracao
+- 9/11 | total-errado
+E: Não pretos: 4 + 5 = 9. Total: 12.
+V: Numa caixa há 6 bolas brancas, 2 laranjas e 4 roxas. Qual é a probabilidade de tirar uma bola que NÃO seja branca?
++ 6/12
+- 2/12
+- 12/6
+- 6/11
+Q: As letras da palavra BOLA foram escritas em cartões. Tirando um, qual é a probabilidade de ser uma vogal?
++ 2/4
+- 1/4 | favoraveis-errado
+- 3/4 | favoraveis-errado
+- 4/2 | inverte-fracao
+E: Vogais: O e A. 2 em 4 letras.
+V: As letras da palavra CASA foram escritas em cartões. Tirando um, qual é a probabilidade de ser a letra A?
++ 2/4
+- 1/4
+- 3/4
+- 4/2
+
+@explicar | Explicar: calculando a chance | Explique como calcular a probabilidade de sair número par num dado comum.
+C: possiveis | Conta os resultados possíveis: 6
+C: favoraveis | Lista os favoráveis: 2, 4 e 6
+C: fracao | Escreve 3/6 (ou 1/2)
+BOA: O dado tem 6 resultados possíveis, todos com a mesma chance. Os números pares são 2, 4 e 6, então há 3 casos favoráveis. A probabilidade é 3/6, que é o mesmo que 1/2: metade das vezes, em média.
+
+#TRILHA EF05MA24 | MA | 5 | Trilha: Lendo dados | Tabelas e gráficos de outras áreas
+FAZ: Interpreta dados apresentados em textos, tabelas e gráficos de colunas ou de linhas, sobre temas como saúde e trânsito, e escreve conclusões.
+ERRO: le-errado | Lê o valor de outra linha ou coluna
+ERRO: maior-menor | Confunde o maior valor com o menor
+ERRO: diferenca | Soma quando deveria calcular a diferença
+ERRO: conclusao | Tira uma conclusão que os dados não mostram
+NOTA: Use dados reais da turma e notícias. Peça sempre uma frase de conclusão que se apoie nos números.
+
+@relembrar | Relembrar: ler a tabela | Vacinados por mês: março 120, abril 150, maio 90. O mês com mais vacinados foi abril.
+Q: Vacinados por mês: março 120, abril 150, maio 90. Em que mês houve menos vacinados?
++ Maio
+- Abril | maior-menor
+- Março | le-errado
+- Todos iguais | conclusao
+E: 90 é o menor valor.
+V: Livros emprestados: segunda 35, terça 48, quarta 27. Em que dia houve menos empréstimos?
++ Quarta
+- Terça
+- Segunda
+- Todos iguais
+Q: Acidentes numa rua: janeiro 8, fevereiro 5, março 3. Quantos acidentes a menos houve em março do que em janeiro?
++ 5
+- 11 | diferenca
+- 3 | le-errado
+- 16 | diferenca
+E: 8 − 3 = 5.
+V: Faltas na turma: segunda 9, terça 4, quarta 2. Quantas faltas a menos houve na quarta do que na segunda?
++ 7
+- 11
+- 2
+- 15
+Q: Num gráfico de linhas, a temperatura subiu de 20 °C às 8h para 28 °C às 14h. O que aconteceu nesse período?
++ A temperatura aumentou 8 °C
+- A temperatura caiu 8 °C | maior-menor
+- A temperatura ficou igual | conclusao
+- A temperatura aumentou 48 °C | diferenca
+E: 28 − 20 = 8.
+V: Num gráfico de linhas, o nível de um rio caiu de 5 m em junho para 3 m em agosto. O que aconteceu?
++ O nível baixou 2 m
+- O nível subiu 2 m
+- O nível ficou igual
+- O nível baixou 8 m
+
+@exemplo_guiado | Exemplo guiado: conclusão com dados | Tabela: alunos que tomam café da manhã — 5º A: 20 de 25; 5º B: 15 de 25. Conclusão: no 5º A mais alunos tomam café da manhã; a diferença é de 5 alunos.
+Q: Horas de sono por noite: Ana 10, Bia 8, Caio 9, Davi 7. Quem dorme mais?
++ Ana
+- Davi | maior-menor
+- Caio | le-errado
+- Bia | le-errado
+E: 10 horas é o maior valor.
+V: Copos de água por dia: Lia 6, Rui 8, Gil 5, Teo 7. Quem bebe mais água?
++ Rui
+- Gil
+- Teo
+- Lia
+Q: Um gráfico de colunas mostra bicicletas que passam numa rua: manhã 40, tarde 25, noite 10. Qual conclusão está de acordo com o gráfico?
++ Passam mais bicicletas de manhã
+- Ninguém anda de bicicleta à noite | conclusao
+- À tarde passam mais bicicletas | maior-menor
+- As bicicletas são mais seguras de manhã | conclusao
+E: O gráfico só mostra quantidades; 40 é o maior valor.
+V: Um gráfico de colunas mostra carros que passam num cruzamento: 7h 80, 12h 50, 18h 90. Qual conclusão está de acordo com o gráfico?
++ O horário com mais carros é 18h
+- Às 12h não passa ninguém
+- O horário com mais carros é 7h
+- O trânsito às 18h é perigoso
+Q: Peso de uma criança pelo cartão de vacina: 1 ano 10 kg, 2 anos 12 kg, 3 anos 14 kg. Quanto ela ganhou de peso do 1º ao 3º ano?
++ 4 kg
+- 24 kg | diferenca
+- 14 kg | le-errado
+- 2 kg | le-errado
+E: 14 − 10 = 4.
+V: Altura de uma planta: semana 1 5 cm, semana 2 9 cm, semana 3 14 cm. Quanto ela cresceu da semana 1 para a 3?
++ 9 cm
+- 19 cm
+- 14 cm
+- 4 cm
+
+@praticar | Praticar: interpretando | Encontre o dado certo antes de calcular.
+Q: Casos de dengue no bairro: janeiro 12, fevereiro 30, março 45, abril 20. Entre quais meses o número mais aumentou?
++ De janeiro para fevereiro (aumento de 18)
+- De fevereiro para março (aumento de 15) | diferenca
+- De março para abril | maior-menor
+- Não houve aumento | conclusao
+E: 30 − 12 = 18; 45 − 30 = 15; de março para abril caiu.
+V: Visitantes de uma praça: segunda 15, terça 40, quarta 50, quinta 30. Entre quais dias o número mais aumentou?
++ De segunda para terça (aumento de 25)
+- De terça para quarta (aumento de 10)
+- De quarta para quinta
+- Não houve aumento
+Q: Pesquisa sobre transporte: a pé 12, ônibus 9, carro 6, bicicleta 3. Quantos alunos responderam?
++ 30
+- 12 | le-errado
+- 27 | diferenca
+- 4 | conclusao
+E: 12 + 9 + 6 + 3 = 30.
+V: Pesquisa sobre fruta preferida: banana 10, maçã 8, manga 7, uva 5. Quantos alunos responderam?
++ 30
+- 10
+- 25
+- 4
+Q: Na pesquisa de transporte (a pé 12, ônibus 9, carro 6, bicicleta 3), quantos alunos a mais vão a pé do que de carro?
++ 6
+- 18 | diferenca
+- 3 | le-errado
+- 9 | le-errado
+E: 12 − 6 = 6.
+V: Na pesquisa de frutas (banana 10, maçã 8, manga 7, uva 5), quantos a mais preferem banana do que uva?
++ 5
+- 15
+- 2
+- 3
+Q: Um gráfico de linhas mostra a temperatura de uma cidade em 5 dias: 25, 27, 30, 28, 24 graus. Em que dia fez mais calor?
++ No 3º dia
+- No 5º dia | maior-menor
+- No 2º dia | le-errado
+- No 1º dia | le-errado
+E: 30 °C é o maior valor, no 3º dia.
+V: Um gráfico de linhas mostra a chuva em 5 dias: 10, 4, 0, 7, 15 mm. Em que dia choveu mais?
++ No 5º dia
+- No 3º dia
+- No 1º dia
+- No 4º dia
+
+@aplicar | Aplicar: escrevendo conclusões | A conclusão precisa se apoiar nos números.
+Q: Tabela de multas por excesso de velocidade: 2023: 500; 2024: 350. Qual frase resume os dados?
++ As multas por excesso de velocidade diminuíram 150 de 2023 para 2024
+- As multas aumentaram em 2024 | maior-menor
+- Não houve mais acidentes em 2024 | conclusao
+- Houve 850 multas em 2024 | diferenca
+E: 500 − 350 = 150 a menos.
+V: Tabela de bicicletas roubadas: 2023: 80; 2024: 50. Qual frase resume os dados?
++ Os roubos de bicicleta diminuíram 30 de 2023 para 2024
+- Os roubos aumentaram em 2024
+- Ninguém mais anda de bicicleta
+- Houve 130 roubos em 2024
+Q: Num posto de saúde, foram atendidas 40 crianças na segunda, 26 na terça e 33 na quarta. Qual foi a média de atendimentos por dia?
++ 33
+- 99 | diferenca
+- 40 | maior-menor
+- 26 | maior-menor
+E: 40 + 26 + 33 = 99; 99 ÷ 3 = 33.
+V: Uma biblioteca emprestou 30 livros na segunda, 20 na terça e 40 na quarta. Qual foi a média de empréstimos por dia?
++ 30
+- 90
+- 40
+- 20
+Q: Uma pesquisa mostrou que 18 de 30 alunos lancham frutas. Qual conclusão é correta?
++ Mais da metade dos alunos pesquisados lancham frutas
+- Todos os alunos lancham frutas | conclusao
+- Menos da metade lancham frutas | maior-menor
+- 18 alunos não lancham frutas | le-errado
+E: A metade de 30 é 15; 18 é mais que 15.
+V: Uma pesquisa mostrou que 12 de 30 alunos praticam esporte. Qual conclusão é correta?
++ Menos da metade dos alunos pesquisados praticam esporte
+- Todos os alunos praticam esporte
+- Mais da metade praticam esporte
+- 12 alunos não praticam esporte
+
+@explicar | Explicar: conclusão com números | Uma tabela mostra que uma rua teve 10 acidentes antes da faixa de pedestres e 4 depois. Escreva uma conclusão e diga o que os números mostram.
+C: compara | Compara os dois valores: 10 e 4
+C: diferenca | Calcula a diferença: 6 acidentes a menos
+C: cuidado | Escreve a conclusão sem afirmar mais do que os dados mostram
+BOA: Antes da faixa houve 10 acidentes e depois, 4. São 6 acidentes a menos. Os dados mostram que os acidentes diminuíram depois da faixa. Isso sugere que a faixa ajudou, mas para ter certeza seria bom observar por mais tempo.
+
+#TRILHA EF05MA25 | MA | 5 | Trilha: Pesquisa e gráficos | Da pergunta à conclusão
+FAZ: Faz pesquisas com variáveis categóricas e numéricas, organiza os dados em tabelas e gráficos (colunas, pictóricos e de linhas) e escreve um texto com a finalidade e a síntese dos resultados.
+ERRO: tipo-variavel | Confunde variável categórica com numérica
+ERRO: grafico-errado | Escolhe um gráfico que não combina com os dados
+ERRO: contagem | Erra a contagem ou o total ao organizar a tabela
+ERRO: legenda | Esquece título, legenda ou escala
+ERRO: conclusao | Escreve uma síntese que os dados não mostram
+NOTA: Faça uma pesquisa de verdade com a turma: escolham a pergunta, contem os votos, montem a tabela e o gráfico e escrevam a conclusão juntos.
+
+@relembrar | Relembrar: tipos de variável | Variável categórica tem respostas em palavras (cor preferida, esporte). Variável numérica tem respostas em números (idade, altura, número de irmãos).
+Q: "Qual é o seu esporte preferido?" gera que tipo de variável?
++ Categórica
+- Numérica | tipo-variavel
+- As duas | tipo-variavel
+- Nenhuma | tipo-variavel
+E: As respostas são nomes: futebol, vôlei, natação.
+V: "Qual é a sua cor preferida?" gera que tipo de variável?
++ Categórica
+- Numérica
+- As duas
+- Nenhuma
+Q: "Quantos irmãos você tem?" gera que tipo de variável?
++ Numérica
+- Categórica | tipo-variavel
+- As duas | tipo-variavel
+- Nenhuma | tipo-variavel
+E: As respostas são números: 0, 1, 2...
+V: "Quantos centímetros você mede?" gera que tipo de variável?
++ Numérica
+- Categórica
+- As duas
+- Nenhuma
+Q: Para mostrar como a altura de uma planta mudou ao longo das semanas, qual gráfico é mais adequado?
++ Gráfico de linhas
+- Gráfico pictórico | grafico-errado
+- Nenhum gráfico serve | grafico-errado
+- Uma lista de nomes | grafico-errado
+E: O gráfico de linhas mostra mudanças ao longo do tempo.
+V: Para mostrar a temperatura de cada hora do dia, qual gráfico é mais adequado?
++ Gráfico de linhas
+- Gráfico pictórico
+- Nenhum gráfico serve
+- Uma lista de nomes
+
+@exemplo_guiado | Exemplo guiado: organizando votos | Votos para o passeio: zoológico, praia, praia, museu, praia, zoológico. Tabela: praia 3, zoológico 2, museu 1. Total: 6.
+Q: Votos: suco, refrigerante, suco, água, suco, água, suco. Quantos votos teve suco?
++ 4
+- 3 | contagem
+- 5 | contagem
+- 7 | contagem
+E: Contando: suco aparece 4 vezes.
+V: Votos: azul, verde, azul, azul, vermelho, verde. Quantos votos teve azul?
++ 3
+- 2
+- 4
+- 6
+Q: Numa pesquisa, futebol teve 12 votos, vôlei 8 e basquete 5. Qual é o total de votos?
++ 25
+- 12 | contagem
+- 20 | contagem
+- 3 | contagem
+E: 12 + 8 + 5 = 25.
+V: Numa pesquisa, cachorro teve 14 votos, gato 9 e peixe 2. Qual é o total de votos?
++ 25
+- 14
+- 23
+- 3
+Q: Num gráfico pictórico, cada desenho de livro vale 5 livros. Se aparecem 4 desenhos, quantos livros são?
++ 20
+- 4 | legenda
+- 9 | contagem
+- 5 | legenda
+E: 4 × 5 = 20.
+V: Num gráfico pictórico, cada desenho de bola vale 10 bolas. Se aparecem 3 desenhos, quantas bolas são?
++ 30
+- 3
+- 13
+- 10
+
+@praticar | Praticar: montando a pesquisa | Pense na pergunta, na tabela e no gráfico.
+Q: O que todo gráfico precisa ter para ser bem entendido?
++ Título, nomes nos eixos e legenda ou escala
+- Só as colunas coloridas | legenda
+- Só os números, sem nomes | legenda
+- Muitos desenhos | grafico-errado
+E: Sem título e legenda, o leitor não sabe o que os dados representam.
+V: Um gráfico de colunas sem escala no eixo vertical:
++ Não permite saber o valor de cada coluna
+- Fica mais fácil de ler
+- Mostra os valores do mesmo jeito
+- É o mais correto
+Q: Para comparar quantos alunos preferem cada fruta, qual gráfico é adequado?
++ Gráfico de colunas
+- Gráfico de linhas | grafico-errado
+- Nenhum gráfico serve | grafico-errado
+- Um mapa | grafico-errado
+E: Colunas comparam categorias.
+V: Para comparar quantos alunos usam cada tipo de transporte, qual gráfico é adequado?
++ Gráfico de colunas
+- Gráfico de linhas
+- Nenhum gráfico serve
+- Um mapa
+Q: Pesquisa sobre idade dos alunos: 9 anos 4, 10 anos 15, 11 anos 6. Qual idade é a mais comum?
++ 10 anos
+- 11 anos | contagem
+- 9 anos | contagem
+- 15 anos | tipo-variavel
+E: 15 alunos têm 10 anos, o maior número.
+V: Pesquisa sobre número de irmãos: 0 irmãos 5, 1 irmão 12, 2 irmãos 8. Qual resposta é a mais comum?
++ 1 irmão
+- 2 irmãos
+- 0 irmãos
+- 12 irmãos
+Q: Qual é uma boa pergunta para uma pesquisa com variável numérica?
++ Quantas horas por dia você usa o celular?
+- Qual é a sua música preferida? | tipo-variavel
+- Qual é a cor da sua mochila? | tipo-variavel
+- Qual é o seu animal preferido? | tipo-variavel
+E: A resposta é um número de horas.
+V: Qual é uma boa pergunta para uma pesquisa com variável categórica?
++ Qual é a sua matéria preferida?
+- Quantos anos você tem?
+- Quantos livros você leu este ano?
+- Quanto você mede?
+
+@aplicar | Aplicar: o texto da pesquisa | Diga para que serve a pesquisa e o que ela mostrou.
+Q: A turma pesquisou "Como você vem para a escola?": a pé 14, ônibus 8, carro 5, bicicleta 3. Qual frase é uma boa síntese?
++ A maioria dos 30 alunos vem a pé; a bicicleta é a forma menos usada
+- Todos os alunos vêm a pé | conclusao
+- O ônibus é o mais usado | contagem
+- A pesquisa teve 14 respostas | contagem
+E: Total: 30. A pé é o maior valor (14) e bicicleta, o menor (3).
+V: A turma pesquisou "Qual sua fruta preferida?": banana 11, maçã 9, uva 6, manga 4. Qual frase é uma boa síntese?
++ A banana foi a preferida dos 30 alunos; a manga foi a menos escolhida
+- Todos preferem banana
+- A uva foi a preferida
+- A pesquisa teve 11 respostas
+Q: Qual é a finalidade de uma pesquisa sobre "Quantos copos de água você bebe por dia?"?
++ Saber se os alunos bebem água suficiente para cuidar da saúde
+- Saber qual a cor preferida dos alunos | tipo-variavel
+- Contar quantos alunos tem a escola | contagem
+- Descobrir a idade dos alunos | tipo-variavel
+E: A finalidade é o motivo de fazer a pesquisa.
+V: Qual é a finalidade de uma pesquisa sobre "Quantas horas você dorme por noite?"?
++ Saber se os alunos dormem o suficiente para cuidar da saúde
+- Saber qual o esporte preferido dos alunos
+- Contar quantas salas tem a escola
+- Descobrir a altura dos alunos
+Q: Para mostrar o número de livros lidos pela turma em cada mês do ano, qual gráfico é o melhor?
++ Gráfico de linhas ou de colunas, com os meses no eixo horizontal
+- Um gráfico sem título | legenda
+- Uma lista com os nomes dos alunos | grafico-errado
+- Nenhum gráfico serve | grafico-errado
+E: Os meses seguem uma ordem no tempo.
+V: Para mostrar quantos gols o time fez em cada jogo do campeonato, qual gráfico é o melhor?
++ Gráfico de linhas ou de colunas, com os jogos no eixo horizontal
+- Um gráfico sem título
+- Uma lista com os nomes dos jogadores
+- Nenhum gráfico serve
+
+@explicar | Explicar: do começo ao fim | Explique os passos para fazer uma pesquisa sobre o esporte preferido da turma e apresentar o resultado.
+C: pergunta | Diz que é preciso escolher a pergunta e a finalidade
+C: organiza | Diz que é preciso contar as respostas e montar uma tabela e um gráfico de colunas
+C: conclui | Diz que é preciso escrever uma conclusão com base nos números
+BOA: Primeiro escolho a pergunta, "Qual é o seu esporte preferido?", e digo para que serve: saber que atividades a turma gostaria na educação física. Depois anoto as respostas, conto e monto uma tabela. Faço um gráfico de colunas, com título e nomes nos eixos. No fim escrevo uma conclusão, por exemplo: "O futebol foi o mais escolhido, com 12 votos de 30".
+
+#PRE EF05MA21 > EF05MA16 | 2
+#PRE EF05MA21 > EF05MA20 | 2
+#PRE EF05MA22 > EF04MA26 | 3
+#PRE EF05MA23 > EF05MA22 | 3
+#PRE EF05MA23 > EF05MA03 | 2
+#PRE EF05MA24 > EF04MA27 | 3
+#PRE EF05MA25 > EF05MA24 | 2
+#PRE EF05MA25 > EF04MA28 | 2

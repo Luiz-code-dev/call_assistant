@@ -1,0 +1,668 @@
+// 5º ano — Matemática (parte 2): EF05MA01, EF05MA02, EF05MA07, EF05MA08
+
+#TRILHA EF05MA01 | MA | 5 | Trilha: Números até as centenas de milhar | Números com seis algarismos
+FAZ: Lê, escreve e ordena números naturais até a ordem das centenas de milhar, compreendendo o valor posicional.
+ERRO: le-por-partes | Lê os algarismos separados, sem formar o número
+ERRO: zero-esquecido | Esquece o zero de uma ordem vazia
+ERRO: compara-pelo-inicio | Compara só o primeiro algarismo, sem olhar a quantidade de algarismos
+ERRO: valor-posicional | Erra o valor do algarismo pela posição
+NOTA: Use o quadro de classes (milhares e unidades simples). Leia populações de cidades e preços de imóveis.
+
+@relembrar | Relembrar: as classes | 345.678 tem duas classes: 345 mil e 678. Lê-se "trezentos e quarenta e cinco mil, seiscentos e setenta e oito".
+Q: Como se lê 208.450?
++ Duzentos e oito mil, quatrocentos e cinquenta
+- Dois, zero, oito, quatro, cinco, zero | le-por-partes
+- Vinte mil, oitocentos e quarenta e cinco | zero-esquecido
+- Duzentos e oitenta mil e quatrocentos | valor-posicional
+E: 208 mil e 450.
+V: Como se lê 507.032?
++ Quinhentos e sete mil e trinta e dois
+- Cinco, zero, sete, zero, três, dois
+- Cinquenta mil, setecentos e trinta e dois
+- Quinhentos e setenta mil e trinta e dois
+Q: No número 683.214, quanto vale o algarismo 8?
++ 80.000
+- 8.000 | valor-posicional
+- 800.000 | valor-posicional
+- 8 | valor-posicional
+E: O 8 está na dezena de milhar.
+V: No número 427.905, quanto vale o algarismo 2?
++ 20.000
+- 2.000
+- 200.000
+- 2
+Q: Como se escreve "seiscentos mil e quarenta"?
++ 600.040
+- 600.400 | zero-esquecido
+- 60.040 | zero-esquecido
+- 640.000 | valor-posicional
+E: 600 mil e 40.
+V: Como se escreve "trezentos e dois mil e cinco"?
++ 302.005
+- 302.050
+- 32.005
+- 325.000
+
+@exemplo_guiado | Exemplo guiado: comparar e ordenar | Compare a quantidade de algarismos; se igual, compare da esquerda para a direita. 345.900 é maior que 345.090: na centena, 9 é maior que 0.
+Q: Qual é maior: 99.999 ou 100.001?
++ 100.001
+- 99.999 | compara-pelo-inicio
+- São iguais | compara-pelo-inicio
+- Não dá para comparar | le-por-partes
+E: 100.001 tem 6 algarismos; 99.999 tem 5.
+V: Qual é maior: 98.765 ou 101.234?
++ 101.234
+- 98.765
+- São iguais
+- Não dá para comparar
+Q: Qual é maior: 562.318 ou 562.381?
++ 562.381
+- 562.318 | compara-pelo-inicio
+- São iguais | compara-pelo-inicio
+- Não dá para saber | le-por-partes
+E: Iguais até a centena; na dezena, 8 é maior que 1.
+V: Qual é maior: 714.059 ou 714.095?
++ 714.095
+- 714.059
+- São iguais
+- Não dá para saber
+Q: Qual número vem logo depois de 409.999?
++ 410.000
+- 409.1000 | valor-posicional
+- 400.000 | compara-pelo-inicio
+- 499.999 | valor-posicional
+E: 409.999 + 1 = 410.000.
+V: Qual número vem logo antes de 700.000?
++ 699.999
+- 700.001
+- 600.999
+- 799.999
+
+@praticar | Praticar: ler, escrever e ordenar | Use o quadro de ordens.
+Q: Qual número tem 4 centenas de milhar, 0 dezenas de milhar, 7 unidades de milhar e 3 unidades?
++ 407.003
+- 47.003 | zero-esquecido
+- 407.300 | zero-esquecido
+- 470.003 | valor-posicional
+E: 400.000 + 7.000 + 3 = 407.003.
+V: Qual número tem 9 centenas de milhar, 2 dezenas de milhar, 0 unidades de milhar e 6 dezenas?
++ 920.060
+- 92.060
+- 920.600
+- 902.060
+Q: Qual é a ordem do menor para o maior: 230.500, 23.050, 235.000?
++ 23.050, 230.500, 235.000
+- 235.000, 230.500, 23.050 | compara-pelo-inicio
+- 230.500, 23.050, 235.000 | compara-pelo-inicio
+- 23.050, 235.000, 230.500 | compara-pelo-inicio
+E: 23.050 tem 5 algarismos; depois compare 230.500 e 235.000.
+V: Qual é a ordem do menor para o maior: 810.200, 81.020, 812.000?
++ 81.020, 810.200, 812.000
+- 812.000, 810.200, 81.020
+- 810.200, 81.020, 812.000
+- 81.020, 812.000, 810.200
+Q: Quanto é 300.000 + 40.000 + 500 + 6?
++ 340.506
+- 345.600 | valor-posicional
+- 34.506 | zero-esquecido
+- 3.405.006 | le-por-partes
+E: 340 mil e 506.
+V: Quanto é 700.000 + 8.000 + 20 + 1?
++ 708.021
+- 782.100
+- 78.021
+- 7.802.001
+Q: Arredondando 487.300 para a centena de milhar mais próxima, temos:
++ 500.000
+- 400.000 | compara-pelo-inicio
+- 490.000 | valor-posicional
+- 480.000 | valor-posicional
+E: 487.300 está mais perto de 500.000 do que de 400.000.
+V: Arredondando 312.900 para a centena de milhar mais próxima, temos:
++ 300.000
+- 400.000
+- 310.000
+- 320.000
+
+@aplicar | Aplicar: números do Brasil | Leia e compare.
+Q: A cidade A tem 245.300 habitantes e a B tem 254.030. Qual tem mais habitantes?
++ A cidade B
+- A cidade A | compara-pelo-inicio
+- As duas iguais | le-por-partes
+- Não dá para saber | compara-pelo-inicio
+E: Na dezena de milhar, 5 é maior que 4.
+V: O estádio X tem 78.838 lugares e o Y tem 73.531. Qual tem mais lugares?
++ O X
+- O Y
+- Os dois iguais
+- Não dá para saber
+Q: Uma casa custa "cento e oitenta mil e quinhentos reais". Como se escreve?
++ 180.500 reais
+- 18.500 reais | zero-esquecido
+- 180.050 reais | zero-esquecido
+- 108.500 reais | valor-posicional
+E: 180 mil e 500.
+V: Um apartamento custa "duzentos e quatro mil reais". Como se escreve?
++ 204.000 reais
+- 24.000 reais
+- 240.000 reais
+- 200.400 reais
+Q: Uma campanha arrecadou 125.000 reais no primeiro mês e 98.000 no segundo. Em qual mês arrecadou mais?
++ No primeiro
+- No segundo, porque 98 é maior que 12 | compara-pelo-inicio
+- Igual | le-por-partes
+- Não dá para saber | compara-pelo-inicio
+E: 125.000 tem 6 algarismos; 98.000 tem 5.
+V: Uma fábrica produziu 89.500 peças em março e 102.300 em abril. Em qual mês produziu mais?
++ Em abril
+- Em março
+- Igual
+- Não dá para saber
+
+@explicar | Explicar: valor de cada algarismo | Explique quanto vale cada algarismo 5 no número 505.050.
+C: centena-milhar | Diz que o primeiro 5 vale 500.000
+C: unidade-milhar | Diz que o segundo 5 vale 5.000
+C: dezena | Diz que o terceiro 5 vale 50
+BOA: No 505.050, o primeiro 5 está na centena de milhar e vale 500.000. O segundo 5 está na unidade de milhar e vale 5.000. O terceiro 5 está na dezena e vale 50. Os zeros guardam o lugar das outras ordens.
+
+#TRILHA EF05MA02 | MA | 5 | Trilha: Números decimais | Décimos e centésimos
+FAZ: Lê, escreve e ordena números racionais na forma decimal, usando composição, decomposição e a reta numérica.
+ERRO: mais-algarismos-maior | Acha que o decimal com mais algarismos depois da vírgula é maior (0,25 > 0,3)
+ERRO: le-como-inteiro | Lê a parte decimal como número inteiro
+ERRO: decimo-centesimo | Confunde décimos com centésimos
+ERRO: virgula | Coloca a vírgula no lugar errado
+NOTA: Use dinheiro (1 real = 100 centavos; 0,50 = 50 centavos), régua (1 cm = 10 mm) e reta numérica de 0 a 1 dividida em 10.
+
+@relembrar | Relembrar: a vírgula | Depois da vírgula vêm os décimos (1 parte de 10) e os centésimos (1 parte de 100). 2,35 = 2 inteiros, 3 décimos e 5 centésimos.
+Q: Como se lê 0,7?
++ Sete décimos
+- Sete centésimos | decimo-centesimo
+- Sete inteiros | le-como-inteiro
+- Zero sete | le-como-inteiro
+E: Um algarismo depois da vírgula: décimos.
+V: Como se lê 0,09?
++ Nove centésimos
+- Nove décimos
+- Nove inteiros
+- Zero nove
+Q: Quantos centavos são 0,25 real?
++ 25 centavos
+- 2,5 centavos | virgula
+- 250 centavos | virgula
+- 2 centavos | decimo-centesimo
+E: 0,25 real = 25 centésimos de real = 25 centavos.
+V: Quantos centavos são 0,80 real?
++ 80 centavos
+- 8 centavos
+- 800 centavos
+- 0,8 centavos
+Q: Qual número tem 3 inteiros e 4 décimos?
++ 3,4
+- 3,04 | decimo-centesimo
+- 34 | le-como-inteiro
+- 0,34 | virgula
+E: 3 inteiros, vírgula, 4 décimos.
+V: Qual número tem 5 inteiros e 6 centésimos?
++ 5,06
+- 5,6
+- 56
+- 0,56
+
+@exemplo_guiado | Exemplo guiado: comparando decimais | Para comparar 0,3 e 0,25, iguale as casas: 0,30 e 0,25. Como 30 centésimos é mais que 25 centésimos, 0,3 é maior.
+Q: Qual é maior: 0,4 ou 0,35?
++ 0,4
+- 0,35 | mais-algarismos-maior
+- São iguais | decimo-centesimo
+- Não dá para comparar | le-como-inteiro
+E: 0,4 = 0,40, que é mais que 0,35.
+V: Qual é maior: 0,6 ou 0,58?
++ 0,6
+- 0,58
+- São iguais
+- Não dá para comparar
+Q: Qual é a ordem do menor para o maior: 1,5; 1,05; 1,45?
++ 1,05; 1,45; 1,5
+- 1,5; 1,45; 1,05 | mais-algarismos-maior
+- 1,05; 1,5; 1,45 | decimo-centesimo
+- 1,45; 1,05; 1,5 | le-como-inteiro
+E: 1,05 = 1,05; 1,45; 1,5 = 1,50.
+V: Qual é a ordem do menor para o maior: 2,3; 2,03; 2,25?
++ 2,03; 2,25; 2,3
+- 2,3; 2,25; 2,03
+- 2,03; 2,3; 2,25
+- 2,25; 2,03; 2,3
+Q: 0,5 e 0,50 são:
++ Iguais
+- Diferentes: 0,50 é maior | mais-algarismos-maior
+- Diferentes: 0,5 é maior | le-como-inteiro
+- Não dá para comparar | decimo-centesimo
+E: 5 décimos = 50 centésimos.
+V: 1,2 e 1,20 são:
++ Iguais
+- Diferentes: 1,20 é maior
+- Diferentes: 1,2 é maior
+- Não dá para comparar
+
+@praticar | Praticar: decimais na reta e na decomposição | Pense em décimos e centésimos.
+Q: Na reta de 0 a 1 dividida em 10 partes, onde fica 0,6?
++ Na 6ª marca depois do zero
+- Na 60ª marca | decimo-centesimo
+- Depois do 1 | virgula
+- Na 1ª marca | le-como-inteiro
+E: Cada parte é 0,1; seis partes: 0,6.
+V: Na reta de 0 a 1 dividida em 10 partes, onde fica 0,3?
++ Na 3ª marca depois do zero
+- Na 30ª marca
+- Depois do 1
+- Na 1ª marca
+Q: Qual é a decomposição de 4,72?
++ 4 + 0,7 + 0,02
+- 4 + 0,72 + 0,2 | decimo-centesimo
+- 4 + 7 + 2 | le-como-inteiro
+- 47 + 0,2 | virgula
+E: 4 inteiros, 7 décimos e 2 centésimos.
+V: Qual é a decomposição de 6,18?
++ 6 + 0,1 + 0,08
+- 6 + 0,18 + 0,8
+- 6 + 1 + 8
+- 61 + 0,8
+Q: Qual número fica entre 2,4 e 2,5?
++ 2,45
+- 2,55 | mais-algarismos-maior
+- 2,04 | decimo-centesimo
+- 24,5 | virgula
+E: 2,40 < 2,45 < 2,50.
+V: Qual número fica entre 0,7 e 0,8?
++ 0,75
+- 0,85
+- 0,07
+- 7,5
+Q: Uma régua mostra 5 cm e 3 mm. Em centímetros, isso é:
++ 5,3 cm
+- 5,03 cm | decimo-centesimo
+- 53 cm | virgula
+- 0,53 cm | virgula
+E: 1 mm = 0,1 cm; 3 mm = 0,3 cm.
+V: Um parafuso mede 2 cm e 8 mm. Em centímetros, isso é:
++ 2,8 cm
+- 2,08 cm
+- 28 cm
+- 0,28 cm
+
+@aplicar | Aplicar: decimais no dia a dia | Pense em dinheiro e medidas.
+Q: Um lápis custa R$ 1,50 e uma borracha R$ 1,05. Qual é mais caro?
++ O lápis
+- A borracha | mais-algarismos-maior
+- Custam igual | decimo-centesimo
+- Não dá para saber | le-como-inteiro
+E: 1,50 > 1,05.
+V: Um pão custa R$ 0,90 e uma bala R$ 0,25. Qual é mais caro?
++ O pão
+- A bala
+- Custam igual
+- Não dá para saber
+Q: Três corredores fizeram tempos de 12,4 s; 12,04 s e 12,35 s. Quem foi mais rápido (menor tempo)?
++ O de 12,04 s
+- O de 12,4 s | mais-algarismos-maior
+- O de 12,35 s | mais-algarismos-maior
+- Todos iguais | le-como-inteiro
+E: 12,04 é o menor.
+V: Três saltos mediram 3,6 m; 3,06 m e 3,55 m. Qual foi o maior salto?
++ 3,6 m
+- 3,06 m
+- 3,55 m
+- Todos iguais
+Q: Lia tem R$ 2,75. Quantos centavos ela tem?
++ 275 centavos
+- 27,5 centavos | virgula
+- 2.075 centavos | decimo-centesimo
+- 75 centavos | le-como-inteiro
+E: 2 reais = 200 centavos; + 75 = 275.
+V: Rui tem R$ 4,30. Quantos centavos ele tem?
++ 430 centavos
+- 43 centavos
+- 4.030 centavos
+- 30 centavos
+
+@explicar | Explicar: qual decimal é maior? | Explique por que 0,8 é maior que 0,75, mesmo 75 sendo maior que 8.
+C: iguala | Iguala as casas: 0,8 = 0,80
+C: compara | Compara 80 centésimos com 75 centésimos
+C: exemplo | Usa um exemplo (dinheiro, régua ou reta)
+BOA: 0,8 é o mesmo que 0,80, ou seja, 80 centésimos. 0,75 são 75 centésimos. Como 80 é mais que 75, 0,8 é maior. Em dinheiro: 80 centavos é mais que 75 centavos.
+
+#TRILHA EF05MA07 | MA | 5 | Trilha: Adição e subtração com decimais | Contas com vírgula
+FAZ: Resolve e elabora problemas de adição e subtração com números naturais e decimais, usando estimativa, cálculo mental e algoritmos.
+ERRO: desalinha-virgula | Arma a conta sem alinhar vírgula embaixo de vírgula
+ERRO: casas-vazias | Não completa as casas vazias com zero antes de subtrair
+ERRO: operacao | Escolhe a operação errada
+ERRO: estimativa | Não confere o resultado com uma estimativa
+NOTA: Use dinheiro: R$ 3,50 + R$ 2,75. Arme a conta com vírgula embaixo de vírgula e complete com zeros.
+
+@relembrar | Relembrar: vírgula embaixo de vírgula | Para somar 2,5 + 1,25, escreva 2,50 + 1,25 com as vírgulas alinhadas: 3,75.
+Q: Quanto é 1,5 + 2,3?
++ 3,8
+- 3,08 | desalinha-virgula
+- 38 | desalinha-virgula
+- 0,8 | operacao
+E: 1 + 2 = 3; 0,5 + 0,3 = 0,8. Total 3,8.
+V: Quanto é 4,2 + 1,6?
++ 5,8
+- 5,08
+- 58
+- 2,6
+Q: Quanto é 3,75 − 1,5?
++ 2,25
+- 3,6 | desalinha-virgula
+- 2,7 | casas-vazias
+- 5,25 | operacao
+E: 3,75 − 1,50 = 2,25.
+V: Quanto é 5,80 − 2,4?
++ 3,4
+- 5,56
+- 3,04
+- 8,2
+Q: Quanto é 2,5 + 0,75?
++ 3,25
+- 2,75 | desalinha-virgula
+- 3,2 | casas-vazias
+- 1,75 | operacao
+E: 2,50 + 0,75 = 3,25.
+V: Quanto é 1,25 + 0,8?
++ 2,05
+- 1,33
+- 1,105
+- 0,45
+
+@exemplo_guiado | Exemplo guiado: estimar e calcular | R$ 12,90 + R$ 7,35: estimando, 13 + 7 = 20. Calculando: 12,90 + 7,35 = 20,25. Bate com a estimativa.
+Q: Quanto é 12,9 + 7,35?
++ 20,25
+- 19,25 | casas-vazias
+- 8,64 | desalinha-virgula
+- 5,55 | operacao
+E: 12,90 + 7,35 = 20,25.
+V: Quanto é 8,6 + 4,75?
++ 13,35
+- 12,35
+- 5,21
+- 3,85
+Q: Quanto é 10 − 3,45?
++ 6,55
+- 7,45 | casas-vazias
+- 3,35 | desalinha-virgula
+- 13,45 | operacao
+E: 10,00 − 3,45 = 6,55.
+V: Quanto é 5 − 1,28?
++ 3,72
+- 4,28
+- 1,23
+- 6,28
+Q: Qual é a melhor estimativa para 19,8 + 5,1?
++ 25
+- 20 | estimativa
+- 2,5 | estimativa
+- 250 | estimativa
+E: 20 + 5 = 25.
+V: Qual é a melhor estimativa para 29,9 − 10,2?
++ 20
+- 40
+- 2
+- 200
+
+@praticar | Praticar: contas com decimais | Alinhe as vírgulas e complete com zero.
+Q: Quanto é 6,4 + 3,85?
++ 10,25
+- 9,25 | casas-vazias
+- 7,25 | desalinha-virgula
+- 2,55 | operacao
+E: 6,40 + 3,85 = 10,25.
+V: Quanto é 7,3 + 2,95?
++ 10,25
+- 9,25
+- 3,25
+- 4,35
+Q: Quanto é 15,2 − 8,75?
++ 6,45
+- 7,55 | casas-vazias
+- 7,45 | casas-vazias
+- 23,95 | operacao
+E: 15,20 − 8,75 = 6,45.
+V: Quanto é 20,4 − 12,65?
++ 7,75
+- 8,25
+- 8,75
+- 33,05
+Q: Quanto é 125 + 3,5?
++ 128,5
+- 160 | desalinha-virgula
+- 12,85 | desalinha-virgula
+- 121,5 | operacao
+E: 125,0 + 3,5 = 128,5.
+V: Quanto é 48 + 2,25?
++ 50,25
+- 70,5
+- 7,05
+- 45,75
+Q: Quanto é 3,6 + 2,4?
++ 6
+- 5,10 | casas-vazias
+- 6,1 | desalinha-virgula
+- 1,2 | operacao
+E: 0,6 + 0,4 = 1; 3 + 2 + 1 = 6.
+V: Quanto é 7,7 + 1,3?
++ 9
+- 8,10
+- 9,1
+- 6,4
+
+@aplicar | Aplicar: compras e medidas | Monte a conta certa.
+Q: Bia comprou um caderno de R$ 15,90 e uma caneta de R$ 3,45. Quanto gastou?
++ R$ 19,35
+- R$ 18,35 | casas-vazias
+- R$ 12,45 | operacao
+- R$ 49,35 | desalinha-virgula
+E: 15,90 + 3,45 = 19,35.
+V: Rui comprou um livro de R$ 24,50 e um marcador de R$ 2,75. Quanto gastou?
++ R$ 27,25
+- R$ 26,25
+- R$ 21,75
+- R$ 51,75
+Q: Davi pagou uma conta de R$ 37,60 com uma nota de R$ 50. Qual foi o troco?
++ R$ 12,40
+- R$ 13,40 | casas-vazias
+- R$ 87,60 | operacao
+- R$ 12,60 | casas-vazias
+E: 50,00 − 37,60 = 12,40.
+V: Ana pagou uma compra de R$ 18,35 com uma nota de R$ 20. Qual foi o troco?
++ R$ 1,65
+- R$ 2,65
+- R$ 38,35
+- R$ 1,75
+Q: Uma criança tinha 1,32 m de altura e cresceu 0,07 m. Qual é a altura agora?
++ 1,39 m
+- 1,25 m | operacao
+- 2,02 m | desalinha-virgula
+- 1,309 m | desalinha-virgula
+E: 1,32 + 0,07 = 1,39.
+V: Uma planta tinha 0,85 m e cresceu 0,12 m. Qual é a altura agora?
++ 0,97 m
+- 0,73 m
+- 2,05 m
+- 0,862 m
+
+@explicar | Explicar: somando decimais | Explique como calcular R$ 8,75 + R$ 4,50 armando a conta.
+C: alinha | Alinha vírgula embaixo de vírgula
+C: soma | Soma centésimos, décimos e inteiros, com reagrupamento
+C: resultado | Chega a R$ 13,25 e confere com a estimativa (9 + 4 = 13)
+BOA: Coloco 8,75 em cima de 4,50, vírgula embaixo de vírgula. 5 + 0 = 5; 7 + 5 = 12, fica 2 e vai 1; 8 + 4 + 1 = 13. Resultado: 13,25. Conferindo: 9 + 4 = 13, perto do resultado.
+
+#TRILHA EF05MA08 | MA | 5 | Trilha: Multiplicação e divisão com decimais | Vezes e dividido com vírgula
+FAZ: Resolve e elabora problemas de multiplicação e divisão com números naturais e decimais (multiplicador natural e divisor natural diferente de zero), com estratégias diversas.
+ERRO: virgula-produto | Coloca a vírgula no lugar errado no resultado
+ERRO: divide-errado | Erra a divisão do decimal por natural
+ERRO: operacao | Escolhe a operação errada
+ERRO: estimativa | Não confere com uma estimativa
+NOTA: Use dinheiro: 3 × R$ 2,50; R$ 7,50 ÷ 3. Peça estimativas antes de calcular.
+
+@relembrar | Relembrar: multiplicar decimal por natural | 3 × 2,5 é 2,5 + 2,5 + 2,5 = 7,5.
+Q: Quanto é 2 × 1,5?
++ 3
+- 30 | virgula-produto
+- 0,3 | virgula-produto
+- 3,5 | operacao
+E: 1,5 + 1,5 = 3.
+V: Quanto é 4 × 1,5?
++ 6
+- 60
+- 0,6
+- 5,5
+Q: Quanto é 10 × 0,7?
++ 7
+- 0,07 | virgula-produto
+- 70 | virgula-produto
+- 10,7 | operacao
+E: Multiplicar por 10 anda a vírgula uma casa para a direita: 7.
+V: Quanto é 10 × 2,35?
++ 23,5
+- 0,235
+- 235
+- 12,35
+Q: Quanto é 6 ÷ 2?
++ 3
+- 12 | operacao
+- 4 | operacao
+- 0,3 | virgula-produto
+E: 6 dividido em 2 partes iguais: 3.
+V: Quanto é 4,8 ÷ 2?
++ 2,4
+- 9,6
+- 2,8
+- 24
+
+@exemplo_guiado | Exemplo guiado: dividindo dinheiro | R$ 7,50 ÷ 3: 7,50 = 750 centavos; 750 ÷ 3 = 250 centavos = R$ 2,50.
+Q: Quanto é 7,5 ÷ 3?
++ 2,5
+- 25 | virgula-produto
+- 22,5 | operacao
+- 2,05 | divide-errado
+E: 750 centavos ÷ 3 = 250 centavos = 2,50.
+V: Quanto é 9,6 ÷ 4?
++ 2,4
+- 24
+- 38,4
+- 2,04
+Q: Quanto é 3 × 2,45?
++ 7,35
+- 6,35 | virgula-produto
+- 73,5 | virgula-produto
+- 5,45 | operacao
+E: 3 × 2 = 6; 3 × 0,45 = 1,35; 6 + 1,35 = 7,35.
+V: Quanto é 4 × 1,25?
++ 5
+- 4,25
+- 50
+- 5,25
+Q: Qual é a melhor estimativa para 4 × 9,95?
++ 40
+- 4 | estimativa
+- 400 | estimativa
+- 14 | operacao
+E: 9,95 é quase 10; 4 × 10 = 40.
+V: Qual é a melhor estimativa para 6 × 4,98?
++ 30
+- 3
+- 300
+- 11
+
+@praticar | Praticar: calculando | Use dinheiro como apoio.
+Q: Quanto é 5 × 3,2?
++ 16
+- 1,6 | virgula-produto
+- 160 | virgula-produto
+- 8,2 | operacao
+E: 5 × 3 = 15; 5 × 0,2 = 1; total 16.
+V: Quanto é 6 × 2,5?
++ 15
+- 1,5
+- 150
+- 8,5
+Q: Quanto é 12,6 ÷ 3?
++ 4,2
+- 4,02 | divide-errado
+- 42 | virgula-produto
+- 37,8 | operacao
+E: 12 ÷ 3 = 4; 0,6 ÷ 3 = 0,2; total 4,2.
+V: Quanto é 15,5 ÷ 5?
++ 3,1
+- 3,01
+- 31
+- 77,5
+Q: Quanto é 100 × 0,45?
++ 45
+- 4,5 | virgula-produto
+- 450 | virgula-produto
+- 100,45 | operacao
+E: Multiplicar por 100 anda a vírgula duas casas: 45.
+V: Quanto é 100 × 1,2?
++ 120
+- 12
+- 1.200
+- 101,2
+Q: Quanto é 10 ÷ 4?
++ 2,5
+- 2 | divide-errado
+- 25 | virgula-produto
+- 40 | operacao
+E: 10 ÷ 4 = 2 e sobram 2; 2 ÷ 4 = 0,5. Total 2,5.
+V: Quanto é 7 ÷ 2?
++ 3,5
+- 3
+- 35
+- 14
+
+@aplicar | Aplicar: compras e partilhas | Escolha a operação e confira.
+Q: Um sorvete custa R$ 4,50. Quanto custam 4 sorvetes?
++ R$ 18,00
+- R$ 16,50 | virgula-produto
+- R$ 8,50 | operacao
+- R$ 180,00 | virgula-produto
+E: 4 × 4,50 = 18.
+V: Um suco custa R$ 3,75. Quanto custam 4 sucos?
++ R$ 15,00
+- R$ 12,75
+- R$ 7,75
+- R$ 150,00
+Q: Três amigos dividiram igualmente uma pizza de R$ 37,50. Quanto pagou cada um?
++ R$ 12,50
+- R$ 12,05 | divide-errado
+- R$ 112,50 | operacao
+- R$ 125,00 | virgula-produto
+E: 37,50 ÷ 3 = 12,50.
+V: Quatro amigos dividiram igualmente uma conta de R$ 50,00. Quanto pagou cada um?
++ R$ 12,50
+- R$ 12,05
+- R$ 200,00
+- R$ 125,00
+Q: Uma fita de 2,4 m foi cortada em 6 pedaços iguais. Quanto mede cada pedaço?
++ 0,4 m
+- 4 m | virgula-produto
+- 14,4 m | operacao
+- 0,04 m | divide-errado
+E: 2,4 ÷ 6 = 0,4.
+V: Uma corda de 3,6 m foi cortada em 4 pedaços iguais. Quanto mede cada pedaço?
++ 0,9 m
+- 9 m
+- 14,4 m
+- 0,09 m
+
+@explicar | Explicar: dividindo com vírgula | Explique como dividir R$ 8,40 igualmente entre 4 crianças.
+C: estrategia | Usa centavos (840 ÷ 4) ou divide inteiros e decimais separadamente
+C: calculo | Chega a R$ 2,10 para cada uma
+C: confere | Confere multiplicando: 4 × 2,10 = 8,40
+BOA: R$ 8,40 são 840 centavos. 840 ÷ 4 = 210 centavos, que é R$ 2,10. Cada criança recebe R$ 2,10. Conferindo: 4 × 2,10 = 8,40.
+
+#PRE EF05MA01 > EF04MA01 | 3
+#PRE EF05MA02 > EF05MA01 | 2
+#PRE EF05MA07 > EF05MA02 | 3
+#PRE EF05MA07 > EF03MA05 | 2
+#PRE EF05MA08 > EF05MA07 | 2
+#PRE EF05MA08 > EF04MA07 | 2
