@@ -66,7 +66,7 @@ function Cartao({ href, titulo, subtitulo, publico, detalhe, lidos, total, selo 
 }
 
 export default async function FormacaoPage() {
-  const ctx = await getEduContext();
+  const ctx = await getEduContext({ permitirApoio: true });
   if (!ctx) redirect("/escola/entrar");
 
   if (ctx.db) setTenantDb(ctx.db);

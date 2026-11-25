@@ -13,7 +13,7 @@ export const runtime = "nodejs";
 export async function GET() {
   const fora = NextResponse.json({ naEquipe: false, novos: 0 });
   if (!isEscolasEnabled()) return fora;
-  const ctx = await getEduContext();
+  const ctx = await getEduContext({ permitirApoio: true });
   if (!ctx || !ctx.userId || !ctx.networkId) return fora;
   if (ctx.db) setTenantDb(ctx.db);
   const P = (ctx.db ?? prismaEdu) as any; // eslint-disable-line @typescript-eslint/no-explicit-any

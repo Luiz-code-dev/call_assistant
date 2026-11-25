@@ -51,7 +51,13 @@ export interface StudentContext {
   db: any;
 }
 
-export async function getEduContext(): Promise<EduContext | null> {
+/**
+ * Contexto de quem trabalha na rede.
+ * O profissional de apoio (SUPPORT) só é reconhecido quando a chamada pede `permitirApoio`.
+ * Assim, todas as rotas e telas pedagógicas e de gestão continuam fechadas para ele por padrão,
+ * inclusive as que só distinguem "professor" de "o resto".
+ */
+export async function getEduContext(opts?: { permitirApoio?: boolean }): Promise<EduContext | null> {
   const raw = bearerToken() ?? cookies().get("sf_edu_ctx")?.value;
   if (!raw) return null;
 
@@ -83,6 +89,7 @@ export async function getEduContext(): Promise<EduContext | null> {
       select: { id: true, userId: true, networkId: true, schoolId: true, role: true, isActive: true },
     });
     if (!membership || !membership.isActive) return null;
+    if (membership.role === "SUPPORT" && !opts?.permitirApoio) return null;
 
     return {
       userId: membership.userId,

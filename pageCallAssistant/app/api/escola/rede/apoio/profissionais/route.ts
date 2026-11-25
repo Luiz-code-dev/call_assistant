@@ -70,10 +70,12 @@ export async function POST(req: NextRequest) {
   for (const a of antigos) await apagarConvite(P, a.inviteId);
   if (antigos.length) await P.eduApoioCadastro.deleteMany({ where: { id: { in: antigos.map((a) => a.id) } } });
 
+  // Quem já tem conta (por exemplo, de um cadastro anterior) aceita o convite com a senha atual
+  const contaExistente = await P.eduUser.findFirst({ where: { email: v.email }, select: { id: true } }).catch(() => null);
   const { raw, hash } = generateInviteToken();
   const expiresAt = new Date(Date.now() + SETE_DIAS);
   const convite = await P.eduInvite.create({
-    data: { networkId, schoolId: null, email: v.email, name: v.nome, role: "SUPPORT", tokenHash: hash, expiresAt, userId: null, createdById: ctx!.userId },
+    data: { networkId, schoolId: null, email: v.email, name: v.nome, role: "SUPPORT", tokenHash: hash, expiresAt, userId: contaExistente?.id ?? null, createdById: ctx!.userId },
   });
   await registerStaffInviteInCatalog(hash, networkId, expiresAt);
   const cadastro = await P.eduApoioCadastro.create({

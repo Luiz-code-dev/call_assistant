@@ -29,7 +29,7 @@ export function filtroDoMembro(networkId: string, membro: MembroDoApoio): Record
 
 export async function contextoDaEquipe() {
   if (!isEscolasEnabled()) return { erro: NextResponse.json({ error: "Não encontrado" }, { status: 404 }) };
-  const ctx = await getEduContext();
+  const ctx = await getEduContext({ permitirApoio: true });
   if (!ctx || !ctx.userId) return { erro: NextResponse.json({ error: "Não autenticado" }, { status: 401 }) };
   if (ctx.db) setTenantDb(ctx.db);
   const P = (ctx.db ?? prismaEdu) as any; // eslint-disable-line @typescript-eslint/no-explicit-any

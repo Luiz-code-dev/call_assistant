@@ -3,7 +3,7 @@ import { SearchX, ArrowLeft } from "lucide-react";
 import { getEduContext, rotaDoPapel } from "@/lib/escola/context";
 
 export default async function EscolaNotFound() {
-  const ctx = await getEduContext();
+  const ctx = await getEduContext({ permitirApoio: true });
   const home = ctx ? rotaDoPapel(ctx.role) : "/escola/entrar";
 
   return (
