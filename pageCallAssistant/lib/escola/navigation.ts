@@ -27,6 +27,7 @@ export const NAV_BY_ROLE: Record<EduRole, NavItem[]> = {
     { label: "Configurações",            href: "/escola/rede/configuracoes",      icon: "Settings"        },
     { label: "Integrações",              href: "/escola/rede/integracoes",        icon: "Plug"            },
     { label: "Retorno das famílias",     href: "/escola/coordenacao/retornos-familias", icon: "MessageSquare" },
+    { label: "Formação",                 href: "/escola/formacao",                icon: "GraduationCap"   },
     { label: "Auditoria",                href: "/escola/rede/auditoria",          icon: "ScrollText"      },
   ],
   COORDINATOR: [
@@ -36,6 +37,7 @@ export const NAV_BY_ROLE: Record<EduRole, NavItem[]> = {
     { label: "Habilidades prioritárias", href: "/escola/coordenacao/habilidades",  icon: "Target"          },
     { label: "Escolas e turmas",         href: "/escola/coordenacao/escolas",      icon: "School"          },
     { label: "Retorno das famílias",     href: "/escola/coordenacao/retornos-familias", icon: "MessageSquare" },
+    { label: "Formação",                 href: "/escola/formacao",                icon: "GraduationCap"   },
   ],
   SCHOOL_ADMIN: [
     { label: "Visão geral",       href: "/escola/direcao",             icon: "LayoutDashboard" },
@@ -44,6 +46,7 @@ export const NAV_BY_ROLE: Record<EduRole, NavItem[]> = {
     { label: "Atribuições",       href: "/escola/direcao/atribuicoes", icon: "Grid3x3"         },
     { label: "Acesso das famílias", href: "/escola/direcao/cartoes",    icon: "QrCode"          },
     { label: "Retorno das famílias", href: "/escola/coordenacao/retornos-familias", icon: "MessageSquare" },
+    { label: "Formação",                 href: "/escola/formacao",                icon: "GraduationCap"   },
     { label: "Auditoria",         href: "/escola/direcao/auditoria",   icon: "ScrollText"      },
   ],
   TEACHER: [
@@ -56,5 +59,6 @@ export const NAV_BY_ROLE: Record<EduRole, NavItem[]> = {
     { label: "Redações",               href: "/escola/professor/redacoes",   icon: "FilePen"       },
     { label: "Retornos para revisar",  href: "/escola/professor/retornos",   icon: "MessageSquare" },
     { label: "Avisar as famílias",     href: "/escola/professor/indicar-reforco", icon: "HeartHandshake" },
+    { label: "Formação",                 href: "/escola/formacao",                icon: "GraduationCap"   },
   ],
 };

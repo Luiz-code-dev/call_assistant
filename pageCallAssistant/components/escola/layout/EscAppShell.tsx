@@ -29,6 +29,7 @@ import {
   HeartHandshake,
   Activity,
   MessageSquare,
+  GraduationCap,
   Menu,
   X,
   LogOut,
@@ -63,6 +64,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
   HeartHandshake,
   Activity,
   MessageSquare,
+  GraduationCap,
 };
 
 /** Logo oficial SpeakFlow Escolas: balão roxo com barras de onda brancas. */
@@ -206,9 +208,9 @@ export default function EscAppShell({ role, userName, contextName, children }: P
   }
 
   return (
-    <div className="theme-escola flex h-screen bg-[#F8F7FC] overflow-hidden">
+    <div className="theme-escola flex h-screen bg-[#F8F7FC] overflow-hidden print:block print:h-auto print:overflow-visible print:bg-white">
       {/* Desktop sidebar */}
-      <aside className="hidden lg:flex flex-col w-[248px] shrink-0">
+      <aside className="hidden lg:flex flex-col w-[248px] shrink-0 print:hidden">
         <SidebarContent />
       </aside>
 
@@ -222,7 +224,7 @@ export default function EscAppShell({ role, userName, contextName, children }: P
 
       {/* Mobile drawer */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-[248px] transform transition-transform duration-200 lg:hidden ${
+        className={`fixed inset-y-0 left-0 z-50 w-[248px] transform transition-transform duration-200 lg:hidden print:hidden ${
           drawerOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -230,9 +232,9 @@ export default function EscAppShell({ role, userName, contextName, children }: P
       </aside>
 
       {/* Main content area */}
-      <div className="flex flex-col flex-1 min-w-0">
+      <div className="flex flex-col flex-1 min-w-0 print:block">
         {/* Mobile top bar */}
-        <header className="lg:hidden flex items-center justify-between px-4 py-3 bg-white border-b border-[#E9E5F5] shrink-0 h-[56px]">
+        <header className="lg:hidden flex items-center justify-between px-4 py-3 bg-white border-b border-[#E9E5F5] shrink-0 h-[56px] print:hidden">
           <button
             className="p-2 rounded-lg hover:bg-[#F5F3FF] min-w-[44px] min-h-[44px] flex items-center justify-center text-[#5B5470]"
             onClick={() => setDrawerOpen(!drawerOpen)}
@@ -247,7 +249,7 @@ export default function EscAppShell({ role, userName, contextName, children }: P
         </header>
 
         {/* Page content */}
-        <main className="flex-1 overflow-y-auto">
+        <main className="flex-1 overflow-y-auto print:overflow-visible">
           {children}
         </main>
       </div>
