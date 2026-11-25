@@ -42,6 +42,7 @@ export default function PedidosDeApoioPage() {
   const [encaminhado, setEncaminhado] = useState("");
   const [salvando, setSalvando] = useState(false);
   const [aviso, setAviso] = useState("");
+  const [erroAoSalvar, setErroAoSalvar] = useState("");
   const [visao, setVisao] = useState<"pedidos" | "indicadores">("pedidos");
   const [orgaos, setOrgaos] = useState<Orgao[]>([]);
   const [concluindo, setConcluindo] = useState(false);
@@ -76,7 +77,7 @@ export default function PedidosDeApoioPage() {
 
   async function abrir(id: string) {
     if (abertoId === id) { setAbertoId(null); setDetalhe(null); return; }
-    setAbertoId(id); setDetalhe(null); setAviso(""); setConcluindo(false);
+    setAbertoId(id); setDetalhe(null); setAviso(""); setErroAoSalvar(""); setConcluindo(false);
     const r = await fetch(`/api/escola/apoio/pedidos/${id}`, { cache: "no-store" }).catch(() => null);
     const d = await r?.json().catch(() => null);
     if (!r?.ok || !d?.pedido) { setAviso("Não foi possível abrir este pedido."); return; }
@@ -85,17 +86,27 @@ export default function PedidosDeApoioPage() {
   }
 
   async function salvar(id: string, status?: StatusApoio, desfecho?: Desfecho) {
-    setSalvando(true); setAviso("");
+    setSalvando(true); setAviso(""); setErroAoSalvar("");
     const r = await fetch(`/api/escola/apoio/pedidos/${id}`, {
       method: "PATCH", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...(status ? { status } : {}), ...(desfecho ? { desfecho } : {}), observacao, encaminhadoPara: encaminhado, comunicadoA: orgaos }),
     }).catch(() => null);
     const d = await r?.json().catch(() => null);
     setSalvando(false);
-    if (!r?.ok) { setAviso(d?.error ?? "Não foi possível salvar."); return; }
-    setAviso("Salvo."); setConcluindo(false);
-    setLista((l) => l.map((p) => (p.id === id ? { ...p, comunicado: orgaos.length > 0, ...(status ? { status, desfecho: desfecho ?? null } : {}) } : p)));
-    if (status) setDetalhe((x) => (x ? { ...x, status, desfecho: desfecho ?? null } : x));
+    if (!r?.ok) { setErroAoSalvar(d?.error ?? "Não foi possível salvar. Tente de novo."); return; }
+    // A situação vem do servidor: registrar uma providência em pedido novo já o tira de "novo"
+    const anterior = detalhe?.status;
+    const nova: StatusApoio = (d?.status as StatusApoio) ?? status ?? anterior ?? "RECEBIDO";
+    const fim = nova === "CONCLUIDO" ? desfecho ?? detalhe?.desfecho ?? null : null;
+    setConcluindo(false);
+    setLista((l) => l.map((p) => (p.id === id ? { ...p, comunicado: orgaos.length > 0, status: nova, desfecho: fim } : p)));
+    setDetalhe((x) => (x ? { ...x, status: nova, desfecho: fim, comunicadoA: orgaos } : x));
+    // O cartão acompanha o pedido para a aba certa, continuando aberto
+    setFiltro(nova === "RECEBIDO" ? "novos" : nova === "CONCLUIDO" ? "concluidos" : "andamento");
+    const hora = new Date().toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
+    setAviso(nova !== anterior ? `Salvo às ${hora}. O pedido agora está em: ${STATUS_PARA_A_EQUIPE[nova]}.` : `Registro salvo às ${hora}.`);
+    // O menu atualiza o contador de pedidos novos
+    window.dispatchEvent(new Event("sf-apoio-mudou"));
   }
 
   const abas: { id: Filtro; nome: string }[] = [{ id: "novos", nome: "Novos" }, { id: "andamento", nome: "Em andamento" }, { id: "concluidos", nome: "Concluídos" }];
@@ -232,7 +243,7 @@ export default function PedidosDeApoioPage() {
                               );
                             })}
                           </div>
-                          <p className="text-[12px] text-[#8B84A0] mt-1.5">Marque e toque em &quot;Salvar registro&quot;. A data da primeira comunicação fica guardada.</p>
+                          <p className="text-[12px] text-[#8B84A0] mt-1.5">Marque e toque em &quot;Salvar registro&quot;. O pedido sai de &quot;Novo&quot; e a data da primeira comunicação fica guardada.</p>
                         </div>
 
                         <div>
@@ -258,10 +269,9 @@ export default function PedidosDeApoioPage() {
                             </div>
                           )}
                         </div>
-                        <div className="flex items-center gap-3">
-                          <button onClick={() => salvar(p.id)} disabled={salvando} className="min-h-[44px] px-5 rounded-xl border-[1.5px] border-[#6D28D9] text-[#6D28D9] text-[14px] font-bold disabled:opacity-60">{salvando ? "Salvando..." : "Salvar registro"}</button>
-                          {aviso && <span role="status" className="text-[14px] text-[#5B5470]">{aviso}</span>}
-                        </div>
+                        <button onClick={() => salvar(p.id)} disabled={salvando} className="w-full sm:w-auto min-h-[48px] px-6 rounded-xl bg-[#6D28D9] text-white text-[14px] font-bold disabled:opacity-60">{salvando ? "Salvando..." : "Salvar registro"}</button>
+                        {aviso && <p role="status" className="flex items-start gap-2 rounded-xl bg-[#DCFCE7] text-[#166534] text-[14px] font-semibold px-3 py-2.5"><Check size={16} strokeWidth={3} className="shrink-0 mt-0.5" />{aviso}</p>}
+                        {erroAoSalvar && <p role="alert" className="rounded-xl bg-[#FEE2E2] text-[#991B1B] text-[14px] font-semibold px-3 py-2.5">{erroAoSalvar}</p>}
                       </>
                     )}
                   </div>

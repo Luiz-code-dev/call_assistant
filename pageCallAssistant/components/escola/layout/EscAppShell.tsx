@@ -132,11 +132,16 @@ export default function EscAppShell({ role, userName, contextName, selos, equipe
   useEffect(() => {
     if (role === "PLATFORM_ADMIN") return;
     let vivo = true;
-    fetch("/api/escola/apoio/resumo", { cache: "no-store" })
-      .then((r) => (r.ok ? r.json() : null))
-      .then((d) => { if (vivo && d) setApoio({ naEquipe: !!d.naEquipe, novos: Number(d.novos) || 0 }); })
-      .catch(() => {});
-    return () => { vivo = false; };
+    const conferir = () => {
+      fetch("/api/escola/apoio/resumo", { cache: "no-store" })
+        .then((r) => (r.ok ? r.json() : null))
+        .then((d) => { if (vivo && d) setApoio({ naEquipe: !!d.naEquipe, novos: Number(d.novos) || 0 }); })
+        .catch(() => {});
+    };
+    conferir();
+    // A tela de pedidos avisa quando um pedido muda de situação
+    window.addEventListener("sf-apoio-mudou", conferir);
+    return () => { vivo = false; window.removeEventListener("sf-apoio-mudou", conferir); };
   }, [pathname, role]);
   const base = NAV_BY_ROLE[role] ?? [];
   // Logo depois do primeiro item, para não ficar escondido no fim do menu
