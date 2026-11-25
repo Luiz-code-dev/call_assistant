@@ -1,0 +1,152 @@
+/* Estilos do texto dos livros de formação (tela "Formação").
+   Tudo fica dentro de .livro, para não afetar o resto da área escolar. */
+.livro { --marca-50: 245 243 255; --marca-700: 109 40 217; font-size: 16px; line-height: 1.6; color: #1F1A2E; }
+.livro .tb { overflow-x: auto; margin: 0 0 4mm; }
+.livro .tb > table { margin-bottom: 0; min-width: 520px; }
+.livro b { font-weight: 700; }
+.livro h3 { font-size: 16.7px; font-weight: 800; color: rgb(var(--marca-700)); margin: 5mm 0 2mm; break-after: avoid; }
+.livro p { margin: 0 0 3mm; text-align: left; }
+.livro ul { margin: 0 0 3.2mm; padding-left: 6mm; }
+.livro ul li { margin-bottom: 1.4mm; break-inside: avoid; }
+.livro ul li::marker { color: rgb(var(--marca-700)); }
+.livro ol.passos { list-style: none; counter-reset: p; padding: 0; margin: 0 0 3.5mm; }
+.livro ol.passos li { counter-increment: p; position: relative; padding-left: 10mm; margin-bottom: 2.4mm; break-inside: avoid; }
+.livro ol.passos li::before { content: counter(p); position: absolute; left: 0; top: 0.2mm; width: 6.2mm; height: 6.2mm; border-radius: 50%; background: rgb(var(--marca-50)); color: rgb(var(--marca-700)); font-weight: 800; font-size: 12.3px; display: flex; align-items: center; justify-content: center; }
+.livro .nota { background: rgb(var(--marca-50)); border-left: 1.2mm solid rgb(var(--marca-700)); padding: 2.8mm 4mm; margin: 0 0 3.5mm; break-inside: avoid; font-size: 14.5px; }
+.livro .nota b { color: rgb(var(--marca-700)); }
+.livro .nota.alerta { background: #FBEFEA; border-left-color: #C44536; }
+.livro .nota.alerta b { color: #C44536; }
+.livro table { width: 100%; border-collapse: collapse; margin: 0 0 4mm; font-size: 13.9px; line-height: 1.4; }
+.livro th { background: rgb(var(--marca-700)); color: #fff; text-align: left; padding: 2mm 2.6mm; }
+.livro td { padding: 2mm 2.6mm; border-bottom: 0.2mm solid #D9DEE6; vertical-align: top; }
+.livro td:first-child { font-weight: 700; width: 28%; }
+.livro table.estreita td:first-child { width: 20%; }
+.livro table.larga td:first-child { width: 38%; }
+.livro tr { break-inside: avoid; }
+.livro tbody tr:nth-child(even) td { background: #F5F7FA; }
+.livro figure { margin: 3mm 0 5mm; break-inside: avoid; }
+.livro figcaption { font-size: 12.2px; color: #5A6372; margin-top: 1.8mm; text-align: center; }
+.livro .fluxo { display: flex; align-items: stretch; gap: 1mm; }
+.livro .fluxo .cx { flex: 1; background: rgb(var(--marca-50)); border-radius: 2mm; padding: 3mm 2.4mm 2.6mm; position: relative; text-align: center; }
+.livro .fluxo .cx b { display: block; font-size: 13.6px; line-height: 1.2; margin-top: 1mm; }
+.livro .fluxo .cx small { display: block; font-size: 11px; color: #5A6372; line-height: 1.25; margin-top: 1mm; }
+.livro .n { display: inline-flex; width: 5.4mm; height: 5.4mm; border-radius: 50%; background: rgb(var(--marca-700)); color: #fff; font-size: 11.6px; font-weight: 800; align-items: center; justify-content: center; }
+.livro .seta { align-self: center; color: rgb(var(--marca-700)); font-size: 23.2px; font-weight: 800; line-height: 1; }
+.livro .ciclo { display: grid; grid-template-columns: 1fr 1fr; gap: 2mm; }
+.livro .ciclo .q { background: rgb(var(--marca-50)); border-radius: 2mm; padding: 3mm; }
+.livro .ciclo .q b { margin-left: 1.5mm; font-size: 13.9px; }
+.livro .ciclo .q small { display: block; font-size: 11.9px; color: #5A6372; margin-top: 1mm; }
+.livro .ciclo .volta { grid-column: 1 / 3; text-align: center; font-size: 11.6px; color: rgb(var(--marca-700)); font-weight: 700; }
+.livro .niveis { display: flex; align-items: stretch; gap: 1.5mm; }
+.livro .niveis .nv { flex: 1; color: #fff; border-radius: 2mm; padding: 3mm; text-align: center; }
+.livro .niveis .nv b { display: block; font-size: 16px; }
+.livro .niveis .nv small { font-size: 11.6px; opacity: .95; }
+.livro .escada .dg { display: flex; align-items: center; gap: 2.5mm; background: rgb(var(--marca-50)); border-radius: 2mm; padding: 2.2mm 3mm; margin-bottom: 1.5mm; font-size: 13.1px; }
+.livro .escada .ano { font-weight: 800; color: rgb(var(--marca-700)); width: 14mm; }
+.livro .escada .hab { flex: 1; }
+.livro .escada .sit { font-size: 11.6px; font-weight: 700; color: #fff; border-radius: 1.5mm; padding: 0.6mm 2mm; }
+.livro .sit.sn { background: #C44536; }
+.livro .sit.sq { background: #D9920B; }
+.livro .sit.sd { background: #1E8E5A; }
+.livro .barras .ln { display: flex; align-items: center; gap: 2.5mm; margin-bottom: 1.6mm; font-size: 12.8px; }
+.livro .barras .rt { width: 44mm; text-align: right; }
+.livro .barras .tr { flex: 1; background: #EEF1F5; border-radius: 1mm; height: 5mm; }
+.livro .barras .br { display: block; height: 100%; border-radius: 1mm; }
+.livro .barras .vl { width: 14mm; font-weight: 700; }
+.livro .colunas .plot { display: flex; align-items: flex-end; gap: 4mm; height: 42mm; border-bottom: 0.3mm solid #B9C1CC; padding: 0 2mm; }
+.livro .colunas .grp { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; }
+.livro .colunas .cols { display: flex; align-items: flex-end; gap: 1mm; height: 36mm; width: 100%; justify-content: center; }
+.livro .colunas .cols span { width: 7mm; border-radius: 1mm 1mm 0 0; position: relative; }
+.livro .colunas .cols i { position: absolute; top: -4mm; left: 0; right: 0; text-align: center; font-size: 10.2px; font-style: normal; font-weight: 700; }
+.livro .colunas small { font-size: 11px; margin-top: 1mm; }
+.livro .leg { display: flex; gap: 5mm; justify-content: center; font-size: 11.6px; margin-top: 2mm; color: #5A6372; }
+.livro .leg i { display: inline-block; width: 3mm; height: 3mm; border-radius: 0.6mm; margin-right: 1.2mm; vertical-align: -0.3mm; }
+.livro table.mapa { font-size: 11.6px; margin-bottom: 0; }
+.livro table.mapa th { background: #fff; color: #5A6372; font-weight: 700; text-align: center; padding: 1mm; border-bottom: 0.3mm solid #B9C1CC; }
+.livro table.mapa td { text-align: center; padding: 0.9mm; border: 0; background: #fff !important; width: auto; font-weight: 400; }
+.livro table.mapa td.al { text-align: left; font-weight: 700; width: 24mm; }
+.livro .c { display: inline-block; width: 100%; max-width: 13mm; height: 5mm; border-radius: 1mm; }
+.livro .c.n { background: #C44536; }
+.livro .c.q { background: #D9920B; }
+.livro .c.d { background: #1E8E5A; }
+.livro .c.v { background: #E3E7ED; }
+.livro .matriz { display: grid; grid-template-columns: 7mm 1fr; grid-template-rows: 1fr 6mm; }
+.livro .matriz .ey { writing-mode: vertical-rl; transform: rotate(180deg); text-align: center; font-size: 11.6px; color: #5A6372; font-weight: 700; }
+.livro .matriz .ex { grid-column: 2; text-align: center; font-size: 11.6px; color: #5A6372; font-weight: 700; padding-top: 1.5mm; }
+.livro .matriz .grade { display: grid; grid-template-columns: 1fr 1fr; gap: 2mm; }
+.livro .matriz .q { background: #F5F7FA; padding: 3mm; border-radius: 1.5mm; }
+.livro .matriz .q b { display: block; font-size: 13.3px; }
+.livro .matriz .q small { font-size: 11.9px; color: #5A6372; }
+.livro .tela { border: 0.3mm solid #C9D0DA; border-radius: 2.5mm; overflow: hidden; font-size: 11px; line-height: 1.3; }
+.livro .tela .barra { background: #E9EDF2; padding: 1.4mm 2.5mm; display: flex; gap: 1mm; align-items: center; }
+.livro .tela .barra span { width: 2mm; height: 2mm; border-radius: 50%; background: #B9C1CC; }
+.livro .tela .barra em { margin-left: 3mm; font-style: normal; color: #5A6372; font-size: 9.9px; }
+.livro .tela .app { display: flex; min-height: 44mm; }
+.livro .tela aside { width: 40mm; border-right: 0.3mm solid #E3E7ED; padding: 2.5mm 2mm; background: #fff; }
+.livro .tela .logo { font-weight: 800; font-size: 12.5px; color: rgb(var(--marca-700)); }
+.livro .tela .pf { font-size: 9.6px; color: #5A6372; margin: 0.6mm 0 2mm; padding-bottom: 1.5mm; border-bottom: 0.2mm solid #E3E7ED; }
+.livro .tela .it { padding: 1mm 1.6mm; border-radius: 1mm; color: #5A6372; margin-bottom: 0.4mm; }
+.livro .tela .it.at { background: rgb(var(--marca-50)); color: rgb(var(--marca-700)); font-weight: 700; }
+.livro .tela main { flex: 1; background: #F7F8FA; }
+.livro .tela .cab { background: #fff; padding: 2.6mm 3.5mm; border-bottom: 0.3mm solid #E3E7ED; }
+.livro .tela .cab b { display: block; font-size: 16px; }
+.livro .tela .cab small { color: #5A6372; }
+.livro .tela .corpo { padding: 3mm 3.5mm; }
+.livro .cards { display: flex; gap: 2mm; }
+.livro .card { flex: 1; background: #fff; border: 0.3mm solid #E3E7ED; border-radius: 1.5mm; padding: 2.2mm; }
+.livro .card b { display: block; font-size: 17.4px; color: rgb(var(--marca-700)); }
+.livro .card small { color: #5A6372; }
+.livro .lst .li { background: #fff; border: 0.3mm solid #E3E7ED; border-radius: 1.5mm; padding: 1.8mm 2.4mm; margin-bottom: 1.2mm; position: relative; }
+.livro .lst .li b { display: block; }
+.livro .lst .li small { color: #5A6372; }
+.livro .bt { position: absolute; right: 2.4mm; top: 2mm; background: rgb(var(--marca-700)); color: #fff; border-radius: 1mm; padding: 0.6mm 2mm; font-weight: 700; font-size: 9.9px; }
+.livro .tela table.mapa { font-size: 9.6px; }
+.livro .tela .c { height: 3.6mm; }
+.livro .tela .leg { font-size: 9.6px; }
+.livro .tela figure { margin: 0; }
+.livro .tela figcaption { display: none; }
+.livro .caso { border: 0.3mm solid rgb(var(--marca-700)); border-radius: 2mm; padding: 3.5mm 4mm 1.5mm; margin: 0 0 4mm; break-inside: avoid; font-size: 14.5px; }
+.livro .caso .tt { font-size: 12.2px; font-weight: 800; color: rgb(var(--marca-700)); text-transform: uppercase; letter-spacing: .8.7px; margin-bottom: 2mm; }
+.livro .caso ol { margin: 0 0 2.5mm; padding-left: 6mm; }
+.livro .caso li { margin-bottom: 1mm; }
+.livro .caso p { margin-bottom: 2mm; }
+.livro .quiz .qz { break-inside: avoid; margin-bottom: 3mm; }
+.livro .quiz ol { margin: 0; padding-left: 7mm; }
+.livro .quiz li { margin-bottom: 0.6mm; }
+.livro .quiz p { margin-bottom: 1mm; }
+.livro .gab { background: #F5F7FA; border-radius: 2mm; padding: 3mm 4mm; font-size: 13.1px; break-inside: avoid; }
+.livro .gab p { margin: 1mm 0 0; }
+.livro ul.chk { list-style: none; padding: 0; }
+.livro ul.chk li { display: flex; gap: 2.5mm; align-items: flex-start; margin-bottom: 2mm; }
+.livro ul.chk span { flex: none; width: 4mm; height: 4mm; border: 0.4mm solid rgb(var(--marca-700)); border-radius: 0.8mm; margin-top: 0.6mm; }
+.livro dl { margin: 0; }
+.livro dt { font-weight: 800; color: rgb(var(--marca-700)); margin-top: 2.2mm; }
+.livro dd { margin: 0; }
+.livro .rapido { border: 0.5mm solid rgb(var(--marca-700)); border-radius: 3mm; padding: 5mm; }
+.livro .rapido h3 { margin-top: 0; }
+.livro .pratica { border: 0.4mm dashed rgb(var(--marca-700)); border-radius: 2mm; padding: 3.5mm 4mm 2mm; margin: 0 0 4mm; break-inside: avoid; font-size: 14.5px; }
+.livro .pratica .tt { font-size: 12.2px; font-weight: 800; color: rgb(var(--marca-700)); text-transform: uppercase; letter-spacing: .8.7px; margin-bottom: 2mm; }
+.livro .pratica .q { margin-bottom: 2mm; }
+.livro .pratica .ln { border-bottom: 0.2mm solid #B9C1CC; height: 6.5mm; }
+.livro .dialogo { margin: 0 0 4mm; }
+.livro .dialogo .tt { font-size: 12.2px; font-weight: 800; color: rgb(var(--marca-700)); text-transform: uppercase; letter-spacing: .8.7px; margin-bottom: 1.5mm; }
+.livro .dialogo .f { display: flex; gap: 3mm; margin-bottom: 1.6mm; break-inside: avoid; }
+.livro .dialogo .q { flex: none; width: 26mm; font-weight: 800; font-size: 13.1px; color: #5A6372; padding-top: 1.6mm; }
+.livro .dialogo .b { flex: 1; background: rgb(var(--marca-50)); border-radius: 2mm; padding: 1.8mm 3mm; font-size: 14.5px; }
+.livro .dialogo .f.o .b { background: #F5F7FA; }
+.livro .duas { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+@media (max-width: 640px) {
+  .livro .fluxo { flex-wrap: wrap; }
+  .livro .fluxo .seta { display: none; }
+  .livro .fluxo .cx { flex: 1 1 40%; }
+  .livro .ciclo, .livro .matriz .grade, .livro .duas { grid-template-columns: 1fr; }
+  .livro .ciclo .volta { grid-column: 1; }
+  .livro .dialogo .f { flex-direction: column; gap: 1mm; }
+  .livro .dialogo .q { width: auto; padding-top: 0; }
+  .livro .tela aside { display: none; }
+}
+@media print {
+  .livro { font-size: 10.6pt; line-height: 1.5; }
+  .livro .tb { overflow: visible; }
+  .livro .tb > table { min-width: 0; }
+}
