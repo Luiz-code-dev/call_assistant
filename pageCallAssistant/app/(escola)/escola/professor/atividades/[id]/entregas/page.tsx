@@ -23,20 +23,25 @@ const STATUS_LABEL: Record<string, { label: string; color: string }> = {
 
 function EntregaRow({ entrega, activityId, maxScore, onReview, aberta }: {
   entrega: Entrega; activityId: string; maxScore: number; aberta?: boolean;
-  onReview: (subId: string, score: number | null, note: string) => Promise<void>
+  onReview: (subId: string, score: number | null, note: string) => Promise<string | null>
 }) {
   // Quem chega pela tela de retornos já encontra a entrega aberta
   const [open, setOpen] = useState(!!aberta);
   const [score, setScore] = useState(entrega.submission?.teacherScore != null ? String(entrega.submission.teacherScore) : String(entrega.submission?.aiScore ?? ""));
   const [note, setNote] = useState(entrega.submission?.teacherNote ?? "");
   const [saving, setSaving] = useState(false);
+  const [erro, setErro] = useState("");
   const sub = entrega.submission;
 
   const handleSave = async () => {
     if (!sub) return;
+    setErro("");
+    // Quando a correção automática falhou não existe nota sugerida: o professor precisa informar a dele
+    if (score === "" && sub.aiScore == null) { setErro("Informe a nota antes de confirmar."); return; }
     setSaving(true);
-    await onReview(sub.id, score !== "" ? Number(score) : null, note);
+    const falha = await onReview(sub.id, score !== "" ? Number(score) : null, note);
     setSaving(false);
+    if (falha) setErro(falha);
   };
 
   return (
@@ -103,6 +108,7 @@ function EntregaRow({ entrega, activityId, maxScore, onReview, aberta }: {
                   placeholder="Comentário (opcional)"
                   className="flex-1 text-sm border rounded-lg px-3 py-2 text-zinc-900" style={{ borderColor: "var(--esc-border,#e5e7eb)" }} />
               </div>
+              {erro && <p role="alert" className="text-sm font-semibold text-red-700">{erro}</p>}
               <button onClick={handleSave} disabled={saving}
                 className="w-full py-2 rounded-lg text-sm font-semibold text-[#1F1A2E] disabled:opacity-50"
                 style={{ background: "var(--esc-primary,#7c3aed)" }}>
@@ -140,13 +146,19 @@ export default function EntregasPage() {
 
   useEffect(() => { load(); }, [id]);
 
-  const handleReview = async (subId: string, score: number | null, note: string) => {
-    await fetch(`/api/escola/professor/atividades/${id}/entregas`, {
+  /** Devolve a mensagem de erro, ou null quando salvou */
+  const handleReview = async (subId: string, score: number | null, note: string): Promise<string | null> => {
+    const r = await fetch(`/api/escola/professor/atividades/${id}/entregas`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ submissionId: subId, teacherScore: score, teacherNote: note }),
-    });
+    }).catch(() => null);
+    if (!r?.ok) {
+      const d = await r?.json().catch(() => null);
+      return d?.error ?? "Não foi possível salvar. Tente de novo.";
+    }
     await load();
+    return null;
   };
 
   const handleConfirmAll = async () => {

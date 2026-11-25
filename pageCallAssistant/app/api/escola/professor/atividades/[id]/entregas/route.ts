@@ -183,8 +183,14 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
   });
   if (!sub) return NextResponse.json({ error: "Entrega não encontrada" }, { status: 404 });
 
-  // B9: se não forneceu teacherScore, usa aiScore como padrão
-  const finalScore = teacherScore != null ? Number(teacherScore) : Number(sub.aiScore ?? 0);
+  // B9: se não forneceu teacherScore, usa aiScore como padrão.
+  // Sem nota do professor e sem nota da correção automática (a correção falhou), não há o que confirmar:
+  // uma entrega sem avaliação não pode virar zero em silêncio.
+  const informada = teacherScore != null && teacherScore !== "" && Number.isFinite(Number(teacherScore));
+  if (!informada && sub.aiScore == null) {
+    return NextResponse.json({ error: "Informe a nota desta entrega. A correção automática não gerou uma nota." }, { status: 400 });
+  }
+  const finalScore = informada ? Number(teacherScore) : Number(sub.aiScore);
 
   await (prismaEdu as any).eduSubmission.update({
     where: { id: submissionId },
