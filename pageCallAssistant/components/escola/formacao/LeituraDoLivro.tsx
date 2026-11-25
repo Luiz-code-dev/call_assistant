@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
+import { useRouter } from "next/navigation";
 import { Award, Check, CheckCircle2, Circle, Lock } from "lucide-react";
 
 export interface CapituloParaLer {
@@ -48,6 +49,7 @@ export default function LeituraDoLivro({ slug, capitulos, lidosIniciais, pergunt
   const [salvando, setSalvando] = useState<string | null>(null);
   const [erro, setErro] = useState<string | null>(null);
   const [selo, setSelo] = useState(seloInicial);
+  const router = useRouter();
   const [respostas, setRespostas] = useState<Array<number | null>>(() => perguntas.map(() => null));
   const [resultado, setResultado] = useState<Resultado | null>(null);
   const [corrigindo, setCorrigindo] = useState(false);
@@ -72,7 +74,7 @@ export default function LeituraDoLivro({ slug, capitulos, lidosIniciais, pergunt
       const dados = await r.json().catch(() => null);
       if (!r.ok || !dados) throw new Error(dados?.error ?? "Não foi possível salvar. Tente de novo.");
       setLidos(dados.capitulosLidos as string[]);
-      if (dados.selo) setSelo(true);
+      if (dados.selo) { if (!selo) router.refresh(); setSelo(true); } // atualiza o selo no menu
     } catch (e) {
       setErro((e as Error).message);
     } finally {
@@ -92,7 +94,7 @@ export default function LeituraDoLivro({ slug, capitulos, lidosIniciais, pergunt
       const dados = await r.json().catch(() => null);
       if (!r.ok || !dados) throw new Error(dados?.error ?? "Não foi possível corrigir. Tente de novo.");
       setResultado(dados as Resultado);
-      if (dados.selo) setSelo(true);
+      if (dados.selo) { if (!selo) router.refresh(); setSelo(true); } // atualiza o selo no menu
     } catch (e) {
       setErroDaAvaliacao((e as Error).message);
     } finally {

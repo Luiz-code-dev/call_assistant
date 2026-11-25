@@ -93,9 +93,10 @@ async function getShellData() {
     }
 
     // Selos de Formação no cartão do perfil. Se a leitura falhar, o menu abre sem eles.
-    const disponiveis = livrosDoPerfil(ctx.role as EduRole).length;
+    const slugsDoPerfil = livrosDoPerfil(ctx.role as EduRole).map((l) => l.slug);
+    const disponiveis = slugsDoPerfil.length;
     const conquistados = ctx.userId && disponiveis > 0
-      ? await selosDaPessoa(prismaEdu, ctx.networkId, ctx.userId).catch(() => 0)
+      ? await selosDaPessoa(prismaEdu, ctx.networkId, ctx.userId, slugsDoPerfil).catch(() => 0)
       : 0;
 
     // Item "Pedidos de apoio" só para quem a secretaria indicou

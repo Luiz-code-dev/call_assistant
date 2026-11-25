@@ -141,7 +141,7 @@ export default function RetornosPage() {
                       </>
                     )}
                     {s.observacao && <p className="text-[14px] text-[#3B3550] bg-white border border-[#E9E5F5] rounded-xl px-3 py-2"><b>Sua observação:</b> {s.observacao}</p>}
-                    <Link href={`/escola/professor/atividades/${s.activityId}/entregas`}
+                    <Link href={`/escola/professor/atividades/${s.activityId}/entregas?entrega=${s.id}`}
                       className="w-full min-h-[48px] rounded-xl bg-[#6D28D9] hover:bg-[#5B21B6] text-white text-[14px] font-bold inline-flex items-center justify-center gap-1.5">
                       {s.status === "REVIEWED" ? "Ver a entrega" : "Abrir a entrega e revisar"}<ChevronRight size={16} />
                     </Link>

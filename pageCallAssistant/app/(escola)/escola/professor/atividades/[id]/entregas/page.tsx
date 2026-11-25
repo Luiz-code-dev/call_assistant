@@ -9,6 +9,7 @@ interface Submission {
   aiScore: number | null; teacherScore: number | null; teacherNote: string | null;
   aiFeedback: { acertos?: string[]; melhorar?: string[] } | null;
   transcript: string | null; text: string | null; submittedAt: string | null;
+  aiStatus?: string | null;
 }
 interface Entrega { studentId: string; studentName: string; submission: Submission | null }
 interface Activity { id: string; title: string; type: string; maxScore: number }
@@ -20,21 +21,27 @@ const STATUS_LABEL: Record<string, { label: string; color: string }> = {
   REVIEWED: { label: "Revisado", color: "text-green-600" },
 };
 
-function EntregaRow({ entrega, activityId, maxScore, onReview }: {
-  entrega: Entrega; activityId: string; maxScore: number;
-  onReview: (subId: string, score: number | null, note: string) => Promise<void>
+function EntregaRow({ entrega, activityId, maxScore, onReview, aberta }: {
+  entrega: Entrega; activityId: string; maxScore: number; aberta?: boolean;
+  onReview: (subId: string, score: number | null, note: string) => Promise<string | null>
 }) {
-  const [open, setOpen] = useState(false);
+  // Quem chega pela tela de retornos já encontra a entrega aberta
+  const [open, setOpen] = useState(!!aberta);
   const [score, setScore] = useState(entrega.submission?.teacherScore != null ? String(entrega.submission.teacherScore) : String(entrega.submission?.aiScore ?? ""));
   const [note, setNote] = useState(entrega.submission?.teacherNote ?? "");
   const [saving, setSaving] = useState(false);
+  const [erro, setErro] = useState("");
   const sub = entrega.submission;
 
   const handleSave = async () => {
     if (!sub) return;
+    setErro("");
+    // Quando a correção automática falhou não existe nota sugerida: o professor precisa informar a dele
+    if (score === "" && sub.aiScore == null) { setErro("Informe a nota antes de confirmar."); return; }
     setSaving(true);
-    await onReview(sub.id, score !== "" ? Number(score) : null, note);
+    const falha = await onReview(sub.id, score !== "" ? Number(score) : null, note);
     setSaving(false);
+    if (falha) setErro(falha);
   };
 
   return (
@@ -86,7 +93,10 @@ function EntregaRow({ entrega, activityId, maxScore, onReview }: {
               </div>
             </div>
           )}
-          {(sub.status === "EVALUATED" || sub.status === "REVIEWED") && (
+          {sub.status === "SUBMITTED" && sub.aiStatus === "FAILED" && (
+            <p className="text-sm text-amber-700 bg-amber-50 rounded-lg px-3 py-2">A correção automática não funcionou nesta entrega. Leia a resposta do aluno e registre a sua avaliação abaixo.</p>
+          )}
+          {(sub.status === "EVALUATED" || sub.status === "REVIEWED" || (sub.status === "SUBMITTED" && sub.aiStatus === "FAILED")) && (
             <div className="space-y-2">
               <p className="text-xs font-semibold text-zinc-500">Confirmar / ajustar nota</p>
               <div className="flex gap-2">
@@ -98,6 +108,7 @@ function EntregaRow({ entrega, activityId, maxScore, onReview }: {
                   placeholder="Comentário (opcional)"
                   className="flex-1 text-sm border rounded-lg px-3 py-2 text-zinc-900" style={{ borderColor: "var(--esc-border,#e5e7eb)" }} />
               </div>
+              {erro && <p role="alert" className="text-sm font-semibold text-red-700">{erro}</p>}
               <button onClick={handleSave} disabled={saving}
                 className="w-full py-2 rounded-lg text-sm font-semibold text-[#1F1A2E] disabled:opacity-50"
                 style={{ background: "var(--esc-primary,#7c3aed)" }}>
@@ -118,9 +129,13 @@ export default function EntregasPage() {
   const [activity, setActivity] = useState<Activity | null>(null);
   const [loading, setLoading] = useState(true);
   const [confirmingAll, setConfirmingAll] = useState(false);
+  const [entregaEscolhida, setEntregaEscolhida] = useState<string | null>(null);
+  useEffect(() => { setEntregaEscolhida(new URLSearchParams(window.location.search).get("entrega")); }, []);
 
   const load = async () => {
-    const res = await fetch(`/api/escola/professor/atividades/${id}/entregas`);
+    // A tela de retornos manda a entrega escolhida, que pode não ser a tentativa mais recente do aluno
+    const escolhida = new URLSearchParams(window.location.search).get("entrega");
+    const res = await fetch(`/api/escola/professor/atividades/${id}/entregas${escolhida ? `?entrega=${encodeURIComponent(escolhida)}` : ""}`);
     if (res.ok) {
       const d = await res.json();
       setEntregas(d.entregas ?? []);
@@ -131,13 +146,19 @@ export default function EntregasPage() {
 
   useEffect(() => { load(); }, [id]);
 
-  const handleReview = async (subId: string, score: number | null, note: string) => {
-    await fetch(`/api/escola/professor/atividades/${id}/entregas`, {
+  /** Devolve a mensagem de erro, ou null quando salvou */
+  const handleReview = async (subId: string, score: number | null, note: string): Promise<string | null> => {
+    const r = await fetch(`/api/escola/professor/atividades/${id}/entregas`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ submissionId: subId, teacherScore: score, teacherNote: note }),
-    });
+    }).catch(() => null);
+    if (!r?.ok) {
+      const d = await r?.json().catch(() => null);
+      return d?.error ?? "Não foi possível salvar. Tente de novo.";
+    }
     await load();
+    return null;
   };
 
   const handleConfirmAll = async () => {
@@ -202,7 +223,7 @@ export default function EntregasPage() {
         ) : (
           <div className="space-y-2">
             {entregas.map((e) => (
-              <EntregaRow key={e.studentId} entrega={e} activityId={id} maxScore={Number(activity?.maxScore ?? 10)} onReview={handleReview} />
+              <EntregaRow aberta={!!entregaEscolhida && e.submission?.id === entregaEscolhida} key={`${e.studentId}-${entregaEscolhida && e.submission?.id === entregaEscolhida ? "aberta" : "fechada"}`} entrega={e} activityId={id} maxScore={Number(activity?.maxScore ?? 10)} onReview={handleReview} />
             ))}
           </div>
         )}

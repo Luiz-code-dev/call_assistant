@@ -5,7 +5,7 @@ import { avisoSemEstudo } from "./avisos-familia";
 const agora = new Date("2026-11-25T13:00:00Z"); // quarta, 10h em São Paulo
 const haDias = (n: number, hora = 13) => new Date(Date.UTC(2026, 10, 25 - n, hora, 0, 0));
 
-interface Sessao { lastActivityAt: Date; activityId: string; currentQuestion: number; completedAt: Date | null }
+interface Sessao { lastActivityAt: Date; activityId: string; currentQuestion: number; completedAt: Date | null; answers?: Array<{ answeredAt?: string }> }
 
 /** Banco de mentira que aplica os mesmos filtros que as consultas pedem */
 function banco(entregas: Array<{ submittedAt: Date | null; status: string }>, sessoes: Sessao[]) {
@@ -60,6 +60,18 @@ describe("último estudo", () => {
     );
     expect((await ultimoEstudo(db, "s1"))?.toISOString()).toBe(haDias(2).toISOString());
     expect(await diagnosticosRespondidos(db, "s1", haDias(8))).toEqual([{ quando: haDias(2), activityId: "a1" }]);
+  });
+
+  it("diagnóstico respondido antes e depois da meia-noite conta os dois dias", async () => {
+    // 23h50 de terça e 0h10 de quarta, no horário de São Paulo
+    const antes = new Date("2026-11-25T02:50:00Z"), depois = new Date("2026-11-25T03:10:00Z");
+    const db = banco([], [{ lastActivityAt: depois, activityId: "a1", currentQuestion: 2, completedAt: null, answers: [{ answeredAt: antes.toISOString() }, { answeredAt: depois.toISOString() }] }]);
+    expect(await diagnosticosRespondidos(db, "s1", haDias(8))).toEqual([{ quando: antes, activityId: "a1" }, { quando: depois, activityId: "a1" }]);
+  });
+
+  it("respostas anteriores ao período ficam de fora", async () => {
+    const db = banco([], [{ lastActivityAt: haDias(1), activityId: "a1", currentQuestion: 2, completedAt: null, answers: [{ answeredAt: haDias(20).toISOString() }, { answeredAt: haDias(1).toISOString() }] }]);
+    expect(await diagnosticosRespondidos(db, "s1", haDias(8))).toEqual([{ quando: haDias(1), activityId: "a1" }]);
   });
 
   it("quem nunca estudou não tem último estudo", async () => {

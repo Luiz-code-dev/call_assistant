@@ -17,7 +17,22 @@ function banco() {
     eduFormacaoLeitura: {
       findFirst: async ({ where }: { where: { userId: string; livroSlug: string } }) => achar(where) ?? null,
       findMany: async ({ where }: { where: { userId: string } }) => linhas.filter((l) => l.userId === where.userId),
-      count: async ({ where }: { where: { userId: string } }) => linhas.filter((l) => l.userId === where.userId && l.concluidoEm).length,
+      count: async ({ where }: { where: { userId: string; livroSlug?: { in: string[] } } }) =>
+        linhas.filter((l) => l.userId === where.userId && l.concluidoEm && (!where.livroSlug || where.livroSlug.in.includes(l.livroSlug))).length,
+      create: async ({ data }: { data: Partial<Linha> & { networkId: string; userId: string; livroSlug: string } }) => {
+        if (achar(data)) throw new Error("linha já existe");
+        const nova: Linha = Object.assign({ capitulosLidos: [], ultimoCapitulo: null, avaliacaoAcertos: null, avaliacaoTotal: null, concluidoEm: null }, data);
+        linhas.push(nova);
+        return nova;
+      },
+      updateMany: async ({ where, data }: { where: { userId: string; livroSlug: string; capitulosLidos: { equals: string[] }; avaliacaoAcertos: number | null; avaliacaoTotal: number | null }; data: Partial<Linha> }) => {
+        const linha = achar(where);
+        const igual = !!linha && JSON.stringify(linha.capitulosLidos) === JSON.stringify(where.capitulosLidos.equals)
+          && linha.avaliacaoAcertos === where.avaliacaoAcertos && linha.avaliacaoTotal === where.avaliacaoTotal;
+        if (!linha || !igual) return { count: 0 };
+        Object.assign(linha, data);
+        return { count: 1 };
+      },
       upsert: async ({ where, create, update }: { where: { userId_livroSlug: { userId: string; livroSlug: string } }; create: Partial<Linha> & { networkId: string; userId: string; livroSlug: string }; update: Partial<Linha> }) => {
         const atual = achar(where.userId_livroSlug);
         if (atual) return Object.assign(atual, update);
@@ -108,6 +123,21 @@ describe("Selo de Formação", () => {
     expect(await selosDaPessoa(outro, "rede", "u2")).toBe(0);
     await marcarCapitulo(outro, chave, IDS, "c2", true);
     expect((await marcarCapitulo(outro, chave, IDS, "c3", true)).concluidoEm).not.toBeNull();
+  });
+
+  it("dois capítulos marcados quase juntos ficam os dois gravados", async () => {
+    const db = banco();
+    await Promise.all([marcarCapitulo(db, CHAVE, IDS, "c1", true), marcarCapitulo(db, CHAVE, IDS, "c2", true)]);
+    expect((await leituraDoLivro(db, "rede", "u1", "livro")).capitulosLidos).toEqual(["c1", "c2"]);
+    expect(db.linhas).toHaveLength(1);
+  });
+
+  it("selo de livro que não é do perfil atual não entra na contagem", async () => {
+    const db = banco();
+    for (const id of IDS) await marcarCapitulo(db, CHAVE, IDS, id, true);
+    await registrarAvaliacao(db, CHAVE, IDS, 8, 8);
+    expect(await selosDaPessoa(db, "rede", "u1", ["livro"])).toBe(1);
+    expect(await selosDaPessoa(db, "rede", "u1", ["outro-livro"])).toBe(0);
   });
 
   it("guarda o melhor resultado e não retira o selo já conquistado", async () => {
