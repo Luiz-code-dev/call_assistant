@@ -3,7 +3,7 @@
  * Pedidos de apoio dos alunos, para a equipe que a secretaria indicou.
  * O conteúdo só aparece ao abrir cada pedido, e cada abertura fica registrada.
  */
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { HeartHandshake, ShieldCheck, Mic, FileText, ChevronDown, Inbox, Lock, Check, Scale, ListChecks, BarChart3, Megaphone } from "lucide-react";
 import {
   ASSUNTO_PARA_A_EQUIPE, ASSUNTOS_APOIO, STATUS_APOIO, STATUS_PARA_A_EQUIPE, MAX_OBSERVACAO, ORIENTACAO, ORIENTACAO_NAO_PROCEDE,
@@ -43,6 +43,9 @@ export default function PedidosDeApoioPage() {
   const [salvando, setSalvando] = useState(false);
   const [aviso, setAviso] = useState("");
   const [erroAoSalvar, setErroAoSalvar] = useState("");
+  // Pedido aberto agora. Respostas que chegam de outro pedido não mexem na tela.
+  const abertoAgora = useRef<string | null>(null);
+  useEffect(() => { abertoAgora.current = abertoId; }, [abertoId]);
   const [visao, setVisao] = useState<"pedidos" | "indicadores">("pedidos");
   const [orgaos, setOrgaos] = useState<Orgao[]>([]);
   const [concluindo, setConcluindo] = useState(false);
@@ -76,37 +79,44 @@ export default function PedidosDeApoioPage() {
   }), [lista]);
 
   async function abrir(id: string) {
-    if (abertoId === id) { setAbertoId(null); setDetalhe(null); return; }
+    if (abertoId === id) { abertoAgora.current = null; setAbertoId(null); setDetalhe(null); return; }
     setAbertoId(id); setDetalhe(null); setAviso(""); setErroAoSalvar(""); setConcluindo(false);
+    abertoAgora.current = id;
     const r = await fetch(`/api/escola/apoio/pedidos/${id}`, { cache: "no-store" }).catch(() => null);
     const d = await r?.json().catch(() => null);
+    if (abertoAgora.current !== id) return;
     if (!r?.ok || !d?.pedido) { setAviso("Não foi possível abrir este pedido."); return; }
     setDetalhe(d.pedido); setObservacao(d.pedido.observacao); setEncaminhado(d.pedido.encaminhadoPara); setOrgaos(d.pedido.comunicadoA ?? []);
     setLista((l) => l.map((p) => (p.id === id ? { ...p, visto: true } : p)));
   }
 
   async function salvar(id: string, status?: StatusApoio, desfecho?: Desfecho) {
+    // Só salva o pedido que está aberto, e guarda o que foi enviado: a tela pode mudar enquanto a resposta não chega
+    if (!detalhe || detalhe.id !== id) return;
+    const enviado = { orgaos: [...orgaos], anterior: detalhe.status, desfechoAnterior: detalhe.desfecho };
     setSalvando(true); setAviso(""); setErroAoSalvar("");
     const r = await fetch(`/api/escola/apoio/pedidos/${id}`, {
       method: "PATCH", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...(status ? { status } : {}), ...(desfecho ? { desfecho } : {}), observacao, encaminhadoPara: encaminhado, comunicadoA: orgaos }),
+      body: JSON.stringify({ ...(status ? { status } : {}), ...(desfecho ? { desfecho } : {}), observacao, encaminhadoPara: encaminhado, comunicadoA: enviado.orgaos }),
     }).catch(() => null);
     const d = await r?.json().catch(() => null);
     setSalvando(false);
-    if (!r?.ok) { setErroAoSalvar(d?.error ?? "Não foi possível salvar. Tente de novo."); return; }
+    const aindaAberto = abertoAgora.current === id;
+    if (!r?.ok) { if (aindaAberto) setErroAoSalvar(d?.error ?? "Não foi possível salvar. Tente de novo."); return; }
     // A situação vem do servidor: registrar uma providência em pedido novo já o tira de "novo"
-    const anterior = detalhe?.status;
-    const nova: StatusApoio = (d?.status as StatusApoio) ?? status ?? anterior ?? "RECEBIDO";
-    const fim = nova === "CONCLUIDO" ? desfecho ?? detalhe?.desfecho ?? null : null;
-    setConcluindo(false);
-    setLista((l) => l.map((p) => (p.id === id ? { ...p, comunicado: orgaos.length > 0, status: nova, desfecho: fim } : p)));
-    setDetalhe((x) => (x ? { ...x, status: nova, desfecho: fim, comunicadoA: orgaos } : x));
-    // O cartão acompanha o pedido para a aba certa, continuando aberto
-    setFiltro(nova === "RECEBIDO" ? "novos" : nova === "CONCLUIDO" ? "concluidos" : "andamento");
-    const hora = new Date().toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
-    setAviso(nova !== anterior ? `Salvo às ${hora}. O pedido agora está em: ${STATUS_PARA_A_EQUIPE[nova]}.` : `Registro salvo às ${hora}.`);
+    const nova: StatusApoio = (d?.status as StatusApoio) ?? status ?? enviado.anterior;
+    const fim = nova === "CONCLUIDO" ? desfecho ?? enviado.desfechoAnterior ?? null : null;
+    // A linha da lista é sempre a do pedido salvo
+    setLista((l) => l.map((p) => (p.id === id ? { ...p, comunicado: enviado.orgaos.length > 0, status: nova, desfecho: fim } : p)));
     // O menu atualiza o contador de pedidos novos
     window.dispatchEvent(new Event("sf-apoio-mudou"));
+    // Detalhe, aba e confirmação só mudam se o pedido salvo ainda é o que está aberto
+    if (!aindaAberto) return;
+    setConcluindo(false);
+    setDetalhe((x) => (x && x.id === id ? { ...x, status: nova, desfecho: fim, comunicadoA: enviado.orgaos } : x));
+    setFiltro(nova === "RECEBIDO" ? "novos" : nova === "CONCLUIDO" ? "concluidos" : "andamento");
+    const hora = new Date().toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
+    setAviso(nova !== enviado.anterior ? `Salvo às ${hora}. O pedido agora está em: ${STATUS_PARA_A_EQUIPE[nova]}.` : `Registro salvo às ${hora}.`);
   }
 
   const abas: { id: Filtro; nome: string }[] = [{ id: "novos", nome: "Novos" }, { id: "andamento", nome: "Em andamento" }, { id: "concluidos", nome: "Concluídos" }];
@@ -158,7 +168,7 @@ export default function PedidosDeApoioPage() {
         <>
       <div role="tablist" aria-label="Pedidos" className="mt-5 grid grid-cols-3 gap-1 rounded-2xl bg-[#EFEDF5] p-1">
         {abas.map((a) => (
-          <button key={a.id} role="tab" aria-selected={filtro === a.id} onClick={() => { setFiltro(a.id); setAbertoId(null); setDetalhe(null); }}
+          <button key={a.id} role="tab" aria-selected={filtro === a.id} onClick={() => { abertoAgora.current = null; setFiltro(a.id); setAbertoId(null); setDetalhe(null); }}
             className={`min-h-[52px] rounded-xl px-1 text-[13px] font-bold leading-tight ${filtro === a.id ? "bg-white text-[#6D28D9] shadow-sm" : "text-[#5B5470]"}`}>
             <span className="block text-[18px] font-extrabold">{estado === "ok" ? grupos[a.id].length : "-"}</span>{a.nome}
           </button>
