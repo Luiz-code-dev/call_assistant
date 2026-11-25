@@ -4,14 +4,16 @@
  * O conteúdo só aparece ao abrir cada pedido, e cada abertura fica registrada.
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { HeartHandshake, ShieldCheck, Mic, FileText, ChevronDown, Inbox, Lock, Check, Scale, ListChecks, BarChart3, Megaphone } from "lucide-react";
+import Link from "next/link";
+import { HeartHandshake, ShieldCheck, Mic, FileText, ChevronDown, Inbox, Lock, Check, Scale, ListChecks, BarChart3, Megaphone, UserRoundCheck, FileOutput } from "lucide-react";
 import {
   ASSUNTO_PARA_A_EQUIPE, ASSUNTOS_APOIO, STATUS_APOIO, STATUS_PARA_A_EQUIPE, MAX_OBSERVACAO, ORIENTACAO, ORIENTACAO_NAO_PROCEDE,
-  ORGAOS, ROTULO_ORGAO, DESFECHOS, ROTULO_DESFECHO, type AssuntoApoio, type StatusApoio, type Orgao, type Desfecho,
+  ORGAOS, ROTULO_ORGAO, DESFECHOS, ROTULO_DESFECHO, ROTULO_FUNCAO, type AssuntoApoio, type StatusApoio, type Orgao, type Desfecho, type FuncaoApoio,
 } from "@/lib/escola/apoio-aluno";
 
 interface Linha { id: string; aluno: string; turma: string; escola: string; assunto: AssuntoApoio; status: StatusApoio; desfecho: Desfecho | null; comunicado: boolean; createdAt: string; visto: boolean; temTexto: boolean; temAudio: boolean }
-interface Detalhe extends Omit<Linha, "visto" | "temTexto" | "comunicado"> { texto: string | null; audioUrl: string | null; observacao: string; encaminhadoPara: string; comunicadoA: Orgao[] }
+interface Pessoa { id: string; nome: string; funcao: FuncaoApoio }
+interface Detalhe extends Omit<Linha, "visto" | "temTexto" | "comunicado"> { texto: string | null; audioUrl: string | null; observacao: string; encaminhadoPara: string; comunicadoA: Orgao[]; responsavel: { id: string; nome: string } | null }
 interface Serie { periodo: string; total: number }
 interface Numeros {
   total: number; porStatus: Record<string, number>; porAssunto: Record<string, number>; porDesfecho: Record<string, number>;
@@ -43,6 +45,9 @@ export default function PedidosDeApoioPage() {
   const [salvando, setSalvando] = useState(false);
   const [aviso, setAviso] = useState("");
   const [erroAoSalvar, setErroAoSalvar] = useState("");
+  const [colegas, setColegas] = useState<Pessoa[]>([]);
+  const [euId, setEuId] = useState("");
+  const [passarPara, setPassarPara] = useState("");
   // Pedido aberto agora. Respostas que chegam de outro pedido não mexem na tela.
   const abertoAgora = useRef<string | null>(null);
   useEffect(() => { abertoAgora.current = abertoId; }, [abertoId]);
@@ -87,6 +92,7 @@ export default function PedidosDeApoioPage() {
     if (abertoAgora.current !== id) return;
     if (!r?.ok || !d?.pedido) { setAviso("Não foi possível abrir este pedido."); return; }
     setDetalhe(d.pedido); setObservacao(d.pedido.observacao); setEncaminhado(d.pedido.encaminhadoPara); setOrgaos(d.pedido.comunicadoA ?? []);
+    setColegas(d.colegas ?? []); setEuId(d.eu?.id ?? ""); setPassarPara("");
     setLista((l) => l.map((p) => (p.id === id ? { ...p, visto: true } : p)));
   }
 
@@ -117,6 +123,28 @@ export default function PedidosDeApoioPage() {
     setFiltro(nova === "RECEBIDO" ? "novos" : nova === "CONCLUIDO" ? "concluidos" : "andamento");
     const hora = new Date().toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
     setAviso(nova !== enviado.anterior ? `Salvo às ${hora}. O pedido agora está em: ${STATUS_PARA_A_EQUIPE[nova]}.` : `Registro salvo às ${hora}.`);
+  }
+
+  /** Passa o caso para um colega da equipe; ele é avisado por e-mail, sem nome nem conteúdo. */
+  async function passar(id: string) {
+    if (!passarPara || !detalhe || detalhe.id !== id) return;
+    const destino = colegas.find((c) => c.id === passarPara);
+    setSalvando(true); setAviso(""); setErroAoSalvar("");
+    const r = await fetch(`/api/escola/apoio/pedidos/${id}`, {
+      method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ passarPara }),
+    }).catch(() => null);
+    const d = await r?.json().catch(() => null);
+    setSalvando(false);
+    const aindaAberto = abertoAgora.current === id;
+    if (!r?.ok) { if (aindaAberto) setErroAoSalvar(d?.error ?? "Não foi possível passar o caso."); return; }
+    const nova: StatusApoio = (d?.status as StatusApoio) ?? detalhe.status;
+    setLista((l) => l.map((p) => (p.id === id ? { ...p, status: nova } : p)));
+    window.dispatchEvent(new Event("sf-apoio-mudou"));
+    if (!aindaAberto) return;
+    setDetalhe((x) => (x && x.id === id ? { ...x, status: nova, responsavel: destino ? { id: destino.id, nome: destino.nome } : x.responsavel } : x));
+    setFiltro(nova === "RECEBIDO" ? "novos" : nova === "CONCLUIDO" ? "concluidos" : "andamento");
+    setPassarPara("");
+    setAviso(destino && destino.id !== euId ? `Caso passado para ${destino.nome}, que foi avisado por e-mail.` : "Você ficou como responsável por este caso.");
   }
 
   const abas: { id: Filtro; nome: string }[] = [{ id: "novos", nome: "Novos" }, { id: "andamento", nome: "Em andamento" }, { id: "concluidos", nome: "Concluídos" }];
@@ -238,6 +266,29 @@ export default function PedidosDeApoioPage() {
                           <label htmlFor={`obs-${p.id}`} className="block text-[13px] font-bold text-[#5B5470] mb-1">Registro da equipe (o aluno e a família não veem)</label>
                           <textarea id={`obs-${p.id}`} value={observacao} onChange={(e) => setObservacao(e.target.value.slice(0, MAX_OBSERVACAO))} rows={3} className={campo + " resize-none"} />
                         </div>
+
+                        <div className="rounded-xl border border-[#E9E5F5] bg-white p-3">
+                          <p className="flex items-center gap-1.5 text-[13px] font-bold text-[#5B5470]"><UserRoundCheck size={14} />Quem cuida deste caso</p>
+                          <p className="text-[15px] font-semibold text-[#1F1A2E] mt-1 break-words">{detalhe.responsavel ? detalhe.responsavel.nome : "Ninguém assumiu ainda"}</p>
+                          <div className="mt-2 flex flex-col sm:flex-row gap-2">
+                            <select value={passarPara} onChange={(e) => setPassarPara(e.target.value)} aria-label="Passar o caso para" className={campo + " sm:flex-1 h-12 py-0"}>
+                              <option value="">Passar o caso para...</option>
+                              {colegas.filter((c) => c.id !== detalhe.responsavel?.id).map((c) => (
+                                <option key={c.id} value={c.id}>{c.id === euId ? "Eu mesmo(a)" : c.nome} · {ROTULO_FUNCAO[c.funcao] ?? "Equipe"}</option>
+                              ))}
+                            </select>
+                            <button onClick={() => passar(p.id)} disabled={!passarPara || salvando} className="min-h-[48px] px-5 rounded-xl border-[1.5px] border-[#6D28D9] text-[#6D28D9] text-[14px] font-bold disabled:opacity-50">Passar</button>
+                          </div>
+                          <p className="text-[12px] text-[#8B84A0] mt-1.5">Aparecem só as pessoas da equipe que atendem a escola deste aluno.</p>
+                        </div>
+
+                        <Link href={`/escola/apoio/${p.id}/encaminhamento`} className="flex items-center gap-3 rounded-xl border border-[#E9E5F5] bg-white p-3 hover:border-[#C4B5FD]">
+                          <FileOutput size={18} className="text-[#6D28D9] shrink-0" />
+                          <span className="flex-1 min-w-0">
+                            <span className="block text-[14px] font-bold text-[#1F1A2E]">Gerar documento de encaminhamento</span>
+                            <span className="block text-[12px] text-[#5B5470]">Para entregar ao Conselho Tutelar ou a outro órgão, pelo canal oficial.</span>
+                          </span>
+                        </Link>
 
                         <div>
                           <p className="flex items-center gap-1.5 text-[13px] font-bold text-[#5B5470] mb-2"><Megaphone size={14} />Órgãos já comunicados</p>
