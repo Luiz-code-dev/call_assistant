@@ -70,6 +70,16 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
   if (typeof b.observacao === "string") data.observacao = b.observacao.trim().slice(0, MAX_OBSERVACAO) || null;
   if (typeof b.encaminhadoPara === "string") data.encaminhadoPara = b.encaminhadoPara.trim().slice(0, 200) || null;
 
+  // Registrar qualquer providência em um pedido novo já o tira de "novo":
+  // com órgão comunicado vai para "encaminhado"; senão, para "em acompanhamento".
+  if (b.status === undefined && p.status === "RECEBIDO") {
+    const orgaos = (data.comunicadoA as string[] | undefined) ?? p.comunicadoA ?? [];
+    if (orgaos.length || data.observacao || data.encaminhadoPara) {
+      data.status = orgaos.length ? "ENCAMINHADO" : "EM_ACOMPANHAMENTO";
+      if (!p.responsavelId) data.responsavelId = ctx!.userId;
+    }
+  }
+
   await P.eduPedidoApoio.update({ where: { id: p.id }, data });
   await P.eduAuditLog.create({
     data: {
@@ -78,5 +88,5 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
       metadata: { ...(data.status ? { de: p.status, para: data.status } : {}), ...(data.desfecho ? { desfecho: data.desfecho } : {}), ...(data.comunicadoA ? { comunicadoA: data.comunicadoA } : {}) },
     },
   }).catch(() => {});
-  return NextResponse.json({ ok: true });
+  return NextResponse.json({ ok: true, status: (data.status as string | undefined) ?? p.status });
 }

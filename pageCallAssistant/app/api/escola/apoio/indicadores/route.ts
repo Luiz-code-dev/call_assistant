@@ -12,7 +12,8 @@ export async function GET() {
   const { P, filtro, membro, erro } = await contextoDaEquipe();
   if (erro) return erro;
   const pedidos = await P.eduPedidoApoio.findMany({
-    where: filtro, orderBy: { createdAt: "desc" }, take: 5000,
+    // Sem limite: os números são de todos os pedidos da rede ou das escolas atendidas
+    where: filtro, orderBy: { createdAt: "desc" },
     select: { assunto: true, status: true, desfecho: true, comunicadoA: true, createdAt: true, vistoAt: true, concluidoEm: true },
   });
   return NextResponse.json({ ...indicadores(pedidos), redeToda: !membro!.schoolIds.length });
