@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { ChevronLeft, AlertTriangle } from "lucide-react";
+import { ChevronLeft, ChevronRight, AlertTriangle } from "lucide-react";
 
 type Aluno = { studentId: string; nome: string; enviadoId: string | null; texto: { id: string; versao: number; status: string; palavras: number; enviadoEm: string | null; atencao: boolean } | null };
 type Dados = {
@@ -40,50 +40,56 @@ export default function PropostaProfessorPage() {
     if (r.ok) carregar();
   }
 
-  if (erro) return <div className="px-7 py-8"><p className="text-[#B91C1C]">{erro}</p></div>;
-  if (!dados) return <div className="px-7 py-8 text-[#5B5470]">Carregando...</div>;
+  if (erro) return <div className="px-4 sm:px-7 py-8"><p className="text-[#B91C1C]">{erro}</p></div>;
+  if (!dados) return <div className="px-4 sm:px-7 py-8 text-[#5B5470]">Carregando...</div>;
   const p = dados.proposta;
 
   return (
     <div className="px-4 sm:px-7 py-8 max-w-5xl mx-auto space-y-5">
       <Link href="/escola/professor/redacoes" className="inline-flex items-center gap-1 text-sm font-semibold text-[#6D28D9]"><ChevronLeft size={16} />Redações</Link>
       <div className="flex flex-wrap items-start justify-between gap-3">
-        <div>
-          <h1 className="text-[#1F1A2E] font-bold text-2xl">{p.titulo}</h1>
+        <div className="min-w-0">
+          <h1 className="text-[#1F1A2E] font-bold text-[22px] sm:text-2xl leading-tight break-words">{p.titulo}</h1>
           <p className="text-sm text-[#5B5470]">{dados.turma.name}{dados.turma.schoolName ? ` · ${dados.turma.schoolName}` : ""} · {p.generoNome} · {p.minPalavras} a {p.maxPalavras} palavras · até {p.maxVersoes} versões{p.prazo ? ` · prazo ${new Date(p.prazo).toLocaleDateString("pt-BR")}` : ""}</p>
         </div>
-        <button type="button" onClick={alternar} className="border border-[#DDD6EE] text-[#5B5470] hover:text-[#1F1A2E] px-4 py-2.5 rounded-xl text-sm font-semibold min-h-[44px]">
+        <button type="button" onClick={alternar} className="border border-[#DDD6EE] text-[#5B5470] hover:text-[#1F1A2E] px-4 py-2.5 rounded-xl text-sm font-semibold min-h-[44px] w-full sm:w-auto">
           {p.aberta ? "Encerrar proposta" : "Reabrir proposta"}
         </button>
       </div>
       <p className="bg-white border border-[#E9E5F5] rounded-xl p-4 text-sm text-[#1F1A2E] whitespace-pre-wrap">{p.enunciado}</p>
 
-      <div className="bg-white border border-[#E9E5F5] rounded-xl overflow-x-auto">
-        <table className="w-full text-sm">
-          <thead className="text-left text-[#5B5470] border-b border-[#E9E5F5]">
-            <tr><th className="px-4 py-3 font-semibold">Aluno</th><th className="px-4 py-3 font-semibold">Situação</th><th className="px-4 py-3 font-semibold">Versão</th><th className="px-4 py-3 font-semibold">Palavras</th><th className="px-4 py-3" /></tr>
-          </thead>
-          <tbody>
-            {dados.alunos.map((a) => {
-              const s = situacao(a);
-              return (
-                <tr key={a.studentId} className="border-b last:border-0 border-[#F1EEF9]">
-                  <td className="px-4 py-3 text-[#1F1A2E] font-medium">
-                    <span className="inline-flex items-center gap-1.5">{a.nome}{a.texto?.atencao && <AlertTriangle size={15} className="text-[#B45309]" aria-label="Ler com atenção" />}</span>
-                  </td>
-                  <td className="px-4 py-3"><span className={`rounded-full px-2.5 py-1 text-xs font-semibold ${s.cor}`}>{s.texto}</span></td>
-                  <td className="px-4 py-3 text-[#5B5470]">{a.texto?.versao ?? "-"}</td>
-                  <td className="px-4 py-3 text-[#5B5470]">{a.texto && a.texto.status !== "DRAFT" ? a.texto.palavras : "-"}</td>
-                  <td className="px-4 py-3 text-right">
-                    {a.enviadoId && <Link href={`/escola/professor/redacoes/${p.id}/${a.enviadoId}`} className="text-[#6D28D9] font-semibold">Abrir</Link>}
-                  </td>
-                </tr>
-              );
-            })}
-            {dados.alunos.length === 0 && <tr><td colSpan={5} className="px-4 py-6 text-center text-[#5B5470]">Nenhum aluno ativo nesta turma.</td></tr>}
-          </tbody>
-        </table>
-      </div>
+      {dados.alunos.length === 0 ? (
+        <p className="bg-white border border-[#E9E5F5] rounded-2xl px-4 py-6 text-center text-[#5B5470] text-sm">Nenhum aluno ativo nesta turma.</p>
+      ) : (
+        <ul className="bg-white border border-[#E9E5F5] rounded-2xl divide-y divide-[#F1EEF9] overflow-hidden">
+          {dados.alunos.map((a) => {
+            const s = situacao(a);
+            const detalhe = a.texto ? [`versão ${a.texto.versao}`, a.texto.status !== "DRAFT" ? `${a.texto.palavras} palavras` : ""].filter(Boolean).join(" · ") : "";
+            const conteudo = (
+              <>
+                <span className="flex-1 min-w-0">
+                  <span className="flex items-center gap-1.5 text-[15px] font-semibold text-[#1F1A2E] break-words">
+                    <span className="min-w-0 break-words">{a.nome}</span>
+                    {a.texto?.atencao && <AlertTriangle size={15} className="text-[#B45309] shrink-0" aria-label="Ler com atenção" />}
+                  </span>
+                  <span className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-1.5">
+                    <span className={`rounded-full px-2.5 py-1 text-xs font-semibold ${s.cor}`}>{s.texto}</span>
+                    {detalhe && <span className="text-[12px] text-[#5B5470]">{detalhe}</span>}
+                  </span>
+                </span>
+                {a.enviadoId && <span className="inline-flex items-center gap-0.5 text-[14px] font-bold text-[#6D28D9] shrink-0">Abrir<ChevronRight size={16} /></span>}
+              </>
+            );
+            return (
+              <li key={a.studentId}>
+                {a.enviadoId
+                  ? <Link href={`/escola/professor/redacoes/${p.id}/${a.enviadoId}`} className="flex items-center gap-3 px-4 py-3 min-h-[60px] hover:bg-[#FBFAFF]">{conteudo}</Link>
+                  : <div className="flex items-center gap-3 px-4 py-3 min-h-[60px]">{conteudo}</div>}
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 }

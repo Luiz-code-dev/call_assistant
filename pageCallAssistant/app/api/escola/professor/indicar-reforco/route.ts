@@ -1,7 +1,7 @@
 /**
  * Professor indica reforço para a família (pacote de extensão de aula).
  * GET: turmas e matérias do professor, com os alunos, e os últimos envios (quantos leram e puseram na agenda).
- * POST {classSubjectId, todos, studentIds[], text}: cria uma indicação por aluno e avisa a família
+ * POST {classSubjectId, todos, studentIds[], text, kind}: cria um aviso por aluno e avisa a família
  * no celular e por e-mail. A família vê no painel e pode pôr na agenda do filho.
  * O professor só envia para as turmas e matérias dele; coordenação e direção, para qualquer uma da rede.
  */
@@ -12,7 +12,7 @@ import { getEduContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { avisarFamilia } from "@/lib/escola/avisos-familia";
 import {
-  validarIndicacao, codigoAgendaDaMateria, nomeDoProfessor, avisoIndicacaoDoProfessor, MAX_ENVIOS_POR_DIA,
+  validarIndicacao, codigoAgendaDaMateria, nomeDoProfessor, avisoIndicacaoDoProfessor, tipoDoAviso, MAX_ENVIOS_POR_DIA,
 } from "@/lib/escola/professor-familia";
 
 /* eslint-disable @typescript-eslint/no-explicit-any -- cliente Prisma do tenant sem tipagem estática */
@@ -66,26 +66,35 @@ export async function GET() {
 
   const recentes: any[] = await P.eduReforcoIndicado.findMany({
     where: { networkId: ctx!.networkId, teacherUserId: ctx!.userId },
-    orderBy: { createdAt: "desc" }, take: 300,
-    select: { envioId: true, classId: true, studentId: true, subjectName: true, text: true, createdAt: true, readAt: true, agendaAt: true },
+    orderBy: { createdAt: "desc" }, take: 600,
+    select: { envioId: true, classId: true, studentId: true, subjectName: true, kind: true, text: true, createdAt: true, readAt: true, agendaAt: true },
   });
   const nomes = new Map<string, string>();
   alunosPorTurma.forEach((l) => l.forEach((a) => nomes.set(a.id, a.nome)));
   const turmaNome = new Map<string, string>(lista.map((o) => [o.classId, o.class.name]));
   const envios = new Map<string, any>();
   for (const r of recentes) {
-    const e = envios.get(r.envioId) ?? { id: r.envioId, turma: turmaNome.get(r.classId) ?? "Turma", materia: r.subjectName, texto: r.text, createdAt: r.createdAt, alunos: [] as string[], total: 0, lidos: 0, naAgenda: 0 };
+    const e = envios.get(r.envioId) ?? {
+      id: r.envioId, turma: turmaNome.get(r.classId) ?? "Turma", materia: r.subjectName, tipo: tipoDoAviso(r.kind), texto: r.text, createdAt: r.createdAt,
+      alunos: [] as string[], destinatarios: [] as { nome: string; viu: boolean; naAgenda: boolean }[], total: 0, lidos: 0, naAgenda: 0,
+    };
     e.total++; if (r.readAt) e.lidos++; if (r.agendaAt) e.naAgenda++;
-    if (e.alunos.length < 4) e.alunos.push((nomes.get(r.studentId) ?? "").split(" ")[0] || "Aluno");
+    const nomeCompleto = nomes.get(r.studentId) ?? "Aluno";
+    if (e.alunos.length < 4) e.alunos.push(nomeCompleto.split(" ")[0] || "Aluno");
+    e.destinatarios.push({ nome: nomeCompleto, viu: !!r.readAt, naAgenda: !!r.agendaAt });
     envios.set(r.envioId, e);
   }
+  envios.forEach((e) => e.destinatarios.sort((a: { nome: string }, b: { nome: string }) => a.nome.localeCompare(b.nome, "pt-BR")));
+
+  const quem = await P.eduUser.findUnique({ where: { id: ctx!.userId }, select: { name: true } }).catch(() => null);
 
   return NextResponse.json({
+    assinatura: nomeDoProfessor(quem?.name),
     ofertas: lista.map((o) => ({
-      id: o.id, turma: o.class.name, ano: o.class.gradeYear, materia: o.subject.name,
+      id: o.id, classId: o.classId, turma: o.class.name, ano: o.class.gradeYear, materia: o.subject.name,
       alunos: alunosPorTurma.get(o.classId) ?? [],
     })),
-    envios: Array.from(envios.values()).slice(0, 20),
+    envios: Array.from(envios.values()).slice(0, 60),
   });
 }
 
@@ -119,7 +128,7 @@ export async function POST(req: Request) {
   await P.eduReforcoIndicado.createMany({
     data: alvo.map((s: any) => ({
       networkId: ctx!.networkId, envioId, teacherUserId: ctx!.userId, classSubjectId: oferta.id, classId: oferta.classId,
-      studentId: s.id, subjectName: materia, subjectCode, text: v.text,
+      studentId: s.id, subjectName: materia, subjectCode, kind: v.kind, text: v.text,
     })),
   });
 
@@ -129,7 +138,7 @@ export async function POST(req: Request) {
   const networkId = ctx!.networkId;
   let avisados = 0;
   for (const s of alvo) {
-    avisados += await avisarFamilia(P, networkId, s.id, `INDICACAO:${envioId}`, avisoIndicacaoDoProfessor(s.fullName, materia, professor, v.text, s.id))
+    avisados += await avisarFamilia(P, networkId, s.id, `INDICACAO:${envioId}`, avisoIndicacaoDoProfessor(s.fullName, materia, professor, v.text, s.id, v.kind))
       .catch((err: Error) => { console.error("[professor/indicar-reforco] aviso:", err.message); return 0; });
   }
 

@@ -144,6 +144,22 @@
   .livro .dialogo .f { flex-direction: column; gap: 1mm; }
   .livro .dialogo .q { width: auto; padding-top: 0; }
   .livro .tela aside { display: none; }
+  .livro .niveis { flex-direction: column; }
+  .livro .niveis .seta { display: none; }
+  .livro .barras .rt { width: 30mm; }
+
+  /* No celular, cada linha da tabela vira um cartão, sem rolagem lateral.
+     O título da coluna vem do atributo data-rotulo de cada célula. */
+  .livro .tb > table:not(.mapa) { display: block; min-width: 0; font-size: 15px; }
+  .livro .tb > table:not(.mapa) thead { display: none; }
+  .livro .tb > table:not(.mapa) tbody { display: block; }
+  .livro .tb > table:not(.mapa) tr { display: block; border: 1px solid #E3E7ED; border-radius: 12px; padding: 10px 12px; margin-bottom: 8px; background: #fff; }
+  .livro .tb > table:not(.mapa) td { display: block; width: auto !important; border: 0; padding: 0; background: transparent !important; font-weight: 400; overflow-wrap: anywhere; }
+  .livro .tb > table:not(.mapa) td + td { margin-top: 8px; }
+  .livro .tb > table:not(.mapa) td::before { content: attr(data-rotulo); display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #5A6372; margin-bottom: 1px; }
+  .livro .tb > table:not(.mapa) td[data-rotulo=""]::before { display: none; }
+  .livro .tb > table:not(.mapa) td:first-child { font-weight: 700; }
+  .livro .tb > table:not(.mapa) td:empty { display: none; }
 }
 @media print {
   .livro { font-size: 10.6pt; line-height: 1.5; }

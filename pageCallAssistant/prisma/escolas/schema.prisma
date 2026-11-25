@@ -1102,6 +1102,8 @@ model EduReforcoIndicado {
   subjectName    String
   /// Código da matéria na agenda (LP, MA...), quando houver
   subjectCode    String?
+  /// Assunto do aviso: REFORCO | ELOGIO | TAREFA | FREQUENCIA | CONVIVENCIA | RECADO
+  kind           String    @default("REFORCO")
   text           String    @db.Text
   createdAt      DateTime  @default(now()) @db.Timestamptz
   readAt         DateTime? @db.Timestamptz
