@@ -136,8 +136,9 @@ export const ROTULO_ORGAO: Record<Orgao, string> = {
 };
 export function orgaosValidos(v: unknown): Orgao[] | null {
   if (!Array.isArray(v)) return null;
-  const lista = Array.from(new Set(v.filter((x): x is Orgao => typeof x === "string" && (ORGAOS as readonly string[]).includes(x))));
-  return lista.length === v.length ? lista : null;
+  const validos = v.filter((x): x is Orgao => typeof x === "string" && (ORGAOS as readonly string[]).includes(x));
+  // Um item desconhecido invalida a lista; repetidos são só desconsiderados
+  return validos.length === v.length ? Array.from(new Set(validos)) : null;
 }
 
 /**
