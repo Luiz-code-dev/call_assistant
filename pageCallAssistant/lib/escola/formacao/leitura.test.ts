@@ -18,10 +18,11 @@ function banco() {
       findFirst: async ({ where }: { where: { userId: string; livroSlug: string } }) => achar(where) ?? null,
       findMany: async ({ where }: { where: { userId: string } }) => linhas.filter((l) => l.userId === where.userId),
       count: async ({ where }: { where: { userId: string } }) => linhas.filter((l) => l.userId === where.userId && l.concluidoEm).length,
-      upsert: async ({ where, create, update }: { where: { userId_livroSlug: { userId: string; livroSlug: string } }; create: Linha; update: Partial<Linha> }) => {
+      upsert: async ({ where, create, update }: { where: { userId_livroSlug: { userId: string; livroSlug: string } }; create: Partial<Linha> & { networkId: string; userId: string; livroSlug: string }; update: Partial<Linha> }) => {
         const atual = achar(where.userId_livroSlug);
         if (atual) return Object.assign(atual, update);
-        const nova: Linha = { capitulosLidos: [], ultimoCapitulo: null, avaliacaoAcertos: null, avaliacaoTotal: null, concluidoEm: null, ...create };
+        const vazia = { capitulosLidos: [] as string[], ultimoCapitulo: null, avaliacaoAcertos: null, avaliacaoTotal: null, concluidoEm: null };
+        const nova: Linha = Object.assign(vazia, create);
         linhas.push(nova);
         return nova;
       },
@@ -132,7 +133,12 @@ describe("avaliação de cada livro", () => {
         expect(questao.correta).toBeLessThan(questao.alternativas.length);
         expect(questao.explicacao.length).toBeGreaterThan(0);
       }
-      expect(new Set(avaliacao.map((q) => q.correta)).size).toBeGreaterThan(1);
+      // A resposta certa não pode se concentrar em uma letra: nenhuma posição
+      // recebe mais da metade das questões, e ao menos três posições são usadas
+      const porPosicao = new Map<number, number>();
+      for (const questao of avaliacao) porPosicao.set(questao.correta, (porPosicao.get(questao.correta) ?? 0) + 1);
+      expect(porPosicao.size, livro.slug).toBeGreaterThanOrEqual(3);
+      expect(Math.max(...Array.from(porPosicao.values())), livro.slug).toBeLessThanOrEqual(avaliacao.length / 2);
       // A avaliação fica fora dos capítulos de leitura: o gabarito não aparece no texto
       const capitulos = (await capitulosDoLivro(livro.slug)) ?? [];
       expect(capitulos.some((c) => c.titulo === "Avaliação final")).toBe(false);
