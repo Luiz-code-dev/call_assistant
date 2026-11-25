@@ -66,6 +66,8 @@ export const CAN_INVITE: Record<EduRole, InvitableRole[]> = {
   ],
   COORDINATOR: [],
   TEACHER: [],
+  // O profissional de apoio não convida ninguém; ele entra pelo cadastro feito pela secretaria
+  SUPPORT: [],
 };
 
 const INVITE_RESPONSIBLE: Partial<Record<EduRole, string>> = {

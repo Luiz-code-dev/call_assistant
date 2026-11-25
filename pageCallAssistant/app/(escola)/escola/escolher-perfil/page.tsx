@@ -17,6 +17,7 @@ const ROLE_LABEL: Record<string, string> = {
   COORDINATOR:   "Coordenador(a)",
   SCHOOL_ADMIN:  "Diretor(a)",
   TEACHER:       "Professor(a)",
+  SUPPORT:       "Profissional de apoio",
 };
 
 export default function EscolaEscolherPerfilPage() {

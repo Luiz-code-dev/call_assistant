@@ -18,7 +18,7 @@ interface Acesso {
 
 export async function acessoAoLivro(slug: string): Promise<{ erro: NextResponse } | Acesso> {
   if (!isEscolasEnabled()) return { erro: NextResponse.json({ error: "Não encontrado" }, { status: 404 }) };
-  const ctx = await getEduContext();
+  const ctx = await getEduContext({ permitirApoio: true });
   if (!ctx) return { erro: NextResponse.json({ error: "Não autenticado" }, { status: 401 }) };
   const livro = livroDoPerfil(slug, ctx.role);
   // Sem rede (administração da plataforma) não há leitura a registrar

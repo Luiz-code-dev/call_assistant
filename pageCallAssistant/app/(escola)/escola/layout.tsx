@@ -48,7 +48,7 @@ function isShellFreePath(pathname: string): boolean {
 
 async function getShellData() {
   try {
-    const ctx = await getEduContext();
+    const ctx = await getEduContext({ permitirApoio: true });
     if (!ctx) return null;
     if (ctx.db) setTenantDb(ctx.db);
 

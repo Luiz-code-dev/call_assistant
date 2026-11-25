@@ -9,7 +9,7 @@ export async function GET() {
 
   let ctx;
   try {
-    ctx = await getEduContext();
+    ctx = await getEduContext({ permitirApoio: true });
   } catch {
     return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
   }

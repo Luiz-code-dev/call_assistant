@@ -37,6 +37,7 @@ enum EduRole {
   COORDINATOR
   SCHOOL_ADMIN
   TEACHER
+  SUPPORT
 }
 
 enum EduInviteRole {
@@ -45,6 +46,7 @@ enum EduInviteRole {
   COORDINATOR
   SCHOOL_ADMIN
   TEACHER
+  SUPPORT
 }
 
 enum EduStage {
@@ -1172,6 +1174,35 @@ model EduEquipeApoio {
   createdAt DateTime @default(now()) @db.Timestamptz
 
   @@unique([networkId, userId])
+}
+
+/// Cadastro do assistente social ou psicólogo feito pela secretaria, com o registro no conselho
+model EduApoioCadastro {
+  id                 String    @id @default(cuid())
+  networkId          String
+  inviteId           String?   @unique
+  userId             String?
+  email              String
+  name               String
+  funcao             String
+  conselho           String
+  registro           String
+  uf                 String
+  schoolIds          String[]  @default([])
+  /// DECLARADO (gestor declarou) | CONSULTADO (confirmado no conselho)
+  verificacao        String    @default("DECLARADO")
+  situacaoNoConselho String?
+  declaradoPorId     String
+  declaradoEm        DateTime  @default(now()) @db.Timestamptz
+  /// CONVIDADO | ATIVO | RECUSOU
+  status             String    @default("CONVIDADO")
+  termoVersao        String?
+  termoAceitoEm      DateTime? @db.Timestamptz
+  recusadoEm         DateTime? @db.Timestamptz
+  createdAt          DateTime  @default(now()) @db.Timestamptz
+
+  @@index([networkId, status])
+  @@index([networkId, userId])
 }
 
 /// Pedido de apoio do aluno. Só a equipe indicada lê; nunca aparece para família, professor ou IA.

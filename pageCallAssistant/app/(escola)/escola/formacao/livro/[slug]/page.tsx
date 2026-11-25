@@ -12,7 +12,7 @@ export const metadata = { title: "Formação" };
 const NOME_PADRAO = "Rede de ensino";
 
 export default async function LivroPage(props: { params: Promise<{ slug: string }> }) {
-  const ctx = await getEduContext();
+  const ctx = await getEduContext({ permitirApoio: true });
   if (!ctx) redirect("/escola/entrar");
   if (ctx.db) setTenantDb(ctx.db);
 

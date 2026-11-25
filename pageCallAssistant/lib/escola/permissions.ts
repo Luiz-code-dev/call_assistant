@@ -111,6 +111,8 @@ const ROLE_PERMISSIONS: Record<EduRole, EduAction[]> = {
     "audit:read",
     "membership:manage",
   ],
+  // Só lê e trata pedidos de apoio, por regra própria (equipe indicada); nenhuma ação pedagógica
+  SUPPORT: [],
 };
 
 export function can(role: EduRole, action: EduAction): boolean {
