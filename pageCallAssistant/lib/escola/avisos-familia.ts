@@ -20,6 +20,7 @@ import { subjectInfo } from "@/lib/escola/subjects";
 import { diaSaoPaulo } from "@/lib/escola/semana-filho";
 import type { Aviso } from "@/lib/escola/avisos";
 import { documentoEscolas, remetenteFamilia } from "@/lib/escola/email-familia";
+import { diasSemEstudar, fraseSemEstudo, ultimoEstudo } from "@/lib/escola/estudo-do-aluno";
 
 /* eslint-disable @typescript-eslint/no-explicit-any -- cliente Prisma do tenant sem tipagem estática */
 
@@ -37,11 +38,12 @@ function primeiroNome(nome: string): string {
   return (nome ?? "").trim().split(/\s+/)[0] || "Seu filho";
 }
 
-export function avisoSemEstudo(nome: string, dias: number, studentId: string): Aviso {
+/** `dias` nulo = o aluno ainda não estudou. O título é a mesma frase que o painel da família mostra. */
+export function avisoSemEstudo(nome: string, dias: number | null, studentId: string): Aviso {
   const n = primeiroNome(nome);
   return {
     tipo: "familia-sem-estudo",
-    title: dias >= 2 ? `${n} está há ${dias} dias sem estudar` : `${n} não estuda desde ontem`,
+    title: fraseSemEstudo(n, dias === null ? null : Math.max(1, dias)) ?? `${n} não estuda desde ontem`,
     body: "O reforço rende mais um pouquinho todo dia. Que tal mandar um recado para lembrar?",
     url: `/escola/familia/${studentId}#recado`,
     icon: "/escola-icons/aviso-lembrete.png", badge: BADGE, tag: `familia-sem-estudo-${studentId}`, vibrate: [300, 150, 300],
@@ -191,16 +193,6 @@ export async function avisarFamilia(db: any, networkId: string, studentId: strin
   return avisados;
 }
 
-/** Último momento em que o aluno estudou (entrega ou diagnóstico), ou null */
-export async function ultimoEstudo(db: any, studentId: string): Promise<Date | null> {
-  const [sub, sess] = await Promise.all([
-    db.eduSubmission.findFirst({ where: { studentId, submittedAt: { not: null } }, orderBy: { submittedAt: "desc" }, select: { submittedAt: true } }),
-    db.eduAttemptSession.findFirst({ where: { studentId }, orderBy: { lastActivityAt: "desc" }, select: { lastActivityAt: true } }),
-  ]);
-  const ts = [sub?.submittedAt, sess?.lastActivityAt].filter((d): d is Date => !!d).map((d) => new Date(d).getTime());
-  return ts.length ? new Date(Math.max(...ts)) : null;
-}
-
 /** Horário em que avisos de "sem estudar" podem sair (9h às 20h de São Paulo) */
 export function horarioDeAvisar(now = new Date()): boolean {
   const h = new Date(now.getTime() - 3 * 60 * 60 * 1000).getUTCHours();
@@ -225,12 +217,16 @@ export async function verificarSemEstudo(now = new Date()): Promise<number> {
       vistos.add(l.studentId);
       const ja = await db.eduGuardianAlert.findFirst({ where: { networkId: rede.id, studentId: l.studentId, kind: "SEM_ESTUDO", day: diaSaoPaulo(now) }, select: { id: true } }).catch(() => null);
       if (ja) continue;
-      const ultimo = await ultimoEstudo(db, l.studentId).catch(() => null);
+      // Se não der para saber quando estudou, não avisa: melhor calar do que informar errado
+      let ultimo: Date | null;
+      try { ultimo = await ultimoEstudo(db, l.studentId); } catch { continue; }
       const desde = ultimo?.getTime() ?? new Date(l.createdAt).getTime();
       if (desde > limite) continue;
       const aluno = await db.eduStudent.findUnique({ where: { id: l.studentId }, select: { fullName: true, isActive: true } });
       if (!aluno?.isActive) continue;
-      const dias = Math.max(1, Math.floor((now.getTime() - desde) / 86_400_000));
+      // Mesma conta do painel da família: dias do calendário desde o último estudo
+      const dias = ultimo ? diasSemEstudar(ultimo, now) : null;
+      if (dias === 0) continue;
       total += await avisarFamilia(db, rede.id, l.studentId, "SEM_ESTUDO", avisoSemEstudo(aluno.fullName, dias, l.studentId), now).catch(() => 0);
     }
   }
