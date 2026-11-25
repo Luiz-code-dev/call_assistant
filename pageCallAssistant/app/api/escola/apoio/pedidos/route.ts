@@ -10,11 +10,20 @@ export const runtime = "nodejs";
 export async function GET() {
   const { P, filtro, erro } = await contextoDaEquipe();
   if (erro) return erro;
-  const pedidos: any[] = await P.eduPedidoApoio.findMany({ // eslint-disable-line @typescript-eslint/no-explicit-any
-    where: filtro,
-    orderBy: { createdAt: "desc" }, take: 200,
-    select: { id: true, studentId: true, classId: true, schoolId: true, assunto: true, status: true, desfecho: true, comunicadoA: true, audioKey: true, text: true, createdAt: true, vistoAt: true },
-  });
+  // Pedidos ainda em aberto nunca somem da tela por causa de pedidos mais novos:
+  // vêm todos os não concluídos e, à parte, os concluídos mais recentes.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [abertos, concluidos]: any[][] = await Promise.all([
+    P.eduPedidoApoio.findMany({
+      where: { ...filtro, status: { not: "CONCLUIDO" } }, orderBy: { createdAt: "desc" }, take: 2000,
+      select: { id: true, studentId: true, classId: true, schoolId: true, assunto: true, status: true, desfecho: true, comunicadoA: true, audioKey: true, text: true, createdAt: true, vistoAt: true },
+    }),
+    P.eduPedidoApoio.findMany({
+      where: { ...filtro, status: "CONCLUIDO" }, orderBy: { createdAt: "desc" }, take: 200,
+      select: { id: true, studentId: true, classId: true, schoolId: true, assunto: true, status: true, desfecho: true, comunicadoA: true, audioKey: true, text: true, createdAt: true, vistoAt: true },
+    }),
+  ]);
+  const pedidos = [...abertos, ...concluidos];
   const ids = (campo: string) => Array.from(new Set(pedidos.map((p) => p[campo]).filter(Boolean)));
   const [alunos, turmas, escolas] = await Promise.all([
     P.eduStudent.findMany({ where: { id: { in: ids("studentId") } }, select: { id: true, fullName: true } }),

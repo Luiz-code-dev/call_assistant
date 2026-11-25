@@ -208,8 +208,10 @@ export interface PedidoParaContar {
 }
 
 const FUSO = "America/Sao_Paulo";
+// Criado uma vez só: montar o formatador a cada pedido deixa o cálculo lento com muitos pedidos
+const FORMATO_DIA = new Intl.DateTimeFormat("en-CA", { timeZone: FUSO, year: "numeric", month: "2-digit", day: "2-digit" });
 function partes(d: Date) {
-  const f = new Intl.DateTimeFormat("en-CA", { timeZone: FUSO, year: "numeric", month: "2-digit", day: "2-digit" }).format(d);
+  const f = FORMATO_DIA.format(d);
   const [ano, mes, dia] = f.split("-");
   return { ano, mes, dia, chaveDia: f, chaveMes: `${ano}-${mes}` };
 }
