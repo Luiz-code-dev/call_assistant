@@ -11,7 +11,7 @@ import { getFamilyContext } from "@/lib/escola/family-context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { guardianOwnsStudent } from "@/lib/escola/family-guard";
 import { validarAgenda } from "@/lib/escola/recados";
-import { validarRetorno, nomeDoProfessor, MAX_RETORNOS_POR_DIA } from "@/lib/escola/professor-familia";
+import { validarRetorno, nomeDoProfessor, tipoDoAviso, MAX_RETORNOS_POR_DIA } from "@/lib/escola/professor-familia";
 
 /* eslint-disable @typescript-eslint/no-explicit-any -- cliente Prisma do tenant sem tipagem estática */
 export const dynamic = "force-dynamic";
@@ -59,7 +59,7 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
     P.eduReforcoIndicado.findMany({
       where: { networkId, studentId: params.studentId },
       orderBy: { createdAt: "desc" }, take: 10,
-      select: { id: true, teacherUserId: true, subjectName: true, subjectCode: true, text: true, createdAt: true, readAt: true, agendaAt: true },
+      select: { id: true, teacherUserId: true, subjectName: true, subjectCode: true, kind: true, text: true, createdAt: true, readAt: true, agendaAt: true },
     }),
     P.eduRetornoFamilia.findMany({
       where: { networkId, guardianId: ctx!.guardianId, studentId: params.studentId },
@@ -77,7 +77,7 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
   const materiaDe = new Map(professores.map((p: any) => [p.classSubjectId, `${p.professor} · ${p.materia}`]));
   return NextResponse.json({
     indicacoes: (indicacoes as any[]).map((i) => ({
-      id: i.id, professor: nomeDoProfessor(nome.get(i.teacherUserId)), materia: i.subjectName, subjectCode: i.subjectCode,
+      id: i.id, professor: nomeDoProfessor(nome.get(i.teacherUserId)), materia: i.subjectName, subjectCode: i.subjectCode, tipo: tipoDoAviso(i.kind),
       texto: i.text, createdAt: i.createdAt, nova: !i.readAt, naAgenda: !!i.agendaAt,
     })),
     professores: professores.map((p: any) => ({ classSubjectId: p.classSubjectId, professor: p.professor, materia: p.materia })),

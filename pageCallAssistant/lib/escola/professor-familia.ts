@@ -9,7 +9,7 @@
 import { MATERIAS_AGENDA } from "@/lib/escola/recados";
 import type { Aviso } from "@/lib/escola/avisos";
 
-export const MAX_TEXTO_INDICACAO = 300;
+export const MAX_TEXTO_INDICACAO = 500;
 export const MAX_ALUNOS_POR_ENVIO = 60;
 /** Envios do professor por dia (cada envio pode ser a turma toda) */
 export const MAX_ENVIOS_POR_DIA = 30;
@@ -43,7 +43,38 @@ export function codigoAgendaDaMateria(nome: string | null | undefined): string |
   return NOME_PARA_CODIGO[n] ?? null;
 }
 
-export interface IndicacaoNova { classSubjectId: string; todos: boolean; studentIds: string[]; text: string }
+/**
+ * Assunto do aviso que o professor manda à família. Cada um tem o seu título
+ * no celular e na tela da família. Só o reforço pode ir para a agenda do aluno.
+ */
+export const TIPOS_AVISO = ["REFORCO", "ELOGIO", "TAREFA", "FREQUENCIA", "CONVIVENCIA", "RECADO"] as const;
+export type TipoAviso = (typeof TIPOS_AVISO)[number];
+
+export const ROTULO_AVISO: Record<TipoAviso, string> = {
+  REFORCO: "Reforço em casa",
+  ELOGIO: "Elogio",
+  TAREFA: "Tarefa e material",
+  FREQUENCIA: "Frequência",
+  CONVIVENCIA: "Convivência",
+  RECADO: "Recado",
+};
+
+export const DESCRICAO_AVISO: Record<TipoAviso, string> = {
+  REFORCO: "O que o aluno precisa estudar em casa. A família pode pôr na agenda.",
+  ELOGIO: "Um avanço, um esforço ou uma atitude que merece reconhecimento.",
+  TAREFA: "Tarefa a entregar, material a trazer ou trabalho combinado.",
+  FREQUENCIA: "Faltas, atrasos ou saídas antes do horário.",
+  CONVIVENCIA: "Como o aluno está na turma e o que a família pode conversar em casa.",
+  RECADO: "Outro assunto da sua matéria ou da turma.",
+};
+
+/** Aceita o que estiver gravado: aviso antigo, sem assunto, vale como reforço. */
+export function tipoDoAviso(valor: unknown): TipoAviso {
+  const v = String(valor ?? "").toUpperCase() as TipoAviso;
+  return TIPOS_AVISO.includes(v) ? v : "REFORCO";
+}
+
+export interface IndicacaoNova { classSubjectId: string; todos: boolean; studentIds: string[]; text: string; kind: TipoAviso }
 
 export function validarIndicacao(body: unknown): IndicacaoNova | { erro: string } {
   const b = (body ?? {}) as { classSubjectId?: unknown; todos?: unknown; studentIds?: unknown; text?: unknown };
@@ -56,9 +87,11 @@ export function validarIndicacao(body: unknown): IndicacaoNova | { erro: string 
   if (!todos && !studentIds.length) return { erro: "Escolha a turma toda ou pelo menos um aluno." };
   if (studentIds.length > MAX_ALUNOS_POR_ENVIO) return { erro: `Escolha até ${MAX_ALUNOS_POR_ENVIO} alunos por vez.` };
   const text = limpar(b.text);
-  if (text.length < 5) return { erro: "Escreva o que o aluno precisa reforçar." };
+  if (text.length < 5) return { erro: "Escreva a mensagem para a família." };
   if (text.length > MAX_TEXTO_INDICACAO) return { erro: `A mensagem pode ter até ${MAX_TEXTO_INDICACAO} letras.` };
-  return { classSubjectId, todos, studentIds: todos ? [] : studentIds, text };
+  const bruto = String((b as { kind?: unknown }).kind ?? "").toUpperCase();
+  if (bruto && !(TIPOS_AVISO as readonly string[]).includes(bruto)) return { erro: "Escolha o assunto do aviso." };
+  return { classSubjectId, todos, studentIds: todos ? [] : studentIds, text, kind: tipoDoAviso(bruto) };
 }
 
 export interface RetornoNovo { classSubjectId: string; kind: TipoRetorno; text: string }
@@ -82,15 +115,28 @@ export function nomeDoProfessor(nome: string | null | undefined): string {
   return `Prof. ${partes.length > 1 ? `${partes[0]} ${partes[partes.length - 1]}` : partes[0]}`;
 }
 
-/** Aviso no celular e no e-mail da família quando o professor indica reforço */
-export function avisoIndicacaoDoProfessor(nomeAluno: string, materia: string, professor: string, texto: string, studentId: string): Aviso {
+/** Título do aviso para a família, conforme o assunto. Só o primeiro nome do aluno aparece. */
+export function tituloDoAviso(kind: TipoAviso, professor: string, materia: string, primeiroNome: string): string {
+  switch (kind) {
+    case "ELOGIO": return `${professor} mandou um elogio para ${primeiroNome}`;
+    case "TAREFA": return `${professor} mandou um aviso sobre tarefa de ${materia} para ${primeiroNome}`;
+    case "FREQUENCIA": return `${professor} mandou um aviso sobre a frequência de ${primeiroNome}`;
+    // Convivência e recado: título neutro, porque aparece na tela bloqueada do celular
+    case "CONVIVENCIA":
+    case "RECADO": return `${professor} mandou um recado sobre ${primeiroNome}`;
+    default: return `${professor} indicou reforço em ${materia} para ${primeiroNome}`;
+  }
+}
+
+/** Aviso no celular e no e-mail da família quando o professor manda um aviso */
+export function avisoIndicacaoDoProfessor(nomeAluno: string, materia: string, professor: string, texto: string, studentId: string, kind: TipoAviso = "REFORCO"): Aviso {
   const n = String(nomeAluno ?? "").trim().split(/\s+/)[0] || "Seu filho";
   return {
     tipo: "familia-indicacao-professor",
-    title: `${professor} indicou reforço em ${materia} para ${n}`,
+    title: tituloDoAviso(kind, professor, materia, n),
     body: texto.length > 140 ? texto.slice(0, 140).replace(/\s+\S*$/, "") + "..." : texto,
     url: `/escola/familia/${studentId}#professor`,
-    icon: "/escola-icons/aviso-sugestao.png", badge: "/escola-icons/aviso-badge.png",
+    icon: kind === "ELOGIO" ? "/escola-icons/aviso-elogio.png" : "/escola-icons/aviso-sugestao.png", badge: "/escola-icons/aviso-badge.png",
     tag: `familia-indicacao-${studentId}`, vibrate: [150, 100, 150],
   };
 }

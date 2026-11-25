@@ -309,6 +309,22 @@ export default function PainelFilho() {
   }, [studentId]);
   useEffect(() => { load(); }, [load]);
 
+  // Quem chega por um aviso vem com âncora (#recado, #professor). A tela só existe
+  // depois de carregar, então o navegador não rola sozinho: rolamos aqui.
+  const carregou = !!data;
+  useEffect(() => {
+    if (!carregou || typeof window === "undefined" || !window.location.hash) return;
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    let tentativas = 0;
+    const timer = window.setInterval(() => {
+      tentativas++;
+      const alvo = document.getElementById(id);
+      if (alvo) { alvo.scrollIntoView({ behavior: "smooth", block: "start" }); window.clearInterval(timer); }
+      else if (tentativas >= 20) window.clearInterval(timer);
+    }, 200);
+    return () => window.clearInterval(timer);
+  }, [carregou]);
+
   return (
     <FamilyShell activeStudentId={studentId}>
       {loading ? (
@@ -336,6 +352,9 @@ export default function PainelFilho() {
             </div>
           </section>
 
+          {/* Recados dos professores, logo no início: é para cá que o aviso do celular traz o responsável */}
+          <ProfessoresDoFilho studentId={studentId} nome={data.aluno.firstName} mostrar="recados" />
+
           {/* Semana do filho: dia a dia e por matéria */}
           <SemanaDoFilho studentId={studentId} />
 
@@ -361,8 +380,8 @@ export default function PainelFilho() {
           {/* Avisos para o responsável: celular, WhatsApp e e-mail */}
           <AvisosDaFamilia />
 
-          {/* Recados dos professores (com "Incluir na agenda") e retorno para a coordenação: extensão de aula */}
-          <ProfessoresDoFilho studentId={studentId} nome={data.aluno.firstName} />
+          {/* Retorno para a coordenação sobre os professores: extensão de aula */}
+          <ProfessoresDoFilho studentId={studentId} nome={data.aluno.firstName} mostrar="coordenacao" />
 
           {/* Recado e agenda: o aluno vê na tela inicial */}
           <div id="recado" className="scroll-mt-4"><RecadoParaFilho studentId={studentId} nome={data.aluno.firstName} /></div>

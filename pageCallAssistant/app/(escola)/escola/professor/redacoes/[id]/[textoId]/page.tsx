@@ -61,8 +61,8 @@ export default function RevisarRedacaoPage() {
     setOcultos((s) => { const n = new Set(s); if (n.has(idAp)) n.delete(idAp); else n.add(idAp); return n; });
   }
 
-  if (erro && !dados) return <div className="px-7 py-8"><p className="text-[#B91C1C]">{erro}</p></div>;
-  if (!dados) return <div className="px-7 py-8 text-[#5B5470]">Carregando...</div>;
+  if (erro && !dados) return <div className="px-4 sm:px-7 py-8"><p className="text-[#B91C1C]">{erro}</p></div>;
+  if (!dados) return <div className="px-4 sm:px-7 py-8 text-[#5B5470]">Carregando...</div>;
   const t = dados.texto;
   const r = t.retorno;
   const atencao = t.origem === "FLAGGED" || r?.atencao;

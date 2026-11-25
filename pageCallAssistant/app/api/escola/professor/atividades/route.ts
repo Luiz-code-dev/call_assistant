@@ -56,6 +56,7 @@ export async function GET(req: NextRequest) {
     include: {
       _count: { select: { submissions: { where: { status: { not: "IN_PROGRESS" } } } } },
       questions: { select: { id: true }, orderBy: { order: "asc" } },
+      classSubject: { select: { class: { select: { name: true } }, subject: { select: { name: true } } } },
     },
   });
 

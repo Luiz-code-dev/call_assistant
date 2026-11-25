@@ -8,8 +8,9 @@
 import { useEffect, useState } from "react";
 import { GraduationCap, CalendarPlus, Check, Heart, Lightbulb, AlertTriangle, Send, MessageSquare } from "lucide-react";
 import { materiaDe } from "@/components/escola/reforco-ui";
+import { ROTULO_AVISO, tipoDoAviso } from "@/lib/escola/professor-familia";
 
-interface Indicacao { id: string; professor: string; materia: string; subjectCode: string | null; texto: string; createdAt: string; nova: boolean; naAgenda: boolean }
+interface Indicacao { id: string; professor: string; materia: string; subjectCode: string | null; tipo?: string; texto: string; createdAt: string; nova: boolean; naAgenda: boolean }
 interface Professor { classSubjectId: string; professor: string; materia: string }
 interface Retorno { id: string; sobre: string; kind: Tipo; texto: string; createdAt: string; lido: boolean }
 type Tipo = "ELOGIO" | "SUGESTAO" | "PREOCUPACAO";
@@ -87,7 +88,17 @@ function NaAgenda({ studentId, ind, nome, aoSalvar }: { studentId: string; ind: 
   );
 }
 
-export default function ProfessoresDoFilho({ studentId, nome }: { studentId: string; nome: string }) {
+/** Leva a tela até um bloco que só aparece depois de carregar (quem chega por um aviso). */
+function rolarAte(id: string) {
+  if (typeof window === "undefined" || window.location.hash !== `#${id}`) return;
+  window.setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" }), 200);
+}
+
+/**
+ * `mostrar`: "recados" só os recados dos professores, "coordenacao" só o retorno
+ * à coordenação. Sem o parâmetro, mostra os dois.
+ */
+export default function ProfessoresDoFilho({ studentId, nome, mostrar }: { studentId: string; nome: string; mostrar?: "recados" | "coordenacao" }) {
   const [indicacoes, setIndicacoes] = useState<Indicacao[]>([]);
   const [professores, setProfessores] = useState<Professor[]>([]);
   const [retornos, setRetornos] = useState<Retorno[]>([]);
@@ -107,6 +118,7 @@ export default function ProfessoresDoFilho({ studentId, nome }: { studentId: str
         setIndicacoes(d?.indicacoes ?? []); setProfessores(d?.professores ?? []); setRetornos(d?.retornos ?? []);
         setProf((p) => p || d?.professores?.[0]?.classSubjectId || "");
         setPronto(true);
+        if (mostrar !== "coordenacao") rolarAte("professor");
       })
       .catch(() => setPronto(true));
   }
@@ -124,14 +136,16 @@ export default function ProfessoresDoFilho({ studentId, nome }: { studentId: str
     setTexto(""); setEnviado(true); carregar();
   }
 
-  if (!pronto || (!indicacoes.length && !professores.length)) return null;
+  const comRecados = mostrar !== "coordenacao" && indicacoes.length > 0;
+  const comCoordenacao = mostrar !== "recados" && professores.length > 0;
+  if (!pronto || (!comRecados && !comCoordenacao)) return null;
 
   return (
     <>
-      {indicacoes.length > 0 && (
+      {comRecados && (
         <section id="professor" className={CARTAO + " scroll-mt-4"}>
           <h2 className="text-[16px] font-extrabold text-[#1F1A2E] flex items-center gap-2 mb-1"><GraduationCap className="size-5 text-[#6D28D9]" />Recados dos professores</h2>
-          <p className="text-[13px] text-[#5B5470] mb-3">Os professores indicam o que {nome} precisa reforçar em casa.</p>
+          <p className="text-[13px] text-[#5B5470] mb-3">Avisos que os professores de {nome} mandaram para você.</p>
           <ul className="space-y-3">
             {indicacoes.map((i) => {
               const m = materiaDe(i.subjectCode ?? i.materia);
@@ -139,12 +153,12 @@ export default function ProfessoresDoFilho({ studentId, nome }: { studentId: str
               return (
                 <li key={i.id} className="rounded-2xl border border-[#EDE9F7] p-4" style={{ borderLeft: `5px solid ${cor}` }}>
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-[12px] font-extrabold uppercase tracking-wide" style={{ color: cor }}>{i.materia}</span>
+                    <span className="text-[12px] font-extrabold uppercase tracking-wide" style={{ color: cor }}>{ROTULO_AVISO[tipoDoAviso(i.tipo)]} · {i.materia}</span>
                     {i.nova && <span className="text-[10px] font-bold bg-[#6D28D9] text-white rounded-full px-2 py-0.5">Novo</span>}
                   </div>
                   <p className="text-[15px] text-[#1F1A2E] mt-1 leading-snug">{i.texto}</p>
                   <p className="text-[12px] text-[#8B84A0] mt-1">{i.professor} · {quando(i.createdAt)}</p>
-                  {i.naAgenda ? (
+                  {tipoDoAviso(i.tipo) !== "REFORCO" ? null : i.naAgenda ? (
                     <p className="mt-3 text-[13px] font-bold text-[#166534] inline-flex items-center gap-1.5"><Check className="size-4" strokeWidth={3} />Está na agenda de {nome}</p>
                   ) : abertaAgenda === i.id ? (
                     <NaAgenda studentId={studentId} ind={i} nome={nome} aoSalvar={() => { setAbertaAgenda(null); setIndicacoes((l) => l.map((x) => (x.id === i.id ? { ...x, naAgenda: true } : x))); }} />
@@ -160,7 +174,7 @@ export default function ProfessoresDoFilho({ studentId, nome }: { studentId: str
         </section>
       )}
 
-      {professores.length > 0 && (
+      {comCoordenacao && (
         <section className={CARTAO}>
           <h2 className="text-[16px] font-extrabold text-[#1F1A2E] flex items-center gap-2 mb-1"><MessageSquare className="size-5 text-[#6D28D9]" />Fale com a coordenação</h2>
           <p className="text-[13px] text-[#5B5470] mb-3">Conte como está a experiência com os professores de {nome}. Quem lê é a coordenação da escola.</p>
