@@ -1,5 +1,8 @@
 import type { Livro } from "@/lib/escola/formacao/livros/indice";
 import type { CapituloDoLivro } from "@/lib/escola/formacao/livros/tipos";
+import LeituraDoLivro, { type PerguntaDaAvaliacao } from "@/components/escola/formacao/LeituraDoLivro";
+import { acertosNecessarios, aprovado } from "@/lib/escola/formacao/leitura";
+import type { LeituraDoLivro as Leitura } from "@/lib/escola/formacao/leitura-db";
 import "@/app/(escola)/escola/formacao/livro/livro.css";
 
 /** Assinatura discreta do produto, abaixo do nome da rede. */
@@ -10,10 +13,14 @@ interface Props {
   /** Capítulos com o nome da rede já aplicado. */
   capitulos: CapituloDoLivro[];
   nomeDaRede: string;
+  /** O que a pessoa já leu e o resultado da avaliação. */
+  leitura: Leitura;
+  /** Questões da avaliação final, sem o gabarito. */
+  perguntas: PerguntaDaAvaliacao[];
 }
 
-/** Capa, sumário e capítulos de um livro de formação. Na impressão, a capa ocupa a primeira página. */
-export default function LeitorDeLivro({ livro, capitulos, nomeDaRede }: Props) {
+/** Capa, leitura acompanhada e avaliação de um livro de formação. Na impressão, a capa ocupa a primeira página. */
+export default function LeitorDeLivro({ livro, capitulos, nomeDaRede, leitura, perguntas }: Props) {
   return (
     <article className="max-w-4xl mx-auto w-full px-5 sm:px-7 py-6 print:max-w-none print:px-0 print:py-0">
       <header className="rounded-2xl bg-[#6D28D9] text-white px-6 sm:px-10 py-10 print:rounded-none print:min-h-[240mm] print:flex print:flex-col print:justify-center print:break-after-page">
@@ -29,34 +36,24 @@ export default function LeitorDeLivro({ livro, capitulos, nomeDaRede }: Props) {
         </p>
       </header>
 
-      <nav aria-label="Sumário" className="mt-6 rounded-2xl bg-white border border-[#E9E5F5] px-6 py-5 print:border-0 print:px-0">
-        <h2 className="text-[13px] font-bold uppercase tracking-wider text-[#5B5470]">Neste livro</h2>
-        <ol className="mt-3 grid sm:grid-cols-2 gap-x-6 gap-y-1.5">
-          {capitulos.map((capitulo, i) => (
-            <li key={capitulo.id}>
-              <a href={`#${capitulo.id}`} className="text-[15px] text-[#1F1A2E] hover:text-[#6D28D9] transition-colors">
-                <span className="text-[#6D28D9] font-bold mr-2">{i + 1}.</span>
-                {capitulo.titulo}
-              </a>
-            </li>
-          ))}
-        </ol>
-      </nav>
-
-      {capitulos.map((capitulo, i) => (
-        <section
-          key={capitulo.id}
-          id={capitulo.id}
-          className="mt-6 rounded-2xl bg-white border border-[#E9E5F5] px-5 sm:px-7 py-6 scroll-mt-4 print:border-0 print:px-0 print:mt-8"
-        >
-          <h2 className="text-[22px] font-extrabold text-[#1F1A2E] leading-tight break-after-avoid">
-            <span className="text-[#6D28D9] mr-2">{i + 1}.</span>
-            {capitulo.titulo}
-          </h2>
-          {/* O HTML dos capítulos é escrito pela equipe do produto e versionado no repositório. */}
-          <div className="livro mt-4" dangerouslySetInnerHTML={{ __html: capitulo.html }} />
-        </section>
-      ))}
+      <LeituraDoLivro
+        slug={livro.slug}
+        capitulos={capitulos.map((capitulo) => ({
+          id: capitulo.id,
+          titulo: capitulo.titulo,
+          // O HTML dos capítulos é escrito pela equipe do produto e versionado no repositório.
+          conteudo: <div className="livro mt-4" dangerouslySetInnerHTML={{ __html: capitulo.html }} />,
+        }))}
+        lidosIniciais={leitura.capitulosLidos}
+        perguntas={perguntas}
+        acertosNecessarios={acertosNecessarios(perguntas.length)}
+        melhorResultado={
+          leitura.avaliacaoAcertos !== null && leitura.avaliacaoTotal !== null
+            ? { acertos: leitura.avaliacaoAcertos, total: leitura.avaliacaoTotal, aprovado: aprovado(leitura.avaliacaoAcertos, leitura.avaliacaoTotal) }
+            : null
+        }
+        seloInicial={leitura.concluidoEm !== null}
+      />
 
       <footer className="mt-8 pb-4 text-center text-[11px] text-[#5B5470]">
         {nomeDaRede} · {ASSINATURA_DO_EBOOK}

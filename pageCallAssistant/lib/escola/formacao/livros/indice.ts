@@ -7,7 +7,7 @@
  * produto, para que o mesmo material sirva a qualquer município.
  */
 import type { EduRole } from "@/lib/escola/types";
-import type { CapituloDoLivro } from "./tipos";
+import type { CapituloDoLivro, QuestaoDaAvaliacao } from "./tipos";
 
 export type GrupoDoLivro = "plataforma" | "pratica";
 
@@ -19,6 +19,8 @@ export interface Livro {
   /** Carga horária sugerida de estudo. */
   horas: number;
   capitulos: number;
+  /** Número de questões da avaliação final. */
+  questoes: number;
   grupo: GrupoDoLivro;
   /** Perfis que enxergam este livro. */
   perfis: EduRole[];
@@ -36,7 +38,8 @@ export const LIVROS: Livro[] = [
     subtitulo: "Como acompanhar o reforço das suas turmas e usar as informações no planejamento das aulas",
     publico: "Professores da rede municipal",
     horas: 12,
-    capitulos: 32,
+    capitulos: 31,
+    questoes: 8,
     grupo: "plataforma",
     perfis: ["TEACHER", "SCHOOL_ADMIN", "COORDINATOR", "NETWORK_ADMIN"],
   },
@@ -46,7 +49,8 @@ export const LIVROS: Livro[] = [
     subtitulo: "Como acompanhar a aprendizagem, organizar a escola e trazer os responsáveis",
     publico: "Coordenação pedagógica e direção escolar",
     horas: 14,
-    capitulos: 33,
+    capitulos: 32,
+    questoes: 8,
     grupo: "plataforma",
     perfis: ["SCHOOL_ADMIN", "COORDINATOR", "NETWORK_ADMIN"],
   },
@@ -56,7 +60,8 @@ export const LIVROS: Livro[] = [
     subtitulo: "Como implantar, administrar e acompanhar o reforço em toda a rede",
     publico: "Equipe técnica e pedagógica da Secretaria Municipal de Educação",
     horas: 16,
-    capitulos: 30,
+    capitulos: 29,
+    questoes: 8,
     grupo: "plataforma",
     perfis: ["NETWORK_ADMIN"],
   },
@@ -66,7 +71,8 @@ export const LIVROS: Livro[] = [
     subtitulo: "Princípios e condutas para quem usa a plataforma de reforço escolar da rede municipal",
     publico: "Todos os servidores com acesso à plataforma",
     horas: 10,
-    capitulos: 32,
+    capitulos: 31,
+    questoes: 8,
     grupo: "plataforma",
     perfis: ["TEACHER", "SCHOOL_ADMIN", "COORDINATOR", "NETWORK_ADMIN"],
   },
@@ -76,7 +82,8 @@ export const LIVROS: Livro[] = [
     subtitulo: "Como planejar, conduzir e dar seguimento a reuniões que mudam a prática em sala",
     publico: "Coordenação pedagógica e direção escolar",
     horas: 16,
-    capitulos: 33,
+    capitulos: 32,
+    questoes: 8,
     grupo: "pratica",
     perfis: ["COORDINATOR", "SCHOOL_ADMIN", "NETWORK_ADMIN"],
   },
@@ -86,7 +93,8 @@ export const LIVROS: Livro[] = [
     subtitulo: "Como a gestão lida com conflitos com famílias, com a comunidade e com a violência no entorno da escola",
     publico: "Coordenação pedagógica e direção escolar",
     horas: 16,
-    capitulos: 31,
+    capitulos: 30,
+    questoes: 8,
     grupo: "pratica",
     perfis: ["SCHOOL_ADMIN", "COORDINATOR", "NETWORK_ADMIN"],
   },
@@ -96,7 +104,8 @@ export const LIVROS: Livro[] = [
     subtitulo: "Como o professor lida com conflitos, com a violência no entorno e com o aluno afetado por fatores externos",
     publico: "Professores da rede municipal",
     horas: 16,
-    capitulos: 32,
+    capitulos: 31,
+    questoes: 8,
     grupo: "pratica",
     perfis: ["TEACHER", "SCHOOL_ADMIN", "COORDINATOR", "NETWORK_ADMIN"],
   },
@@ -107,6 +116,7 @@ export const LIVROS: Livro[] = [
     publico: "Professores, coordenação pedagógica e direção escolar",
     horas: 16,
     capitulos: 32,
+    questoes: 8,
     grupo: "pratica",
     perfis: ["TEACHER", "SCHOOL_ADMIN", "COORDINATOR", "NETWORK_ADMIN"],
   },
@@ -116,7 +126,8 @@ export const LIVROS: Livro[] = [
     subtitulo: "Como perceber sinais de TDAH, de outras neurodivergências e de altas habilidades e o que fazer em sala",
     publico: "Professores, coordenação pedagógica e direção escolar",
     horas: 16,
-    capitulos: 31,
+    capitulos: 30,
+    questoes: 8,
     grupo: "pratica",
     perfis: ["TEACHER", "SCHOOL_ADMIN", "COORDINATOR", "NETWORK_ADMIN"],
   },
@@ -126,7 +137,8 @@ export const LIVROS: Livro[] = [
     subtitulo: "Como se reinventar quando o que sempre funcionou deixa de funcionar",
     publico: "Professores da rede municipal",
     horas: 16,
-    capitulos: 33,
+    capitulos: 32,
+    questoes: 8,
     grupo: "pratica",
     perfis: ["TEACHER", "SCHOOL_ADMIN", "COORDINATOR", "NETWORK_ADMIN"],
   },
@@ -136,7 +148,8 @@ export const LIVROS: Livro[] = [
     subtitulo: "Como a Secretaria apoia as escolas no planejamento, na rotina, nas pessoas e nos resultados",
     publico: "Equipe da Secretaria Municipal de Educação e gestores escolares",
     horas: 20,
-    capitulos: 30,
+    capitulos: 29,
+    questoes: 8,
     grupo: "pratica",
     perfis: ["NETWORK_ADMIN", "SCHOOL_ADMIN", "COORDINATOR"],
   },
@@ -146,7 +159,8 @@ export const LIVROS: Livro[] = [
     subtitulo: "Princípios e condutas de cada colaborador da rede municipal de ensino",
     publico: "Todos os servidores e colaboradores das escolas e da Secretaria",
     horas: 16,
-    capitulos: 32,
+    capitulos: 31,
+    questoes: 8,
     grupo: "pratica",
     perfis: ["TEACHER", "SCHOOL_ADMIN", "COORDINATOR", "NETWORK_ADMIN"],
   },
@@ -160,36 +174,50 @@ export function livroDoPerfil(slug: string, perfil: EduRole): Livro | null {
   return livrosDoPerfil(perfil).find((livro) => livro.slug === slug) ?? null;
 }
 
-/** Carrega os capítulos de um livro. Devolve null quando o livro não existe. */
-export async function capitulosDoLivro(slug: string): Promise<CapituloDoLivro[] | null> {
+interface ConteudoDoLivro {
+  capitulos: CapituloDoLivro[];
+  avaliacao: QuestaoDaAvaliacao[];
+}
+
+async function conteudoDoLivro(slug: string): Promise<ConteudoDoLivro | null> {
   switch (slug) {
     case "guia-do-professor":
-      return (await import("./guia-do-professor")).capitulos;
+      return import("./guia-do-professor");
     case "guia-da-coordenacao-e-da-direcao":
-      return (await import("./guia-da-coordenacao-e-da-direcao")).capitulos;
+      return import("./guia-da-coordenacao-e-da-direcao");
     case "guia-da-secretaria":
-      return (await import("./guia-da-secretaria")).capitulos;
+      return import("./guia-da-secretaria");
     case "etica-e-uso-responsavel":
-      return (await import("./etica-e-uso-responsavel")).capitulos;
+      return import("./etica-e-uso-responsavel");
     case "reunioes-pedagogicas":
-      return (await import("./reunioes-pedagogicas")).capitulos;
+      return import("./reunioes-pedagogicas");
     case "escola-familia-e-territorio":
-      return (await import("./escola-familia-e-territorio")).capitulos;
+      return import("./escola-familia-e-territorio");
     case "sala-de-aula-familia-e-territorio":
-      return (await import("./sala-de-aula-familia-e-territorio")).capitulos;
+      return import("./sala-de-aula-familia-e-territorio");
     case "protecao-do-aluno":
-      return (await import("./protecao-do-aluno")).capitulos;
+      return import("./protecao-do-aluno");
     case "cada-aluno-aprende-de-um-jeito":
-      return (await import("./cada-aluno-aprende-de-um-jeito")).capitulos;
+      return import("./cada-aluno-aprende-de-um-jeito");
     case "turmas-desafiadoras":
-      return (await import("./turmas-desafiadoras")).capitulos;
+      return import("./turmas-desafiadoras");
     case "gestao-e-organizacao-das-escolas":
-      return (await import("./gestao-e-organizacao-das-escolas")).capitulos;
+      return import("./gestao-e-organizacao-das-escolas");
     case "etica-profissional-na-escola":
-      return (await import("./etica-profissional-na-escola")).capitulos;
+      return import("./etica-profissional-na-escola");
     default:
       return null;
   }
+}
+
+/** Carrega os capítulos de um livro. Devolve null quando o livro não existe. */
+export async function capitulosDoLivro(slug: string): Promise<CapituloDoLivro[] | null> {
+  return (await conteudoDoLivro(slug))?.capitulos ?? null;
+}
+
+/** Carrega a avaliação final, com o gabarito. Só para uso no servidor. */
+export async function avaliacaoDoLivro(slug: string): Promise<QuestaoDaAvaliacao[] | null> {
+  return (await conteudoDoLivro(slug))?.avaliacao ?? null;
 }
 
 /** Marcador que os capítulos usam no lugar do nome da rede. */

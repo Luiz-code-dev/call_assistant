@@ -4,3 +4,11 @@ export interface CapituloDoLivro {
   titulo: string;
   html: string;
 }
+
+/** Questão da avaliação final. `correta` é o índice da alternativa certa. */
+export interface QuestaoDaAvaliacao {
+  pergunta: string;
+  alternativas: string[];
+  correta: number;
+  explicacao: string;
+}

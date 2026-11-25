@@ -6,6 +6,8 @@ import { EduRole } from "@/lib/escola/types";
 import { prismaEdu } from "@/lib/escola/db";
 import { catalogDb } from "@/lib/escola/catalogo";
 import type { Metadata, Viewport } from "next";
+import { livrosDoPerfil } from "@/lib/escola/formacao/livros/indice";
+import { selosDaPessoa } from "@/lib/escola/formacao/leitura-db";
 
 export const metadata: Metadata = {
   title: "SpeakFlow Escolas",
@@ -63,7 +65,7 @@ async function getShellData() {
       } catch {
         userName = "Admin";
       }
-      return { role: "PLATFORM_ADMIN" as EduRole, contextName: "Plataforma", userName };
+      return { role: "PLATFORM_ADMIN" as EduRole, contextName: "Plataforma", userName, selos: { conquistados: 0, disponiveis: 0 } };
     }
 
     // Perfis de equipe escolar — usa EduUser no banco tenant
@@ -89,7 +91,13 @@ async function getShellData() {
       if (school?.name) contextName = school.name;
     }
 
-    return { role: ctx.role as EduRole, contextName, userName };
+    // Selos de Formação no cartão do perfil. Se a leitura falhar, o menu abre sem eles.
+    const disponiveis = livrosDoPerfil(ctx.role as EduRole).length;
+    const conquistados = ctx.userId && disponiveis > 0
+      ? await selosDaPessoa(prismaEdu, ctx.networkId, ctx.userId).catch(() => 0)
+      : 0;
+
+    return { role: ctx.role as EduRole, contextName, userName, selos: { conquistados, disponiveis } };
   } catch (err) {
     console.error("[escola/layout] getShellData error:", err);
     return null;
@@ -110,7 +118,7 @@ export default async function EscolaAuthLayout({ children }: { children: React.R
   }
 
   return (
-    <EscAppShell role={shellData.role} contextName={shellData.contextName} userName={shellData.userName}>
+    <EscAppShell role={shellData.role} contextName={shellData.contextName} userName={shellData.userName} selos={shellData.selos}>
       {children}
     </EscAppShell>
   );
