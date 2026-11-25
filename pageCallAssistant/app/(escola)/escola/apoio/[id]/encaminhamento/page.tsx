@@ -12,7 +12,7 @@ import { ASSUNTO_PARA_A_EQUIPE, ORGAOS, ROTULO_ORGAO, ROTULO_FUNCAO, MAX_SINTESE
 
 interface Dados {
   pedido: { id: string; aluno: string; turma: string; escola: string; assunto: AssuntoApoio; texto: string | null; createdAt: string; comunicadoA: Orgao[] };
-  eu: { nome: string; funcao: FuncaoApoio };
+  eu: { nome: string; funcao: FuncaoApoio; registro: string | null };
   rede: { nome: string; cidade: string; uf: string };
 }
 
@@ -141,6 +141,7 @@ export default function EncaminhamentoPage() {
           <p>______________________________________________</p>
           <p className="font-bold">{dados.eu.nome}</p>
           <p>{ROTULO_FUNCAO[dados.eu.funcao] ?? "Equipe de apoio ao aluno"} · Equipe de apoio ao aluno</p>
+          {dados.eu.registro && <p>{dados.eu.registro}</p>}
         </div>
       </article>
     </div>

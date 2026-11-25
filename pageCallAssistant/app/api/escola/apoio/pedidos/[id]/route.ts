@@ -5,6 +5,7 @@
  */
 import { NextRequest, NextResponse } from "next/server";
 import { contextoDaEquipe, comVinculoAtivo } from "@/lib/escola/apoio-equipe";
+import { registroFormatado } from "@/lib/escola/apoio-profissional";
 import { getAudioSignedUrl, isAudioStorageConfigured } from "@/lib/escola/audio-store";
 import { Resend } from "resend";
 import { remetenteFamilia } from "@/lib/escola/email-familia";
@@ -40,6 +41,7 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
   });
   const nomeDe = new Map(usuarios.map((u) => [u.id, u.name]));
   const rede = await P.eduNetwork.findUnique({ where: { id: ctx!.networkId }, select: { name: true, city: true, state: true } });
+  const meuCadastro = await P.eduApoioCadastro.findFirst({ where: { networkId: ctx!.networkId, userId: ctx!.userId, status: "ATIVO" }, select: { conselho: true, registro: true, uf: true } }).catch(() => null);
 
   let audioUrl: string | null = null;
   if (p.audioKey && isAudioStorageConfigured()) audioUrl = await getAudioSignedUrl(p.audioKey).catch(() => null);
@@ -52,7 +54,10 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
       desfecho: p.desfecho ?? null, comunicadoA: p.comunicadoA ?? [], comunicadoEm: p.comunicadoEm ?? null,
       responsavel: p.responsavelId ? { id: p.responsavelId, nome: nomeDe.get(p.responsavelId) ?? "Pessoa da equipe" } : null,
     },
-    eu: { id: ctx!.userId, nome: nomeDe.get(ctx!.userId) ?? "", funcao: membro!.funcao },
+    eu: {
+      id: ctx!.userId, nome: nomeDe.get(ctx!.userId) ?? "", funcao: membro!.funcao,
+      registro: meuCadastro?.registro ? registroFormatado(meuCadastro.conselho, meuCadastro.registro, meuCadastro.uf) : null,
+    },
     colegas: queAtendem.map((e) => ({ id: e.userId, nome: nomeDe.get(e.userId) ?? "Pessoa da equipe", funcao: e.funcao })).sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR")),
     rede: { nome: rede?.name ?? "", cidade: rede?.city ?? "", uf: rede?.state ?? "" },
   });

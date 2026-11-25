@@ -1,10 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import ConviteDoProfissional, { type ConviteDeApoio } from "@/components/escola/apoio/ConviteDoProfissional";
 
 interface InviteInfo {
   id: string; name: string; email: string; role: string;
   networkName: string | null; expiresAt: string; mode: "create" | "login";
+  apoio?: ConviteDeApoio["apoio"] | null;
 }
 
 const ROLE_LABEL: Record<string, string> = {
@@ -12,6 +14,7 @@ const ROLE_LABEL: Record<string, string> = {
   COORDINATOR: "Coordenador(a) Pedagógico(a)",
   SCHOOL_ADMIN: "Diretor(a) Escolar",
   TEACHER: "Professor(a)",
+  SUPPORT: "Profissional de apoio",
   PLATFORM_ADMIN: "Administrador(a) da Plataforma",
 };
 
@@ -156,6 +159,16 @@ export default function ConvitePage({ params }: { params: { token: string } }) {
       </div>
     </div>
   );
+
+  // Assistente social e psicólogo têm um convite próprio, com os dados do cadastro e o termo de sigilo
+  if (invite?.role === "SUPPORT" && invite.apoio) {
+    return (
+      <>
+        {showTerms && <TermsModal onClose={() => setShowTerms(false)} />}
+        <ConviteDoProfissional token={token} convite={{ name: invite.name, email: invite.email, networkName: invite.networkName, mode: invite.mode, apoio: invite.apoio }} onTermos={() => setShowTerms(true)} />
+      </>
+    );
+  }
 
   const roleLabel = ROLE_LABEL[invite?.role ?? ""] ?? invite?.role;
 

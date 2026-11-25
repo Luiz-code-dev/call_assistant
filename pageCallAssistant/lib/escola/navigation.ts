@@ -62,4 +62,8 @@ export const NAV_BY_ROLE: Record<EduRole, NavItem[]> = {
     { label: "Avisar as famílias",     href: "/escola/professor/indicar-reforco", icon: "HeartHandshake" },
     { label: "Formação",                 href: "/escola/formacao",                icon: "GraduationCap"   },
   ],
+  SUPPORT: [
+    { label: "Pedidos de apoio", href: "/escola/apoio",    icon: "HeartHandshake" },
+    { label: "Formação",         href: "/escola/formacao", icon: "GraduationCap"  },
+  ],
 };

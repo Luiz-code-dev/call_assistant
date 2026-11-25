@@ -100,6 +100,7 @@ const ROLE_LABEL: Record<EduRole, string> = {
   COORDINATOR: "Coordenação pedagógica",
   SCHOOL_ADMIN: "Direção escolar",
   TEACHER: "Professor(a)",
+  SUPPORT: "Profissional de apoio",
 };
 
 function initials(name: string): string {
@@ -145,7 +146,8 @@ export default function EscAppShell({ role, userName, contextName, selos, equipe
   }, [pathname, role]);
   const base = NAV_BY_ROLE[role] ?? [];
   // Logo depois do primeiro item, para não ficar escondido no fim do menu
-  const navItems = apoio.naEquipe
+  // O profissional de apoio já tem "Pedidos de apoio" no menu do próprio perfil
+  const navItems = apoio.naEquipe && role !== "SUPPORT"
     ? [...base.slice(0, 1), { label: "Pedidos de apoio", href: "/escola/apoio", icon: "HeartHandshake" }, ...base.slice(1)]
     : base;
 

@@ -74,7 +74,7 @@ export const LIVROS: Livro[] = [
     capitulos: 31,
     questoes: 8,
     grupo: "plataforma",
-    perfis: ["TEACHER", "SCHOOL_ADMIN", "COORDINATOR", "NETWORK_ADMIN"],
+    perfis: ["TEACHER", "SCHOOL_ADMIN", "COORDINATOR", "NETWORK_ADMIN", "SUPPORT"],
   },
   {
     slug: "reunioes-pedagogicas",
@@ -118,7 +118,7 @@ export const LIVROS: Livro[] = [
     capitulos: 32,
     questoes: 8,
     grupo: "pratica",
-    perfis: ["TEACHER", "SCHOOL_ADMIN", "COORDINATOR", "NETWORK_ADMIN"],
+    perfis: ["TEACHER", "SCHOOL_ADMIN", "COORDINATOR", "NETWORK_ADMIN", "SUPPORT"],
   },
   {
     slug: "cada-aluno-aprende-de-um-jeito",
@@ -162,7 +162,7 @@ export const LIVROS: Livro[] = [
     capitulos: 31,
     questoes: 8,
     grupo: "pratica",
-    perfis: ["TEACHER", "SCHOOL_ADMIN", "COORDINATOR", "NETWORK_ADMIN"],
+    perfis: ["TEACHER", "SCHOOL_ADMIN", "COORDINATOR", "NETWORK_ADMIN", "SUPPORT"],
   },
 ];
 

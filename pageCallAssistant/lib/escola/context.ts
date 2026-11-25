@@ -27,6 +27,7 @@ export function rotaDoPapel(role: string): string {
     case "COORDINATOR":    return "/escola/coordenacao";
     case "SCHOOL_ADMIN":   return "/escola/direcao";
     case "TEACHER":        return "/escola/professor";
+    case "SUPPORT":        return "/escola/apoio";
     default:               return "/escola/entrar";
   }
 }
