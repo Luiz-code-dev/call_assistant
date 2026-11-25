@@ -103,6 +103,13 @@ export default function AlunoHomePage() {
   const [diasSeguidos, setDiasSeguidos] = useState(0);
   const [hojeIndex, setHojeIndex] = useState(0);
   const [materias, setMaterias] = useState<Materia[]>([]);
+  const [apoio, setApoio] = useState(false);
+  useEffect(() => {
+    fetch("/api/escola/aluno/apoio", { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => setApoio(!!d?.disponivel))
+      .catch(() => {});
+  }, []);
 
   const loadMaterias = useCallback(async () => {
     setMateriasLoading(true);
@@ -402,6 +409,17 @@ export default function AlunoHomePage() {
               </div>
             )}
           </section>
+        )}
+        {/* Canal de apoio: discreto, no fim da tela, só quando a rede ligou para o ano do aluno */}
+        {apoio && (
+          <Link href="/escola/aluno/apoio" className="mt-8 flex items-center gap-3 rounded-3xl border border-[#E4DEF5] bg-white/70 px-4 py-3 min-h-[60px]">
+            <HeartHandshake className="size-5 text-[#6D28D9] shrink-0" />
+            <span className="flex-1 min-w-0">
+              <span className="block text-[15px] font-bold text-[#1F1A2E]">Precisa conversar com alguém?</span>
+              <span className="block text-[13px] text-[#5B5470]">Peça ajuda a um adulto da equipe de apoio.</span>
+            </span>
+            <ChevronRight className="size-4 text-[#5B5470] shrink-0" />
+          </Link>
         )}
       </main>
 

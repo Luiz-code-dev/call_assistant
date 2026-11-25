@@ -27,6 +27,7 @@ export const NAV_BY_ROLE: Record<EduRole, NavItem[]> = {
     { label: "Configurações",            href: "/escola/rede/configuracoes",      icon: "Settings"        },
     { label: "Integrações",              href: "/escola/rede/integracoes",        icon: "Plug"            },
     { label: "Retorno das famílias",     href: "/escola/coordenacao/retornos-familias", icon: "MessageSquare" },
+    { label: "Apoio ao aluno",           href: "/escola/rede/apoio",              icon: "HeartHandshake"  },
     { label: "Formação",                 href: "/escola/formacao",                icon: "GraduationCap"   },
     { label: "Auditoria",                href: "/escola/rede/auditoria",          icon: "ScrollText"      },
   ],
