@@ -38,3 +38,17 @@ export async function contextoDaEquipe() {
   if (!membro) return { erro: NextResponse.json({ error: "Não encontrado" }, { status: 404 }) };
   return { ctx, P, membro, filtro: filtroDoMembro(ctx.networkId, membro) };
 }
+
+/**
+ * Das pessoas informadas, quais ainda têm vínculo ativo na rede e conta ativa.
+ * Quem teve o vínculo desativado continua na lista da equipe, mas não consegue entrar:
+ * não pode receber caso nem aviso.
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function comVinculoAtivo(P: any, networkId: string, userIds: string[]): Promise<Set<string>> {
+  if (!userIds.length) return new Set();
+  const vinculos: { userId: string }[] = await P.eduMembership.findMany({
+    where: { networkId, userId: { in: userIds }, isActive: true, user: { isActive: true } }, select: { userId: true },
+  });
+  return new Set(vinculos.map((v) => v.userId));
+}

@@ -4,7 +4,7 @@
  * PATCH -> situação, observação interna e para onde foi encaminhado.
  */
 import { NextRequest, NextResponse } from "next/server";
-import { contextoDaEquipe } from "@/lib/escola/apoio-equipe";
+import { contextoDaEquipe, comVinculoAtivo } from "@/lib/escola/apoio-equipe";
 import { getAudioSignedUrl, isAudioStorageConfigured } from "@/lib/escola/audio-store";
 import { Resend } from "resend";
 import { remetenteFamilia } from "@/lib/escola/email-familia";
@@ -33,7 +33,8 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
   const equipe: { userId: string; funcao: string; schoolIds: string[] }[] = await P.eduEquipeApoio.findMany({
     where: { networkId: ctx!.networkId }, select: { userId: true, funcao: true, schoolIds: true },
   });
-  const queAtendem = equipe.filter((e) => atendeAEscola(e.schoolIds, p.schoolId));
+  const ativos = await comVinculoAtivo(P, ctx!.networkId, equipe.map((e) => e.userId));
+  const queAtendem = equipe.filter((e) => atendeAEscola(e.schoolIds, p.schoolId) && ativos.has(e.userId));
   const usuarios: { id: string; name: string }[] = await P.eduUser.findMany({
     where: { id: { in: Array.from(new Set([...queAtendem.map((e) => e.userId), p.responsavelId, ctx!.userId].filter(Boolean))) } }, select: { id: true, name: true },
   });
@@ -90,6 +91,8 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
   if (typeof b.passarPara === "string" && b.passarPara && b.passarPara !== p.responsavelId) {
     const colega = await P.eduEquipeApoio.findFirst({ where: { networkId: ctx!.networkId, userId: b.passarPara }, select: { userId: true, schoolIds: true } });
     if (!colega || !atendeAEscola(colega.schoolIds, p.schoolId)) return NextResponse.json({ error: "Esta pessoa não atende a escola do aluno." }, { status: 400 });
+    // Quem perdeu o vínculo com a rede não consegue entrar: o caso ficaria sem ninguém
+    if (!(await comVinculoAtivo(P, ctx!.networkId, [colega.userId])).has(colega.userId)) return NextResponse.json({ error: "Esta pessoa não está mais ativa na rede." }, { status: 400 });
     data.responsavelId = colega.userId;
     passouPara = colega.userId;
     if (b.status === undefined && p.status === "RECEBIDO") data.status = "EM_ACOMPANHAMENTO";

@@ -11,6 +11,7 @@ import { Resend } from "resend";
 import { getStudentContext } from "@/lib/escola/context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { isAudioStorageConfigured, uploadAudio } from "@/lib/escola/audio-store";
+import { comVinculoAtivo } from "@/lib/escola/apoio-equipe";
 import { remetenteFamilia } from "@/lib/escola/email-familia";
 import { urlDoSite } from "@/lib/escola/public-url";
 import {
@@ -103,7 +104,8 @@ async function avisarEquipe(P: any, networkId: string, schoolId: string | null) 
     P.eduEquipeApoio.findMany({ where: { networkId }, select: { userId: true, schoolIds: true } }),
     P.eduMembership.findMany({ where: { networkId, role: "NETWORK_ADMIN", isActive: true }, select: { userId: true } }),
   ]);
-  const daEquipe = equipe.filter((e) => atendeAEscola(e.schoolIds, schoolId)).map((e) => e.userId);
+  const ativos = await comVinculoAtivo(P, networkId, equipe.map((e) => e.userId));
+  const daEquipe = equipe.filter((e) => atendeAEscola(e.schoolIds, schoolId) && ativos.has(e.userId)).map((e) => e.userId);
   const todosDaEquipe = new Set(equipe.map((e) => e.userId));
   const soCiencia = Array.from(new Set(gestores.map((g) => g.userId))).filter((id) => !todosDaEquipe.has(id));
   const pessoas: { id: string; email: string }[] = await P.eduUser.findMany({
