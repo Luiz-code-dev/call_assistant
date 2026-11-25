@@ -77,17 +77,39 @@ self.addEventListener("notificationclick", (event) => {
   );
 });
 
+// O Safari recusa abrir uma página guardada que veio de um redirecionamento
+// ("Response served by service worker has redirections"). Devolve uma cópia limpa.
+function semRedirecionamento(res) {
+  if (!res || !res.redirected) return res;
+  return res.blob().then((corpo) => new Response(corpo, { status: res.status, statusText: res.statusText, headers: res.headers }));
+}
+
+// Tela simples de "sem conexão" para o SpeakFlow Escolas, com botão de tentar de novo
+function semConexaoEscola() {
+  const html = '<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sem conexão</title>'
+    + '<style>body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#F8F7FC;color:#1F1A2E;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding:24px;box-sizing:border-box}'
+    + 'main{max-width:360px;text-align:center}h1{font-size:22px;margin:0 0 8px}p{font-size:16px;line-height:1.45;color:#5B5470;margin:0 0 20px}'
+    + 'button{width:100%;min-height:52px;border:0;border-radius:14px;background:#6D28D9;color:#fff;font-size:16px;font-weight:700}</style></head>'
+    + '<body><main><h1>Sem conexão agora</h1><p>Não foi possível carregar esta tela. Confira a internet do aparelho e tente de novo.</p>'
+    + '<button onclick="location.reload()">Tentar de novo</button></main></body></html>';
+  return new Response(html, { status: 503, headers: { "Content-Type": "text/html; charset=utf-8" } });
+}
+
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
   if (event.request.url.includes("/api/")) return;
 
   // Navigation requests (HTML pages): always try network, never serve stale HTML
   if (event.request.mode === "navigate") {
+    const naEscola = new URL(event.request.url).pathname.startsWith("/escola");
     event.respondWith(
       fetch(event.request).catch(() =>
-        caches.match(event.request).then(
-          (cached) => cached || caches.match("/home") || new Response("Offline", { status: 503, headers: { "Content-Type": "text/plain" } })
-        )
+        caches.match(event.request)
+          // SpeakFlow Escolas nunca cai na tela inicial de outro produto: mostra o aviso de sem conexão
+          .then((cached) => cached || (naEscola ? null : caches.match("/home")))
+          .then((cached) => semRedirecionamento(cached))
+          .then((cached) => cached || (naEscola ? semConexaoEscola() : new Response("Offline", { status: 503, headers: { "Content-Type": "text/plain" } })))
+          .catch(() => (naEscola ? semConexaoEscola() : new Response("Offline", { status: 503, headers: { "Content-Type": "text/plain" } })))
       )
     );
     return;
