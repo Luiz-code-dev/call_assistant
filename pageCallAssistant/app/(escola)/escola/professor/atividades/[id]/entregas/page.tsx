@@ -9,6 +9,7 @@ interface Submission {
   aiScore: number | null; teacherScore: number | null; teacherNote: string | null;
   aiFeedback: { acertos?: string[]; melhorar?: string[] } | null;
   transcript: string | null; text: string | null; submittedAt: string | null;
+  aiStatus?: string | null;
 }
 interface Entrega { studentId: string; studentName: string; submission: Submission | null }
 interface Activity { id: string; title: string; type: string; maxScore: number }
@@ -20,11 +21,12 @@ const STATUS_LABEL: Record<string, { label: string; color: string }> = {
   REVIEWED: { label: "Revisado", color: "text-green-600" },
 };
 
-function EntregaRow({ entrega, activityId, maxScore, onReview }: {
-  entrega: Entrega; activityId: string; maxScore: number;
+function EntregaRow({ entrega, activityId, maxScore, onReview, aberta }: {
+  entrega: Entrega; activityId: string; maxScore: number; aberta?: boolean;
   onReview: (subId: string, score: number | null, note: string) => Promise<void>
 }) {
-  const [open, setOpen] = useState(false);
+  // Quem chega pela tela de retornos já encontra a entrega aberta
+  const [open, setOpen] = useState(!!aberta);
   const [score, setScore] = useState(entrega.submission?.teacherScore != null ? String(entrega.submission.teacherScore) : String(entrega.submission?.aiScore ?? ""));
   const [note, setNote] = useState(entrega.submission?.teacherNote ?? "");
   const [saving, setSaving] = useState(false);
@@ -86,7 +88,10 @@ function EntregaRow({ entrega, activityId, maxScore, onReview }: {
               </div>
             </div>
           )}
-          {(sub.status === "EVALUATED" || sub.status === "REVIEWED") && (
+          {sub.status === "SUBMITTED" && sub.aiStatus === "FAILED" && (
+            <p className="text-sm text-amber-700 bg-amber-50 rounded-lg px-3 py-2">A correção automática não funcionou nesta entrega. Leia a resposta do aluno e registre a sua avaliação abaixo.</p>
+          )}
+          {(sub.status === "EVALUATED" || sub.status === "REVIEWED" || (sub.status === "SUBMITTED" && sub.aiStatus === "FAILED")) && (
             <div className="space-y-2">
               <p className="text-xs font-semibold text-zinc-500">Confirmar / ajustar nota</p>
               <div className="flex gap-2">
@@ -118,9 +123,13 @@ export default function EntregasPage() {
   const [activity, setActivity] = useState<Activity | null>(null);
   const [loading, setLoading] = useState(true);
   const [confirmingAll, setConfirmingAll] = useState(false);
+  const [entregaEscolhida, setEntregaEscolhida] = useState<string | null>(null);
+  useEffect(() => { setEntregaEscolhida(new URLSearchParams(window.location.search).get("entrega")); }, []);
 
   const load = async () => {
-    const res = await fetch(`/api/escola/professor/atividades/${id}/entregas`);
+    // A tela de retornos manda a entrega escolhida, que pode não ser a tentativa mais recente do aluno
+    const escolhida = new URLSearchParams(window.location.search).get("entrega");
+    const res = await fetch(`/api/escola/professor/atividades/${id}/entregas${escolhida ? `?entrega=${encodeURIComponent(escolhida)}` : ""}`);
     if (res.ok) {
       const d = await res.json();
       setEntregas(d.entregas ?? []);
@@ -202,7 +211,7 @@ export default function EntregasPage() {
         ) : (
           <div className="space-y-2">
             {entregas.map((e) => (
-              <EntregaRow key={e.studentId} entrega={e} activityId={id} maxScore={Number(activity?.maxScore ?? 10)} onReview={handleReview} />
+              <EntregaRow aberta={!!entregaEscolhida && e.submission?.id === entregaEscolhida} key={`${e.studentId}-${entregaEscolhida && e.submission?.id === entregaEscolhida ? "aberta" : "fechada"}`} entrega={e} activityId={id} maxScore={Number(activity?.maxScore ?? 10)} onReview={handleReview} />
             ))}
           </div>
         )}

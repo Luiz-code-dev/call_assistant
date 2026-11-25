@@ -31,13 +31,33 @@ export async function ultimoEstudo(db: any, studentId: string): Promise<Date | n
   return ts.length ? new Date(Math.max(...ts)) : null;
 }
 
-/** Diagnósticos respondidos a partir de uma data: quando foi a última resposta e de qual atividade */
+/**
+ * Diagnósticos respondidos a partir de uma data, um registro por dia em que houve resposta.
+ * Um diagnóstico respondido antes e depois da meia-noite conta os dois dias de estudo:
+ * usa a hora de cada resposta e, se ela não existir, a última atividade da sessão.
+ */
 export async function diagnosticosRespondidos(db: any, studentId: string, desde: Date): Promise<Array<{ quando: Date; activityId: string }>> {
-  const sessoes: Array<{ lastActivityAt: Date; activityId: string }> = await db.eduAttemptSession.findMany({
+  const sessoes: Array<{ lastActivityAt: Date; activityId: string; answers?: unknown }> = await db.eduAttemptSession.findMany({
     where: { studentId, lastActivityAt: { gte: desde }, ...DIAGNOSTICO_RESPONDIDO },
-    select: { lastActivityAt: true, activityId: true },
+    select: { lastActivityAt: true, activityId: true, answers: true },
   });
-  return sessoes.map((s) => ({ quando: new Date(s.lastActivityAt), activityId: s.activityId }));
+  const registros: Array<{ quando: Date; activityId: string }> = [];
+  for (const s of sessoes) {
+    const ultimoPorDia = new Map<string, Date>();
+    const anotar = (d: Date) => {
+      if (Number.isNaN(d.getTime()) || d.getTime() < desde.getTime()) return;
+      const dia = diaSaoPaulo(d);
+      const atual = ultimoPorDia.get(dia);
+      if (!atual || d.getTime() > atual.getTime()) ultimoPorDia.set(dia, d);
+    };
+    for (const r of Array.isArray(s.answers) ? s.answers : []) {
+      const quando = (r as { answeredAt?: unknown } | null)?.answeredAt;
+      if (typeof quando === "string" || typeof quando === "number") anotar(new Date(quando));
+    }
+    anotar(new Date(s.lastActivityAt));
+    for (const quando of Array.from(ultimoPorDia.values()).sort((a, b) => a.getTime() - b.getTime())) registros.push({ quando, activityId: s.activityId });
+  }
+  return registros;
 }
 
 /** Dias do calendário de São Paulo entre o último estudo e agora. 0 = estudou hoje. */

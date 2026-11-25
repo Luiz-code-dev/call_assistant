@@ -57,7 +57,7 @@ async function createDraftGradeEntry(
 }
 
 // GET — lista todas as entregas de uma atividade
-export async function GET(_req: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
   if (!isEscolasEnabled()) return NextResponse.json({ error: "disabled" }, { status: 403 });
   const ctx = await getEduContext();
   if (!ctx || !ALLOWED_ROLES.has(ctx.role)) return NextResponse.json({ error: "Sem permissão" }, { status: 403 });
@@ -106,6 +106,13 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
   const byStudent = new Map<string, unknown>();
   for (const sub of submissions) {
     if (!byStudent.has(sub.studentId)) byStudent.set(sub.studentId, sub);
+  }
+
+  // Quando a tela pede uma entrega específica (uma tentativa anterior), é ela que aparece para aquele aluno
+  const escolhida = new URL(req.url).searchParams.get("entrega");
+  if (escolhida) {
+    const sub = (submissions as { id: string; studentId: string }[]).find((x) => x.id === escolhida);
+    if (sub) byStudent.set(sub.studentId, sub);
   }
 
   const entregas = enrolledStudents.map((s) => ({
