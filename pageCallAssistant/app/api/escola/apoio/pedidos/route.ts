@@ -8,12 +8,12 @@ import { contextoDaEquipe } from "@/lib/escola/apoio-equipe";
 export const runtime = "nodejs";
 
 export async function GET() {
-  const { ctx, P, erro } = await contextoDaEquipe();
+  const { P, filtro, erro } = await contextoDaEquipe();
   if (erro) return erro;
   const pedidos: any[] = await P.eduPedidoApoio.findMany({ // eslint-disable-line @typescript-eslint/no-explicit-any
-    where: { networkId: ctx!.networkId },
+    where: filtro,
     orderBy: { createdAt: "desc" }, take: 200,
-    select: { id: true, studentId: true, classId: true, schoolId: true, assunto: true, status: true, audioKey: true, text: true, createdAt: true, vistoAt: true },
+    select: { id: true, studentId: true, classId: true, schoolId: true, assunto: true, status: true, desfecho: true, comunicadoA: true, audioKey: true, text: true, createdAt: true, vistoAt: true },
   });
   const ids = (campo: string) => Array.from(new Set(pedidos.map((p) => p[campo]).filter(Boolean)));
   const [alunos, turmas, escolas] = await Promise.all([
@@ -26,7 +26,7 @@ export async function GET() {
   return NextResponse.json({
     pedidos: pedidos.map((p) => ({
       id: p.id, aluno: aluno.get(p.studentId) ?? "Aluno", turma: turma.get(p.classId) ?? "", escola: escola.get(p.schoolId) ?? "",
-      assunto: p.assunto, status: p.status, createdAt: p.createdAt, visto: !!p.vistoAt,
+      assunto: p.assunto, status: p.status, desfecho: p.desfecho, comunicado: (p.comunicadoA ?? []).length > 0, createdAt: p.createdAt, visto: !!p.vistoAt,
       temTexto: !!p.text, temAudio: !!p.audioKey,
     })),
   });

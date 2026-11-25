@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
@@ -127,9 +127,22 @@ export default function EscAppShell({ role, userName, contextName, selos, equipe
   const [drawerOpen, setDrawerOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-  const navItems = equipeDeApoio
-    ? [...(NAV_BY_ROLE[role] ?? []), { label: "Pedidos de apoio", href: "/escola/apoio", icon: "HeartHandshake" }]
-    : NAV_BY_ROLE[role] ?? [];
+  // Equipe de apoio: confere a cada troca de tela, para o item aparecer assim que a secretaria indicar a pessoa
+  const [apoio, setApoio] = useState<{ naEquipe: boolean; novos: number }>({ naEquipe: !!equipeDeApoio, novos: 0 });
+  useEffect(() => {
+    if (role === "PLATFORM_ADMIN") return;
+    let vivo = true;
+    fetch("/api/escola/apoio/resumo", { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => { if (vivo && d) setApoio({ naEquipe: !!d.naEquipe, novos: Number(d.novos) || 0 }); })
+      .catch(() => {});
+    return () => { vivo = false; };
+  }, [pathname, role]);
+  const base = NAV_BY_ROLE[role] ?? [];
+  // Logo depois do primeiro item, para não ficar escondido no fim do menu
+  const navItems = apoio.naEquipe
+    ? [...base.slice(0, 1), { label: "Pedidos de apoio", href: "/escola/apoio", icon: "HeartHandshake" }, ...base.slice(1)]
+    : base;
 
   function SidebarContent() {
     return (
@@ -194,7 +207,10 @@ export default function EscAppShell({ role, userName, contextName, selos, equipe
                   size={20}
                   className={`shrink-0 ${active ? "text-[#6D28D9]" : "text-[#5B5470]"}`}
                 />
-                <span className="leading-snug">{item.label}</span>
+                <span className="leading-snug flex-1 min-w-0">{item.label}</span>
+                {item.href === "/escola/apoio" && apoio.novos > 0 && (
+                  <span className="min-w-[24px] h-6 px-1.5 rounded-full bg-[#B91C1C] text-white text-[12px] font-bold flex items-center justify-center shrink-0" aria-label={`${apoio.novos} ${apoio.novos === 1 ? "pedido novo" : "pedidos novos"}`}>{apoio.novos}</span>
+                )}
               </Link>
             );
           })}
@@ -253,11 +269,13 @@ export default function EscAppShell({ role, userName, contextName, selos, equipe
         {/* Mobile top bar */}
         <header className="lg:hidden flex items-center justify-between px-4 py-3 bg-white border-b border-[#E9E5F5] shrink-0 h-[56px] print:hidden">
           <button
-            className="p-2 rounded-lg hover:bg-[#F5F3FF] min-w-[44px] min-h-[44px] flex items-center justify-center text-[#5B5470]"
+            className="relative p-2 rounded-lg hover:bg-[#F5F3FF] min-w-[44px] min-h-[44px] flex items-center justify-center text-[#5B5470]"
             onClick={() => setDrawerOpen(!drawerOpen)}
-            aria-label="Menu"
+            aria-label={apoio.naEquipe && apoio.novos > 0 ? "Menu, há pedidos de apoio novos" : "Menu"}
           >
             {drawerOpen ? <X size={20} /> : <Menu size={20} />}
+            {/* Só um ponto: a tela do professor pode estar projetada para a turma */}
+            {apoio.naEquipe && apoio.novos > 0 && !drawerOpen && <span className="absolute top-2 right-2 w-2.5 h-2.5 rounded-full bg-[#B91C1C] ring-2 ring-white" />}
           </button>
           <EscLogo />
           <div className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 text-[11px] font-bold flex items-center justify-center">

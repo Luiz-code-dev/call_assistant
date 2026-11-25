@@ -2,16 +2,30 @@
 /** Secretaria: liga o canal de apoio ao aluno, escolhe o ano e indica quem lê os pedidos. */
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { HeartHandshake, ShieldCheck, Search, UserPlus, UserMinus, ChevronRight } from "lucide-react";
+import { HeartHandshake, ShieldCheck, Search, UserPlus, UserMinus, ChevronRight, Check, Pencil } from "lucide-react";
+import { FUNCOES_APOIO, ROTULO_FUNCAO, type FuncaoApoio } from "@/lib/escola/apoio-aluno";
 
-interface Pessoa { id: string; nome: string; email: string; funcao: string; naEquipe: boolean }
-interface Estado { ativo: boolean; anoMinimo: number; anos: number[]; pessoas: Pessoa[] }
+interface Pessoa { id: string; nome: string; email: string; funcao: string; naEquipe: boolean; funcaoNoApoio: FuncaoApoio | null; schoolIds: string[] }
+interface Escola { id: string; name: string }
+interface Estado { ativo: boolean; anoMinimo: number; anos: number[]; escolas: Escola[]; pessoas: Pessoa[] }
 
 export default function ApoioDaRedePage() {
   const [dados, setDados] = useState<Estado | null>(null);
   const [erro, setErro] = useState("");
   const [busca, setBusca] = useState("");
   const [salvando, setSalvando] = useState(false);
+  // Pessoa que está sendo indicada ou alterada, com a função e as escolas escolhidas
+  const [ficha, setFicha] = useState<{ pessoa: Pessoa; funcao: FuncaoApoio; todas: boolean; escolas: string[] } | null>(null);
+
+  function abrirFicha(p: Pessoa) {
+    setFicha({ pessoa: p, funcao: p.funcaoNoApoio ?? "INDICADO", todas: !p.schoolIds.length, escolas: p.schoolIds });
+  }
+  async function confirmarFicha() {
+    if (!ficha) return;
+    if (!ficha.todas && !ficha.escolas.length) { setErro("Escolha pelo menos uma escola ou marque a rede toda."); return; }
+    const ok = await mudar({ incluir: ficha.pessoa.id, funcao: ficha.funcao, schoolIds: ficha.todas ? [] : ficha.escolas });
+    if (ok) setFicha(null);
+  }
 
   useEffect(() => {
     fetch("/api/escola/rede/apoio", { cache: "no-store" })
@@ -25,9 +39,11 @@ export default function ApoioDaRedePage() {
     const r = await fetch("/api/escola/rede/apoio", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify(corpo) }).catch(() => null);
     const d = await r?.json().catch(() => null);
     setSalvando(false);
-    if (!r?.ok) { setErro(d?.error ?? "Não foi possível salvar."); return; }
+    if (!r?.ok) { setErro(d?.error ?? "Não foi possível salvar."); return false; }
     setDados(d);
+    return true;
   }
+  const nomeDasEscolas = (ids: string[]) => (!ids.length ? "Toda a rede" : ids.map((id) => dados?.escolas.find((e) => e.id === id)?.name ?? "Escola").join(", "));
 
   const equipe = useMemo(() => dados?.pessoas.filter((p) => p.naEquipe) ?? [], [dados]);
   const outros = useMemo(() => {
@@ -81,15 +97,63 @@ export default function ApoioDaRedePage() {
             ) : (
               <ul className="mt-4 divide-y divide-[#F1EEF9] border border-[#EDE9F7] rounded-xl">
                 {equipe.map((p) => (
-                  <li key={p.id} className="flex items-center gap-3 px-3 py-2.5">
-                    <span className="flex-1 min-w-0">
+                  <li key={p.id} className="flex flex-wrap items-center gap-2 px-3 py-2.5">
+                    <span className="flex-1 min-w-[180px]">
                       <span className="block text-[15px] font-semibold text-[#1F1A2E] break-words">{p.nome}</span>
+                      <span className="block text-[13px] font-semibold text-[#5B21B6] break-words">{ROTULO_FUNCAO[p.funcaoNoApoio ?? "INDICADO"]} · {nomeDasEscolas(p.schoolIds)}</span>
                       <span className="block text-[12px] text-[#5B5470] break-words">{p.funcao} · {p.email}</span>
                     </span>
+                    <button disabled={salvando} onClick={() => abrirFicha(p)} aria-label={`Alterar ${p.nome}`} className="inline-flex items-center justify-center min-h-[40px] min-w-[40px] rounded-xl border border-[#DDD6EE] text-[#5B5470] shrink-0 disabled:opacity-60"><Pencil size={15} /></button>
                     <button disabled={salvando} onClick={() => mudar({ retirar: p.id })} className="inline-flex items-center gap-1.5 min-h-[40px] px-3 rounded-xl border border-[#DDD6EE] text-[13px] font-bold text-[#B91C1C] shrink-0 disabled:opacity-60"><UserMinus size={15} />Retirar</button>
                   </li>
                 ))}
               </ul>
+            )}
+
+            {ficha && (
+              <div className="mt-4 rounded-2xl border-2 border-[#6D28D9] bg-[#FBFAFF] p-4 space-y-4">
+                <div>
+                  <p className="text-[15px] font-extrabold text-[#1F1A2E] break-words">{ficha.pessoa.nome}</p>
+                  <p className="text-[12px] text-[#5B5470] break-words">{ficha.pessoa.funcao} · {ficha.pessoa.email}</p>
+                </div>
+                <div>
+                  <p className="text-[13px] font-bold text-[#5B5470] mb-2">Função no apoio ao aluno</p>
+                  <div className="flex flex-wrap gap-2">
+                    {FUNCOES_APOIO.map((f) => (
+                      <button key={f} onClick={() => setFicha({ ...ficha, funcao: f })} aria-pressed={ficha.funcao === f}
+                        className={`min-h-[44px] px-4 rounded-xl text-[14px] font-bold border-[1.5px] ${ficha.funcao === f ? "bg-[#6D28D9] text-white border-[#6D28D9]" : "bg-white text-[#1F1A2E] border-[#DDD6EE]"}`}>{ROTULO_FUNCAO[f]}</button>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <p className="text-[13px] font-bold text-[#5B5470] mb-2">Atende</p>
+                  <div className="grid grid-cols-2 gap-2">
+                    <button onClick={() => setFicha({ ...ficha, todas: true })} aria-pressed={ficha.todas} className={`min-h-[44px] rounded-xl text-[14px] font-bold border-[1.5px] ${ficha.todas ? "bg-[#6D28D9] text-white border-[#6D28D9]" : "bg-white text-[#1F1A2E] border-[#DDD6EE]"}`}>Toda a rede</button>
+                    <button onClick={() => setFicha({ ...ficha, todas: false })} aria-pressed={!ficha.todas} className={`min-h-[44px] rounded-xl text-[14px] font-bold border-[1.5px] ${!ficha.todas ? "bg-[#6D28D9] text-white border-[#6D28D9]" : "bg-white text-[#1F1A2E] border-[#DDD6EE]"}`}>Escolas específicas</button>
+                  </div>
+                  {!ficha.todas && (
+                    <ul className="mt-2 max-h-60 overflow-y-auto divide-y divide-[#F1EEF9] border border-[#EDE9F7] rounded-xl bg-white">
+                      {dados.escolas.map((e) => {
+                        const on = ficha.escolas.includes(e.id);
+                        return (
+                          <li key={e.id}>
+                            <button onClick={() => setFicha({ ...ficha, escolas: on ? ficha.escolas.filter((x) => x !== e.id) : [...ficha.escolas, e.id] })} aria-pressed={on}
+                              className={`w-full flex items-center gap-3 px-3 min-h-[44px] text-left ${on ? "bg-[#F5F3FF]" : ""}`}>
+                              <span className={`w-5 h-5 rounded border-2 flex items-center justify-center shrink-0 ${on ? "bg-[#6D28D9] border-[#6D28D9]" : "border-[#C4B5FD]"}`}>{on && <Check size={13} className="text-white" strokeWidth={3} />}</span>
+                              <span className="text-[14px] text-[#1F1A2E] min-w-0 break-words">{e.name}</span>
+                            </button>
+                          </li>
+                        );
+                      })}
+                      {!dados.escolas.length && <li className="px-3 py-3 text-[14px] text-[#5B5470]">Nenhuma escola cadastrada.</li>}
+                    </ul>
+                  )}
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  <button onClick={() => setFicha(null)} className="min-h-[48px] rounded-xl border-[1.5px] border-[#DDD6EE] text-[14px] font-bold text-[#5B5470]">Cancelar</button>
+                  <button onClick={confirmarFicha} disabled={salvando} className="min-h-[48px] rounded-xl bg-[#6D28D9] text-white text-[14px] font-bold disabled:opacity-60">{ficha.pessoa.naEquipe ? "Salvar" : "Indicar para a equipe"}</button>
+                </div>
+              </div>
             )}
 
             <p className="text-[13px] font-bold text-[#5B5470] mt-5 mb-2">Indicar uma pessoa da rede</p>
@@ -105,7 +169,7 @@ export default function ApoioDaRedePage() {
                     <span className="block text-[15px] text-[#1F1A2E] break-words">{p.nome}</span>
                     <span className="block text-[12px] text-[#5B5470] break-words">{p.funcao} · {p.email}</span>
                   </span>
-                  <button disabled={salvando} onClick={() => mudar({ incluir: p.id })} className="inline-flex items-center gap-1.5 min-h-[40px] px-3 rounded-xl bg-[#EDE9FE] text-[13px] font-bold text-[#5B21B6] shrink-0 disabled:opacity-60"><UserPlus size={15} />Indicar</button>
+                  <button disabled={salvando} onClick={() => abrirFicha(p)} className="inline-flex items-center gap-1.5 min-h-[40px] px-3 rounded-xl bg-[#EDE9FE] text-[13px] font-bold text-[#5B21B6] shrink-0 disabled:opacity-60"><UserPlus size={15} />Indicar</button>
                 </li>
               ))}
               {!outros.length && <li className="px-3 py-4 text-[14px] text-[#5B5470] text-center">Ninguém encontrado.</li>}
