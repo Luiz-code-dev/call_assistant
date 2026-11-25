@@ -14,7 +14,7 @@ import { isAudioStorageConfigured, uploadAudio } from "@/lib/escola/audio-store"
 import { remetenteFamilia } from "@/lib/escola/email-familia";
 import { urlDoSite } from "@/lib/escola/public-url";
 import {
-  canalDisponivel, validarPedido, audioAceito, statusParaOAluno, emailNovoPedido, MAX_PEDIDOS_POR_DIA,
+  canalDisponivel, validarPedido, audioAceito, statusParaOAluno, emailNovoPedido, emailCienciaDaGestao, atendeAEscola, MAX_PEDIDOS_POR_DIA,
 } from "@/lib/escola/apoio-aluno";
 
 export const runtime = "nodejs";
@@ -86,20 +86,34 @@ export async function POST(req: NextRequest) {
     },
   });
   // Sem registro na auditoria geral: ela é lida por mais gente e mostraria quem pediu ajuda
-  avisarEquipe(P, ctx!.networkId).catch(() => {});
+  avisarEquipe(P, ctx!.networkId, turma?.schoolId ?? null).catch(() => {});
   return NextResponse.json({ ok: true }, { status: 201 });
 }
 
-/** Aviso por e-mail à equipe indicada: sem nome do aluno, sem assunto, sem conteúdo. */
+/**
+ * Avisos por e-mail, sempre sem nome do aluno, sem assunto e sem conteúdo:
+ * - equipe de apoio que atende a escola do aluno: há um pedido para ler;
+ * - gestão da secretaria que não está na equipe: só ciência de que chegou um pedido.
+ */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-async function avisarEquipe(P: any, networkId: string) {
+async function avisarEquipe(P: any, networkId: string, schoolId: string | null) {
   const key = process.env.RESEND_API_KEY;
   if (!key) return;
-  const equipe: { userId: string }[] = await P.eduEquipeApoio.findMany({ where: { networkId }, select: { userId: true } });
-  if (!equipe.length) return;
-  const pessoas: { email: string }[] = await P.eduUser.findMany({ where: { id: { in: equipe.map((e) => e.userId) }, isActive: true }, select: { email: true } });
-  const msg = emailNovoPedido(urlDoSite());
+  const [equipe, gestores]: [{ userId: string; schoolIds: string[] }[], { userId: string }[]] = await Promise.all([
+    P.eduEquipeApoio.findMany({ where: { networkId }, select: { userId: true, schoolIds: true } }),
+    P.eduMembership.findMany({ where: { networkId, role: "NETWORK_ADMIN", isActive: true }, select: { userId: true } }),
+  ]);
+  const daEquipe = equipe.filter((e) => atendeAEscola(e.schoolIds, schoolId)).map((e) => e.userId);
+  const todosDaEquipe = new Set(equipe.map((e) => e.userId));
+  const soCiencia = Array.from(new Set(gestores.map((g) => g.userId))).filter((id) => !todosDaEquipe.has(id));
+  const pessoas: { id: string; email: string }[] = await P.eduUser.findMany({
+    where: { id: { in: [...daEquipe, ...soCiencia] }, isActive: true }, select: { id: true, email: true },
+  });
+  const site = urlDoSite();
+  const paraEquipe = emailNovoPedido(site), paraGestao = emailCienciaDaGestao(site);
   const resend = new Resend(key);
-  await Promise.all(pessoas.filter((p) => p.email).map((p) =>
-    resend.emails.send({ from: remetenteFamilia(), to: p.email, subject: msg.subject, text: msg.text }).catch(() => null)));
+  await Promise.all(pessoas.filter((p) => p.email).map((p) => {
+    const msg = daEquipe.includes(p.id) ? paraEquipe : paraGestao;
+    return resend.emails.send({ from: remetenteFamilia(), to: p.email, subject: msg.subject, text: msg.text }).catch(() => null);
+  }));
 }

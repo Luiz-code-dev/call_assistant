@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import {
   ASSUNTOS_APOIO, ASSUNTO_PARA_O_ALUNO, ASSUNTO_PARA_A_EQUIPE, STATUS_APOIO, STATUS_PARA_A_EQUIPE,
   canalDisponivel, validarPedido, statusParaOAluno, audioAceito, emailNovoPedido, MAX_TEXTO_APOIO, MAX_AUDIO_BYTES,
-  atendeAEscola, orgaosValidos, desfechoValido, funcaoValida, ORIENTACAO, indicadores, type PedidoParaContar,
+  atendeAEscola, emailCienciaDaGestao, emailCasoRecebido, orgaosValidos, desfechoValido, funcaoValida, ORIENTACAO, indicadores, type PedidoParaContar,
 } from "./apoio-aluno";
 
 describe("canal de apoio: quando aparece", () => {
@@ -116,5 +116,19 @@ describe("indicadores do apoio", () => {
     expect(v.total).toBe(0);
     expect(v.horasAteLeitura).toBeNull();
     expect(v.porAno).toEqual([{ periodo: "2026", total: 0 }]);
+  });
+});
+
+describe("avisos por e-mail do apoio", () => {
+  it("a gestão é só avisada: sem conteúdo e sem link para os pedidos", () => {
+    const e = emailCienciaDaGestao("https://exemplo.test");
+    expect(e.text).toContain("https://exemplo.test/escola/rede/apoio");
+    expect(e.text).not.toContain("/escola/apoio\n");
+    for (const a of ASSUNTOS_APOIO) expect(e.text).not.toContain(ASSUNTO_PARA_A_EQUIPE[a]);
+  });
+  it("quem recebe um caso é avisado sem nome e sem conteúdo", () => {
+    const e = emailCasoRecebido("https://exemplo.test");
+    expect(e.text).toContain("https://exemplo.test/escola/apoio");
+    for (const a of ASSUNTOS_APOIO) expect(e.text).not.toContain(ASSUNTO_PARA_A_EQUIPE[a]);
   });
 });

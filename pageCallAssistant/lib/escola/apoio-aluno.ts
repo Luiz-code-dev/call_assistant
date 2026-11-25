@@ -94,6 +94,24 @@ export function emailNovoPedido(siteBase: string): { subject: string; text: stri
   };
 }
 
+/** E-mail para a gestão da secretaria, só para ciência: sem nome, sem assunto, sem conteúdo, e sem convite para ler. */
+export function emailCienciaDaGestao(siteBase: string): { subject: string; text: string } {
+  return {
+    subject: "Um aluno enviou um pedido de apoio",
+    text: `Um aluno da rede enviou um pedido de apoio pelo canal de apoio ao aluno.\n\nA equipe de apoio indicada pela Secretaria já foi avisada e vai cuidar do caso. Por segurança, este e-mail não traz o nome do aluno nem o conteúdo, e só a equipe indicada consegue ler o pedido.\n\nPara ver quem está na equipe ou indicar alguém:\n${siteBase}/escola/rede/apoio\n\nVocê recebe este aviso porque é gestor(a) da rede.`,
+  };
+}
+
+/** E-mail para o colega que recebeu um caso: sem nome do aluno e sem conteúdo. */
+export function emailCasoRecebido(siteBase: string): { subject: string; text: string } {
+  return {
+    subject: "Um pedido de apoio foi passado para você",
+    text: `Um colega da equipe de apoio passou um pedido de apoio de aluno para você acompanhar.\n\nPor segurança, este e-mail não traz o nome nem o conteúdo. Entre no sistema para ler:\n${siteBase}/escola/apoio`,
+  };
+}
+
+export const MAX_SINTESE = 1500;
+
 // ── Equipe de apoio: função e escolas atendidas ─────────────────────────────
 
 export const FUNCOES_APOIO = ["ASSISTENTE_SOCIAL", "PSICOLOGO", "INDICADO"] as const;
