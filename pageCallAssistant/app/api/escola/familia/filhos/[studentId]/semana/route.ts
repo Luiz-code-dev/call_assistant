@@ -8,6 +8,7 @@ import { getFamilyContext } from "@/lib/escola/family-context";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { subjectInfo } from "@/lib/escola/subjects";
 import { montarSemana, type Nivel } from "@/lib/escola/semana-filho";
+import { diagnosticosRespondidos } from "@/lib/escola/estudo-do-aluno";
 
 export const dynamic = "force-dynamic";
 
@@ -26,6 +27,14 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
       where: { studentId: params.studentId, submittedAt: { gte: desde }, status: { not: "IN_PROGRESS" } },
       select: { submittedAt: true, masteryLevel: true, activityId: true, activity: { select: { subjectCode: true } } },
     });
+  // Diagnóstico respondido também é estudo (mesma regra do aviso ao responsável)
+  const diagnosticos = await diagnosticosRespondidos(db, params.studentId, desde);
+  const idsDiag = Array.from(new Set(diagnosticos.map((d) => d.activityId)));
+  const atividadesDiag: Array<{ id: string; subjectCode: string | null }> = idsDiag.length
+    ? await db.eduActivity.findMany({ where: { id: { in: idsDiag } }, select: { id: true, subjectCode: true } })
+    : [];
+  const materiaDoDiag = new Map(atividadesDiag.map((a) => [a.id, a.subjectCode]));
+
   const ids = Array.from(new Set(subs.map((s) => s.activityId)));
   const itens: Array<{ activityId: string; estMinutes: number }> = ids.length
     ? await db.eduTrackItem.findMany({ where: { activityId: { in: ids } }, select: { activityId: true, estMinutes: true } })
@@ -33,7 +42,10 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
   const minutos = new Map(itens.map((i) => [i.activityId, i.estMinutes]));
 
   const semana = montarSemana(
-    subs.map((s) => ({ quando: new Date(s.submittedAt), materia: s.activity?.subjectCode ?? null, nivel: s.masteryLevel, minutos: minutos.get(s.activityId) ?? 10 })),
+    [
+      ...subs.map((s) => ({ quando: new Date(s.submittedAt), materia: s.activity?.subjectCode ?? null, nivel: s.masteryLevel, minutos: minutos.get(s.activityId) ?? 10 })),
+      ...diagnosticos.map((d) => ({ quando: d.quando, materia: materiaDoDiag.get(d.activityId) ?? null, nivel: null, minutos: 10 })),
+    ],
     (aluno?.fullName ?? "").trim().split(/\s+/)[0] || "Seu filho",
     (c) => subjectInfo(c).name,
   );

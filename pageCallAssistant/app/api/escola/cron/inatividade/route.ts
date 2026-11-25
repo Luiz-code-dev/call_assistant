@@ -12,6 +12,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { catalogDb } from "@/lib/escola/catalogo";
 import { getTenantDb } from "@/lib/escola/tenant-db";
+import { diasSemEstudar, fraseSemEstudo, ultimoEstudo } from "@/lib/escola/estudo-do-aluno";
 
 export const runtime = "nodejs";
 export const maxDuration = 120;
@@ -138,7 +139,16 @@ export async function POST(req: NextRequest) {
         });
         if (!aluno) continue;
 
-        const sent = await sendInactivityEmail({ email, studentName: aluno.fullName });
+        // Mesma regra e mesma frase do painel da família: o número de dias é o real
+        let ultimo: Date | null;
+        try { ultimo = await ultimoEstudo(db, link.studentId); } catch { continue; }
+        const dias = ultimo ? diasSemEstudar(ultimo) : null;
+        if (dias !== null && dias < INACTIVE_DAYS) continue;
+        const primeiroNome = aluno.fullName.trim().split(/\s+/)[0] || "Seu filho";
+        const frase = fraseSemEstudo(primeiroNome, dias);
+        if (!frase) continue;
+
+        const sent = await sendInactivityEmail({ email, frase });
         if (sent) {
           totalEmails++;
           await db.eduAuditLog?.create?.({
@@ -162,10 +172,10 @@ export async function POST(req: NextRequest) {
   return NextResponse.json({ ok: true, totalMarcados, totalEmails });
 }
 
-async function sendInactivityEmail({ email, studentName }: { email: string; studentName: string }): Promise<boolean> {
+async function sendInactivityEmail({ email, frase }: { email: string; frase: string }): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    console.log(`[inatividade] e-mail para ${email}: ${studentName} inativo há 7 dias (dev, não enviado)`);
+    console.log(`[inatividade] e-mail não enviado (ambiente sem chave): ${frase}`);
     return true;
   }
   try {
@@ -175,9 +185,9 @@ async function sendInactivityEmail({ email, studentName }: { email: string; stud
       body: JSON.stringify({
         from: "SpeakFlow Escolas <noreply@speakflow.ia.br>",
         to: email,
-        subject: `${studentName} está há 7 dias sem praticar`,
+        subject: frase,
         html: `<p>Olá!</p>
-               <p><strong>${studentName}</strong> está há 7 dias sem praticar no SpeakFlow Escolas.</p>
+               <p><strong>${frase}</strong> no SpeakFlow Escolas.</p>
                <p>Que tal incentivá-lo(a) a fazer uma atividade hoje? Basta abrir o app.</p>
                <p><a href="https://www.speakflow.ia.br/escola/aluno/entrar">Acessar o app</a></p>
                <hr/>

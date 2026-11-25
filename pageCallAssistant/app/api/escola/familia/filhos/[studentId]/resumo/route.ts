@@ -5,6 +5,7 @@ import { isEscolasEnabled } from "@/lib/escola/feature-flag";
 import { guardianOwnsStudent, weekStartSaoPaulo, dayIndexSaoPaulo } from "@/lib/escola/family-guard";
 import { subjectInfo } from "@/lib/escola/subjects";
 import { tituloParaAluno } from "@/lib/escola/texto-aluno";
+import { diagnosticosRespondidos, diasSemEstudar, fraseSemEstudo, ultimoEstudo } from "@/lib/escola/estudo-do-aluno";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -56,6 +57,10 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
     const dias = [false, false, false, false, false, false, false];
     const actIds = new Set<string>();
     for (const s of subsWeek) { if (s.submittedAt) dias[dayIndexSaoPaulo(new Date(s.submittedAt))] = true; actIds.add(s.activityId); }
+    // Diagnóstico respondido também é dia de estudo (mesma regra do aviso ao responsável)
+    for (const d of await diagnosticosRespondidos(prismaEdu as any, studentId, weekStart)) {
+      if (d.quando.getTime() < weekEnd.getTime()) { dias[dayIndexSaoPaulo(d.quando)] = true; actIds.add(d.activityId); }
+    }
     const atividades = actIds.size;
     // minutos = soma de EduTrackItem.estMinutes por activityId (10 se nao houver)
     let minutos = 0;
@@ -66,9 +71,9 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
     }
     const diasPraticados = dias.filter(Boolean).length;
     let semanaFrase: string;
-    if (diasPraticados === 0) semanaFrase = `${firstName} ainda não praticou esta semana.`;
-    else if (diasPraticados < 3) semanaFrase = `${firstName} praticou ${diasPraticados} dia(s) esta semana.`;
-    else semanaFrase = `${firstName} praticou ${diasPraticados} dias esta semana. Muito bem!`;
+    if (diasPraticados === 0) semanaFrase = `${firstName} ainda não estudou esta semana.`;
+    else if (diasPraticados < 3) semanaFrase = `${firstName} estudou em ${diasPraticados} ${diasPraticados === 1 ? "dia" : "dias"} desta semana.`;
+    else semanaFrase = `${firstName} estudou em ${diasPraticados} dias desta semana. Muito bem!`;
 
     // ── Trilhas ── (atribuicao por aluno OU pela turma ativa; so track APPROVED)
     const assigns = await (prismaEdu as any).eduTrackAssignment.findMany({
@@ -169,13 +174,11 @@ export async function GET(_req: Request, { params }: { params: { studentId: stri
 
     // ── Alertas ──
     const alertas: { tipo: "warn" | "info"; texto: string }[] = [];
-    const lastSub = await (prismaEdu as any).eduSubmission.findFirst({ where: { studentId, submittedAt: { not: null } }, orderBy: { submittedAt: "desc" }, select: { submittedAt: true } });
-    if (lastSub?.submittedAt) {
-      const d = Math.floor((Date.now() - new Date(lastSub.submittedAt).getTime()) / 86400000);
-      if (d >= 7) alertas.push({ tipo: "warn", texto: `${firstName} está há ${d} dias sem praticar.` });
-    } else if (trilhaAtual) {
-      alertas.push({ tipo: "warn", texto: `${firstName} ainda não começou a praticar.` });
-    }
+    // Mesma fonte e mesma frase do aviso enviado ao responsável (celular e e-mail)
+    const ultimo = await ultimoEstudo(prismaEdu as any, studentId);
+    const diasParado = ultimo ? diasSemEstudar(ultimo) : null;
+    const semEstudo = ultimo || trilhaAtual ? fraseSemEstudo(firstName, diasParado) : null;
+    if (semEstudo) alertas.push({ tipo: diasParado === null || diasParado >= 7 ? "warn" : "info", texto: `${semEstudo}.` });
     // Novo diagnostico disponivel = EduDiagnostic OPEN do ano da turma, na janela,
     // sem entrega do aluno em nenhuma atividade dos seus itens.
     if (cls?.gradeYear != null) {
