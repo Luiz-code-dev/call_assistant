@@ -30,6 +30,7 @@ import {
   Activity,
   MessageSquare,
   GraduationCap,
+  Award,
   Menu,
   X,
   LogOut,
@@ -37,6 +38,7 @@ import {
 } from "lucide-react";
 import type { EduRole } from "@/lib/escola/types";
 import { NAV_BY_ROLE } from "@/lib/escola/navigation";
+import { fraseDosSelos } from "@/lib/escola/formacao/leitura";
 
 const ICON_MAP: Record<string, LucideIcon> = {
   LayoutDashboard,
@@ -114,10 +116,12 @@ interface Props {
   role: EduRole;
   userName: string;
   contextName?: string;
+  /** Selos de Formação já conquistados e livros disponíveis para o perfil. */
+  selos?: { conquistados: number; disponiveis: number };
   children: React.ReactNode;
 }
 
-export default function EscAppShell({ role, userName, contextName, children }: Props) {
+export default function EscAppShell({ role, userName, contextName, selos, children }: Props) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
@@ -145,6 +149,15 @@ export default function EscAppShell({ role, userName, contextName, children }: P
                 <div className="text-[11px] text-[#5B5470] truncate leading-tight mt-0.5">
                   {contextName}
                 </div>
+              )}
+              {selos && selos.conquistados > 0 && (
+                <Link
+                  href="/escola/formacao"
+                  className="mt-1 inline-flex items-center gap-1 rounded-full bg-[#FEF3C7] text-[#92400E] px-2 py-0.5 text-[11px] font-bold leading-tight"
+                  title="Selos de Formação conquistados"
+                >
+                  <Award size={12} /> {fraseDosSelos(selos.conquistados, selos.disponiveis)}
+                </Link>
               )}
             </div>
           </div>

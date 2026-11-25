@@ -1134,6 +1134,26 @@ model EduRetornoFamilia {
   @@index([guardianId, createdAt])
 }
 
+/// Leitura dos livros de formação pela equipe: capítulos lidos, avaliação final e selo.
+/// Sem relações no banco, como EduRetornoFamilia: só acrescenta uma tabela.
+/// O selo é conquistado quando `concluidoEm` está preenchido.
+model EduFormacaoLeitura {
+  id               String    @id @default(cuid())
+  networkId        String
+  userId           String
+  livroSlug        String
+  capitulosLidos   String[]  @default([])
+  ultimoCapitulo   String?
+  avaliacaoAcertos Int?
+  avaliacaoTotal   Int?
+  concluidoEm      DateTime? @db.Timestamptz
+  createdAt        DateTime  @default(now()) @db.Timestamptz
+  updatedAt        DateTime  @default(now()) @db.Timestamptz
+
+  @@unique([userId, livroSlug])
+  @@index([networkId, userId])
+}
+
 model EduTeacherAlert {
   id            String    @id @default(cuid())
   networkId     String
