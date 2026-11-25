@@ -1165,6 +1165,10 @@ model EduEquipeApoio {
   networkId String
   userId    String
   addedById String
+  /// ASSISTENTE_SOCIAL | PSICOLOGO | INDICADO
+  funcao    String   @default("INDICADO")
+  /// Escolas atendidas; vazio = toda a rede
+  schoolIds String[] @default([])
   createdAt DateTime @default(now()) @db.Timestamptz
 
   @@unique([networkId, userId])
@@ -1185,6 +1189,13 @@ model EduPedidoApoio {
   encaminhadoPara String?
   vistoAt         DateTime? @db.Timestamptz
   vistoPorId      String?
+  /// Ao concluir: ATENDIDO | NAO_PROCEDE
+  desfecho        String?
+  /// Órgãos comunicados: CONSELHO_TUTELAR, POLICIA, MINISTERIO_PUBLICO, ASSISTENCIA_SOCIAL, SAUDE
+  comunicadoA     String[]  @default([])
+  comunicadoEm    DateTime? @db.Timestamptz
+  responsavelId   String?
+  concluidoEm     DateTime? @db.Timestamptz
   createdAt       DateTime  @default(now()) @db.Timestamptz
   updatedAt       DateTime  @default(now()) @db.Timestamptz
 
