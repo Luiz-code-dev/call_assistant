@@ -81,7 +81,8 @@ export async function GET(req: NextRequest) {
   const actionFilter = searchParams.get("action");
   const pessoaFilter = searchParams.get("pessoa");
 
-  const where: Record<string, unknown> = { networkId: ctx.networkId };
+  // Pedidos de apoio dos alunos ficam fora desta lista: só a equipe indicada sabe quem pediu
+  const where: Record<string, unknown> = { networkId: ctx.networkId, entity: { not: "EduPedidoApoio" } };
   if (actionFilter) where["action"] = { contains: actionFilter, mode: "insensitive" };
 
   // SCHOOL_ADMIN: EduAuditLog não tem schoolId — filtra por entityId relacionados à escola

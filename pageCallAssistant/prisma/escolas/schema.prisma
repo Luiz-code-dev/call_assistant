@@ -185,6 +185,9 @@ model EduNetwork {
   diagnosticAdaptive   Boolean  @default(true)
   /// Rede de demonstração — pode ser apagada pelo reset-teste
   isDemo               Boolean  @default(false)
+  /// Canal de apoio ao aluno: ligado ou não, e a partir de que ano escolar aparece
+  apoioAtivo           Boolean  @default(true)
+  apoioAnoMinimo       Int      @default(6)
   createdAt            DateTime @default(now())
 
   schools       EduSchool[]
@@ -1154,6 +1157,39 @@ model EduFormacaoLeitura {
 
   @@unique([userId, livroSlug])
   @@index([networkId, userId])
+}
+
+/// Quem a secretaria indicou para ler os pedidos de apoio dos alunos
+model EduEquipeApoio {
+  id        String   @id @default(cuid())
+  networkId String
+  userId    String
+  addedById String
+  createdAt DateTime @default(now()) @db.Timestamptz
+
+  @@unique([networkId, userId])
+}
+
+/// Pedido de apoio do aluno. Só a equipe indicada lê; nunca aparece para família, professor ou IA.
+model EduPedidoApoio {
+  id              String    @id @default(cuid())
+  networkId       String
+  studentId       String
+  classId         String?
+  schoolId        String?
+  assunto         String
+  text            String?
+  audioKey        String?
+  status          String    @default("RECEBIDO")
+  observacao      String?
+  encaminhadoPara String?
+  vistoAt         DateTime? @db.Timestamptz
+  vistoPorId      String?
+  createdAt       DateTime  @default(now()) @db.Timestamptz
+  updatedAt       DateTime  @default(now()) @db.Timestamptz
+
+  @@index([networkId, status, createdAt])
+  @@index([studentId, createdAt])
 }
 
 model EduTeacherAlert {

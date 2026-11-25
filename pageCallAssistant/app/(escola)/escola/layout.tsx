@@ -8,6 +8,7 @@ import { catalogDb } from "@/lib/escola/catalogo";
 import type { Metadata, Viewport } from "next";
 import { livrosDoPerfil } from "@/lib/escola/formacao/livros/indice";
 import { selosDaPessoa } from "@/lib/escola/formacao/leitura-db";
+import { estaNaEquipeDeApoio } from "@/lib/escola/apoio-equipe";
 
 export const metadata: Metadata = {
   title: "SpeakFlow Escolas",
@@ -65,7 +66,7 @@ async function getShellData() {
       } catch {
         userName = "Admin";
       }
-      return { role: "PLATFORM_ADMIN" as EduRole, contextName: "Plataforma", userName, selos: { conquistados: 0, disponiveis: 0 } };
+      return { role: "PLATFORM_ADMIN" as EduRole, contextName: "Plataforma", userName, selos: { conquistados: 0, disponiveis: 0 }, equipeDeApoio: false };
     }
 
     // Perfis de equipe escolar — usa EduUser no banco tenant
@@ -97,7 +98,10 @@ async function getShellData() {
       ? await selosDaPessoa(prismaEdu, ctx.networkId, ctx.userId).catch(() => 0)
       : 0;
 
-    return { role: ctx.role as EduRole, contextName, userName, selos: { conquistados, disponiveis } };
+    // Item "Pedidos de apoio" só para quem a secretaria indicou
+    const equipeDeApoio = await estaNaEquipeDeApoio(prismaEdu, ctx.networkId, ctx.userId);
+
+    return { role: ctx.role as EduRole, contextName, userName, selos: { conquistados, disponiveis }, equipeDeApoio };
   } catch (err) {
     console.error("[escola/layout] getShellData error:", err);
     return null;
@@ -118,7 +122,7 @@ export default async function EscolaAuthLayout({ children }: { children: React.R
   }
 
   return (
-    <EscAppShell role={shellData.role} contextName={shellData.contextName} userName={shellData.userName} selos={shellData.selos}>
+    <EscAppShell role={shellData.role} contextName={shellData.contextName} userName={shellData.userName} selos={shellData.selos} equipeDeApoio={shellData.equipeDeApoio}>
       {children}
     </EscAppShell>
   );

@@ -118,14 +118,18 @@ interface Props {
   contextName?: string;
   /** Selos de Formação já conquistados e livros disponíveis para o perfil. */
   selos?: { conquistados: number; disponiveis: number };
+  /** A pessoa foi indicada pela secretaria para ler os pedidos de apoio dos alunos. */
+  equipeDeApoio?: boolean;
   children: React.ReactNode;
 }
 
-export default function EscAppShell({ role, userName, contextName, selos, children }: Props) {
+export default function EscAppShell({ role, userName, contextName, selos, equipeDeApoio, children }: Props) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-  const navItems = NAV_BY_ROLE[role] ?? [];
+  const navItems = equipeDeApoio
+    ? [...(NAV_BY_ROLE[role] ?? []), { label: "Pedidos de apoio", href: "/escola/apoio", icon: "HeartHandshake" }]
+    : NAV_BY_ROLE[role] ?? [];
 
   function SidebarContent() {
     return (
