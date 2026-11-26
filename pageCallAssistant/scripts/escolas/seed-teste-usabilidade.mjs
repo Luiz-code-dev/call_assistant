@@ -32,6 +32,9 @@
  *   - Atividade SPOKEN (áudio) para Aluno Demo Silva
  *   - familia.b@speakflow.escola ativa + convite pendente
  *   - admin.teste@speakflow.escola como PLATFORM_ADMIN
+ *   - Rede B: turmas 8º Ano B e 1º Ano B, com os alunos de teste Carlos Antônio
+ *     (8º, PIN) e João Manoel (1º, figuras), nomes fictícios, com código do aluno
+ *     e código da família
  */
 
 import { readFileSync, existsSync } from "node:fs";
@@ -665,6 +668,130 @@ async function seedRedeB() {
   }
 }
 
+// ── Alunos de teste com acesso completo (Rede B) ─────────────────────────────
+// Dois alunos com nomes fictícios, cada um na turma do seu ano, com código do aluno,
+// código da família e PIN ou figuras. As regras dos códigos são as mesmas de
+// scripts/escolas/cadastrar-aluno.mjs. Os códigos aparecem só na primeira execução.
+
+const ALFABETO_CODIGO = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+const FAMILIA_DIAS = 120;
+const FAMILIA_CADASTROS = 3;
+const PINS_FRACOS = new Set(["0000", "1111", "2222", "3333", "4444", "5555", "6666", "7777", "8888", "9999", "1234", "4321", "1212", "0123", "9876"]);
+
+const TURMAS_TESTE_B = [
+  { id: "turma-teste-8b-demo-rede-b", nome: "8º Ano B", ano: 8, etapa: "ELEMENTARY_LATE", entrada: "PIN" },
+  { id: "turma-teste-1b-demo-rede-b", nome: "1º Ano B", ano: 1, etapa: "ELEMENTARY_EARLY", entrada: "PICTURE" },
+];
+
+const ALUNOS_TESTE_B = [
+  { id: "aluno-teste-carlos-antonio", nome: "Carlos Antônio", matricula: "TESTE-8B-001", nascimento: "2012-08-15", turmaId: "turma-teste-8b-demo-rede-b" },
+  { id: "aluno-teste-joao-manoel", nome: "João Manoel", matricula: "TESTE-1B-001", nascimento: "2019-09-20", turmaId: "turma-teste-1b-demo-rede-b" },
+];
+
+function gerarCodigo(tamanho = 8) {
+  return Array.from({ length: tamanho }, () => ALFABETO_CODIGO[randomInt(ALFABETO_CODIGO.length)]).join("");
+}
+
+function gerarPinForte() {
+  let pin;
+  do { pin = String(randomInt(10000)).padStart(4, "0"); } while (PINS_FRACOS.has(pin));
+  return pin;
+}
+
+const comTraco = (codigo) => `${codigo.slice(0, 4)}-${codigo.slice(4)}`;
+const hashDoCodigoFamilia = (codigo) => createHash("sha256").update(codigo).digest("hex");
+
+async function codigoLivre(tamanho, emUso) {
+  let codigo;
+  do { codigo = gerarCodigo(tamanho); } while ((await catalog.codeIndex.findUnique({ where: { code: codigo } })) || (await emUso(codigo)));
+  return codigo;
+}
+
+async function garantirTurmaTeste(db, rede, escola, anoLetivo, turma) {
+  const existente = await db.eduClass.findUnique({ where: { id: turma.id } });
+  if (existente) return existente;
+  const codigoTurma = await codigoLivre(6, (c) => db.eduClass.findFirst({ where: { accessCode: c } }));
+  const criada = await db.eduClass.create({
+    data: {
+      id: turma.id, networkId: rede.id, schoolId: escola.id, schoolYearId: anoLetivo.id, name: turma.nome,
+      stage: turma.etapa, gradeYear: turma.ano, shift: "MORNING", accessCode: codigoTurma, isActive: true, defaultLoginMode: turma.entrada,
+    },
+  });
+  await catalog.codeIndex.upsert({
+    where: { code: codigoTurma },
+    create: { code: codigoTurma, kind: "CLASS_ACCESS", tenantId: rede.id },
+    update: { tenantId: rede.id },
+  });
+  console.log(`  ok: turma ${turma.nome} criada`);
+  return criada;
+}
+
+async function criarCodigoFamilia(db, rede, alunoId) {
+  let codigo, hash;
+  do { codigo = gerarCodigo(); hash = hashDoCodigoFamilia(codigo); } while (await catalog.codeIndex.findUnique({ where: { code: `FAM${hash.toUpperCase()}` } }));
+  const expiraEm = new Date(Date.now() + FAMILIA_DIAS * 86_400_000);
+  await db.eduFamilyCode.create({ data: { networkId: rede.id, studentId: alunoId, codeHash: hash, activationsLeft: FAMILIA_CADASTROS, expiresAt: expiraEm } });
+  await catalog.codeIndex.upsert({
+    where: { code: `FAM${hash.toUpperCase()}` },
+    create: { code: `FAM${hash.toUpperCase()}`, kind: "FAMILY_CODE", tenantId: rede.id, expiresAt: expiraEm },
+    update: { tenantId: rede.id, expiresAt: expiraEm },
+  });
+  return codigo;
+}
+
+async function criarAlunoTeste(db, rede, anoLetivo, turma, aluno) {
+  const codigoAluno = await codigoLivre(8, (c) => db.eduStudent.findFirst({ where: { accessCode: c } }));
+  const pin = gerarPinForte();
+  const figuras = turma.defaultLoginMode === "PICTURE" ? pickThreeFiguras() : null;
+  await db.eduStudent.create({
+    data: {
+      id: aluno.id, networkId: rede.id, fullName: aluno.nome, enrollmentCode: aluno.matricula,
+      birthDate: new Date(`${aluno.nascimento}T12:00:00Z`), pinHash: hashPin(pin), isActive: true, accessCode: codigoAluno,
+      loginMode: figuras ? "PICTURE" : "PIN", pictureSecretHash: figuras ? bcrypt.hashSync(figuras.join(","), 10) : null,
+    },
+  });
+  await catalog.codeIndex.upsert({
+    where: { code: codigoAluno },
+    create: { code: codigoAluno, kind: "STUDENT_ACCESS", tenantId: rede.id },
+    update: { kind: "STUDENT_ACCESS", tenantId: rede.id },
+  });
+  await db.eduEnrollment.create({ data: { networkId: rede.id, studentId: aluno.id, classId: turma.id, schoolYearId: anoLetivo.id, status: "ACTIVE" } });
+  const codigoFamilia = await criarCodigoFamilia(db, rede, aluno.id);
+
+  const entrada = figuras ? `FIGURAS: ${figuras.map((f) => FIGURAS_LABELS[f]).join(" > ")}` : `PIN: ${pin}`;
+  credLog.push(`ALUNO  ${aluno.nome} (${turma.name})  ${entrada}`);
+  credLog.push(`       codigo do aluno ${comTraco(codigoAluno)}  turma ${turma.accessCode}`);
+  credLog.push(`       codigo da familia ${comTraco(codigoFamilia)}`);
+}
+
+async function seedAlunosTesteRedeB() {
+  const NETWORK_ID = "demo-rede-b";
+  const db = tenantDb("ESCOLAS_DB_02_URL");
+  try {
+    console.log("\n[seed-teste] Rede B — alunos de teste do 8º e do 1º ano");
+    const rede = await db.eduNetwork.findUnique({ where: { id: NETWORK_ID } });
+    const escola = await db.eduSchool.findFirst({ where: { networkId: NETWORK_ID, isActive: true } });
+    const anoLetivo = await db.eduSchoolYear.findFirst({ where: { networkId: NETWORK_ID, isCurrent: true } });
+    if (!rede || !escola || !anoLetivo) { console.log("  Dados base ausentes."); return; }
+
+    const turmas = new Map();
+    for (const turma of TURMAS_TESTE_B) turmas.set(turma.id, await garantirTurmaTeste(db, rede, escola, anoLetivo, turma));
+
+    for (const aluno of ALUNOS_TESTE_B) {
+      if (await db.eduStudent.findUnique({ where: { id: aluno.id } })) {
+        console.log(`  ${aluno.nome}: ja existe (codigos nao alterados)`);
+        continue;
+      }
+      await criarAlunoTeste(db, rede, anoLetivo, turmas.get(aluno.turmaId), aluno);
+      console.log(`  ok: ${aluno.nome} criado`);
+    }
+  } catch (e) {
+    console.error("  AVISO alunos de teste da Rede B:", e.message);
+  } finally {
+    await db.$disconnect();
+  }
+}
+
 // ── Seed Admin de Plataforma ─────────────────────────────────────────────────
 // findPlatformAdmin() le catalog.PlatformAdmin — nao EduPlatformAdmin do tenant.
 
@@ -694,6 +821,7 @@ console.log(`Data: ${new Date().toISOString()}`);
 
 await seedRedeA();
 await seedRedeB();
+await seedAlunosTesteRedeB();
 await seedPlatformAdmin();
 
 await catalog.$disconnect();
